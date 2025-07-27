@@ -123,7 +123,9 @@ export default function managedItServices() {
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper letsBuildToghether">
-                        <div className="is-heading gradient-background"><h3>Flexible Plans That Fit Your Business — Let’s Make IT Your Advantage</h3></div>
+                        <div className="is-heading gradient-background">
+                            <h4 className='font-bold text-[26px]'>Flexible Plans That Fit Your Business — Let’s Make IT Your Advantage</h4>
+                        </div>
                         <div className="isContent">
                             <p className="content">
                                 Choose a plan or customize your own. Pay only for what you need
