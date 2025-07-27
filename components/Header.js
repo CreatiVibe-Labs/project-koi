@@ -43,7 +43,7 @@ export default function Header() {
       <div ref={sentinelRef} style={{ height: '0px' }}></div>
 
       <header>
-        <div className={`headerMainWrapper border-b-[1px] border-b-[#ffffff66] rounded-[0] gradient-background w-[99%]  inset-x-0 top-0 fixed z-10 ${scrolled ? 'customStickyHeader' : ''}`}>
+        <div className={`headerMainWrapper border-b-[1px] border-b-[#ffffff66] rounded-[0] gradient-background w-full  inset-x-0 top-0 fixed z-10 ${scrolled ? 'customStickyHeader' : ''}`}>
           <div className='headerWrapper'>
             <div className='logoWrapper'>
               <Link href='#'><Image src="/images/logo.png" width={100} height={10} alt="Logo" /></Link>

@@ -24,18 +24,9 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
       </head>
-      <body className={publicSans.variable}>
+      <body className={`${publicSans.variable} transition-opacity duration-700 opacity-100 background-image bg-no-repeat bg-cover bg-center bg-fixed`}>
         <div id="root">
-          <div className="transition-opacity duration-700 opacity-100 background-image"
-            style={{
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              width: '100%',
-              height: '100vh',
-              overflow: 'hidden',
-              overflowY: 'auto',
-              position: 'static',
-            }}>
+          <div>
             {/* <RipplesBackground /> */}
             <Header />
             <div className="content-wrapper">{children}</div>
