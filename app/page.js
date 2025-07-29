@@ -70,7 +70,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="whyCHooseUsWrapper">
+      <div className="whyCHooseUsWrapper homeWhyChooseUS">
         <div className="whyChooseUsHeading gradient-background"><h2>Why Choose Us?</h2></div>
         <div className="whyChooseUsCardContents">
           <p className="wcu-heading">

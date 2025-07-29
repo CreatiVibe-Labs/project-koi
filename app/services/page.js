@@ -13,8 +13,8 @@ export default function Services() {
                     <h1>Bridging Today’s Needs with Tomorrow’s Tech</h1>
                     <p>We design and build custom digital tools that align with your exact needs — from secure cloud migrations to purpose-built applications</p>
                     <span className="2text-content">
-                        <p className="green-text">
-                            <Image alt="image" src="/images/line1.png" width={20} height={10}></Image>
+                        <p className="white-text">
+                            <Image alt="image" src="/images/line2.png" width={20} height={10}></Image>
                             SMEs friendly
                         </p>
                         <p className="white-text">
@@ -113,7 +113,7 @@ export default function Services() {
             </div>
 
             <div className="industriesServeMainWrapper featuresHighlight cmsWork cmsWork2">
-                <div className="is-heading gradient-background"><h3>Tech Stack</h3></div>
+                <div className=" gradient-background text-[#c3f8d9] text-[40px] font-bold p-3 rounded-2xl"><h3>Tech Stack</h3></div>
                 <div className="">
                     <div className="itemsWrapper">
                         <FeatureHighlights2
@@ -169,6 +169,11 @@ export default function Services() {
                         <FeatureHighlights2
                             imageUrl="/icons/c++.png"
                             title="C++"
+                            description=""
+                        />
+                        <FeatureHighlights2
+                            imageUrl="/icons/go.webp"
+                            title="Golang"
                             description=""
                         />
                     </div>

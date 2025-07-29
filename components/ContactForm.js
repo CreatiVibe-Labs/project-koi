@@ -46,7 +46,7 @@ export default function ContactForm() {
 
       {/* Company */}
       <div className="relative">
-        <label>Company (Optional)</label>
+        {/* <label>Company (Optional)</label> */}
         <input
           name="company"
           value={formData.company}
@@ -60,7 +60,7 @@ export default function ContactForm() {
       <div className="doubleRows">
         {['firstName', 'lastName'].map((field, i) => (
           <div key={i} className="relative">
-            <label>{field === 'firstName' ? 'First Name' : 'Last Name'}</label>
+            {/* <label>{field === 'firstName' ? 'First Name' : 'Last Name'}</label> */}
 
 
             <input
@@ -79,7 +79,7 @@ export default function ContactForm() {
       <div className="doubleRows">
         {/* Email */}
         <div className="relative">
-          <label>Email address</label>
+          {/* <label>Email address</label> */}
 
           <input
             name="email"
@@ -93,7 +93,7 @@ export default function ContactForm() {
 
         {/* Phone (optional) */}
         <div className="relative">
-          <label>Phone (Optional)</label>
+          {/* <label>Phone (Optional)</label> */}
 
           <input
             name="phone"
@@ -107,7 +107,7 @@ export default function ContactForm() {
 
       {/* Subject Dropdown */}
       <div className="relative">
-        <label>Subject</label>
+        {/* <label>Subject</label> */}
 
         <select
           name="subject"
@@ -126,7 +126,7 @@ export default function ContactForm() {
 
       {/* Detailed Description */}
       <div className="relative">
-        <label>Your message</label>
+        {/* <label>Your message</label> */}
 
         <textarea
           name="message"

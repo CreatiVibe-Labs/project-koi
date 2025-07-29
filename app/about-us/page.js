@@ -31,7 +31,7 @@ export default function AboutUs() {
 
     return (
         <>
-            <div className="service-hero-section bg-abt-none flex justify-between items-center">
+            {/* <div className="service-hero-section bg-abt-none flex justify-between items-center">
                 <div className="w-[50%]">
                     <h1 className="text-[#c3f8d9] font-bold ">Who We Are</h1>
                     <p>Driven by innovation. United by purpose</p>
@@ -42,20 +42,18 @@ export default function AboutUs() {
                 <div className="w-[50%] text-end">
                     <Image src='/images/about-bg.png' width={800} height={500} alt="Hero Image"></Image>
                 </div>
-            </div>
-
-
-            {/* <div className="hero-section-about pt-36">
-                <div className="content-section-about">
-                    <div className="content-wrapper-about">
-                        <h1 className="main-heading">Who We Are</h1>
-                        <p>Driven by innovation. United by purpose</p>
-                        <div className="button-wrapper">
-                            <Link href="#">Meet the Team</Link>
-                        </div>
-                    </div>
-                </div>
             </div> */}
+
+
+            <div className="hero-section-about">
+                <Image src='/images/about.png' alt="Hero Image" width={0}
+                    height={0}
+                    sizes="100vw"
+                    className="rounded-2xl"
+                    style={{ width: '100%', height: 'auto' }}></Image>
+                    {/* <img src="/images/about.png" width="100%" alt=""/> */}
+                    <h1 className="text-center text-5xl font-bold pt-2.5">Driven by innovation. United by purpose</h1>
+            </div>
 
             <div className="whyCHooseUsWrapper coreValues">
                 <div className="whyChooseUsHeading gradient-background"><h2>Core Values</h2></div>
@@ -90,11 +88,11 @@ export default function AboutUs() {
 
             <div className="missionVission">
                 <div className="whyCHooseUsWrapper coreValues">
-                    <div className="whyChooseUsHeading gradient-background"><h2>Mission</h2></div>
+                    {/* <div className="whyChooseUsHeading gradient-background"><h2>Mission</h2></div> */}
                     <div className="whyChooseUsCardContents">
                         <div className="cardWrappers">
                             <p>
-                                We’re on a mission to reshape the way people interact with technology. By
+                                We’re on a <b>mission</b> to reshape the way people interact with technology. By
                                 combining cutting-edge innovation with user-centered design, we build
                                 products that simplify, connect, and empower — making life and work
                                 smarter, not harder.
@@ -103,11 +101,11 @@ export default function AboutUs() {
                     </div>
                 </div>
                 <div className="whyCHooseUsWrapper coreValues">
-                    <div className="whyChooseUsHeading gradient-background"><h2>Vision</h2></div>
+                    {/* <div className="whyChooseUsHeading gradient-background"><h2>Vision</h2></div> */}
                     <div className="whyChooseUsCardContents">
                         <div className="cardWrappers">
                             <p>
-                                We envision a world where technology enhances every human experience
+                                We en<b>vision</b> a world where technology enhances every human experience
                                 — seamless, intuitive, and inclusive. Our goal is to pioneer bold ideas that
                                 shape the future and empower people to thrive in a connected world.
                             </p>

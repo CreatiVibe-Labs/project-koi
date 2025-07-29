@@ -82,23 +82,26 @@ export default function Header() {
                               {link.name}
                             </Link>
 
-                            <div className="absolute subMenuWrapper">
-                              <div className="sub-menu">
-                                {link.subMenu.map((subLink) => {
-                                  const finalLink = `${link.href}/${subLink.href.replace(/^\//, '')}`;
-                                  return (
-                                    <Link
-                                      key={link.href + subLink.href}
-                                      href={finalLink}
-                                      className={`sub-nav-menu ${isActive(finalLink) ? 'active' : ''}`}
-                                      onClick={() => setMenuOpen(false)}
-                                    >
-                                      {subLink.name}
-                                    </Link>
-                                  );
-                                })}
+                            {pathname === link.href && (
+                              <div className="absolute subMenuWrapper">
+                                <div className="sub-menu">
+                                  {link.subMenu.map((subLink) => {
+                                    const finalLink = `${link.href}/${subLink.href.replace(/^\//, '')}`;
+                                    return (
+                                      <Link
+                                        key={link.href + subLink.href}
+                                        href={finalLink}
+                                        className={`sub-nav-menu ${isActive(finalLink) ? 'active' : ''}`}
+                                        onClick={() => setMenuOpen(false)}
+                                      >
+                                        {subLink.name}
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
                               </div>
-                            </div>
+                            )}
+
                           </>
                         );
                       })()}

@@ -41,7 +41,7 @@ export default function ContactPage({ imageUrl, title, text }) {
     return (
         <>
             <div className="hero-section contact flex-col">
-                <div className="text-[40px] font-bold gradient-background w-full rounded-2xl p-3.5 mb-5"><h1>Contact Us</h1></div>
+                {/* <div className="text-[40px] font-bold gradient-background w-full rounded-2xl p-3.5 mb-5"><h1>Contact Us</h1></div> */}
                 <div className="grid grid-cols-2 w-full gap-5">
                     <div className="border-[1px] border-amber-50 rounded-2xl p-4 backdrop-blur-lg gap-5 flex flex-col">
                         {/* Contact Information */}

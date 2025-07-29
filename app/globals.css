@@ -1453,9 +1453,9 @@ h1.main-heading {
   font-size: 20px;
 }
 
-.content-section-about {
-  background-image: url("/images/about-bg.png");
-}
+/* .content-section-about {
+  background-image: url("/images/about.png");
+} */
 
 .coreValues .whyChooseUsCardContents {
   /* padding-top: 0px; */
@@ -1709,4 +1709,22 @@ p.location {
 .bg-abt-none {
   background-image: none !important;
   padding: 30px;
+}
+.homeWhyChooseUS .site_readmore {
+  display: none;
+}
+.homeWhyChooseUS .content-description {
+  overflow: visible;
+}
+
+.missionVission p {
+  font-size: 20px !important;
+}
+.missionVission .coreValues {
+  margin-top: -30px;
+}
+
+.svgGraph svg:hover .shape1,
+.svgGraph svg:hover .shape2 {
+  fill: #39ff14;
 }
