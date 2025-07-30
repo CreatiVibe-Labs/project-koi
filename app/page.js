@@ -22,46 +22,46 @@ export default function Home() {
           <Image src='/images/hero-image.png' width={516} height={444} alt="Hero Image"></Image>
         </div>
       </div>
-      <div className="ServicesCardsWrapper">
+      <div className="ServicesCardsWrapper homepageServices">
         <div className="ServicesCardsHeading gradient-background"><h2>Our Services</h2></div>
         <div className="ServicesCardsContent">
           <ServicesCards
-            imageUrl="/images/service-card-image.png"
+            imageUrl="/images/landing_app.jpg"
             buttonText="Learn More"
             link="#"
             heading="Custom App Development"
             description="Tailored software, mobile app and web applications turning your ideas into powerful digital solutions"
           />
           <ServicesCards
-            imageUrl="/images/service-card-image.png"
+            imageUrl="/images/landing_web.jpg"
             buttonText="Learn More"
             link="#"
             heading="Web Development"
             description="Responsive, SEO-friendly websites - from sleek portfolios to full-featured e-commerce stores - showcase your brand and drive real results."
           />
           <ServicesCards
-            imageUrl="/images/service-card-image.png"
+            imageUrl="/images/landing_cloud.jpg"
             buttonText="Learn More"
             link="#"
             heading="Cloud Migration & Storage"
             description="Seamlessly migrate to the cloud – boosting performance, security, and scalability."
           />
           <ServicesCards
-            imageUrl="/images/service-card-image.png"
+            imageUrl="/images/landing_ai.png"
             buttonText="Learn More"
             link="#"
             heading="AI Powered Solutions"
             description="Leverage AI and machine learning to streamline operations, personalize experiences, and drive data-backed decisions"
           />
           <ServicesCards
-            imageUrl="/images/service-card-image.png"
+            imageUrl="/images/landing_it.jpg"
             buttonText="Learn More"
             link="#"
             heading="Managed IT Services & Consulting"
             description="Enterprise-grade IT management and strategic consulting to optimize operations"
           />
           <ServicesCards
-            imageUrl="/images/service-card-image.png"
+            imageUrl="/images/landing_digital.png"
             buttonText="Learn More"
             link="#"
             heading="Digital Marketing"
@@ -78,21 +78,21 @@ export default function Home() {
             <span className="heading-2">We don’t just provide services – we deliver results. Here’s what you can expect when you partner with us.</span></p>
           <div className="cardWrappers">
             <WhyChooseUsCard
-              imageUrl="/images/why-choose-1.png"
-              link="#"
-              title="End-to-End Expertise"
-              tags={[]}
-              description="We off complete digital solutions – from strategy to launch – so you get everything under one roof."
-            />
-            <WhyChooseUsCard
-              imageUrl="/images/why-choose-2.png"
+              imageUrl="/images/landing_performance.jpg"
               link="#"
               title="Performance-Focused Solutions"
               tags={[]}
               description="We focus on measurable outcomes – we deliver solutions that drive real business value."
             />
             <WhyChooseUsCard
-              imageUrl="/images/why-choose-3.png"
+              imageUrl="/images/landing_expertise.jpg"
+              link="#"
+              title="End-to-End Expertise"
+              tags={[]}
+              description="We off complete digital solutions – from strategy to launch – so you get everything under one roof."
+            />
+            <WhyChooseUsCard
+              imageUrl="/images/landing_support.jpg"
               link="#"
               title="Reliable Support & Partnership"
               tags={[]}

@@ -46,13 +46,17 @@ export default function AboutUs() {
 
 
             <div className="hero-section-about">
-                <Image src='/images/about.png' alt="Hero Image" width={0}
+                {/* <Image src='/images/about.png' alt="Hero Image" width={0}
                     height={0}
                     sizes="100vw"
                     className="rounded-2xl"
-                    style={{ width: '100%', height: 'auto' }}></Image>
-                    {/* <img src="/images/about.png" width="100%" alt=""/> */}
-                    <h1 className="text-center text-5xl font-bold pt-2.5">Driven by innovation. United by purpose</h1>
+                    style={{ width: '100%', height: 'auto' }}></Image> */}
+                <video className="rounded" autoPlay muted loop>
+                    <source src="/videos/about_banner.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                {/* <img src="/images/about.png" width="100%" alt=""/> */}
+                <h1 className="text-center text-5xl font-bold pt-2.5">Driven by innovation. United by purpose</h1>
             </div>
 
             <div className="whyCHooseUsWrapper coreValues">
@@ -92,7 +96,7 @@ export default function AboutUs() {
                     <div className="whyChooseUsCardContents">
                         <div className="cardWrappers">
                             <p>
-                                We’re on a <b>mission</b> to reshape the way people interact with technology. By
+                                We’re on a <b className="bold-text">mission</b> to reshape the way people interact with technology. By
                                 combining cutting-edge innovation with user-centered design, we build
                                 products that simplify, connect, and empower — making life and work
                                 smarter, not harder.
@@ -105,7 +109,7 @@ export default function AboutUs() {
                     <div className="whyChooseUsCardContents">
                         <div className="cardWrappers">
                             <p>
-                                We en<b>vision</b> a world where technology enhances every human experience
+                                We en<b className="bold-text">vision</b> a world where technology enhances every human experience
                                 — seamless, intuitive, and inclusive. Our goal is to pioneer bold ideas that
                                 shape the future and empower people to thrive in a connected world.
                             </p>

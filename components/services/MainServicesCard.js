@@ -4,6 +4,7 @@ import Link from 'next/link';
 export default function MainServicesCard({
   bgImage,
   Icon,
+  video,
   Heading,
   Description,
   LinkURL,
@@ -11,7 +12,11 @@ export default function MainServicesCard({
     return(
         <div className="mainWrapper">
             <div className="bgImage">
-                <Image src={bgImage} width={6000} height={6000} alt="bg image"></Image>
+                {video && <video className="rounded" autoPlay muted loop>
+                    <source src={video} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video> }
+                { bgImage && <Image src={bgImage} width={6000} height={6000} alt="bg image"></Image> }
             </div>
             <div className='serviceContent'>
                 

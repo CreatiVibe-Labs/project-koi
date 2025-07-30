@@ -30,45 +30,51 @@ export default function Services() {
 
             <div className="ServicesCardsWrapper">
                 <div className="ServicesCardsHeading gradient-background"><h2>Featured Solutions</h2></div>
-                <div className="ServicesCardsContent">
+                <div className="ServicesCardsContent services-videos">
                     <MainServicesCard
                         Icon="/icons/app-development.png"
-                        bgImage="/icons/service-bg-image.png"
+                        bgImage=""
+                        video="/videos/service_app.mp4"
                         LinkURL="#"
                         Heading="Custom Software / App Development"
                         Description="Tailored desktop, mobile, and backend applications built around your workflow"
                     />
                     <MainServicesCard
                         Icon="/icons/web-development.png"
-                        bgImage="/icons/service-bg-image.png"
+                        bgImage=""
+                        video="/videos/service_web.mp4"
                         LinkURL="#"
                         Heading="Custom Website Development"
                         Description="Responsive, high-performance websites that reflect your brand and business needs"
                     />
                     <MainServicesCard
                         Icon="/icons/cloud-migration.png"
-                        bgImage="/icons/service-bg-image.png"
+                        bgImage=""
+                        video="/videos/service_cloud.mp4"
                         LinkURL="#"
                         Heading="Cloud Migration & Storage Services"
                         Description="Secure and seamless migration of your data, applications and workloads to the cloud, with zero downtime."
                     />
                     <MainServicesCard
                         Icon="/icons/ai-powered.png"
-                        bgImage="/icons/service-bg-image.png"
+                        bgImage=""
+                        video="/videos/service_ai.mp4"
                         LinkURL="#"
                         Heading="AI Powered Solutions & Machine Learning"
                         Description="From predictive analytics to custom ML model training — harness the power of AI to drive smarter decisions."
                     />
                     <MainServicesCard
                         Icon="/icons/it-services.png"
-                        bgImage="/icons/service-bg-image.png"
+                        bgImage=""
+                        video="/videos/service_it.mp4"
                         LinkURL="#"
                         Heading="Managed IT Services & Consulting"
                         Description="Expert IT support and strategic consulting for businesses of all sizes—with a special focus on the unique needs of small and mid-sized enterprises. Scalable, affordable, and designed to grow with you."
                     />
                     <MainServicesCard
                         Icon="/icons/digital-marketing.png"
-                        bgImage="/icons/service-bg-image.png"
+                        bgImage=""
+                        video="/videos/service_digital.mp4"
                         LinkURL="#"
                         Heading="Digital Marketing"
                         Description="From predictive analytics to custom ML model training — harness the power of AI to drive smarter decisions."
@@ -122,13 +128,33 @@ export default function Services() {
                             description=""
                         />
                         <FeatureHighlights2
-                            imageUrl="/icons/mongodb.svg"
-                            title="MongoDB"
+                            imageUrl="/icons/nodejs.png"
+                            title="Node.js"
                             description=""
                         />
                         <FeatureHighlights2
-                            imageUrl="/icons/nodejs.png"
-                            title="Node.js"
+                            imageUrl="/icons/net.png"
+                            title=".NET"
+                            description=""
+                        />
+                        <FeatureHighlights2
+                            imageUrl="/icons/python.png"
+                            title="Python"
+                            description=""
+                        />
+                        <FeatureHighlights2
+                            imageUrl="/icons/c++.png"
+                            title="C++"
+                            description=""
+                        />
+                        <FeatureHighlights2
+                            imageUrl="/icons/go.webp"
+                            title="Golang"
+                            description=""
+                        />
+                        <FeatureHighlights2
+                            imageUrl="/icons/mongodb.svg"
+                            title="MongoDB"
                             description=""
                         />
                         <FeatureHighlights2
@@ -137,8 +163,8 @@ export default function Services() {
                             description=""
                         />
                         <FeatureHighlights2
-                            imageUrl="/icons/net.png"
-                            title=".NET"
+                            imageUrl="/icons/firebase.svg"
+                            title="Firebase"
                             description=""
                         />
                         <FeatureHighlights2
@@ -152,28 +178,8 @@ export default function Services() {
                             description=""
                         />
                         <FeatureHighlights2
-                            imageUrl="/icons/firebase.svg"
-                            title="Firebase"
-                            description=""
-                        />
-                        <FeatureHighlights2
-                            imageUrl="/icons/python.png"
-                            title="Python"
-                            description=""
-                        />
-                        <FeatureHighlights2
                             imageUrl="/icons/tensorflow.png"
                             title="TensorFlow"
-                            description=""
-                        />
-                        <FeatureHighlights2
-                            imageUrl="/icons/c++.png"
-                            title="C++"
-                            description=""
-                        />
-                        <FeatureHighlights2
-                            imageUrl="/icons/go.webp"
-                            title="Golang"
                             description=""
                         />
                     </div>

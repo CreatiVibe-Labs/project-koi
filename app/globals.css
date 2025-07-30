@@ -58,9 +58,23 @@ body {
 }
 
 .content-section {
-  width: 55%;
+  width: 65%;
   border-radius: 17.32px;
+  padding-right: 10% !important;
+  z-index: 999999;
   padding: 15.16px 21.65px;
+}
+
+.hero-section {
+  position: relative;
+}
+
+.hero-section .image-section img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 600px;
+  height: 510px;
 }
 
 .gradient-background {
@@ -863,12 +877,12 @@ nav.breadCrumbWrapper {
 /* Services Page CSS */
 
 .servicePageWrapper {
-  display: flex;
   gap: 2%;
-  position: relative;
+  display: flex;
+  /* position: relative; */
 }
 
-.sideBarWrapper {
+/* .sideBarWrapper {
   width: 20%;
   backdrop-filter: blur(15px);
   border: 1px solid #ffffff66;
@@ -881,12 +895,31 @@ nav.breadCrumbWrapper {
   overflow: auto;
   position: fixed;
   top: 16%;
+} */
+
+.sideBarWrapper {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 17px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 29%;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
+  overflow: auto;
 }
 
 .serviceContentWrapper {
-  width: 80%;
+  /* width: 80%;
   position: relative;
-  left: 410px;
+  left: 410px; */
+  width: 71%;
 }
 
 a.sidebar-menu {
@@ -1486,7 +1519,16 @@ h1.main-heading {
 
 .missionVission {
   display: flex;
-  gap: 2%;
+  gap: 1%;
+}
+
+.missionVission .coreValues {
+  width: 50%;
+}
+
+.coreValues .bold-text {
+  font-size: 24px;
+  font-weight: 800;
 }
 
 /* About End */
@@ -1716,6 +1758,10 @@ p.location {
 .homeWhyChooseUS .content-description {
   overflow: visible;
 }
+.homeWhyChooseUS img {
+  height: 300px;
+  object-fit: cover;
+}
 
 .missionVission p {
   font-size: 20px !important;
@@ -1724,7 +1770,17 @@ p.location {
   margin-top: -30px;
 }
 
-.svgGraph svg:hover .shape1,
-.svgGraph svg:hover .shape2 {
+/* .svgGraph svg:hover .shape1, */
+/* .svgGraph svg:hover .shape2 { */
+.svgGraph path:hover {
   fill: #39ff14;
+}
+
+.services-videos .bgImage {
+  height: 350px;
+  overflow: hidden;
+}
+
+.headerMainWrapper {
+  max-width: 99%;
 }

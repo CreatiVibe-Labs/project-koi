@@ -16,6 +16,11 @@ p {
   justify-content: end;
 }
 
+.homepageServices .ServicesCardsContent img  {
+width: 160px;
+  height: 75px;
+  border-radius: 10px;
+}
 .ServicesCardsContent img {
   width: 160px;
 }
