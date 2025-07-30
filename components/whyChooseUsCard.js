@@ -12,7 +12,7 @@ export default function WhyChooseUsCardComponent({
 }) {
   return (
     <div className="service-card-wrap border rounded-lg p-4 shadow-md">
-        <Link href={link}>
+        <div>
             <div className='ImageWrapper'>
                 <Image src={imageUrl} alt="Card Image" width={400} height={250} className="rounded mb-4" />
                 <div className='cardsTags'>
@@ -38,7 +38,7 @@ export default function WhyChooseUsCardComponent({
             </div>            
 
 
-      </Link>
+      </div>
     </div>
   );
 }

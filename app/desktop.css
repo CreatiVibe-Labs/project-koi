@@ -353,40 +353,79 @@ ul.parent::before {
 
 .step-1 {
   text-align: end;
-  background-image: url("/images/step1.svg");
+  background-image: url("/images/step1.png");
   top: 24px;
   right: 105px;
   padding: 1rem 4rem;
 }
 
+.step-1:hover {
+  background-image: url("/images/step1_hover.png");
+}
+.step-2:hover {
+  background-image: url("/images/step2_hover.png");
+}
+.step-3:hover {
+  background-image: url("/images/step3_hover.png");
+}
+.step-4:hover {
+  background-image: url("/images/step4_hover.png");
+}
+.step-5:hover {
+  background-image: url("/images/step5_hover.png");
+}
+.step-6:hover {
+  background-image: url("/images/step6_hover.png");
+}
+
+
+.step-1:hover .point1 .flowBg {
+  fill: #39ff14;
+}
+.step-2:hover .point2 .flowBg {
+  fill: #39ff14;
+}
+.step-3:hover .point3 .flowBg {
+  fill: #39ff14;
+}
+.step-4:hover .point4 .flowBg {
+  fill: #39ff14;
+}
+.step-5:hover .point5 .flowBg {
+  fill: #39ff14 !important;
+}
+.step-6:hover .point6 .flowBg {
+  fill: #39ff14;
+}
+
 .step-2 {
   text-align: end;
-  background-image: url("/images/step2.svg");
+  background-image: url("/images/step2.png");
   top: 245px;
   right: 50px;
 }
 
 .step-3 {
   text-align: end;
-  background-image: url("/images/step3.svg");
+  background-image: url("/images/step3.png");
   top: 460px;
   right: 85px;
 }
 
 .step-4 {
-  background-image: url("/images/step4.svg");
+  background-image: url("/images/step4.png");
   top: 465px;
   left: 90px;
 }
 .step-5 {
   top: 245px;
   left: 60px;
-  background-image: url("/images/step5.svg");
+  background-image: url("/images/step5.png");
 }
 .step-6 {
   top: 23px;
   left: 100px;
-  background-image: url("/images/step6.svg");
+  background-image: url("/images/step6.png");
 }
 
 /* Service-Digital Page */
@@ -433,4 +472,10 @@ ul.parent::before {
 .svgGraph {
   position: relative;
   z-index: 2;
+}
+
+
+.serviceContentWrapper .is-heading h2, .serviceContentWrapper .is-heading h1, .serviceContentWrapper .is-heading h3, .serviceContentWrapper .is-heading h4 {
+  color: #c3f8d9 !important;
+
 }

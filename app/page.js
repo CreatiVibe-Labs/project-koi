@@ -28,42 +28,42 @@ export default function Home() {
           <ServicesCards
             imageUrl="/images/landing_app.jpg"
             buttonText="Learn More"
-            link="#"
+            link="/services/custom-app-development/"
             heading="Custom App Development"
             description="Tailored software, mobile app and web applications turning your ideas into powerful digital solutions"
           />
           <ServicesCards
             imageUrl="/images/landing_web.jpg"
             buttonText="Learn More"
-            link="#"
+            link="/services/custom-website-development/"
             heading="Web Development"
             description="Responsive, SEO-friendly websites - from sleek portfolios to full-featured e-commerce stores - showcase your brand and drive real results."
           />
           <ServicesCards
             imageUrl="/images/landing_cloud.jpg"
             buttonText="Learn More"
-            link="#"
+            link="/services/cloud-migration-services/"
             heading="Cloud Migration & Storage"
             description="Seamlessly migrate to the cloud – boosting performance, security, and scalability."
           />
           <ServicesCards
             imageUrl="/images/landing_ai.png"
             buttonText="Learn More"
-            link="#"
+            link="/services/ai-powered-solutions/"
             heading="AI Powered Solutions"
             description="Leverage AI and machine learning to streamline operations, personalize experiences, and drive data-backed decisions"
           />
           <ServicesCards
             imageUrl="/images/landing_it.jpg"
             buttonText="Learn More"
-            link="#"
+            link="/services/managed-it-services-consulting/"
             heading="Managed IT Services & Consulting"
             description="Enterprise-grade IT management and strategic consulting to optimize operations"
           />
           <ServicesCards
             imageUrl="/images/landing_digital.png"
             buttonText="Learn More"
-            link="#"
+            link="/services/digital-marketing-services/"
             heading="Digital Marketing"
             description="From clicks to customers—grow fast with smart, effective digital marketing"
           />
@@ -79,21 +79,21 @@ export default function Home() {
           <div className="cardWrappers">
             <WhyChooseUsCard
               imageUrl="/images/landing_performance.jpg"
-              link="#"
+              link=""
               title="Performance-Focused Solutions"
               tags={[]}
               description="We focus on measurable outcomes – we deliver solutions that drive real business value."
             />
             <WhyChooseUsCard
               imageUrl="/images/landing_expertise.jpg"
-              link="#"
+              link=""
               title="End-to-End Expertise"
               tags={[]}
               description="We off complete digital solutions – from strategy to launch – so you get everything under one roof."
             />
             <WhyChooseUsCard
               imageUrl="/images/landing_support.jpg"
-              link="#"
+              link=""
               title="Reliable Support & Partnership"
               tags={[]}
               description="We don’t just delivery projects – we build long-term relationships with proactive support and honest communication."

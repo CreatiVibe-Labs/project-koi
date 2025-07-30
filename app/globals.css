@@ -394,7 +394,7 @@ a {
 }
 
 .logoWrapper img {
-  width: 90%;
+  width: 25%;
 }
 
 .menuWrapper a {
@@ -1770,9 +1770,7 @@ p.location {
   margin-top: -30px;
 }
 
-/* .svgGraph svg:hover .shape1, */
-/* .svgGraph svg:hover .shape2 { */
-.svgGraph path:hover {
+.svgGraph .flowGroup:hover .flowBg {
   fill: #39ff14;
 }
 
@@ -1783,4 +1781,38 @@ p.location {
 
 .headerMainWrapper {
   max-width: 99%;
+  z-index: 99999999999999;
+}
+
+
+.svgGraph {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svgGraph img {
+  position: absolute;
+  width: 30%;
+}
+
+.svgGraph.services img {
+  width: 34% !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+.service_flowChart .step {
+  display: flex;
+  align-items: center;
+}
+
+.service_flowChart .step h6 {
+  font-size: 30px;
+}
+
+.service_flowChart .step-1, .service_flowChart .step-3 {
+  justify-content: flex-end;
+
 }
