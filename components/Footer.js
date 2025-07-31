@@ -65,6 +65,7 @@ export default function Footer() {
                             </Link>
                         </div>
                     </div>
+                        <p className='neon-green'>© Aerialink Inc. 2025 </p>
                 </div>
             </div>
         </div>

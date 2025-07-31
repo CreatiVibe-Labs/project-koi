@@ -1435,9 +1435,9 @@ span.\32 text-content img {
 /* About Start */
 
 .hero-section-about {
-  backdrop-filter: blur(15px);
-  border-radius: 16px;
-  border: 1px solid #ffffff66;
+  /* backdrop-filter: blur(15px); */
+  /* border-radius: 16px;
+  border: 1px solid #ffffff66; */
   margin-top: 150px;
   padding: 20px;
 }
@@ -1671,7 +1671,7 @@ p.location {
 .lineglow::after {
   content: "";
   position: absolute;
-  left: -2px;
+  left: -3px;
   top: 0;
   width: 10px;
   height: 10px;
@@ -1784,7 +1784,6 @@ p.location {
   z-index: 99999999999999;
 }
 
-
 .svgGraph {
   position: relative;
   display: flex;
@@ -1812,7 +1811,21 @@ p.location {
   font-size: 30px;
 }
 
-.service_flowChart .step-1, .service_flowChart .step-3 {
+.service_flowChart .step-1,
+.service_flowChart .step-3 {
   justify-content: flex-end;
+}
 
+a.callUs {
+  background-color: transparent;
+  border: 1px solid #39ff14;
+  color: #39ff14;
+  &:hover {
+    border-color: transparent !important;
+    color: black;
+  }
+}
+.duoColumn1,
+.duoColumn2{
+  margin-top: 0 !important;
 }

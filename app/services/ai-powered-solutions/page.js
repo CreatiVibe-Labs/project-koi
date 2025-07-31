@@ -31,7 +31,7 @@ export default function AiPoweredSolutions() {
                     </div>
                     <div className="industriesServeMainWrapper featuresHighlight featuresHighlight2">
                         <div className="is-heading gradient-background"><h3>Feature Hightlights</h3></div>
-                        <div className="isContent">
+                        <div className="mt-5">
                             <p className='subHeadings'>What We Deliver</p>
                             <div className="itemsWrapper">
                                 <FeatureHighlights

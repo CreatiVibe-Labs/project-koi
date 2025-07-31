@@ -19,7 +19,7 @@ export default function CloudMigration() {
             </div>
             <div className="industriesServeMainWrapper featuresHighlight">
                 <div className="is-heading gradient-background"><h3>Key Features</h3></div>
-                <div className="isContent">
+                <div className="mt-5">
                     <div className="itemsWrapper">
                         <FeatureHighlights
                             imageUrl="/icons/downtime.png"
@@ -81,7 +81,7 @@ export default function CloudMigration() {
             </div>
             <div className="industriesServeMainWrapper featuresHighlight migrationIcons cmsWork">
                 <div className="is-heading gradient-background"><h3>Migration Scenarios</h3></div>
-                <div className="isContent">
+                <div className="">
                     <div className="itemsWrapper1 itemsWrapper">
                         <ul>
                             <li>Legacy System Modernization</li>
