@@ -115,8 +115,28 @@ export default function ContactPage({ imageUrl, title, text }) {
 
                     </div> */}
 
-                    <div className="contactBg bg-gradient-to-b border-[1px] border-amber-50 rounded-2xl p-4 gap-5 flex flex-col">
-
+                    <div className="contactBg backdrop-blur-lg border-[1px] border-amber-50 rounded-2xl p-10 flex items-end">
+                        <ul>
+                            <li className="flex items-center gap-5">
+                                <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/phone.png" width={40} height={40}></Image></div>
+                                <a href="tel:078-855-2760" >
+                                    078-855-2760</a>
+                            </li>
+                            <li className="flex items-center gap-5">
+                                <div className="bg-white rounded-full px-2 py-2.5"><Image alt="icon" src="/icons/mail.png" width={40} height={25}></Image></div>
+                                <a href="mailto:inquiry@aeriallink.jp" className="flex items-center gap-5 "> inquiry@aerialink.jp</a>
+                            </li>
+                            <li className="flex items-center gap-5">
+                                <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/web.png" width={40} height={40}></Image></div>
+                                <a href="aeriallink.jp" className="flex items-center gap-5 ">aerialink.jp</a>
+                            </li>
+                            <li className="flex items-center gap-5">
+                                <div className="bg-white rounded-full px-2.5 py-2"><Image alt="icon" src="/icons/address.png" width={35} height={35}></Image></div>
+                                <a href="#" target="_blank" className="flex items-center  gap-5 ">  6E-02, 6-9 Koyocho-naka, Higashinada-ku, Kobe<br />
+                                    Hyogo, 658-0032 Japan</a>
+                            </li>
+                        </ul>
+                        <div className="absolute end-0 bottom-0 "><Image className="rounded-br-lg" alt="icon" src="/icons/qr-code.png" width={60} height={60}></Image></div>
                     </div>
                     <div className="border-[1px] border-amber-50 rounded-2xl p-4 backdrop-blur-lg">
                         <iframe
