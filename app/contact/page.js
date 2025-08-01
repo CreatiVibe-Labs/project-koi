@@ -136,6 +136,15 @@ export default function ContactPage({ imageUrl, title, text }) {
                                     Hyogo, 658-0032 Japan</a>
                             </li>
                         </ul>
+
+                        <div className="clock absolute">
+                            <p>
+                                Mon – Thu 9:00 – 18:00<br />
+                                Fri 9:00 – 17:00<br />
+                                Sat – Sun Closed
+                            </p>
+                        </div>
+
                         <div className="absolute end-0 bottom-0 "><Image className="rounded-br-lg" alt="icon" src="/icons/qr-code.png" width={60} height={60}></Image></div>
                     </div>
                     <div className="border-[1px] border-amber-50 rounded-2xl p-4 backdrop-blur-lg">
