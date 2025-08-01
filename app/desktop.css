@@ -358,7 +358,7 @@ ul.parent::before {
   padding: 1rem 4rem;
 }
 
-.step-1:hover {
+/* .step-1:hover {
   background-image: url("/images/step1_hover.png");
 }
 .step-2:hover {
@@ -375,9 +375,9 @@ ul.parent::before {
 }
 .step-6:hover {
   background-image: url("/images/step6_hover.png");
-}
+} */
 
-.step-1:hover .point1 .flowBg {
+/* .step-1:hover .point1 .flowBg {
   fill: #39ff14;
 }
 .step-2:hover .point2 .flowBg {
@@ -394,7 +394,7 @@ ul.parent::before {
 }
 .step-6:hover .point6 .flowBg {
   fill: #39ff14;
-}
+} */
 
 .step-2 {
   text-align: end;
@@ -479,33 +479,33 @@ ul.parent::before {
   color: #c3f8d9 !important;
 }
 .contactBg {
-  /* background: #649C50;
+  background: #649C50;
 background: -webkit-linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 223, 181, 1) 100%);
 background: -moz-linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 223, 181, 1) 100%);
 background: linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 223, 181, 1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endColorstr="#C0DFB5", GradientType=0); */
-  background-image: url(/images/contact.png);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endColorstr="#C0DFB5", GradientType=0);
+  /* background-image: url(/images/contact.png);
   background-position: center;
   background-repeat: no-repeat;
-  position: relative;
   background-size: contain;
+  position: relative; */
   z-index: 999;
   background-position-y: bottom;
 }
-/* .contactBg::before {
+.contactBg::before {
   position: absolute;
   content: "";
   z-index: -999;
   background-image: url(/images/contact.png);
   background-position: center;
   background-repeat: no-repeat;
-  top: 58px;
+  top: 48px;
   width: 100%;
   height: 100%;
   left: 0;
   background-size: contain;
   border-bottom-right-radius: 28px;
-} */
+}
 .contactBg a {
   text-align: left;
   font-weight: 400;

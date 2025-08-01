@@ -115,7 +115,7 @@ export default function ContactPage({ imageUrl, title, text }) {
 
                     </div> */}
 
-                    <div className="contactBg backdrop-blur-lg border-[1px] border-amber-50 rounded-2xl p-10 flex items-end">
+                    <div className="contactBg backdrop-blur-lg border-0 border-amber-50 rounded-2xl p-10 flex items-end">
                         <ul>
                             <li className="flex items-center gap-5">
                                 <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/phone.png" width={40} height={40}></Image></div>
@@ -145,13 +145,13 @@ export default function ContactPage({ imageUrl, title, text }) {
                             </p>
                         </div>
 
-                        <div className="absolute end-0 bottom-0 "><Image className="rounded-br-lg" alt="icon" src="/icons/qr-code.png" width={60} height={60}></Image></div>
+                        <div className="absolute end-2.5 bottom-2.5"><Image className="" alt="icon" src="/icons/qr-code.png" width={60} height={60}></Image></div>
                     </div>
-                    <div className="border-[1px] border-amber-50 rounded-2xl p-4 backdrop-blur-lg">
+                    <div className="border-0 border-amber-50 rounded-2xl backdrop-blur-lg">
                         <iframe
                             className="rounded-2xl border-0"
                             width="100%"
-                            height="370"
+                            height="380"
                             frameBorder="0"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.179816753767!2d67.04083572379122!3d24.857707420854073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f5125392865%3A0x94d6b804727306b0!2sCreatiVibe%20Labs!5e0!3m2!1sen!2s!4v1752566721319!5m2!1sen!2s"
                             allowFullScreen

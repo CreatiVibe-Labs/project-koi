@@ -99,6 +99,11 @@ export default function AiPoweredSolutions() {
                                     description=""
                                 />
                                 <FeatureHighlights2
+                                    imageUrl="/icons/scikit.png"
+                                    title="Scikit Learn"
+                                    description=""
+                                />
+                                <FeatureHighlights2
                                     imageUrl="/icons/opencv.png"
                                     title="OpenCV"
                                     description=""

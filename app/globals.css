@@ -1770,9 +1770,9 @@ p.location {
   margin-top: -30px;
 }
 
-.svgGraph .flowGroup:hover .flowBg {
+/* .svgGraph .flowGroup:hover .flowBg {
   fill: #39ff14;
-}
+} */
 
 .services-videos .bgImage {
   height: 350px;
@@ -1826,6 +1826,6 @@ a.callUs {
   }
 }
 .duoColumn1,
-.duoColumn2{
+.duoColumn2 {
   margin-top: 0 !important;
 }

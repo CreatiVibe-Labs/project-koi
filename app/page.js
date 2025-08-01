@@ -14,7 +14,7 @@ export default function Home() {
           <p>From day-to-day support to long term strategy, we deliver cost efficient, flexible IT services designed to match your goals and specific way of working</p>
           <div className="buttons-wrapper">
             <Link className="callUs" href="#">Call us</Link>
-            <Link href="#">Check Services</Link>
+            <Link href="#" className="border-[1px] border-[#39ff14]">Check Services</Link>
             <Link href="#">Try Demo</Link>
           </div>
         </div>
