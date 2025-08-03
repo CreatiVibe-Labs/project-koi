@@ -55,17 +55,17 @@ export default function Footer() {
                         <p>Follow <span className='neon-green'>Us</span></p>
                         <div className='icons'>
                             <Link href="#">
-                                <Image src="/icons/fb.png" width={33} height={33} alt='fb icon' />
+                                <Image src="/icons/lknd.svg" width={33} height={33} alt='fb icon' />
                             </Link>
                             <Link href="#">
-                                <Image src="/icons/insta.png" width={33} height={33} alt='insta icon' />
+                                <Image src="/icons/utube.svg" width={33} height={33} alt='insta icon' />
                             </Link>
                             <Link href="#">
-                                <Image src="/icons/twitter.png" width={33} height={33} alt='twitter icon' />
+                                <Image src="/icons/x.svg" width={33} height={33} alt='twitter icon' />
                             </Link>
                         </div>
                     </div>
-                        <p className='neon-green'>© Aerialink Inc. 2025 </p>
+                        <p className='neon-green font-medium'>© Aerialink Inc. 2025 </p>
                 </div>
             </div>
         </div>
