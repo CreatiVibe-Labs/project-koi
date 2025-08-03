@@ -358,24 +358,24 @@ ul.parent::before {
   padding: 1rem 4rem;
 }
 
-/* .step-1:hover {
+.active.step-1 {
   background-image: url("/images/step1_hover.png");
 }
-.step-2:hover {
+.active.step-2 {
   background-image: url("/images/step2_hover.png");
 }
-.step-3:hover {
+.active.step-3 {
   background-image: url("/images/step3_hover.png");
 }
-.step-4:hover {
+.active.step-4 {
   background-image: url("/images/step4_hover.png");
 }
-.step-5:hover {
+.active.step-5 {
   background-image: url("/images/step5_hover.png");
 }
-.step-6:hover {
+.active.step-6 {
   background-image: url("/images/step6_hover.png");
-} */
+}
 
 /* .step-1:hover .point1 .flowBg {
   fill: #39ff14;
@@ -528,10 +528,14 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endC
   background-size: cover;
   justify-content: center;
   align-items: center;
-  width: 260px;
-  height: 240px;
+  width: 200px;
+  height: 200px;
   display: flex;
   position: absolute;
-  top: -86px;
-  left: -54px;
+  top: -74px;
+  left: -27px;
+}
+
+.custom-shaodw {
+  text-shadow: 2px 2px 10px black;
 }

@@ -9,7 +9,7 @@ export default function WhyChooseUs({ title, text }) {
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveStep(prev => (prev % 6) + 1);
-        }, 1500); // Change every 1.5 seconds
+        }, 1000); // Change every 1.5 seconds
         return () => clearInterval(interval);
     }, []);
 
@@ -84,7 +84,7 @@ export default function WhyChooseUs({ title, text }) {
                     </g>
                 </svg>
 
-                <Image id="image0_665_53712" src="/images/logo.png" width={50} height={100} alt="logo" />
+                <Image id="image0_665_53712" src="/images/logo.png" width={600} height={600} alt="logo" />
             </div>
 
             {/* Text Steps */}

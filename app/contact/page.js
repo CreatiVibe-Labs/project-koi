@@ -119,28 +119,27 @@ export default function ContactPage({ imageUrl, title, text }) {
                         <ul>
                             <li className="flex items-center gap-5">
                                 <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/phone.png" width={40} height={40}></Image></div>
-                                <a href="tel:078-855-2760" >
+                                <a href="tel:078-855-2760" className="text-white custom-shaodw" >
                                     078-855-2760</a>
                             </li>
                             <li className="flex items-center gap-5">
                                 <div className="bg-white rounded-full px-2 py-2.5"><Image alt="icon" src="/icons/mail.png" width={40} height={25}></Image></div>
-                                <a href="mailto:inquiry@aeriallink.jp" className="flex items-center gap-5 "> inquiry@aerialink.jp</a>
+                                <a href="mailto:inquiry@aeriallink.jp" className="flex items-center gap-5 text-white custom-shaodw"> inquiry@aerialink.jp</a>
                             </li>
                             <li className="flex items-center gap-5">
                                 <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/web.png" width={40} height={40}></Image></div>
-                                <a href="aeriallink.jp" className="flex items-center gap-5 ">aerialink.jp</a>
+                                <a href="aeriallink.jp" className="flex items-center gap-5 custom-shaodw">aerialink.jp</a>
                             </li>
                             <li className="flex items-center gap-5">
                                 <div className="bg-white rounded-full px-2.5 py-2"><Image alt="icon" src="/icons/address.png" width={35} height={35}></Image></div>
-                                <a href="#" target="_blank" className="flex items-center  gap-5 ">  6E-02, 6-9 Koyocho-naka, Higashinada-ku, Kobe<br />
+                                <a href="#" target="_blank" className="flex items-center  gap-5 custom-shaodw">  6E-02, 6-9 Koyocho-naka, Higashinada-ku, Kobe<br />
                                     Hyogo, 658-0032 Japan</a>
                             </li>
                         </ul>
 
                         <div className="clock absolute">
-                            <p>
-                                Mon – Thu 9:00 – 18:00<br />
-                                Fri 9:00 – 17:00<br />
+                            <p className="custom-shaodw font-semibold">
+                                Mon – Fri 9:00 – 18:00<br />
                                 Sat – Sun Closed
                             </p>
                         </div>
@@ -148,15 +147,12 @@ export default function ContactPage({ imageUrl, title, text }) {
                         <div className="absolute end-2.5 bottom-2.5"><Image className="" alt="icon" src="/icons/qr-code.png" width={60} height={60}></Image></div>
                     </div>
                     <div className="border-0 border-amber-50 rounded-2xl backdrop-blur-lg">
-                        <iframe
-                            className="rounded-2xl border-0"
-                            width="100%"
-                            height="380"
-                            frameBorder="0"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.179816753767!2d67.04083572379122!3d24.857707420854073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f5125392865%3A0x94d6b804727306b0!2sCreatiVibe%20Labs!5e0!3m2!1sen!2s!4v1752566721319!5m2!1sen!2s"
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9220.061348752506!2d135.26503893344656!3d34.68568635003625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008d7cf221d5a9%3A0x168ec4a747ab3737!2sKoyochonaka%2C%20Higashinada%20Ward%2C%20Kobe%2C%20Hyogo%20658-0032%2C%20Japan!5e0!3m2!1sen!2s!4v1754126375653!5m2!1sen!2s"
+                            width="100%" height="380"
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
+                            className="rounded-2xl border-0"
                         ></iframe>
                     </div>
                 </div>
