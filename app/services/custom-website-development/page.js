@@ -30,7 +30,16 @@ export default function CustomWebsiteDevelopment() {
                                     business online, we deliver web experiences that blend design excellence with
                                     technical precision.
                                 </p>
-                                <Image src="/images/web-dev-image1.png" width={6000} height={6000} alt="banner image" />
+                                {/* <Image src="/images/web-dev-image1.png" width={6000} height={6000} alt="banner image" /> */}
+                                <video className='mt-4' width="100%" height="240" loop autoPlay muted preload="none">
+                                    <source src="/videos/subpage_web_custom.mp4" type="video/mp4" />
+                                    <track
+                                        kind="subtitles"
+                                        srcLang="en"
+                                        label="English"
+                                    />
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                         </div>
                     </div>

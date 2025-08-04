@@ -34,16 +34,25 @@ export default function DigitalMarketingServices() {
                                     product, scaling a brand, or fixing underperforming campaigns — we’re your growth
                                     partner
                                 </p>
-                                <div className='animatedSvg'>
+                                <video className='mt-4' width="100%" height="240" loop muted autoPlay preload="none">
+                                    <source src="/videos/subpage_digital.mp4" type="video/mp4" />
+                                    <track
+                                        kind="subtitles"
+                                        srcLang="en"
+                                        label="English"
+                                    />
+                                    Your browser does not support the video tag.
+                                </video>
+                                {/* <div className='animatedSvg'>
                                     <Lottie animationData={animationData} loop={true} autoplay={true} />
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
-                    <div className="industriesServeMainWrapper featuresHighlight">
+                    <div className="industriesServeMainWrapper serviceType featuresHighlight">
                         <div className="is-heading gradient-background"><h3>Service types</h3></div>
                         <div className="mt-5">
-                            <div className="itemsWrapper justify-center">
+                            <div className="grid grid-cols-3 gap-2.5 justify-center">
                                 <FeatureHighlights
                                     imageUrl="/icons/search-engine.png"
                                     title="SEO & Content Strategy"

@@ -26,7 +26,7 @@ export default function ServicesCards({
             <div className="arrow">
               <img src="/icons/arrow1.png" width={20} height={20} className="arrow-layer layer-1" alt="Arrow Layer 1" />
               <img src="/icons/arrow2.png" width={20} height={20} className="arrow-layer layer-2" alt="Arrow Layer 2" />
-              <img src="/icons/arrow3.png" width={20} height={20} className="arrow-layer layer-3" alt="Arrow Layer 3" />
+              <img src="/icons/arrow2.png" width={20} height={20} className="arrow-layer layer-3" alt="Arrow Layer 3" />
             </div>
           </span>
         </Link>}

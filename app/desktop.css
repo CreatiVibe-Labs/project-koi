@@ -92,8 +92,9 @@ p {
 
 .buttons-wrapper a:hover,
 .button:hover {
-  background-color: #c3f8d9;
-  color: #333;
+  /* background-color: #c3f8d9; */
+  background-color: #ffffff52;
+  color: #fff;
 }
 
 .site_readmore svg ellipse {

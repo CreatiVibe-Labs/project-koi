@@ -34,7 +34,7 @@ export default function Services() {
                     <MainServicesCard
                         Icon="/icons/app-development.png"
                         bgImage=""
-                        video="/videos/service_app.mp4"
+                        video="/videos/service_app_custom.mp4"
                         LinkURL="/services/custom-app-development/"
                         Heading="Custom Software / App Development"
                         Description="Tailored desktop, mobile, and backend applications built around your workflow"
@@ -42,7 +42,7 @@ export default function Services() {
                     <MainServicesCard
                         Icon="/icons/web-development.png"
                         bgImage=""
-                        video="/videos/service_web.mp4"
+                        video="/videos/service_web_custom.mp4"
                         LinkURL="/services/custom-website-development/"
                         Heading="Custom Website Development"
                         Description="Responsive, high-performance websites that reflect your brand and business needs"

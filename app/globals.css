@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Digital-7 Mono";
+  src: url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.eot");
+  src: url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.svg#Digital-7 Mono")
+      format("svg");
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -113,13 +128,14 @@ body {
 .buttons-wrapper a,
 .button {
   padding: 10px 20px;
-  background-color: #ffffff52;
+  background-color: transparent;
   border-radius: 100px;
-  color: white;
+  color: #39ff14;
   font-size: 19.49px;
   font-weight: 700;
   box-shadow: rgb(255 255 255 / 74%) 0px 10px 10px -10px;
   cursor: pointer;
+  border: 1px solid #39ff14;
 }
 
 .button {
@@ -1820,12 +1836,18 @@ a.callUs {
   background-color: transparent;
   border: 1px solid #39ff14;
   color: #39ff14;
-  &:hover {
+  /* &:hover {
     border-color: transparent !important;
     color: black;
-  }
+  } */
 }
 .duoColumn1,
 .duoColumn2 {
   margin-top: 0 !important;
+}
+.serviceType .service-card-wrap {
+  width: 100%;
+}
+.digital7 {
+  font-family: "Digital-7 Mono";
 }

@@ -13,9 +13,9 @@ export default function CustomAppDevelopment() {
                     <SideBar />
                 </div>
                 <div className='serviceContentWrapper'>
-                    <div className='bannerImage'>
+                    {/* <div className='bannerImage'>
                         <Image src="/images/custom-app-development.png" width={6000} height={6000} alt="Logo" />
-                    </div>
+                    </div> */}
                     <div className="industriesServeMainWrapper">
                         <div className="is-heading gradient-background"><h3>Tailored Solutions That Work the Way You Do</h3></div>
                         <div className="isContent">
@@ -27,7 +27,16 @@ export default function CustomAppDevelopment() {
                                     modernizing legacy systems, we align technology with your vision to deliver real
                                     results.
                                 </p>
-                                <Image src="/images/app-dev-image2.jpg" width={6000} height={6000} alt="banner image"/>
+                                {/* <Image src="/images/app-dev-image2.jpg" width={6000} height={6000} alt="banner image"/> */}
+                                <video className='mt-4' width="100%" height="240" loop muted autoPlay preload="none">
+                                    <source src="/videos/subpage_app_custom.mp4" type="video/mp4" />
+                                    <track
+                                        kind="subtitles"
+                                        srcLang="en"
+                                        label="English"
+                                    />
+                                    Your browser does not support the video tag.
+                                </video>
                             </div>
                         </div>
                     </div>
