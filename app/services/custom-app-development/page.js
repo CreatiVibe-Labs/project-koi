@@ -16,7 +16,7 @@ export default function CustomAppDevelopment() {
                     {/* <div className='bannerImage'>
                         <Image src="/images/custom-app-development.png" width={6000} height={6000} alt="Logo" />
                     </div> */}
-                    <div className="industriesServeMainWrapper">
+                    <div className="industriesServeMainWrapper mt0">
                         <div className="is-heading gradient-background"><h3>Tailored Solutions That Work the Way You Do</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
