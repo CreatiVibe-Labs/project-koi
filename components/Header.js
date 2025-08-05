@@ -46,7 +46,7 @@ export default function Header() {
         <div className={`headerMainWrapper border-b-[1px] border-b-[#ffffff66] rounded-[0] gradient-background w-full  inset-x-0 top-0 fixed z-10 ${scrolled ? 'customStickyHeader' : ''}`}>
           <div className='headerWrapper'>
             <div className='logoWrapper'>
-              <Link href='#'><Image src="/images/logo.png" width={100} height={100} alt="Logo" /></Link>
+              <Link href='#' className='flex gap-2 items-center text-4xl font-semibold'><Image src="/images/logo.png" width={100} height={100} alt="Logo" />Aerialink</Link>
             </div>
             <div className='menuWrapper mobile-hide'>
               <nav className="navBar">

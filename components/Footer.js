@@ -12,7 +12,7 @@ export default function Footer() {
             <div className='footerWrapper'>
                 <div className='section1'>
                     <div className='logoWrapper'>
-                        <Link href='#'><Image src="/images/logo.png" width={100} height={10} alt="Logo" /></Link>
+                        <Link href='#' className='flex gap-2 items-center font-semibold text-4xl'><Image src="/images/logo.png" width={100} height={10} alt="Logo" />Aerialink</Link>
                     </div>
                     <div className='contentWrapper'>
                         <p>
@@ -55,17 +55,17 @@ export default function Footer() {
                         <p>Follow <span className='neon-green'>Us</span></p>
                         <div className='icons'>
                             <Link href="#">
-                                <Image src="/icons/lknd.svg" width={33} height={33} alt='fb icon' />
+                                <Image src="/icons/linkin.png" width={1000} height={1000} className='w-[40px]' alt='fb icon' />
                             </Link>
                             <Link href="#">
-                                <Image src="/icons/utube.svg" width={33} height={33} alt='insta icon' />
+                                <Image src="/icons/yt.png" width={1000} height={1000} className='w-[40px]' alt='insta icon' />
                             </Link>
                             <Link href="#">
-                                <Image src="/icons/x.svg" width={33} height={33} alt='twitter icon' />
+                                <Image src="/icons/x.png" width={1000} height={1000} className='w-[40px]' alt='twitter icon' />
                             </Link>
                         </div>
                     </div>
-                        <p className='neon-green font-medium'>© Aerialink Inc. 2025 </p>
+                        <p className='neon-green font-semibold'>© Aerialink Inc. 2025 </p>
                 </div>
             </div>
         </div>

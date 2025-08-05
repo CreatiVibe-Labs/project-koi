@@ -118,20 +118,20 @@ export default function ContactPage({ imageUrl, title, text }) {
                     <div className="contactBg backdrop-blur-lg border-0 border-amber-50 rounded-2xl md:p-10 p-2.5 flex items-end">
                         <ul>
                             <li className="flex items-center gap-5">
-                                <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/phone.png" width={40} height={40}></Image></div>
+                                <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/phone.png" width={30} height={30}></Image></div>
                                 <a href="tel:078-855-2760" className="text-white custom-shaodw" >
                                     078-855-2760</a>
                             </li>
                             <li className="flex items-center gap-5">
-                                <div className="bg-white rounded-full px-2 py-2.5"><Image alt="icon" src="/icons/mail.png" width={40} height={25}></Image></div>
+                                <div className="bg-white rounded-full px-2 py-2.5"><Image alt="icon" src="/icons/mail.png" width={30} height={15}></Image></div>
                                 <a href="mailto:inquiry@aeriallink.jp" className="flex items-center gap-5 text-white custom-shaodw"> inquiry@aerialink.jp</a>
                             </li>
                             <li className="flex items-center gap-5">
-                                <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/web.png" width={40} height={40}></Image></div>
+                                <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/web.png" width={30} height={30}></Image></div>
                                 <a href="aeriallink.jp" className="flex items-center gap-5 custom-shaodw">aerialink.jp</a>
                             </li>
                             <li className="flex items-center gap-5">
-                                <div className="bg-white rounded-full px-2.5 py-2"><Image alt="icon" src="/icons/address.png" width={35} height={35}></Image></div>
+                                <div className="bg-white rounded-full px-2.5 py-2"><Image alt="icon" src="/icons/address.png" width={25} height={25}></Image></div>
                                 <a href="#" target="_blank" className="flex items-center  gap-5 custom-shaodw">  6E-02, 6-9 Koyocho-naka, Higashinada-ku, Kobe<br />
                                     Hyogo, 658-0032 Japan</a>
                             </li>

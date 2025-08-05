@@ -1551,7 +1551,7 @@ h1.main-heading {
 
 .review-container {
   position: relative;
-  height: 200px;
+  height: 130px;
   width: 100%;
   margin: auto;
   text-align: center;
@@ -1790,6 +1790,12 @@ p.location {
   fill: #39ff14;
 } */
 
+.services-videos .bgImage video {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+}
+
 .services-videos .bgImage {
   height: 350px;
   overflow: hidden;
@@ -1853,4 +1859,8 @@ a.callUs {
 }
 .mt0 {
   margin-top: 0 !important;
+}
+
+.neon-green.font-semibold {
+  font-weight: 500 !important;
 }

@@ -479,25 +479,30 @@ ul.parent::before {
 .serviceContentWrapper .is-heading h4 {
   color: #c3f8d9 !important;
 }
-.contactBg {
+/* .contactBg {
   background: #649C50;
 background: -webkit-linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 223, 181, 1) 100%);
 background: -moz-linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 223, 181, 1) 100%);
 background: linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 223, 181, 1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endColorstr="#C0DFB5", GradientType=0);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endColorstr="#C0DFB5", GradientType=0); */
   /* background-image: url(/images/contact.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   position: relative; */
-  z-index: 999;
+  /* z-index: 999;
   background-position-y: bottom;
-}
+} */
+
+.contactBg {
+  overflow: hidden;
+} 
+
 .contactBg::before {
   position: absolute;
   content: "";
   z-index: -999;
-  background-image: url(/images/contact.png);
+  background-image: url(/images/contact2.png);
   background-position: center;
   background-repeat: no-repeat;
   top: 48px;
@@ -522,7 +527,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endC
 .clock::before {
   content: "";
   z-index: 999;
-  opacity: 0.1;
+  opacity: 0.3;
   background-image: url(/icons/clock.svg);
   background-position: center;
   background-repeat: no-repeat;

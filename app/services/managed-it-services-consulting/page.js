@@ -118,7 +118,17 @@ export default function managedItServices() {
                             <div className="cardWrappers">
                                 <ReviewSlider
                                     reviews={quotes}
+                                    color={'text-[#FF5F1F]'}
                                 />
+                                {/* <div className="review-container ">
+                                    <div key={0} className="review  text-white">
+                                        <p className="text-2xl  mb-2">
+                                            <span className="italic digital7 text-[#FF5F1F]">Working here has been an incredible journey — the team is supportive, and every project pushes me to grow.</span>
+                                        </p>
+                                        <p className="text-2xl mt-2 digital7 text-right italic mr-2 text-[#FF5F1F]">Ayesha Khan</p>
+                                        <p className="text-lg digital7 text-right italic mr-2 text-[#FF5F1F]">Frontend Developer</p>
+                                    </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>

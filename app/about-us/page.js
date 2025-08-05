@@ -56,7 +56,7 @@ export default function AboutUs() {
                     Your browser does not support the video tag.
                 </video>
                 {/* <img src="/images/about.png" width="100%" alt=""/> */}
-                <h1 className="text-center text-5xl font-bold pt-2.5">Driven by innovation. United by purpose</h1>
+                <h1 className="text-center text-5xl font-bold pt-2.5 mt-[-113px] opacity-[0.5]">Driven by innovation. United by purpose</h1>
             </div>
 
             <div className="whyCHooseUsWrapper coreValues">
@@ -64,24 +64,24 @@ export default function AboutUs() {
                 <div className="whyChooseUsCardContentss">
                     <div className="cardWrappers justify-between mt-4 ">
                         <ServicesCards2
-                            imageUrl="/icons/coreValue-4.svg"
+                            imageUrl="/icons/coreValue-4.png"
                             heading="Innovation"
                             description="Think smart, Act fast."
                         />
                         <ServicesCards2
-                            imageUrl="/icons/coreValue-3.svg"
+                            imageUrl="/icons/coreValue-3.png"
 
                             heading="Effectiveness"
                             description="Make it work, Make it count."
                         />
                         <ServicesCards2
-                            imageUrl="/icons/coreValue-2.svg"
+                            imageUrl="/icons/coreValue-2.png"
 
                             heading="Collaboration"
                             description="Together, we grow."
                         />
                         <ServicesCards2
-                            imageUrl="/icons/coreValue-1.svg"
+                            imageUrl="/icons/coreValue-1.png"
 
                             heading="Integrity"
                             description="We do what's right."
@@ -124,6 +124,7 @@ export default function AboutUs() {
                     <div className="cardWrappers">
                         <ReviewSlider
                             reviews={quotes}
+                            color={'text-[#13F4EF]'}
                         />
                     </div>
                 </div>
