@@ -26,6 +26,10 @@ body {
 :root {
   --color-basic: #39ff14;
   --color-second: #0bec7c22;
+
+  /* --border-color: rgba(255, 255, 255, 0.488); */
+  --border-color: rgba(255, 255, 255, 1);
+  --border-width: 2px;
 }
 @theme inline {
   --color-background: var(--background);
@@ -1863,4 +1867,334 @@ a.callUs {
 
 .neon-green.font-semibold {
   font-weight: 500 !important;
+}
+
+/* Yaha se */
+
+.migrationPathWay {
+  width: 100%;
+  padding-left: 5.5%;
+  padding-bottom: 27%;
+}
+
+.migration-box,
+.migration-box2,
+.migration-box3,
+.migration-box4 {
+  position: relative;
+  width: 65%;
+  height: 100px;
+  /* margin: 100px auto; */
+  background: transparent;
+
+  box-sizing: border-box;
+}
+
+.migration-box .top-face {
+  border-top: var(--border-width) solid var(--border-color);
+}
+
+.top-face {
+  /* border-left: var(--border-width) solid var(--border-color); */
+  /* border-right: var(--border-width) solid var(--border-color); */
+  width: 100%;
+  height: 100px;
+  transform: skew(40deg);
+  -webkit-transform: skew(40deg);
+  -moz-transform: skew(40deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  position: relative;
+  z-index: 999999;
+  padding: 35px;
+}
+
+.top-face span {
+  transform: skew(-40deg);
+  -webkit-transform: skew(-40deg);
+  -moz-transform: skew(-40deg);
+}
+
+.front-face {
+  border-right: var(--border-width) solid var(--border-color);
+  border-left: var(--border-width) solid var(--border-color);
+  position: absolute;
+  bottom: -65px;
+  left: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 65px;
+  width: 100%;
+  z-index: 99999;
+  backdrop-filter: blur(15px);
+}
+
+.front-face span {
+}
+
+.left-face {
+  border-left: var(--border-width) solid var(--border-color);
+  position: absolute;
+  top: 1px;
+  left: -43.1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 64px;
+  width: 100%;
+  background: transparent;
+  backdrop-filter: blur(15px);
+}
+
+.left-face2 {
+  border-left: var(--border-width) solid var(--border-color);
+  width: 100%;
+  height: 100px;
+  transform: skew(40deg);
+  -webkit-transform: skew(40deg);
+  -moz-transform: skew(40deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 64px;
+  left: -1px;
+  background: transparent;
+  backdrop-filter: blur(15px);
+
+}
+
+.migration-box2 {
+  top: 16%;
+  left: 9.8%;
+}
+
+.migration-box3 {
+  top: 32%;
+  left: 19.7%;
+}
+
+.migration-box4 {
+  top: 48%;
+  left: 29.6%;
+}
+
+.border-top,
+.border-bottom,
+.border-right,
+.border-left {
+  background-color: var(--border-color);
+}
+
+.border-top::before,
+.border-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 0;
+  background-color: #FFBF00;
+
+  transform: translateX(-50%);
+  animation: fillBorder 5s ease forwards;
+}
+
+.migration-box3 .border-top::before,
+.migration-box3 .border-bottom::before {
+  animation-delay: 8s;
+}
+
+.migration-box2 .border-top::before,
+.migration-box2 .border-bottom::before {
+  animation-delay: 16s;
+}
+.migration-box .border-top::before,
+.migration-box .border-bottom::before {
+  animation-delay: 24s;
+}
+
+@keyframes fillBorder {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.border-left::before,
+.border-right::before {
+  content: "";
+  position: absolute;
+  bottom: 0%;
+  left: 0%;
+  height: 0;
+  width: 100%;
+  background-color: #FFBF00;
+  /* transform: translateY(-0%); */
+  animation: fillBorder2 3s ease forwards;
+}
+
+.migration-box4 .border-left::before,
+.migration-box4 .border-right::before {
+  animation-delay: 5s;
+}
+
+.migration-box3 .border-left::before,
+.migration-box3 .border-right::before {
+  animation-delay: 13s;
+}
+
+.migration-box2 .border-left::before,
+.migration-box2 .border-right::before {
+  animation-delay: 21s;
+}
+.migration-box .border-left::before,
+.migration-box .border-right::before {
+  animation-delay: 29s;
+}
+
+@keyframes fillBorder2 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.border-top.reverse,
+.border-bottom.reverse,
+.border-right.reverse,
+.border-left.reverse {
+  background-color: #FFBF00 !important;
+}
+
+.border-top.reverse::before,
+.border-bottom.reverse::before {
+  animation-name: unfillBorder;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+
+  background-color: var(--border-color);
+}
+
+.migration-box3 .border-top.reverse::before,
+.migration-box3 .border-bottom.reverse::before {
+  animation-delay: 8s;
+}
+
+.migration-box2 .border-top.reverse::before,
+.migration-box2 .border-bottom.reverse::before {
+  animation-delay: 16s;
+}
+.migration-box .border-top.reverse::before,
+.migration-box .border-bottom.reverse::before {
+  animation-delay: 24s;
+}
+
+@keyframes unfillBorder {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.border-left.reverse::before,
+.border-right.reverse::before {
+  animation-name: unfillBorder2;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  background-color: var(--border-color);
+}
+
+.migration-box4 .border-left.reverse::before,
+.migration-box4 .border-right.reverse::before {
+  animation-delay: 5s;
+}
+
+.migration-box3 .border-left.reverse::before,
+.migration-box3 .border-right.reverse::before {
+  animation-delay: 13s;
+}
+
+.migration-box2 .border-left.reverse::before,
+.migration-box2 .border-right.reverse::before {
+  animation-delay: 21s;
+}
+.migration-box .border-left.reverse::before,
+.migration-box .border-right.reverse::before {
+  animation-delay: 29s;
+}
+
+@keyframes unfillBorder2 {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+.front-face span {
+  color: white;
+  animation: Color 5s ease forwards;
+}
+
+.migration-box3 .front-face span {
+  animation-delay: 8s;
+}
+
+.migration-box2 .front-face span {
+  animation-delay: 16s;
+}
+.migration-box .front-face span {
+  animation-delay: 24s;
+}
+
+@keyframes Color {
+  0% {
+    color: white;
+  }
+  100% {
+    color: #13f4ef;
+  }
+}
+
+.front-face span.reverse {
+  color: #13f4ef;
+  animation: Color2 5s ease forwards;
+  animation-name: Color2;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+.migration-box3 .front-face span.reverse {
+  animation-delay: 8s;
+}
+
+.migration-box2 .front-face span.reverse {
+  animation-delay: 16s;
+}
+.migration-box .front-face span.reverse {
+  animation-delay: 24s;
+}
+
+@keyframes Color2 {
+  0% {
+    color: #13f4ef;
+  }
+  100% {
+    color: white;
+
+  }
 }

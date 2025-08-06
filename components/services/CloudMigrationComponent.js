@@ -2,8 +2,67 @@ import Image from 'next/image';
 import Link from 'next/link';
 import FeatureHighlights from '@/components/FeatureHighlights';
 import FeatureHighlights2 from '@/components/FeatureHighlights2';
+import { useEffect, useRef, useState } from 'react';
+
 
 export default function CloudMigration() {
+
+  const [isReverse, setIsReverse] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsReverse((prev) => !prev); // Toggle state
+    }, 32000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const elements = document.querySelectorAll('.border-top');
+    elements.forEach((el) => {
+      if (isReverse) {
+        el.classList.add('reverse');
+      } else {
+        el.classList.remove('reverse');
+      }
+    });
+
+    const elements2 = document.querySelectorAll('.border-bottom');
+    elements2.forEach((el2) => {
+      if (isReverse) {
+        el2.classList.add('reverse');
+      } else {
+        el2.classList.remove('reverse');
+      }
+    });
+
+    const elements3 = document.querySelectorAll('.border-left');
+    elements3.forEach((el3) => {
+      if (isReverse) {
+        el3.classList.add('reverse');
+      } else {
+        el3.classList.remove('reverse');
+      }
+    });
+
+    const elements4 = document.querySelectorAll('.border-right');
+    elements4.forEach((el4) => {
+      if (isReverse) {
+        el4.classList.add('reverse');
+      } else {
+        el4.classList.remove('reverse');
+      }
+    });
+
+    const elements5 = document.querySelectorAll('.front-face span');
+    elements5.forEach((el5) => {
+      if (isReverse) {
+        el5.classList.add('reverse');
+      } else {
+        el5.classList.remove('reverse');
+      }
+    });
+  }, [isReverse]);
     return (
         <div>
             <div className="industriesServeMainWrapper webDev">
@@ -48,33 +107,73 @@ export default function CloudMigration() {
                 <div className="is-heading gradient-background"><h3>Migration Pathway</h3></div>
                 <div className="isContentTimeLine">
                     <div className="itemsWrapper">
-                        <div className="timeline">
-                            <div className='circle circle-top'></div>
-                            <div className="container left">
-                                <div className="timeline-content">
-                                    <h2>Assessment & Planning</h2>
-                                    <p>Conduct a thorough analysis of your current infrastructure and define migration objectives.</p>
+                        <div className='migrationPathWay'>
+                            <div class="migration-box gradient-background">
+                                <div class="top-face">
+                                    <div className='border-left w-[2px] absolute top-0 left-0 h-[100%]'></div>
+                                    <span>Provide post migration testing, validation,
+                                        optimization and ongoing support to maximize the benefits of your cloud
+                                        environment</span>
+                                    <div className='border-right w-[2px] absolute top-0 right-0 h-[100%]'></div>
                                 </div>
-                            </div>
-                            <div className="container right">
-                                <div className="timeline-content">
-                                    <h2>Architecture & Strategy</h2>
-                                    <p>Develop a customized cloud architecture that aligns with your business goals and compliance requirements.</p>
+                                <div class="front-face">
+                                    <div className='border-top h-[2px] absolute top-0 w-[100%]'></div>
+                                    <span>Optimization & Ongoing Support</span>
+                                    <div className='border-bottom absolute h-[2px] bottom-0 w-[100%]'></div>
                                 </div>
+                                <div class="left-face"></div>
+                                <div class="left-face2"></div>
+                                <div class="right-face"></div>
                             </div>
-                            <div className="container left">
-                                <div className="timeline-content">
-                                    <h2>Migration Execution</h2>
-                                    <p>Implement migration with minimal disruptions, ensuring data integrity and security.</p>
+                            <div class="migration-box2 gradient-background">
+                                <div class="top-face">
+                                    <div className='border-left w-[2px] absolute top-0 left-0 h-[100%]'></div>
+                                    <span>Implement migration with minimal disruptions, ensuring data
+                                        integrity and security</span>
+                                    <div className='border-right w-[2px] absolute top-0 right-0 h-[100%]'></div>
                                 </div>
-                            </div>
-                            <div className="container right last">
-                                <div className="timeline-content">
-                                    <h2>Optimization & Ongoing Support</h2>
-                                    <p>Provide post migration testing, validation, optimization and ongoing support to maximize the benefits of your cloud environment.</p>
+                                <div class="front-face">
+                                    <div className='border-top h-[2px] absolute top-0 w-[100%]'></div>
+                                    <span>Migration Execution</span>
+                                    <div className='border-bottom absolute h-[2px] bottom-0 w-[100%]'></div>
+
                                 </div>
+                                <div class="left-face"></div>
+                                <div class="left-face2"></div>
+                                <div class="right-face"></div>
                             </div>
-                            <div className='circle circle-bottom'></div>
+                            <div class="migration-box3 gradient-background">
+                                <div class="top-face">
+                                    <div className='border-left w-[2px] absolute top-0 left-0 h-[100%]'></div>
+                                    <span>Develop a customized cloud architecture that aligns with
+                                        your business goals and compliance requirements</span>
+                                    <div className='border-right w-[2px] absolute top-0 right-0 h-[100%]'></div>
+                                </div>
+                                <div class="front-face">
+                                    <div className='border-top h-[2px] absolute top-0 w-[100%]'></div>
+                                    <span>Architecture & Strategy</span>
+                                    <div className='border-bottom absolute h-[2px] bottom-0 w-[100%]'></div>
+                                </div>
+                                <div class="left-face"></div>
+                                <div class="left-face2"></div>
+                                <div class="right-face"></div>
+                            </div>
+                            <div class="migration-box4 gradient-background">
+                                <div class="top-face">
+                                    <div className='border-left w-[2px] absolute top-0 left-0 h-[100%]'></div>
+                                    <span>Conduct a thorough analysis of your current
+                                        infrastructure and define migration objectives</span>
+                                    <div className='border-right w-[2px] absolute top-0 right-0 h-[100%]'></div>
+                                </div>
+                                <div class="front-face">
+                                    <div className='border-top h-[2px] absolute top-0 w-[100%]'></div>
+                                    <span>Assessment & Planning</span>
+                                    <div className='border-bottom absolute h-[2px] bottom-0 w-[100%]'></div>
+                                </div>
+                                <div class="left-face"></div>
+                                <div class="left-face2"></div>
+                                <div class="right-face"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
