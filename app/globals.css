@@ -1964,7 +1964,6 @@ a.callUs {
   left: -1px;
   background: transparent;
   backdrop-filter: blur(15px);
-
 }
 
 .migration-box2 {
@@ -1997,7 +1996,7 @@ a.callUs {
   left: 50%;
   height: 100%;
   width: 0;
-  background-color: #FFBF00;
+  background-color: #ffbf00;
 
   transform: translateX(-50%);
   animation: fillBorder 5s ease forwards;
@@ -2034,7 +2033,7 @@ a.callUs {
   left: 0%;
   height: 0;
   width: 100%;
-  background-color: #FFBF00;
+  background-color: #ffbf00;
   /* transform: translateY(-0%); */
   animation: fillBorder2 3s ease forwards;
 }
@@ -2071,7 +2070,7 @@ a.callUs {
 .border-bottom.reverse,
 .border-right.reverse,
 .border-left.reverse {
-  background-color: #FFBF00 !important;
+  background-color: #ffbf00 !important;
 }
 
 .border-top.reverse::before,
@@ -2195,6 +2194,80 @@ a.callUs {
   }
   100% {
     color: white;
+  }
+}
+.circled {
+  position: relative;
+  .topRight::before {
+    position: absolute;
+    content: "";
+    background-image: url(/icons/topRight.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    bottom: 0;
+    left: -114px;
+  }
+  .topLeftText {
+  }
+  .topLeft::before {
+    position: absolute;
+    content: "";
+    background-image: url(/icons/topLeft.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    bottom: 0;
+    left: 114px;
+  }
+  .bottomLeft::before {
+    position: absolute;
+    content: "";
+    background-image: url(/icons/bottomLeft.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    top: 0;
+    left: 114px;
+  }
+  .bottomRight::before {
+    position: absolute;
+    content: "";
+    background-image: url(/icons/bottomRight.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 75%;
+    position: absolute;
+    top: 0;
+    left: -114px;
+  }
+  &::before {
+    content: "";
+    border: 1px solid #00ff38;
+    border-radius: 50%;
+    position: absolute;
+    left: 190px;
+    right: 0;
+    width: 480px;
+    height: 480px;
+    top: 24px;
+    animation: revealCircle 5s linear infinite forwards;
+  }
+}
 
+@keyframes revealCircle {
+  to {
+    transform: rotate(180deg);
   }
 }

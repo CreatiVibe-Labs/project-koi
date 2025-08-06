@@ -9,6 +9,8 @@ import Link from 'next/link';
 import Lottie from "lottie-react";
 import animationData from "../../../public/lottie/rising-chart.json";
 import WhyChooseUs2 from '@/components/WhyChooseUs2';
+import Circle from '@/components/Circle';
+
 
 export default function DigitalMarketingServices() {
     return (
@@ -75,7 +77,10 @@ export default function DigitalMarketingServices() {
                         <div className="is-heading gradient-background"><h3>Funnel-Based Solutions</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper justify-center">
-                                 <WhyChooseUs2 />
+                                <WhyChooseUs2 />
+                            </div>
+                            <div className="">
+                                <Circle />
                             </div>
                             <div className="itemsWrapper">
                                 <FeatureHighlights2
