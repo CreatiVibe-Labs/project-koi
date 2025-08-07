@@ -2212,7 +2212,12 @@ a.callUs {
     left: -114px;
   }
   .topLeftText {
+    transform: rotateZ(-64deg);
+    right: 47px;
+    font-size: 29px;
+    top: 138px;
   }
+
   .topLeft::before {
     position: absolute;
     content: "";
@@ -2225,6 +2230,12 @@ a.callUs {
     position: absolute;
     bottom: 0;
     left: 114px;
+  }
+  .topRightText {
+    right: 258px;
+    transform: rotateZ(64deg);
+    font-size: 29px;
+    top: 138px;
   }
   .bottomLeft::before {
     position: absolute;
@@ -2239,6 +2250,12 @@ a.callUs {
     top: 0;
     left: 114px;
   }
+  .bottomLeftText {
+    top: 70px;
+    right: 20px;
+    transform: rotateZ(-320deg);
+    font-size: 29px;
+  }
   .bottomRight::before {
     position: absolute;
     content: "";
@@ -2251,6 +2268,12 @@ a.callUs {
     position: absolute;
     top: 0;
     left: -114px;
+  }
+  .bottomRightText {
+    top: 65px;
+    right: 239px;
+    transform: rotateZ(-43deg);
+    font-size: 29px;
   }
   &::before {
     content: "";
@@ -2270,4 +2293,19 @@ a.callUs {
   to {
     transform: rotate(180deg);
   }
+}
+
+svg#id1 {
+  transform: rotate(50deg);
+  fill: #fff;
+}
+
+svg#id1 text {
+  text-anchor: middle;
+  font-size: 16px;
+  offset: 50%;
+  fill: #fff;
+}
+svg#id1 text textPath {
+  fill: #fff;
 }

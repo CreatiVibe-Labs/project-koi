@@ -22,6 +22,8 @@ export default function Circle() {
                         Ads<br />
                         SEO<br />
                     </span>
+                    <span className='text-[#46f3f0] absolute topRightText'>Awareness</span>
+
                 </div>
                 <div className="gradient-background py-10 md:py-20 px-5 rounded-2xl relative bottomLeft">
                     <span className="text-white font-bold text-2xl">
@@ -29,6 +31,8 @@ export default function Circle() {
                         CRM Sync<br />
                         Loyalty Programs<br />
                     </span>
+                    <span className='text-[#46f3f0] absolute bottomLeftText'>Conversion</span>
+
                 </div>
                 <div className="gradient-background py-10 md:py-20 px-5 rounded-2xl relative text-end bottomRight">
                     <span className="text-white font-bold text-2xl">
@@ -36,6 +40,8 @@ export default function Circle() {
                         Video<br />
                         Interactive Posts<br />
                     </span>
+                    <span className='text-[#46f3f0] absolute bottomRightText'>Engagement</span>
+
                 </div>
 
                 <div className='absolute start-[355px] top-[190px]'>
