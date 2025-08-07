@@ -75,10 +75,7 @@ export default function DigitalMarketingServices() {
                     </div>
                     <div className="industriesServeMainWrapper pieChart featuresHighlight cmsWork">
                         <div className="is-heading gradient-background"><h3>Funnel-Based Solutions</h3></div>
-                        <div className="isContent">
-                            <div className="itemsWrapper justify-center">
-                                <WhyChooseUs2 />
-                            </div>
+                        <div className="mt-5">
                             <div className="">
                                 <Circle />
                             </div>

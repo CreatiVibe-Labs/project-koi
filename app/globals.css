@@ -2309,3 +2309,102 @@ svg#id1 text {
 svg#id1 text textPath {
   fill: #fff;
 }
+
+.circlebox {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.svg {
+  transform: rotate(0deg);
+}
+
+svg text {
+  text-anchor: middle;
+  fill: black;
+  font-size: 16px;
+  offset: 50%;
+}
+
+.shape3 div {
+  position: relative;
+  top: 20%;
+  left: -13%;
+  transform: rotate(10deg);
+}
+
+.shape div {
+  font-weight: 600;
+}
+
+.shape1 div {
+  position: relative;
+  top: 40%;
+  left: -72%;
+  transform: rotate(102deg);
+}
+
+.shape4 div {
+  position: relative;
+  top: -39%;
+  left: -6%;
+  transform: rotate(172deg) rotateX(180deg);
+}
+
+.shape2 div {
+  position: relative;
+  left: -94%;
+  top: -40%;
+  transform: rotate(76deg) rotateX(180deg);
+}
+
+.roundSvg {
+  width: 106%;
+  height: 100%;
+  max-width: 106%;
+  max-height: 100%;
+  transform: rotate(-90deg); /* start from top */
+  top: 0px;
+  left: -14px;
+}
+
+.bg-circle {
+  stroke: rgb(118, 118, 118);
+  stroke-width: 1;
+  fill: none;
+}
+
+.progress-circle {
+  stroke: limegreen;
+  stroke-width: 1;
+  fill: none;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  animation: fillCircle 5s linear forwards;
+}
+
+.reverse .bg-circle {
+  stroke: limegreen;
+  stroke-width: 1;
+  fill: none;
+}
+
+.reverse .progress-circle {
+  fill: none;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  animation: fillCircle2 5s linear forwards;
+  stroke: rgb(118, 118, 118);
+  stroke-width: 1;
+}
+
+@keyframes fillCircle {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillCircle2 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
