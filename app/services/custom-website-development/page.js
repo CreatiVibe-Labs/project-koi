@@ -18,14 +18,14 @@ export default function CustomWebsiteDevelopment() {
                         <div className="is-heading gradient-background"><h3>Custom Websites That Do More Than Look Good</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
-                                <p>
+                                <p className='!font-medium'>
                                     Your website is more than a digital brochure – it’s your band’s first impression, your
                                     24/7 sales team, and a key driver of trust. We build responsive high-performance
                                     websites that are optimized for search engines and crafted to convert visitors into
                                     customers.
                                 </p>
                                 <br />
-                                <p>
+                                <p className='!font-medium'>
                                     Whether you're launching a product, building a brand presence, or scaling your
                                     business online, we deliver web experiences that blend design excellence with
                                     technical precision.
@@ -147,7 +147,7 @@ export default function CustomWebsiteDevelopment() {
                     <div className="industriesServeMainWrapper letsBuildToghether">
                         <div className="is-heading gradient-background"><h3>Your Project Start Here</h3></div>
                         <div className="isContent">
-                            <p className="content">
+                            <p className="content !font-medium">
                                 Whether you're starting from scratch or rebuilding with purpose, we’ll help you create a site that not only looks great — it performs where it counts.
                             </p>
                             <div className="buttons-wrapper">

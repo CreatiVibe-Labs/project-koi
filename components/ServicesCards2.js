@@ -9,9 +9,10 @@ export default function ServicesCards({
   link,
   heading,
   description,
+  CustomClass,
 }) {
   return (
-    <div className="aboutCoreval p-4 border rounded-md shadow-sm service-card-wrap">
+    <div className={`aboutCoreval p-4 border rounded-md shadow-sm service-card-wrap ${CustomClass}`}>
       <div className="flex items-center justify-center">
         {imageUrl && <Image
           src={imageUrl}

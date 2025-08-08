@@ -1,28 +1,46 @@
+"use client";
+
 import Image from "next/image";
 import Link from 'next/link';
 import MainServicesCard from '@/components/services/MainServicesCard';
 import WhyChooseUsCard from '@/components/whyChooseUsCard';
 import FeatureHighlights2 from '@/components/FeatureHighlights2';
 import WhyChooseUs from "@/components/WhyChooseUs";
+import { useEffect } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export default function Services() {
+
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    useEffect(() => {
+        const hash = window.location.hash.replace("#", "");
+        if (hash) {
+            const el = document.getElementById(hash);
+            if (el) {
+                setTimeout(() => {
+                    el.scrollIntoView({ behavior: "smooth", block: "center" });
+                }, 100);
+            }
+        }
+    }, [pathname, searchParams]);
     return (
         <>
             <div className="service-hero-section">
                 <div className="content-section">
                     <h1>Bridging Today’s Needs with Tomorrow’s Tech</h1>
-                    <p>We design and build custom digital tools that align with your exact needs — from secure cloud migrations to purpose-built applications</p>
-                    <span className="2text-content">
+                    <p className="!font-medium !mt-8">We design and build custom digital tools that align with your exact needs — from secure cloud migrations to purpose-built applications</p>
+                    <span className="2text-content !mt-6">
                         <p className="white-text">
-                            <Image alt="image" src="/images/line2.png" width={20} height={10}></Image>
+                            <Image alt="image" src="/icons/tick.png" width={20} height={10}></Image>
                             SMEs friendly
                         </p>
                         <p className="white-text">
-                            <Image alt="image" src="/images/line2.png" width={20} height={10}></Image>
+                            <Image alt="image" src="/icons/tick.png" width={60} height={60}></Image>
                             Cost efficient
                         </p>
                     </span>
-                    <div className="buttons-wrapper">
+                    <div className="buttons-wrapper !mt-9">
                         <Link href="#">Talk to a Solutions Expert</Link>
                     </div>
                 </div>
@@ -83,8 +101,8 @@ export default function Services() {
                 </div>
             </div>
 
-            <div className="whyCHooseUsWrapper">
-                <div className="whyChooseUsHeading gradient-background"><h2>How Its Work?</h2></div>
+            <div className="whyCHooseUsWrapper" id="how-it-works">
+                <div className="whyChooseUsHeading gradient-background"><h2>How It Works</h2></div>
                 {/* <div className="whyChooseUsCardContents">
                     <p className="wcu-heading">
                         <span className="heading-1 block mb-2">Smart IT Solutions with Real Business Benefits</span>

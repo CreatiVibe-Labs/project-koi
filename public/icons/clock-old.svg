@@ -1,10 +1,10 @@
 <svg width="200" height="200" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <!-- Clock Background -->
-  <circle cx="50" cy="50" r="48" fill="transparent" stroke="#fff" stroke-width="3"/>
+  <circle cx="50" cy="50" r="48" fill="#fff" fill-opacity="0" stroke="#333" stroke-width="3"/>
 
   <!-- Hour Hand -->
   <line x1="50" y1="50" x2="50" y2="30" 
-        stroke="#fff" stroke-width="4" stroke-linecap="round"
+        stroke="#000" stroke-width="4" stroke-linecap="round"
         stroke-dasharray="1,1">
     <animateTransform attributeName="transform"
                       attributeType="XML"
@@ -18,7 +18,7 @@
 
   <!-- Minute Hand -->
   <line x1="50" y1="50" x2="50" y2="20" 
-        stroke="#fff" stroke-width="2.5" stroke-linecap="round"
+        stroke="#555" stroke-width="2.5" stroke-linecap="round"
         stroke-dasharray="1.5,1.5">
     <animateTransform attributeName="transform"
                       attributeType="XML"
@@ -31,5 +31,5 @@
   </line>
 
   <!-- Center Pin -->
-  <circle cx="50" cy="50" r="2.5" fill="#fff"/>
+  <circle cx="50" cy="50" r="2.5" fill="#000"/>
 </svg>

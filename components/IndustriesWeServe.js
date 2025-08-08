@@ -64,7 +64,7 @@ export default function IndustriesWeServe({ }) {
                             height={47}
                         />
                     </div>
-                    <p>{item.text}</p>
+                    <p className='!font-medium'>{item.text}</p>
                 </li>
             ))}
         </ul>

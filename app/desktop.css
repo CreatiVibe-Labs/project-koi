@@ -527,7 +527,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endC
 .clock::before {
   content: "";
   z-index: 999;
-  opacity: 0.3;
+  opacity: 0.5;
   background-image: url(/icons/clock.svg);
   background-position: center;
   background-repeat: no-repeat;

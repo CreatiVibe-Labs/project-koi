@@ -36,7 +36,7 @@ export default function managedItServices() {
                         <div className="is-heading gradient-background"><h3>Reliable IT, Strategic Insight — Without the Overhead</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
-                                <p>
+                                <p className='!font-medium'>
                                     We help businesses stay focused on what they do best by taking care of their
                                     technology — from hands-on support to long-term planning. Whether you need a
                                     full-service IT partner or expert guidance for a specific challenge, we’re here to keep
@@ -137,7 +137,7 @@ export default function managedItServices() {
                             <h4 className='font-bold text-[26px]'>Flexible Plans That Fit Your Business — Let’s Make IT Your Advantage</h4>
                         </div>
                         <div className="isContent">
-                            <p className="content">
+                            <p className="content !font-medium">
                                 Choose a plan or customize your own. Pay only for what you need
                             </p>
                             <div className="buttons-wrapper">

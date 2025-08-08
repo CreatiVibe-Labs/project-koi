@@ -9,7 +9,7 @@ export default function CloudStorage() {
                 <div className="is-heading gradient-background"><h3>Introduction</h3></div>
                 <div className="isContent">
                     <div className="itemsWrapper">
-                        <p>
+                        <p className='!font-medium'>
                             As part of your cloud migration, we help you implement storage infrastructure that grows with your data – without locking you into one platform or paying for what you don’t use
                             <br />
                             <br />
@@ -19,11 +19,11 @@ export default function CloudStorage() {
                             Storage Providers:
                         </p>
                         <ul className='justify-center'>
-                            <li>Amazon S3</li>
-                            <li>Azure Blob Storage</li>
-                            <li>Google Cloud Storage</li>
-                            <li>Backblaze B2</li>
-                            <li>Wasabi</li>
+                            <li className='!font-medium'>Amazon S3</li>
+                            <li className='!font-medium'>Azure Blob Storage</li>
+                            <li className='!font-medium'>Google Cloud Storage</li>
+                            <li className='!font-medium'>Backblaze B2</li>
+                            <li className='!font-medium'>Wasabi</li>
                         </ul>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ export default function CloudStorage() {
                 <div className="whyChooseUsCardContents">
                     <div className='itemsWrapper'>
                         <p className="wcu-heading"><span className="heading-1">Sensitive Data? We provide Privacy-Driven Cloud Storage.</span></p><br /><br />
-                        <p>
+                        <p className='!font-medium'>
                             We understand that in industries like healthcare, finance, and legal
                             services, privacy isn’t optional — it’s a legal and ethical obligation. That’s
                             why our cloud migration and storage solutions are designed from the ground

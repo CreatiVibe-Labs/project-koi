@@ -11,11 +11,11 @@ export default function Home() {
       <div className="hero-section homeBanner">
         <div className="content-section border-[1px] border-[#ffffff66] gradient-background">
           <h1>IT Solutions Tailored to Your Business</h1>
-          <p>From day-to-day support to long term strategy, we deliver cost efficient, flexible IT services designed to match your goals and specific way of working</p>
+          <p className="!font-medium">From day-to-day support to long term strategy, we deliver cost efficient, flexible IT services designed to match your goals and specific way of working</p>
           <div className="buttons-wrapper">
-            <Link className="callUs" href="#">Call us</Link>
-            <Link href="#" className="border-[1px] border-[#39ff14]">Check Services</Link>
-            <Link href="#">Try Demo</Link>
+            <Link className="callUs" href="tel:+81788552760">Call us</Link>
+            <Link href="/services" className="border-[1px] border-[#39ff14]">Check Services</Link>
+            <Link href="/demo">Try Demo</Link>
           </div>
         </div>
         <div className="image-section">
@@ -75,7 +75,7 @@ export default function Home() {
         <div className="whyChooseUsCardContents">
           <p className="wcu-heading">
             <span className="heading-1 block mb-2">Smart IT Solutions with Real Business Benefits</span>
-            <span className="heading-2">We don’t just provide services – we deliver results. Here’s what you can expect when you partner with us.</span></p>
+            <span className="heading-2 !font-medium">We don’t just provide services – we deliver results. Here’s what you can expect when you partner with us.</span></p>
           <div className="cardWrappers">
             <WhyChooseUsCard
               imageUrl="/images/landing_performance.jpg"
@@ -110,8 +110,8 @@ export default function Home() {
         <div className="isContent">
           <IndustriesWeServe />
           <div className="buttons-wrapper">
-            <Link href="#">See Case Studies</Link>
-            <Link href="#">Explore How It Works</Link>
+            <Link href="/resources">See Case Studies</Link>
+            <Link href="/services#how-it-works">Explore How It Works</Link>
           </div>
         </div>
       </div>
@@ -120,7 +120,7 @@ export default function Home() {
         <div className="st-heading gradient-background"><h2>Still Thinking?</h2></div>
         <div className="stContent">
           <p className="heading-1 mb-4">No problem! Explore our <Link href="#" className="link-text">Interactive Demo</Link></p>
-          <p className="content">
+          <p className="content !font-medium">
             Dive into real scenarios and see firsthand how our IT solutions work for your business. Whether you're testing cloud integration, exploring security features, or just curious, it's an easy and fun way to get familiar with what we offer—no commitment, just exploration.
           </p>
           <div className="buttons-wrapper">

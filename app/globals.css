@@ -28,8 +28,9 @@ body {
   --color-second: #0bec7c22;
 
   /* --border-color: rgba(255, 255, 255, 0.488); */
-  --border-color: rgba(255, 255, 255, 1);
-  --border-width: 2px;
+  --border-color: rgb(110, 110, 110);
+  --border-width: 3px;
+  
 }
 @theme inline {
   --color-background: var(--background);
@@ -409,8 +410,9 @@ a {
   padding: 15px 0px;
 }
 
+
 .logoWrapper {
-  width: 18%;
+  width: 30%;
 }
 
 .logoWrapper img {
@@ -428,11 +430,12 @@ a {
 }
 
 .searchLangWrapper {
-  width: 14%;
+  width: 6%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
+
 
 .searchWrapper {
   display: flex;
@@ -467,7 +470,7 @@ a {
 }
 
 .menuWrapper {
-  width: 68%;
+  width: 90%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -528,7 +531,6 @@ a {
   width: 80%;
   display: flex;
   flex-direction: column;
-  gap: 35px;
 }
 
 .footerWrapper .section2 {
@@ -1427,7 +1429,7 @@ p.green-text {
   color: #39ff14;
 }
 span.\32 text-content img {
-  width: 20px;
+  width: 35px;
 }
 
 /* Services Page CSS End */
@@ -1516,7 +1518,7 @@ h1.main-heading {
 }
 
 .coreValues .service-card-wrap {
-  width: 24.2%;
+  width: 29%;
   margin-top: 0;
   text-align: center;
 }
@@ -1555,7 +1557,7 @@ h1.main-heading {
 
 .review-container {
   position: relative;
-  height: 130px;
+  height: 150px;
   width: 100%;
   margin: auto;
   text-align: center;
@@ -1787,7 +1789,8 @@ p.location {
   font-size: 20px !important;
 }
 .missionVission .coreValues {
-  margin-top: -30px;
+  margin-top: -14px;
+
 }
 
 /* .svgGraph .flowGroup:hover .flowBg {
@@ -1967,12 +1970,12 @@ a.callUs {
 }
 
 .migration-box2 {
-  top: 16%;
+  top: 16.02%;
   left: 9.8%;
 }
 
 .migration-box3 {
-  top: 32%;
+  top: 32.010%;
   left: 19.7%;
 }
 
@@ -2407,4 +2410,19 @@ svg text {
   to {
     stroke-dashoffset: 0;
   }
+}
+
+
+.logoWrapper a {
+  max-width: 240px;
+}
+
+
+select {
+    background: url("data:image/svg+xml,<svg height='15px' width='15px' viewBox='0 0 16 16' fill='%23ffffff' xmlns='http://www.w3.org/2000/svg'><path d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/></svg>") no-repeat;
+    background-position: calc(100% - 0.75rem) center !important;
+    -moz-appearance:none !important;
+    -webkit-appearance: none !important; 
+    appearance: none !important;
+    padding-right: 2rem !important;
 }

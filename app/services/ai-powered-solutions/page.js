@@ -18,11 +18,11 @@ export default function AiPoweredSolutions() {
                         <div className="is-heading gradient-background"><h3>Reimagine What’s Possible with AI</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
-                                <p>
+                                <p className='!font-medium'>
                                     From automation to advanced insights, we design custom AI solutions that solve real-world problems — powered by machine learning, computer vision, and natural language understanding.
                                 </p>
                                 <br />
-                                <p>
+                                <p className='!font-medium'>
                                     We help you unlock the true value of your data with AI solutions that go beyond automation — delivering real-time insights, scalable decision-making, and intelligent tools that grow with your business. From predictive analytics to natural language processing, we custom-build AI that solves your specific challenges
                                 </p>
                                 {/* <Image src="/images/web-dev-image1.png" width={6000} height={6000}/> */}
@@ -83,7 +83,7 @@ export default function AiPoweredSolutions() {
                     <div className="industriesServeMainWrapper ai-cta letsBuildToghether featuresHighlight cmsWork">
                         <div className="is-heading gradient-background"><h3>Bring AI to Your Business — On Your Terms</h3></div>
                         <div className="isContent">
-                            <p className="content">
+                            <p className="content !font-medium">
                                 Whether you’re just starting with AI or ready to scale a solution, we design around your data, goals, and industry.
                             </p>
 

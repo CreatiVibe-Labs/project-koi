@@ -25,12 +25,12 @@ export default function DigitalMarketingServices() {
                         <div className="is-heading gradient-background"><h3>Marketing That Moves the Needle</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
-                                <p>
+                                <p className='!font-medium'>
                                     Data-driven digital strategies that turn browsers into buyers, clicks into conversions,
                                     and awareness into measurable ROI (Return On Investment)
                                 </p>
                                 <br />
-                                <p>
+                                <p className='!font-medium'>
                                     We help businesses attract the right audience, convert more leads, and grow
                                     revenue through strategic, data-driven digital marketing. Whether you're launching a
                                     product, scaling a brand, or fixing underperforming campaigns — we’re your growth
@@ -126,7 +126,7 @@ export default function DigitalMarketingServices() {
                     <div className="industriesServeMainWrapper letsBuildToghether">
                         <div className="is-heading gradient-background"><h3>Let’s Build a Digital Marketing Strategy That Works</h3></div>
                         <div className="isContent">
-                            <p className="content">
+                            <p className="content !font-medium">
                                 We’ll help you generate qualified leads, boost your brand, and track every click.
                                 Whether you need a full-service marketing team or campaign-specific support, we’ll
                                 craft a strategy built around results.

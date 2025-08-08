@@ -62,40 +62,43 @@ export default function AboutUs() {
             <div className="whyCHooseUsWrapper coreValues">
                 <div className="whyChooseUsHeading gradient-background"><h2>Core Values</h2></div>
                 <div className="whyChooseUsCardContentss">
-                    <div className="cardWrappers justify-between mt-4 ">
+                    <div className="cardWrappers !gap-0 !flex-nowrap justify-between mt-4  !rounded-[30px]">
                         <ServicesCards2
                             imageUrl="/icons/coreValue-4.png"
                             heading="Innovation"
                             description="Think smart, Act fast."
+                            CustomClass='mr-[-12px] gradient-background !backdrop-blur-none !rounded-[30px]'
                         />
                         <ServicesCards2
                             imageUrl="/icons/coreValue-3.png"
-
                             heading="Effectiveness"
                             description="Make it work, Make it count."
+                            CustomClass='mr-[-12px] gradient-background !backdrop-blur-none !rounded-[30px]'
                         />
                         <ServicesCards2
                             imageUrl="/icons/coreValue-2.png"
 
                             heading="Collaboration"
                             description="Together, we grow."
+                            CustomClass='mr-[-12px] gradient-background !backdrop-blur-none !rounded-[30px]'
                         />
                         <ServicesCards2
                             imageUrl="/icons/coreValue-1.png"
 
                             heading="Integrity"
                             description="We do what's right."
+                            CustomClass="gradient-background !backdrop-blur-none !rounded-[30px]"
                         />
                     </div>
                 </div>
             </div>
 
-            <div className="missionVission">
-                <div className="whyCHooseUsWrapper coreValues">
+            <div className="missionVission !gap-0">
+                <div className="whyCHooseUsWrapper coreValues !w-[51%] mr-[-12px] ">
                     {/* <div className="whyChooseUsHeading gradient-background"><h2>Mission</h2></div> */}
-                    <div className="whyChooseUsCardContents">
+                    <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none  !rounded-[30px]">
                         <div className="cardWrappers">
-                            <p>
+                            <p className="!font-medium pl-5">
                                 We’re on a <b className="bold-text">mission</b> to reshape the way people interact with technology. By
                                 combining cutting-edge innovation with user-centered design, we build
                                 products that simplify, connect, and empower — making life and work
@@ -104,11 +107,11 @@ export default function AboutUs() {
                         </div>
                     </div>
                 </div>
-                <div className="whyCHooseUsWrapper coreValues">
+                <div className="whyCHooseUsWrapper coreValues !w-[51%]">
                     {/* <div className="whyChooseUsHeading gradient-background"><h2>Vision</h2></div> */}
-                    <div className="whyChooseUsCardContents">
+                    <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none !pl-[30px]  !rounded-[30px]">
                         <div className="cardWrappers">
-                            <p>
+                            <p className="!font-medium pl-1">
                                 We en<b className="bold-text">vision</b> a world where technology enhances every human experience
                                 — seamless, intuitive, and inclusive. Our goal is to pioneer bold ideas that
                                 shape the future and empower people to thrive in a connected world.
@@ -214,7 +217,7 @@ export default function AboutUs() {
                         Passionate people, bold ideas
                     </p>
                     <div className="buttons-wrapper">
-                        <Link href="#">Contact Our Team</Link>
+                        <Link href="mailto:inquiry@aerialink.jp">Contact Our Team</Link>
                     </div>
                 </div>
             </div>

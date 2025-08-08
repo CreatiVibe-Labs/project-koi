@@ -10,31 +10,37 @@ export default function Footer() {
     return (
         <div className='footer border-t-[1px] border-b-[#ffffff66] left-gradient-background'>
             <div className='footerWrapper'>
-                <div className='section1'>
+                <div className='section1 gap-4'>
                     <div className='logoWrapper'>
                         <Link href='#' className='flex gap-2 items-center font-semibold text-4xl'><Image src="/images/logo.png" width={100} height={10} alt="Logo" />Aerialink</Link>
                     </div>
                     <div className='contentWrapper'>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.
-                        </p>
+                        <span className='font-semibold mt-[-2%] text-2xl'>
+                            Empowering Your Digital Future
+                        </span>
                     </div>
-                    <div className='contactWrapper'>
-                        <Link href="#">
-                            <div className='sales'>
-                                <Image src="/icons/email.png" width={17} height={14} alt='image icon' />
-                                <p className='email'>Sales<span className='neon-green'>:</span> sales@xyzstudio.com</p>
-                            </div>
-                        </Link>
-                        <Link href="#">
-                            <div className='support'>
-                                <Image src="/icons/email.png" width={17} height={14} alt='image icon' />
-                                <p className='email'>Supports<span className='neon-green'>:</span> suports@xyzstudio.com</p>
-                            </div>
-                        </Link>
+                    <div className='footerContactWrapper w-[45%] flex flex-col gap-8'>
+                        <div className='wrp flex items-center gap-6'>
+                            <Image src='/icons/phone.png' width={25} height={25} alt='phone' className='brightness-2000' />
+                            <Link className='w-auto !text-left font-semibold text-xl' href="tel:+81788552760">+81 78 855 2760</Link>
+                        </div>
+                        <div className='wrp flex items-center gap-6'>
+                            <Image src='/icons/address.png' width={25} height={25} alt='phone' className='brightness-2000' />
+                            <Link className='w-auto !text-left font-semibold text-xl' href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A">
+                                6E-02, 6-9 Koyocho-naka, Higashinada-ku, Kobe Hyogo, 658-0032 Japan
+                            </Link>
+                        </div>
+                        <div className='wrp flex items-center gap-5'>
+                            <Image src='/icons/clock.png' width={30} height={30} alt='phone' className='brightness-2000' />
+                            <span className='w-auto !text-left font-semibold text-xl' href="tel:+81788552760">Mon - Fri, 9:00am - 6:00pm</span>
+                        </div>
+                        <div className='wrp flex items-center gap-6'>
+                            <Image src='/icons/mail.png' width={25} height={25} alt='phone' className='brightness-2000' />
+                            <Link className='w-auto !text-left font-semibold text-xl' href="mailto:inquiry@aerialink.jp">inquiry@aerialink.jp</Link>
+                        </div>
                     </div>
                 </div>
-                <div className='section2'>
+                <div className='section2 !w-[27%]'>
                     <div className='mobileMenuWrapper'>
                         <div className='mobileLinks'>
                             {footerLinks1.map((link) => (
@@ -55,17 +61,17 @@ export default function Footer() {
                         <p>Follow <span className='neon-green'>Us</span></p>
                         <div className='icons'>
                             <Link href="#">
-                                <Image src="/icons/linkin.png" width={1000} height={1000} className='w-[40px]' alt='fb icon' />
+                                <Image src="/icons/linkin.png" width={1000} height={1000} className='w-[40px]' alt='linkedin icon' />
                             </Link>
                             <Link href="#">
-                                <Image src="/icons/yt.png" width={1000} height={1000} className='w-[40px]' alt='insta icon' />
+                                <Image src="/icons/x.png" width={1000} height={1000} className='w-[30px]' alt='twitter icon' />
                             </Link>
                             <Link href="#">
-                                <Image src="/icons/x.png" width={1000} height={1000} className='w-[40px]' alt='twitter icon' />
+                                <Image src="/icons/yt.png" width={1000} height={1000} className='w-[40px]' alt='yt icon' />
                             </Link>
                         </div>
                     </div>
-                        <p className='neon-green font-semibold'>© Aerialink Inc. 2025 </p>
+                    <p className='neon-green font-semibold'>© Aerialink Inc. 2025. All rights reserved. </p>
                 </div>
             </div>
         </div>

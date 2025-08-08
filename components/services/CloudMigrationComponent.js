@@ -69,7 +69,7 @@ export default function CloudMigration() {
                 <div className="is-heading gradient-background"><h3>Cloud Migration Made Simple, Secure, and Scalable</h3></div>
                 <div className="isContent">
                     <div className="itemsWrapper">
-                        <p>
+                        <p className='!font-medium'>
                             We help businesses move to the cloud with confidence – minimizing disruption while maximizing long-term value.
                         </p>
                         <Image src="/images/cloud-image1.png" width={6000} height={6000} alt="cloud image" />
@@ -183,10 +183,10 @@ export default function CloudMigration() {
                 <div className="">
                     <div className="itemsWrapper1 itemsWrapper">
                         <ul>
-                            <li>Legacy System Modernization</li>
-                            <li>On-Prem to Cloud Infrastructure</li>
-                            <li>Cloud-to-Cloud Migrations</li>
-                            <li>Hybrid Cloud Solutions</li>
+                            <li className='!font-medium'>Legacy System Modernization</li>
+                            <li className='!font-medium'>On-Prem to Cloud Infrastructure</li>
+                            <li className='!font-medium'>Cloud-to-Cloud Migrations</li>
+                            <li className='!font-medium'>Hybrid Cloud Solutions</li>
                         </ul>
                     </div>
                     <div className="itemsWrapper">
@@ -225,7 +225,7 @@ export default function CloudMigration() {
             </div>
             <div className="industriesServeMainWrapper letsBuildToghether">
                 <div className="isContent">
-                    <p className="content">
+                    <p className="content !font-medium">
                         Contact us to schedule a consultation and begin your cloud migration journey.
                     </p>
                     <div className="buttons-wrapper">

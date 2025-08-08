@@ -22,16 +22,14 @@ export const navLinks = [
 
 export const footerLinks1 = [
   { name: 'Home', href: '/' },
-  { name: 'Demo', href: '/demo' },
-  { name: 'Services', href: '/services' },
-  { name: 'Products', href: '/products' },
+  { name: 'Resources', href: '/resources' },
+  { name: 'About Us', href: '/about-us' },
 ];
 
 export const footerLinks2 = [
-  { name: 'Blogs', href: '/blogs' },
-  { name: 'About Us', href: '/about-us' },
-  { name: 'Contact Us', href: '/contact-us' },
-  { name: 'FAQs', href: '/faqs' },
+  { name: 'Services', href: '/services' },
+  { name: 'Demo', href: '/demo' },
+  { name: 'Contact', href: '/contact-us' },
 ];
 
 export const SideBarLinks = [

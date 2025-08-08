@@ -20,7 +20,7 @@ export default function CustomAppDevelopment() {
                         <div className="is-heading gradient-background"><h3>Tailored Solutions That Work the Way You Do</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
-                                <p>
+                                <p className='!font-medium'>
                                     From ideas to deployment, we design and build high-performance web, mobile,
                                     and desktop applications that fit your business—no bloat, no guesswork.
                                     Whether you’re automating workflows, launching a customer-facing app, or
@@ -70,7 +70,7 @@ export default function CustomAppDevelopment() {
                     <div className="industriesServeMainWrapper letsBuildToghether">
                         <div className="is-heading gradient-background"><h3>Let’s Build Yours</h3></div>
                         <div className="isContent">
-                            <p className="content">
+                            <p className="content !font-medium">
                                 Whether you need an internal tool, a customer portal, or a full-scale SaaS platform, we’re here to turn your ideas into powerful, working software.
                             </p>
                             <div className="buttons-wrapper">
