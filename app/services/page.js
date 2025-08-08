@@ -8,6 +8,7 @@ import FeatureHighlights2 from '@/components/FeatureHighlights2';
 import WhyChooseUs from "@/components/WhyChooseUs";
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import HowItWorks from "@/components/HowItWorks";
 
 export default function Services() {
 
@@ -131,8 +132,11 @@ export default function Services() {
                         />
                     </div>
                 </div> */}
-                <div className="whyChooseUsCardContents items-center justify-center relative serviceWhy">
+                {/* <div className="whyChooseUsCardContents items-center justify-center relative serviceWhy">
                     <WhyChooseUs />
+                </div> */}
+                <div className="whyChooseUsCardContents howItWorksWrapper items-center justify-center relative serviceWhy">
+                    <HowItWorks />
                 </div>
             </div>
 

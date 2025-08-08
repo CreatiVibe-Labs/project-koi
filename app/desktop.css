@@ -341,13 +341,15 @@ ul.parent::before {
   height: 120px;
 }
 
-.step h6 {
+.step h6,
+.textStep h6 {
   color: #39ff14;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: bold;
 }
-.step p {
-  font-size: 14px !important;
+.step p,
+.textStep p {
+  font-size: 18px !important;
   font-weight: 500;
 }
 
@@ -485,18 +487,18 @@ background: -webkit-linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 22
 background: -moz-linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 223, 181, 1) 100%);
 background: linear-gradient(0deg, rgba(100, 156, 80, 1) 0%, rgba(192, 223, 181, 1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endColorstr="#C0DFB5", GradientType=0); */
-  /* background-image: url(/images/contact.png);
+/* background-image: url(/images/contact.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
   position: relative; */
-  /* z-index: 999;
+/* z-index: 999;
   background-position-y: bottom;
 } */
 
 .contactBg {
   overflow: hidden;
-} 
+}
 
 .contactBg::before {
   position: absolute;
@@ -544,4 +546,64 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endC
 
 .custom-shaodw {
   text-shadow: 2px 2px 10px black;
+}
+.howItWorksWrapper {
+  margin-top: 10rem;
+}
+.howItWorksText {
+  position: relative;
+}
+
+.howItWorksText .textStep {
+  position: absolute;
+  padding: 1rem 3rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1;
+  width: 700px;
+  height: 240px;
+}
+.textStep1 {
+  background-image: url(/images/1.svg);
+  bottom: 445px;
+  left: 4px;
+  padding: 70px 0px 0 240px !important;
+}
+.textStep2 {
+  background-image: url(/images/2.svg);
+  width: 440px !important;
+  height: 280px !important;
+  bottom: 155px !important;
+  left: 260px;
+  padding: 90px 0 0 70px !important;
+}
+.textStep3 {
+  background-image: url(/images/3.svg);
+  height: 230px !important;
+  left: -3px !important;
+  bottom: -84px !important;
+  padding: 70px 0 0 250px !important;
+}
+.textStep4 {
+  background-image: url(/images/4.svg);
+  height: 230px !important;
+  bottom: -84px !important;
+  left: -697px !important;
+  padding: 70px 0 0 200px !important;
+}
+.textStep5 {
+  background-image: url(/images/5.svg);
+  width: 440px !important;
+  height: 280px !important;
+  bottom: 155px !important;
+  left: -702px;
+  padding: 100px 0 0 160px !important;
+}
+.textStep6 {
+  background-image: url(/images/6.svg);
+  left: -695px;
+  bottom: 451px !important;
+  height: 228px !important;
+  padding: 70px 0 0 200px !important;
 }
