@@ -7,13 +7,13 @@ import WhyChooseUsCard from '@/components/whyChooseUsCard';
 import FeatureHighlights2 from '@/components/FeatureHighlights2';
 import WhyChooseUs from "@/components/WhyChooseUs";
 import { useEffect } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import HowItWorks from "@/components/HowItWorks";
 
 export default function Services() {
 
     const pathname = usePathname();
-    const searchParams = useSearchParams();
+    
     useEffect(() => {
         const hash = window.location.hash.replace("#", "");
         if (hash) {
@@ -24,7 +24,7 @@ export default function Services() {
                 }, 100);
             }
         }
-    }, [pathname, searchParams]);
+    }, []);
     return (
         <>
             <div className="service-hero-section">
