@@ -566,44 +566,43 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endC
 }
 .textStep1 {
   background-image: url(/images/1.svg);
-  bottom: 445px;
-  left: 4px;
+  bottom: 455px;
+  left: 7px;
   padding: 70px 0px 0 240px !important;
 }
 .textStep2 {
   background-image: url(/images/2.svg);
   width: 440px !important;
   height: 280px !important;
-  bottom: 155px !important;
-  left: 260px;
+  bottom: 157px !important;
+  left: 272px;
   padding: 90px 0 0 70px !important;
 }
 .textStep3 {
   background-image: url(/images/3.svg);
-  height: 230px !important;
-  left: -3px !important;
-  bottom: -84px !important;
+  /* height: 230px !important; */
+  left: 7px !important;
+  bottom: -96px !important;
   padding: 70px 0 0 250px !important;
 }
 .textStep4 {
   background-image: url(/images/4.svg);
-  height: 230px !important;
-  bottom: -84px !important;
-  left: -697px !important;
+  /* height: 230px !important; */
+  bottom: -100px !important;
+  left: -707px !important;
   padding: 70px 0 0 200px !important;
 }
 .textStep5 {
   background-image: url(/images/5.svg);
   width: 440px !important;
   height: 280px !important;
-  bottom: 155px !important;
-  left: -702px;
+  bottom: 157px !important;
+  left: -714px;
   padding: 100px 0 0 160px !important;
 }
 .textStep6 {
   background-image: url(/images/6.svg);
-  left: -695px;
-  bottom: 451px !important;
-  height: 228px !important;
+  left: -707px;
+  bottom: 455px !important;
   padding: 70px 0 0 200px !important;
 }
