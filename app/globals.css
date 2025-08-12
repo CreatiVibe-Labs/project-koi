@@ -3,22 +3,18 @@
 @font-face {
   font-family: "Digital-7 Mono";
   src: url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.eot");
-  src: url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.eot?#iefix")
-      format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.woff2")
-      format("woff2"),
-    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.svg#Digital-7 Mono")
-      format("svg");
+  src: url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/d67b65a301477f1b102f7b46473f976e.svg#Digital-7 Mono") format("svg");
 }
 
 html,
 body {
   overflow-x: hidden;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -31,6 +27,7 @@ body {
   --border-color: rgb(110, 110, 110);
   --border-width: 2px;
 }
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -97,12 +94,14 @@ body {
 }
 
 .gradient-background {
-  background-color: #ff000000; /* For browsers that do not support gradients */
+  background-color: #ff000000;
+  /* For browsers that do not support gradients */
   background-image: linear-gradient(#ffffff3d, #9999990a);
 }
 
 .left-gradient-background {
-  background-color: #ff000000; /* For browsers that do not support gradients */
+  background-color: #ff000000;
+  /* For browsers that do not support gradients */
   background-image: linear-gradient(to right, #ffffff3d, #9999990a);
 }
 
@@ -162,13 +161,14 @@ body {
 }
 
 .ServicesCardsContent {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   flex-wrap: wrap;
   gap: 2%;
 }
 
 .ServicesCardsContent .service-card-wrap {
-  width: 32%;
+  width: 100%;
   border-radius: 16px;
   border: 1px solid #ffffff66;
   backdrop-filter: blur(15px);
@@ -246,8 +246,8 @@ span.buttonText {
 }
 
 .cardWrappers {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2%;
 }
 
@@ -256,7 +256,7 @@ span.buttonText {
 }
 
 .cardWrappers .service-card-wrap {
-  width: 32%;
+  width: 100%;
   border-radius: 16px;
   border: 1px solid #ffffff66;
   backdrop-filter: blur(15px);
@@ -453,6 +453,7 @@ a {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
     1px 1px 0 #000;
 }
+
 .searchWrapper input::placeholder {
   opacity: 1 !important;
   color: white;
@@ -630,6 +631,7 @@ a {
 .itemsWrapper1 ul li:hover {
   transform: scale(1.02);
 }
+
 /* 
 .arrow path {
   opacity: 0;
@@ -650,7 +652,8 @@ a {
 
 .arrow {
   position: relative;
-  width: 100px; /* Adjust to match image size */
+  width: 100px;
+  /* Adjust to match image size */
   height: auto;
   display: flex;
 }
@@ -671,9 +674,11 @@ a {
 .layer-3 {
   animation-delay: 0.6s;
 }
+
 .layer-2 {
   animation-delay: 0.3s;
 }
+
 .layer-1 {
   animation-delay: 0s;
 }
@@ -687,9 +692,11 @@ a {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -735,15 +742,19 @@ a {
   0% {
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   30% {
     opacity: 1;
   }
+
   40% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }
@@ -753,6 +764,7 @@ a {
   .mobile-hide {
     display: none !important;
   }
+
   .headerWrapper {
     padding: 10px 20px;
   }
@@ -828,6 +840,7 @@ form.contact-form {
   justify-content: space-between;
   gap: 20px;
 }
+
 .contact-form .doubleRows .relative {
   width: 100%;
 }
@@ -891,6 +904,7 @@ nav.breadCrumbWrapper {
   margin-top: 50px;
   margin-bottom: 30px;
 }
+
 /* BreadCrumb CSs End */
 
 /* Services Page CSS */
@@ -990,6 +1004,7 @@ a.sidebar-menu.active {
 .cmsWork .service-card-wrap:nth-child(2) {
   margin-top: 2% !important;
 }
+
 .featuresHighlight .service-card-wrap {
   width: 49%;
   margin-top: 2%;
@@ -1062,7 +1077,8 @@ a.sidebar-menu.active {
   flex-direction: row;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #ff000000; /* For browsers that do not support gradients */
+  background-color: #ff000000;
+  /* For browsers that do not support gradients */
   background-image: linear-gradient(#ffffff3d, #9999990a);
   backdrop-filter: blur(0);
   font-size: 20px;
@@ -1265,8 +1281,7 @@ p.subHeadings {
   margin-bottom: 20px;
 }
 
-.industriesServeMainWrapper.ai-cta.letsBuildToghether.featuresHighlight.cmsWork
-  .isContent {
+.industriesServeMainWrapper.ai-cta.letsBuildToghether.featuresHighlight.cmsWork .isContent {
   padding-top: 14px;
 }
 
@@ -1422,9 +1437,11 @@ p.white-text {
   gap: 10px;
   width: 35%;
 }
+
 p.green-text {
   color: #39ff14;
 }
+
 span.\32 text-content img {
   width: 35px;
 }
@@ -1439,13 +1456,16 @@ span.\32 text-content img {
   0% {
     transform: translateX(0);
   }
+
   50% {
     transform: translateX(8px);
   }
+
   100% {
     transform: translateX(0);
   }
 }
+
 .bounce {
   animation: bounceAnim 2s infinite;
   animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
@@ -1580,14 +1600,17 @@ h1.main-heading {
     transform: translateY(300px);
     opacity: 0;
   }
+
   20% {
     transform: translateY(0);
     opacity: 1;
   }
+
   70% {
     transform: translateY(0);
     opacity: 1;
   }
+
   100% {
     transform: translateY(-200px);
     opacity: 0;
@@ -1662,6 +1685,7 @@ p.location {
   height: 100%;
   background: #b1aeae;
 }
+
 .lineglow::before {
   content: "";
   position: absolute;
@@ -1673,14 +1697,17 @@ p.location {
 }
 
 @keyframes animate {
+
   0%,
   20% {
     transform: scaleY(0);
   }
+
   40%,
   60% {
     transform: scaleY(1);
   }
+
   80%,
   100% {
     transform: scaleY(0);
@@ -1705,10 +1732,12 @@ p.location {
     top: 0%;
     transform: scale(0);
   }
+
   5% {
     top: 0%;
     transform: scale(1);
   }
+
   20% {
     top: 0%;
     transform: scale(1);
@@ -1716,14 +1745,17 @@ p.location {
       0 0 20px var(--color-basic), 0 0 40px 5px var(--color-basic),
       0 0 60px 10px var(--color-basic);
   }
+
   40% {
     top: 100%;
     transform: scale(1);
   }
+
   60% {
     top: 100%;
     transform: scale(1);
   }
+
   80% {
     top: 0%;
     transform: scale(1);
@@ -1731,11 +1763,13 @@ p.location {
       0 0 20px var(--color-basic), 0 0 40px 5px var(--color-basic),
       0 0 60px 10px var(--color-basic);
   }
+
   95% {
     top: 0%;
     transform: scale(1);
     box-shadow: none;
   }
+
   100% {
     top: 0%;
     transform: scale(0);
@@ -1763,20 +1797,25 @@ p.location {
 .ServiceHighlight .service-card-wrap:last-child {
   border: 0;
 }
+
 .bg-abt {
   background-image: url(/images/about-bg.png) !important;
   padding: 20px;
 }
+
 .bg-abt-none {
   background-image: none !important;
   padding: 30px;
 }
+
 .homeWhyChooseUS .site_readmore {
   display: none;
 }
+
 .homeWhyChooseUS .content-description {
   overflow: visible;
 }
+
 .homeWhyChooseUS img {
   height: 300px;
   object-fit: cover;
@@ -1785,6 +1824,7 @@ p.location {
 .missionVission p {
   font-size: 20px !important;
 }
+
 .missionVission .coreValues {
   margin-top: -14px;
 }
@@ -1850,16 +1890,20 @@ a.callUs {
     color: black;
   } */
 }
+
 .duoColumn1,
 .duoColumn2 {
   margin-top: 0 !important;
 }
+
 .serviceType .service-card-wrap {
   width: 100%;
 }
+
 .digital7 {
   font-family: "Digital-7 Mono";
 }
+
 .mt0 {
   margin-top: 0 !important;
 }
@@ -1931,8 +1975,7 @@ a.callUs {
   backdrop-filter: blur(15px);
 }
 
-.front-face span {
-}
+.front-face span {}
 
 .left-face {
   border-left: var(--border-width) solid var(--border-color);
@@ -2010,6 +2053,7 @@ a.callUs {
 .migration-box2 .border-bottom::before {
   animation-delay: 16s;
 }
+
 .migration-box .border-top::before,
 .migration-box .border-bottom::before {
   animation-delay: 24s;
@@ -2019,6 +2063,7 @@ a.callUs {
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }
@@ -2051,6 +2096,7 @@ a.callUs {
 .migration-box2 .border-right::before {
   animation-delay: 21s;
 }
+
 .migration-box .border-left::before,
 .migration-box .border-right::before {
   animation-delay: 29s;
@@ -2060,6 +2106,7 @@ a.callUs {
   0% {
     height: 0;
   }
+
   100% {
     height: 100%;
   }
@@ -2091,6 +2138,7 @@ a.callUs {
 .migration-box2 .border-bottom.reverse::before {
   animation-delay: 16s;
 }
+
 .migration-box .border-top.reverse::before,
 .migration-box .border-bottom.reverse::before {
   animation-delay: 24s;
@@ -2100,6 +2148,7 @@ a.callUs {
   0% {
     width: 0;
   }
+
   100% {
     width: 100%;
   }
@@ -2128,6 +2177,7 @@ a.callUs {
 .migration-box2 .border-right.reverse::before {
   animation-delay: 21s;
 }
+
 .migration-box .border-left.reverse::before,
 .migration-box .border-right.reverse::before {
   animation-delay: 29s;
@@ -2137,6 +2187,7 @@ a.callUs {
   0% {
     height: 0;
   }
+
   100% {
     height: 100%;
   }
@@ -2154,6 +2205,7 @@ a.callUs {
 .migration-box2 .front-face span {
   animation-delay: 16s;
 }
+
 .migration-box .front-face span {
   animation-delay: 24s;
 }
@@ -2162,6 +2214,7 @@ a.callUs {
   0% {
     color: white;
   }
+
   100% {
     color: #13f4ef;
   }
@@ -2183,6 +2236,7 @@ a.callUs {
 .migration-box2 .front-face span.reverse {
   animation-delay: 16s;
 }
+
 .migration-box .front-face span.reverse {
   animation-delay: 24s;
 }
@@ -2191,12 +2245,15 @@ a.callUs {
   0% {
     color: #13f4ef;
   }
+
   100% {
     color: white;
   }
 }
+
 .circled {
   position: relative;
+
   .topRight::before {
     position: absolute;
     content: "";
@@ -2210,6 +2267,7 @@ a.callUs {
     bottom: 0;
     left: -114px;
   }
+
   .topLeftText {
     transform: rotateZ(-64deg);
     right: 47px;
@@ -2230,12 +2288,14 @@ a.callUs {
     bottom: 0;
     left: 114px;
   }
+
   .topRightText {
     right: 258px;
     transform: rotateZ(64deg);
     font-size: 29px;
     top: 138px;
   }
+
   .bottomLeft::before {
     position: absolute;
     content: "";
@@ -2249,12 +2309,14 @@ a.callUs {
     top: 0;
     left: 114px;
   }
+
   .bottomLeftText {
     top: 70px;
     right: 20px;
     transform: rotateZ(-320deg);
     font-size: 29px;
   }
+
   .bottomRight::before {
     position: absolute;
     content: "";
@@ -2268,12 +2330,14 @@ a.callUs {
     top: 0;
     left: -114px;
   }
+
   .bottomRightText {
     top: 65px;
     right: 239px;
     transform: rotateZ(-43deg);
     font-size: 29px;
   }
+
   &::before {
     content: "";
     border: 1px solid #00ff38;
@@ -2305,6 +2369,7 @@ svg#id1 text {
   offset: 50%;
   fill: #fff;
 }
+
 svg#id1 text textPath {
   fill: #fff;
 }
@@ -2361,7 +2426,8 @@ svg text {
   height: 100%;
   max-width: 106%;
   max-height: 100%;
-  transform: rotate(-90deg); /* start from top */
+  transform: rotate(-90deg);
+  /* start from top */
   top: 0px;
   left: -14px;
 }
@@ -2413,8 +2479,7 @@ svg text {
 }
 
 select {
-  background: url("data:image/svg+xml,<svg fill='white' width='25px' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' enable-background='new 0 0 100 100' xml:space='preserve' stroke='white' stroke-width='4'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g> <path d='M78.466,35.559L50.15,63.633L22.078,35.317c-0.777-0.785-2.044-0.789-2.828-0.012s-0.789,2.044-0.012,2.827L48.432,67.58 c0.365,0.368,0.835,0.563,1.312,0.589c0.139,0.008,0.278-0.001,0.415-0.021c0.054,0.008,0.106,0.021,0.16,0.022 c0.544,0.029,1.099-0.162,1.515-0.576l29.447-29.196c0.785-0.777,0.79-2.043,0.012-2.828S79.249,34.781,78.466,35.559z'></path> </g> </g></svg>")
-    no-repeat;
+  background: url("data:image/svg+xml,<svg fill='white' width='25px' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' enable-background='new 0 0 100 100' xml:space='preserve' stroke='white' stroke-width='4'><g id='SVGRepo_bgCarrier' stroke-width='0'></g><g id='SVGRepo_tracerCarrier' stroke-linecap='round' stroke-linejoin='round'></g><g id='SVGRepo_iconCarrier'> <g> <path d='M78.466,35.559L50.15,63.633L22.078,35.317c-0.777-0.785-2.044-0.789-2.828-0.012s-0.789,2.044-0.012,2.827L48.432,67.58 c0.365,0.368,0.835,0.563,1.312,0.589c0.139,0.008,0.278-0.001,0.415-0.021c0.054,0.008,0.106,0.021,0.16,0.022 c0.544,0.029,1.099-0.162,1.515-0.576l29.447-29.196c0.785-0.777,0.79-2.043,0.012-2.828S79.249,34.781,78.466,35.559z'></path> </g> </g></svg>") no-repeat;
   background-position: calc(100% - 0.75rem) center !important;
   -moz-appearance: none !important;
   -webkit-appearance: none !important;
@@ -2435,6 +2500,7 @@ select {
   border: none !important;
   outline: transparent !important;
 }
+
 .input-field *:focus {
   outline: none !important;
 }
@@ -2452,12 +2518,12 @@ select {
 }
 
 .css-1p3m7a8-multiValue div {
-  color : white !important;
+  color: white !important;
 }
 
 
 .react-tooltip {
-  background-color:#68726b !important;
+  background-color: #68726b !important;
   color: white !important;
   z-index: 9999;
 }
@@ -2499,12 +2565,12 @@ select {
 }
 
 /* On mouse-over, add a grey background color */
-.check-container:hover input ~ .checkmark {
+.check-container:hover input~.checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.check-container input:checked ~ .checkmark {
+.check-container input:checked~.checkmark {
   background-color: #2196F3;
 }
 
@@ -2516,7 +2582,7 @@ select {
 }
 
 /* Show the checkmark when checked */
-.check-container input:checked ~ .checkmark:after {
+.check-container input:checked~.checkmark:after {
   display: block;
 }
 
