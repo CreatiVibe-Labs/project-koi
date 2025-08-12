@@ -5,6 +5,11 @@ import SideBar from '@/components/Sidebar';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "Managed IT Services & Consulting - Aerialink Inc",
+  description: "Managed IT Services & Consulting - Aerialink Inc",
+};
+
 export default function managedItServices() {
     const quotes = [
         {

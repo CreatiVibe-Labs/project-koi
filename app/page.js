@@ -5,6 +5,11 @@ import WhyChooseUsCard from '@/components/whyChooseUsCard';
 import IndustriesWeServe from "@/components/IndustriesWeServe";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
+export const metadata = {
+  title: "Homepage - Aerialink Inc",
+  description: "Homepage - Aerialink Inc",
+};
+
 export default function Home() {
   return (
     <>

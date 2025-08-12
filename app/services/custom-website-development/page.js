@@ -5,6 +5,11 @@ import SideBar from '@/components/Sidebar';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const metadata = {
+    title: "Custom Website Development - Aerialink Inc",
+    description: "Custom Website Development - Aerialink Inc",
+};
+
 export default function CustomWebsiteDevelopment() {
     return (
         <div>

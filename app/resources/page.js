@@ -1,5 +1,10 @@
 import Link from 'next/link';
 
+export const metadata = {
+  title: "Resources - Aerialink Inc",
+  description: "Resources - Aerialink Inc",
+};
+
 export default function Resources() {
     return (
         <>

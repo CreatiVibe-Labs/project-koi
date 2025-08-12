@@ -5,6 +5,11 @@ import SideBar from '@/components/Sidebar';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const metadata = {
+  title: "AI Powered Solutions & Machine Learning - Aerialink Inc",
+  description: "AI Powered Solutions & Machine Learning - Aerialink Inc",
+};
+
 export default function AiPoweredSolutions() {
     return (
         <div>

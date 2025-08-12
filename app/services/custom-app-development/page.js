@@ -4,8 +4,13 @@ import SideBar from '@/components/Sidebar';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const metadata = {
+    title: "Custom App Development - Aerialink Inc",
+    description: "Custom App Development - Aerialink Inc",
+};
+
 export default function CustomAppDevelopment() {
-    return(
+    return (
         <div>
             {/* <Breadcrumb /> */}
             <div className='servicePageWrapper'>
@@ -44,22 +49,22 @@ export default function CustomAppDevelopment() {
                         <div className="is-heading gradient-background"><h3>Feature Highlights</h3></div>
                         <div className="mt-5">
                             <div className="itemsWrapper">
-                                <FeatureHighlights 
+                                <FeatureHighlights
                                     imageUrl="/icons/cross-platform.png"
                                     title="Cross-Platform Development"
                                     description="Build once, deploy everywhere. We create responsive, consistent experiences across iOS, Android, and the web using modern frameworks like Flutter and React Native."
                                 />
-                                <FeatureHighlights 
+                                <FeatureHighlights
                                     imageUrl="/icons/backend.png"
                                     title="Scalable Backend Architecture"
                                     description="From custom APIs to secure database structures, we develop reliable backend systems built to grow with your user base and data demands."
                                 />
-                                <FeatureHighlights 
+                                <FeatureHighlights
                                     imageUrl="/icons/ui-ux.png"
                                     title="UX/UI Design That Converts"
                                     description="Our design-first approach puts users at the center—ensuring every tap, swipe, and click is intuitive, beautiful, and goal-driven."
                                 />
-                                <FeatureHighlights 
+                                <FeatureHighlights
                                     imageUrl="/icons/integration.png"
                                     title="Seamless Integration"
                                     description="We connect your apps with CRMs, ERPs, payment systems, cloud services, and more for a connected experience that doesn’t disrupt your existing workflow."

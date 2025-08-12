@@ -1,16 +1,17 @@
-'use client';
-
 import Breadcrumb from '@/components/Breadcrumb';
 import FeatureHighlights from '@/components/FeatureHighlights';
 import FeatureHighlights2 from '@/components/FeatureHighlights2';
 import SideBar from '@/components/Sidebar';
 import Image from 'next/image';
 import Link from 'next/link';
-// import Lottie from "lottie-react";
 import animationData from "../../../public/lottie/rising-chart.json";
 import WhyChooseUs2 from '@/components/WhyChooseUs2';
 import Circle from '@/components/Circle';
 
+export const metadata = {
+  title: "Digital Marketing - Aerialink Inc",
+  description: "Digital Marketing - Aerialink Inc",
+};
 
 export default function DigitalMarketingServices() {
     return (
