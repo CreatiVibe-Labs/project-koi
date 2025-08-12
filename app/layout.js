@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
               overflowY: 'auto',
               position: 'static',
             }}>
-            <RipplesBackground />
+            {/* <RipplesBackground /> */}
             <Header />
             <div className="content-wrapper">{children}</div>
             <Footer />

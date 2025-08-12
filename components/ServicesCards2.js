@@ -12,7 +12,7 @@ export default function ServicesCards({
   CustomClass,
 }) {
   return (
-    <div className={`aboutCoreval p-4 border rounded-md shadow-sm service-card-wrap ${CustomClass}`}>
+    <div className={` text-center p-4 border rounded-md shadow-sm gradient-bg-border ${CustomClass}`}>
       <div className="flex items-center justify-center">
         {imageUrl && <Image
           src={imageUrl}

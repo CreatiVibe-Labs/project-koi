@@ -60,7 +60,7 @@ export default function AboutUs() {
             <div className="whyCHooseUsWrapper coreValues !mt-[100px]">
                 <div className="whyChooseUsHeading gradient-background"><h2>Core Values</h2></div>
                 <div className="whyChooseUsCardContentss">
-                    <div className="cardWrappers !gap-0 !flex-nowrap justify-between mt-4  !rounded-[30px]">
+                    <div className="grid md:grid-cols-4 grid-cols-1 gap-4 mt-4 !rounded-[30px]">
                         <ServicesCards2
                             imageUrl="/icons/coreValue-4.png"
                             heading="Innovation"
@@ -83,7 +83,7 @@ export default function AboutUs() {
                         <ServicesCards2
                             imageUrl="/icons/coreValue-1.png"
 
-                            heading="Integrity"
+                            heading="Integrity "
                             description="We do what's right."
                             CustomClass="gradient-background !backdrop-blur-none !rounded-[30px]"
                         />
@@ -91,38 +91,29 @@ export default function AboutUs() {
                 </div>
             </div>
 
-            <div className="missionVission !gap-0">
-                <div className="whyCHooseUsWrapper coreValues !w-[51%] mr-[-12px] ">
-                    {/* <div className="whyChooseUsHeading gradient-background"><h2>Mission</h2></div> */}
-                    <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none  !rounded-[30px]">
-                        <div className="cardWrappers">
-                            <p className="!font-medium pl-5">
-                                We’re on a <b className="bold-text text-[#98c1a9]">mission</b> to reshape the way people interact with technology. By
-                                combining cutting-edge innovation with user-centered design, we build
-                                products that simplify, connect, and empower — making life and work
-                                smarter, not harder.
-                            </p>
-                        </div>
-                    </div>
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mr[-12px]">
+                <div className="gradient-bg-border rounded-2xl p-4 pl-5">
+                    <span className="text-xl font-[400]">
+                        We’re on a <b className="font-bold text-[#98c1a9]">mission</b> to reshape the way people interact with technology. By
+                        combining cutting-edge innovation with user-centered design, we build
+                        products that simplify, connect, and empower — making life and work
+                        smarter, not harder.
+                    </span>
                 </div>
-                <div className="whyCHooseUsWrapper coreValues !w-[51%]">
-                    {/* <div className="whyChooseUsHeading gradient-background"><h2>Vision</h2></div> */}
-                    <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none !pl-[30px]  !rounded-[30px]">
-                        <div className="cardWrappers">
-                            <p className="!font-medium pl-1+0">
-                                We en<b className="bold-text text-[#98c1a9]">vision</b> a world where technology enhances every human experience
-                                — seamless, intuitive, and inclusive. Our goal is to pioneer bold ideas that
-                                shape the future and empower people to thrive in a connected world.
-                            </p>
-                        </div>
-                    </div>
+
+                <div className="gradient-bg-border rounded-2xl p-4 pl-1+0">
+                    <span className="text-xl font-[400]">
+                        We en<b className="font-bold text-[#98c1a9]">vision</b> a world where technology enhances every human experience
+                        — seamless, intuitive, and inclusive. Our goal is to pioneer bold ideas that
+                        shape the future and empower people to thrive in a connected world.
+                    </span>
                 </div>
             </div>
 
             <div className="whyCHooseUsWrapper coreValues">
                 <div className="whyChooseUsHeading gradient-background"><h2>Quotes from team</h2></div>
                 <div className="whyChooseUsCardContents">
-                    <div className="cardWrappers">
+                    <div className="">
                         <ReviewSlider
                             reviews={quotes}
                             color={'text-[#13F4EF]'}

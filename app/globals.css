@@ -2639,3 +2639,9 @@ select {
 .styles-module_chatBody__VBxQH {
   overflow-y: auto;
 }
+
+.gradient-bg-border {
+  background-color: rgba(255, 0, 0, 0);
+  background-image: linear-gradient(rgba(255, 255, 255, .24), rgba(153, 153, 153, .04));
+  border: 1px solid rgba(255, 255, 255, .4);
+}
