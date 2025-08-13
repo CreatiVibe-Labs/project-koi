@@ -103,7 +103,7 @@
     .ServicesCardsContent,
     .cardWrappers {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1rem !important;
+      gap: 0.5rem !important;
     }
 
     .image-button-wrap a {
