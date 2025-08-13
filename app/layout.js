@@ -1,7 +1,7 @@
 import { Public_Sans } from 'next/font/google';
 import "./globals.css";
 import "./desktop.css";
-// import "./responsive.css";  
+import "./responsive.css";  
 import RipplesBackground from '@/components/RipplesBackground';
 // import ChatWrapper from "@/components/ChatWrapper";
 import Header from "@/components/Header";
