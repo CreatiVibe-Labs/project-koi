@@ -19,7 +19,7 @@
     width: 100%;
 
     h1 {
-      font-size: 1.25rem !important;
+      font-size: 1.5rem !important;
       line-height: normal !important;
     }
 
@@ -70,8 +70,19 @@
     .whyChooseUsHeading h2, .is-heading h2, .ServicesCardsHeading h2, .StillThinkingMainWrapper h2,
     .stContent p.heading-1,
     .ServicesCardsContent .heading,
-    p.wcu-heading .heading-1 {
-      font-size: 20px !important;
+    p.wcu-heading .heading-1,
+    .description {
+      font-size: 9px !important;
+    }
+
+    span.buttonText {
+      font-size: 6px;
+    }
+
+    .homepageServices .ServicesCardsContent img {
+      border-radius: 10px;
+      width: 141px;
+      height: 50px;
     }
 
     .stContent p.content,
@@ -80,9 +91,18 @@
       font-size: 1rem;
     }
 
+    .arrow img {
+      width: 20px !important;
+      height: 20px !important;
+    }
+
+    .homepageServices .p-4.border.rounded-md.shadow-sm.service-card-wrap {
+      padding: 8px;
+    }
+
     .ServicesCardsContent,
     .cardWrappers {
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1rem !important;
     }
 
