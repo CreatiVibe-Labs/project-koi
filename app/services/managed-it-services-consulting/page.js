@@ -124,6 +124,7 @@ export default function managedItServices() {
                                 <ReviewSlider
                                     reviews={quotes}
                                     color={'text-[#FF5F1F]'}
+                                    size={"text-3xl"}
                                 />
                                 {/* <div className="review-container ">
                                     <div key={0} className="review  text-white">
