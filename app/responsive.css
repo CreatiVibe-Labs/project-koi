@@ -19,7 +19,8 @@
     width: 100%;
     padding: 15px 10px !important;
 
-    h1 {
+    h1,
+    .hero-section-about h1 {
       font-size: 1.5rem !important;
       line-height: normal !important;
     }
@@ -33,6 +34,7 @@
     .buttons-wrapper {
       margin-top: 1rem;
     }
+
   }
 
   .buttons-wrapper a, .button {
@@ -111,13 +113,6 @@
       height: 100% !important;
     }
 
-    /* 
-    .stContent p.content,
-    p.wcu-heading .heading-2,
-    .service-card-wrap .content-description {
-      font-size: 1rem;
-    } */
-
     .arrow img {
       width: 20px !important;
       height: 20px !important;
@@ -158,6 +153,36 @@
         flex-wrap: wrap;
       }
     }
+  }
+
+  .hero-section-about {
+    display: flex !important;
+  }
+
+  .coreValues {
+    .cardWrappers {
+      gap: 1rem !important;
+
+      .service-card-wrap {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .missionVission {
+    flex-wrap: wrap !important;
+
+    .whyCHooseUsWrapper {
+      width: 100% !important;
+
+      .cardWrappers {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  }
+
+  .missionVission .coreValues {
+    margin-top: 10px;
   }
 
   .footerWrapper {
