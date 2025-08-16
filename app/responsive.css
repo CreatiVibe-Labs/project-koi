@@ -17,6 +17,7 @@
 
   .content-section {
     width: 100%;
+    padding: 15px 10px !important;
 
     h1 {
       font-size: 1.5rem !important;
@@ -29,8 +30,14 @@
 
     }
 
+    .buttons-wrapper {
+      margin-top: 1rem;
+    }
+
     .buttons-wrapper a, .button {
-      font-size: 14px !important;
+      font-size: 12px !important;
+      min-width: max-content !important;
+      padding: 5px 10px;
     }
   }
 
@@ -46,6 +53,7 @@
     .hero-section-about {
       margin-top: 0px;
       flex-wrap: wrap;
+      gap: 1rem;
 
       .image-section img {
         position: relative;
@@ -69,14 +77,21 @@
 
     .whyChooseUsHeading h2, .is-heading h2, .ServicesCardsHeading h2, .StillThinkingMainWrapper h2,
     .stContent p.heading-1,
-    .ServicesCardsContent .heading,
-    p.wcu-heading .heading-1,
+    p.wcu-heading .heading-1 {
+      font-size: 20px !important;
+    }
+
+    .ServicesCardsContent .heading {
+      font-size: 14px;
+    }
+
     .description {
-      font-size: 9px !important;
+      font-size: 12px;
+      margin-bottom: 0 !important;
     }
 
     span.buttonText {
-      font-size: 6px;
+      font-size: 11px;
     }
 
     .homepageServices .ServicesCardsContent img {
@@ -87,7 +102,7 @@
 
     .stContent p.content,
     p.wcu-heading .heading-2,
-    .ServicesCardsContent .description, .service-card-wrap .content-description {
+    .service-card-wrap .content-description {
       font-size: 1rem;
     }
 
@@ -98,12 +113,18 @@
 
     .homepageServices .p-4.border.rounded-md.shadow-sm.service-card-wrap {
       padding: 5px;
+      width: 100% !important;
+    }
+
+    span.buuttonIcon {
+      width: 68%;
     }
 
     .ServicesCardsContent,
     .cardWrappers {
       grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem !important;
+      display: grid;
     }
 
     .image-button-wrap a {
