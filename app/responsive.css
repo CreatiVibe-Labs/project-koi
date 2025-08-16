@@ -33,17 +33,13 @@
     .buttons-wrapper {
       margin-top: 1rem;
     }
-
-    .buttons-wrapper a, .button {
-      font-size: 12px !important;
-      min-width: max-content !important;
-      padding: 5px 10px;
-    }
   }
 
-  /* .buttons-wrapper {
-    flex-wrap: wrap;
-  } */
+  .buttons-wrapper a, .button {
+    font-size: 12px !important;
+    min-width: max-content !important;
+    padding: 5px 10px;
+  }
 
   .content-wrapper {
     margin-top: 80px;
@@ -76,22 +72,33 @@
     }
 
     .whyChooseUsHeading h2, .is-heading h2, .ServicesCardsHeading h2, .StillThinkingMainWrapper h2,
-    .stContent p.heading-1,
-    p.wcu-heading .heading-1 {
+    .stContent p.heading-1 {
       font-size: 20px !important;
     }
 
-    .ServicesCardsContent .heading {
-      font-size: 14px;
+    .ServicesCardsContent .heading,
+    .wcu-heading span.heading-1,
+    .whyCHooseUsWrapper .heading,
+    .IndustriesWeServe p,
+    .stContent p.heading-1 {
+      font-size: 14px !important;
     }
 
-    .description {
+    .description,
+    .wcu-heading span.heading-2,
+    .homeWhyChooseUS .content-description,
+    .stContent p.content {
       font-size: 12px;
       margin-bottom: 0 !important;
+      overflow: hidden;
     }
 
     span.buttonText {
       font-size: 11px;
+    }
+
+    .stContent p.content {
+      line-height: normal;
     }
 
     .homepageServices .ServicesCardsContent img {
@@ -100,18 +107,24 @@
       height: 50px;
     }
 
+    .homeWhyChooseUS img {
+      height: 100% !important;
+    }
+
+    /* 
     .stContent p.content,
     p.wcu-heading .heading-2,
     .service-card-wrap .content-description {
       font-size: 1rem;
-    }
+    } */
 
     .arrow img {
       width: 20px !important;
       height: 20px !important;
     }
 
-    .homepageServices .p-4.border.rounded-md.shadow-sm.service-card-wrap {
+    .homepageServices .service-card-wrap,
+    .homeWhyChooseUS .service-card-wrap {
       padding: 5px;
       width: 100% !important;
     }
