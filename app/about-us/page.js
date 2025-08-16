@@ -127,7 +127,7 @@ export default function AboutUs() {
             <div className="whyCHooseUsWrapper coreValues">
                 <div className="whyChooseUsHeading gradient-background"><h2>Quotes from team</h2></div>
                 <div className="whyChooseUsCardContents">
-                    <div className="cardWrappers">
+                    <div className="cardWrappers reviewslider">
                         <ReviewSlider
                             reviews={quotes}
                             color={'text-[#13F4EF]'}
@@ -216,7 +216,7 @@ export default function AboutUs() {
 
             <div className="industriesServeMainWrapper letsBuildToghether about">
                 <div className="isContent">
-                    <p className="content">
+                    <p className="content md:text-5xl text-2xl">
                         Passionate people, bold ideas
                     </p>
                     <div className="buttons-wrapper">

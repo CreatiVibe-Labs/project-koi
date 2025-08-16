@@ -1597,7 +1597,7 @@ h1.main-heading {
 .about .content {
   text-align: center;
   color: #98c1a9;
-  font-size: 50px !important;
+  /* font-size: 50px !important; */
   font-weight: 600 !important;
 }
 
@@ -1619,7 +1619,6 @@ h1.main-heading {
 }
 
 .titleWrap {
-  display: flex;
   align-items: center;
   gap: 20px;
 }

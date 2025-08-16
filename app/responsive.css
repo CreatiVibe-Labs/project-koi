@@ -181,8 +181,20 @@
     }
   }
 
+  .reviewslider {
+    grid-template-columns: 1fr !important;
+  }
+
   .missionVission .coreValues {
     margin-top: 10px;
+  }
+
+  p.titleText {
+    font-size: 18px;
+  }
+
+  .exp {
+    font-size: 14px !important;
   }
 
   .footerWrapper {

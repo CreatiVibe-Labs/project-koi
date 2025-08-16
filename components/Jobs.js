@@ -11,7 +11,7 @@ export default function Jobs({
 }) {
   return (
     <div className='jobMainWrap'>
-        <div className='titleWrap w-[27%]'>
+        <div className='titleWrap flex md:flex-nowrap flex-wrap w-full md:w-[27%]'>
             <div className='icon'>
                 <Image src="/icons/job.png" width={20} height={20} alt='icon'></Image>
             </div>
@@ -24,10 +24,10 @@ export default function Jobs({
                 </p>
             </div>
         </div>
-        <div className='locationWrap w-[48%]'>
+        <div className='locationWrap w-full md:w-[48%]'>
             <p className='description flex flex-col gap-2 !font-semibold'>Description: <span className='line-clamp-2 !font-normal'>{description}</span></p>
         </div>
-        <div className='buttons-wrapper w-[19%]'>
+        <div className='buttons-wrapper w-full md:w-[19%]'>
             <Link href={link}>Apply Now</Link>
         </div>
     </div>
