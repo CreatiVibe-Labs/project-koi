@@ -11,10 +11,10 @@ export default function WhyChooseUsCardComponent({
   description,
 }) {
   return (
-    <div className="service-card-wrap border rounded-lg p-4 shadow-md">
+    <div className="service-card-wrap border rounded-lg p-0 md:p-4 shadow-md">
         <div>
             <div className='ImageWrapper'>
-                <Image src={imageUrl} alt="Card Image" width={400} height={250} className="rounded mb-4" />
+                <Image src={imageUrl} alt="Card Image" width={400} height={250} className="rounded mb-0 md:mb-4" />
                 <div className='cardsTags'>
                     {tags.map((tag, index) => (
                         <span
@@ -27,8 +27,10 @@ export default function WhyChooseUsCardComponent({
                 </div>
             </div>
             
-            <p className="heading mb-2">{title}</p>
-            <p className="text-gray-600 mb-4 content-description">{description}</p>
+           <div className='md:p-0 p-2'>
+          <p className="heading mb-2">{title}</p>
+          <p className="text-gray-600 mb-4 content-description">{description}</p>
+           </div>
                         
             <div className='site_readmore flex gap-4 items-center'>
 

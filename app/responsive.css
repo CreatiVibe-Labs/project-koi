@@ -45,7 +45,7 @@
 
   .content-wrapper {
     margin-top: 80px;
-    padding: 1.5rem;
+    padding: 0.75rem;
 
     .hero-section,
     .hero-section-about {
@@ -92,7 +92,7 @@
     .stContent p.content {
       font-size: 12px;
       margin-bottom: 0 !important;
-      overflow: hidden;
+      /* overflow: hidden; */
     }
 
     span.buttonText {
@@ -106,7 +106,7 @@
     .homepageServices .ServicesCardsContent img {
       border-radius: 10px;
       width: 141px;
-      height: 50px;
+      height: 40px;
     }
 
     .homeWhyChooseUS img {
@@ -114,14 +114,22 @@
     }
 
     .arrow img {
-      width: 20px !important;
+      width: 15px !important;
       height: 20px !important;
+    }
+
+    .homeWhyChooseUS .whyChooseUsCardContents {
+      padding: 8px;
+    }
+
+    .homeWhyChooseUS {
+      margin-top: 30px !important;
     }
 
     .homepageServices .service-card-wrap,
     .homeWhyChooseUS .service-card-wrap {
-      padding: 5px;
       width: 100% !important;
+      border-radius: 7px !important;
     }
 
     span.buuttonIcon {
@@ -133,10 +141,14 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 0.5rem !important;
       display: grid;
+      margin-top: 0.75rem;
     }
 
     .image-button-wrap a {
       min-width: 150px !important;
+      position: relative;
+      top: -9px;
+      left: 28px;
     }
 
     .careerOp {
@@ -144,6 +156,10 @@
         flex-direction: column;
         gap: 1rem;
       }
+    }
+
+    .image-button-wrap {
+      margin-bottom: 0 !important;
     }
 
     .contactForm {

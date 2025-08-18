@@ -11,14 +11,14 @@ export default function ServicesCards({
   description,
 }) {
   return (
-    <div className="p-4 border rounded-md shadow-sm service-card-wrap">
+    <div className="p-2 md:p-4 border rounded-md shadow-sm service-card-wrap">
       <div className="image-button-wrap justify-center">
         {imageUrl && <Image
           src={imageUrl}
           alt={heading}
           width={100}
           height={100}
-          className="rounded mb-4 object-cover"
+          className="rounded mb-0 md:mb-4 object-cover"
         />}
         {link && <Link href={link}>
           <span className="buttonText">{buttonText}</span>
