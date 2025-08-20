@@ -133,7 +133,7 @@ export default function DigitalMarketingServices() {
                                 craft a strategy built around results.
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href="#">Talk to a Strategist</Link>
+                                <Link href="/scheduler/digital-marketing-services">Speak to a Strategist</Link>
                             </div>
                         </div>
                     </div>

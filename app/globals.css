@@ -141,6 +141,18 @@ body {
   border: 1px solid #39ff14;
 }
 
+.todayBtn {
+  padding: 10px 20px !important;
+  background-color: transparent !important;
+  border-radius: 100px !important;
+  color: #39ff14 !important;
+  font-size: 19.49px !important;
+  font-weight: 700 !important;
+  box-shadow: rgb(255 255 255 / 74%) 0px 10px 10px -10px !important;
+  cursor: pointer !important;
+  border: 1px solid #39ff14 !important;
+}
+
 .button {
   min-width: 240px;
   text-align: center;
@@ -1573,7 +1585,7 @@ h1.main-heading {
 
 .review-container {
   position: relative;
-  height: 150px;
+  height: 200px;
   width: 100%;
   margin: auto;
   text-align: center;
@@ -2604,7 +2616,8 @@ select {
 }
 
 
-.styles-module_chatHeader__gaeOA, .styles-module_message__Z9MOV {
+.styles-module_chatHeader__gaeOA,
+.styles-module_message__Z9MOV {
   background-color: #98c1a978 !important;
 }
 
@@ -2639,4 +2652,38 @@ select {
 
 .floating-whatsapp-notification {
   display: none !important;
+}
+
+.calender-modal {
+  width: 100% !important;
+  border-radius: 14px !important;
+  overflow: hidden !important;
+  background-color: transparent !important;
+}
+
+.react-calendar-datetime-picker {
+  border-radius: 24px !important;
+  background-color: transparent !important;
+
+
+}
+
+.calender-modal svg {
+  width: 100%;
+}
+
+.calender-modal .header--btn {
+  min-width: 2%;
+}
+
+.calender-modal .header-date {
+  font-size: 22px !important;
+  font-weight: 500 !important;
+}
+
+.calender-modal .todayBtn {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 1% !important;
+  background: transparent;
 }

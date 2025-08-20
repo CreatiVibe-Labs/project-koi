@@ -6,26 +6,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
-  title: "Managed IT Services & Consulting - Aerialink Inc",
-  description: "Managed IT Services & Consulting - Aerialink Inc",
+    title: "Managed IT Services & Consulting - Aerialink Inc",
+    description: "Managed IT Services & Consulting - Aerialink Inc",
 };
 
 export default function managedItServices() {
     const quotes = [
         {
-            name: "Ayesha Khan",
-            review: "Working here has been an incredible journey — the team is supportive, and every project pushes me to grow.",
-            designation: "Frontend Developer"
+            name: "M. Lee",
+            review: "With no IT background, we were initially overwhelmed by the idea of building a mobile app. Thanks to their outstanding customer care, the process was smooth, professional, and stress-free.We're thrilled with the result!",
+            designation: "Owner"
         },
         {
-            name: "Usman Raza",
-            review: "I love how we prioritize creativity and collaboration. It\'s more than a job — it feels like a shared mission.",
-            designation: " UX Designer",
+            name: "K. Takeshita",
+            review: "The team is incredibly knowledgeable and takes care of all our IT needs, allowing us to focus on growing our business. Their expertise and dedication have been invaluable. Highly recommended!",
+            designation: "Entrepreneur",
         },
         {
-            name: "Fatima Ali",
-            review: "Every day brings a new challenge, and that\'s exactly what keeps me motivated.The energy here is unmatched.",
-            designation: "Project Manager",
+            name: "E. Kobayashi",
+            review: "Our customers adore the virtual showroom feature on our website! They love interacting with it, and it's become a highlight of their shopping experience. The positive feedback has been amazing.",
+            designation: "Marketing Manager",
 
         }
     ];
@@ -126,15 +126,6 @@ export default function managedItServices() {
                                     color={'text-[#FF5F1F]'}
                                     size={"text-3xl"}
                                 />
-                                {/* <div className="review-container ">
-                                    <div key={0} className="review  text-white">
-                                        <p className="text-2xl  mb-2">
-                                            <span className="italic digital7 text-[#FF5F1F]">Working here has been an incredible journey — the team is supportive, and every project pushes me to grow.</span>
-                                        </p>
-                                        <p className="text-2xl mt-2 digital7 text-right italic mr-2 text-[#FF5F1F]">Ayesha Khan</p>
-                                        <p className="text-lg digital7 text-right italic mr-2 text-[#FF5F1F]">Frontend Developer</p>
-                                    </div>
-                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -147,8 +138,7 @@ export default function managedItServices() {
                                 Choose a plan or customize your own. Pay only for what you need
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href="#">Talk To a Consultant</Link>
-                                <Link href="#">Request a Free Assessment</Link>
+                                <Link href="/scheduler/managed-IT-services-consulting">Request a Free Analysis</Link>
                             </div>
                         </div>
                     </div>

@@ -229,8 +229,7 @@ export default function CloudMigration() {
                         Contact us to schedule a consultation and begin your cloud migration journey.
                     </p>
                     <div className="buttons-wrapper">
-                        <Link href="#">Request a Compliance Consultation</Link>
-                        <Link href="#">Book a Free Cloud Privacy Assessment</Link>
+                        <Link href="/scheduler/cloud-migration">Start a Free Review</Link>
                     </div>
                 </div>
             </div>

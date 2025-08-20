@@ -156,8 +156,7 @@ export default function CustomWebsiteDevelopment() {
                                 Whether you're starting from scratch or rebuilding with purpose, we’ll help you create a site that not only looks great — it performs where it counts.
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href="#">Request a Free Website Audit</Link>
-                                <Link href="#">Request a Quote</Link>
+                                <Link href="/scheduler/custom-website-development">Get a Free Website Audit</Link>
                             </div>
                         </div>
                     </div>

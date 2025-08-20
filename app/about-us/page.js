@@ -14,20 +14,19 @@ export default function AboutUs() {
 
     const quotes = [
         {
-            name: "Ayesha Khan",
-            review: "Working here has been an incredible journey — the team is supportive, and every project pushes me to grow.",
-            designation: "Frontend Developer"
+            name: "C. Ling",
+            review: "This place isn’t for the faint-hearted. Everyone wears multiple hats, and it’s never boring — it’s an adventure. But only the truly driven can keep up.",
+            designation: "R & D Director"
         },
         {
-            name: "Usman Raza",
-            review: "I love how we prioritize creativity and collaboration. It\'s more than a job — it feels like a shared mission.",
-            designation: " UX Designer",
+            name: "C. Hayashi",
+            review: "Do you like roller coasters? Because that’s exactly what my workday feels like—except there’s no seatbelt, the track is on fire, and I’m screaming in Excel.",
+            designation: "Sales Manager"
         },
         {
-            name: "Fatima Ali",
-            review: "Every day brings a new challenge, and that\'s exactly what keeps me motivated.The energy here is unmatched.",
-            designation: "Project Manager",
-
+            name: "R. Konishi",
+            review: "Every Day Brings a new challenge, and that's exactly what keeps me motivated. that energy here is unmatched.",
+            designation: "CAO"
         }
     ];
 

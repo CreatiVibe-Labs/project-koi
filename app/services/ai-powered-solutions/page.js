@@ -135,8 +135,7 @@ export default function AiPoweredSolutions() {
                                 />
                             </div>
                             <div className="buttons-wrapper">
-                                <Link href="#">Talk to an AI Consultant</Link>
-                                <Link href="#">Explore free Use Case demo</Link>
+                                <Link href="/scheduler/AI-powered-solutions">Talk to an AI Consultant</Link>
                             </div>
                         </div>
                     </div>

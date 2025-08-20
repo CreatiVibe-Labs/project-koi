@@ -38,8 +38,6 @@ const HubSpotMeetings = forwardRef(({ onMeetingOpened }, ref) => {
     `;
     document.body.appendChild(script);
 
-    // Call the callback after opening the popup
-    if (onMeetingOpened) onMeetingOpened();
   };
 
   // Expose the method to parent component
@@ -48,9 +46,7 @@ const HubSpotMeetings = forwardRef(({ onMeetingOpened }, ref) => {
   }));
 
   return (
-    <div className="meetings-iframe-container" data-src={meetingUrl}>
-      {/* HubSpot Meetings will be embedded here */}
-    </div>
+    <div className="meetings-iframe-container" data-src={meetingUrl}></div>
   );
 });
 

@@ -97,6 +97,11 @@ p {
   color: #fff;
 }
 
+.todayBtn:hover {
+  background-color: #ffffff52 !important;
+  color: #fff !important;
+}
+
 .site_readmore svg ellipse {
   transition: all 0.5s ease;
 }
