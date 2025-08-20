@@ -2636,3 +2636,7 @@ select {
 .styles-module_chatBody__VBxQH {
   overflow-y: auto;
 }
+
+.floating-whatsapp-notification {
+  display: none !important;
+}

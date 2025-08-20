@@ -79,7 +79,7 @@ export default function CustomAppDevelopment() {
                                 Whether you need an internal tool, a customer portal, or a full-scale SaaS platform, we’re here to turn your ideas into powerful, working software.
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href="#">Book a Free Consultation</Link>
+                                <Link href="/scheduler/custom_app_development">Book a Free Consultation</Link>
                             </div>
                         </div>
                     </div>

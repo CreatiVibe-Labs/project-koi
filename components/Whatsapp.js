@@ -12,9 +12,15 @@ export default function Whatsapp() {
             placeholder="Feel free to ask."
             darkMode
             // chatMessage="Hello there! 🤝 How can we help? Now i'm going yo show you how to distribute the things."
-            chatMessage="orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            chatMessage="Hi there! 👋Thanks for reaching out. One of our representatives will be with you shortly. 😊
+While we’re connecting you, could you please share your name and a brief description of how
+we can assist? This will help us serve you faster.
+Our working hours are: Monday to Friday, 9:00 AM – 5:00 PM
+If you’re messaging us outside of these hours, we’ll get back to you on the next business day.
+Thanks and talk soon!"
             chatboxClassName="whatsappButton"
             className="whatsappButtonWrapper"
+            notification={false}
         />
     );
 }
