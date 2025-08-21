@@ -1658,12 +1658,12 @@ h1.main-heading {
 }
 
 p.titleText {
-  font-size: 32px;
+  font-size: 22px;
   font-weight: 500;
 }
 
 p.exp {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
 }
 
@@ -2686,4 +2686,141 @@ select {
   bottom: 0 !important;
   left: 1% !important;
   background: transparent;
+}
+
+.flex.flex-col.gap-5.items-start.html-content h2 {
+  font-size: 1.5rem !important;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.flex.flex-col.gap-5.items-start.html-content h2 strong {
+  font-weight: 500 !important;
+}
+
+.flex.flex-col.gap-5.items-start.html-content {
+  margin-top: -20px;
+}
+
+.flex.flex-col.gap-5.items-start.html-content p {
+  font-size: 1.2rem !important;
+}
+
+.flex.flex-col.gap-5.items-start.html-content ul {
+  list-style: disc;
+  margin-left: 30px;
+  font-size: 1.2rem !important;
+}
+
+select.input-field option {
+  color: black !important;
+}
+
+
+/* Migration Pathway */
+
+.stairWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainbox {
+  width: 100%;
+  text-align: center;
+}
+
+.bottombox {
+  border: 1px solid white;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+
+}
+
+.mainbox1 {
+  width: 83%;
+  margin-bottom: -6px;
+}
+
+.mainbox2 {
+  width: 88.3%;
+  margin-bottom: -6px;
+}
+
+.mainbox3 {
+  width: 94%;
+  margin-bottom: -6px;
+}
+
+.mainbox4 {
+  width: 100%;
+}
+
+.my-box {
+  position: relative;
+  clip-path: polygon(2% 0%, 98% 0%, 100% 100%, 0% 100%);
+  background: lightblue;
+}
+
+.my-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border: 4px solid red;
+  clip-path: inherit;
+  /* same shape */
+}
+
+/* .topbox {
+  position: relative;
+  clip-path: polygon(2% 0%, 98% 0%, 100% 100%, 0% 100%);
+  background: lightblue;
+  padding: 20px;
+  min-height: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topbox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  border: 2px solid black;
+  clip-path: inherit;
+  pointer-events: none;
+} */
+
+.scene {
+  min-height: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 600px;
+}
+
+.panel {
+  width: 100%;
+  min-height: 150px;
+  background: rgb(255 255 255 / 60%);
+  line-height: normal;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 97%;
+  margin-bottom: 0%;
+}
+
+.panel--rotate-x {
+  transform: rotateX(15deg);
+  border: 1px solid white;
 }

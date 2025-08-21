@@ -186,28 +186,22 @@ export default function AboutUs() {
                 <div className="whyChooseUsHeading gradient-background"><h2>Career Opportunities</h2></div>
                 <div className="cardWrappers">
                     <Jobs
-                        title="Software Engineer"
-                        exp="2+ Years"
-                        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."
-                        link="/job-apply/software-engineer"
+                        title="Backend Developer"
+                        exp="3+ Years"
+                        description="We are looking for a detail-oriented Backend Developer to support the development of a secure, scalable private storage and file sharing platform. Working closely with an Infrastructure Engineer, you will be responsible for implementing server-side logic, managing data flow, and integrating core services related to storage, user access, and file handling. You will also collaborate with frontend team, product managers, and other stakeholders to ensure robust and scalable solutions"
+                        link="/job-apply/backend-developer"
                     />
                     <Jobs
-                        title="Software Engineer"
+                        title="Content Creator"
                         exp="2+ Years"
-                        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
-                        link="/job-apply/software-engineer2"
+                        description="We’re seeking a creative and driven Social Media Content Creator to join our team! This is a flexible role that can be fully remote and part-time. We’re also open to exploring partnership opportunities with the right candidate. Ideal candidates have a passion for digital storytelling, a keen eye for design, and the ability to turn ideas into scroll-stopping content."
+                        link="/job-apply/social-media-content-creator"
                     />
                     <Jobs
-                        title="Software Engineer"
-                        exp="2+ Years"
-                        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
-                        link="/job-apply/software-engineer3"
-                    />
-                    <Jobs
-                        title="Software Engineer"
-                        exp="2+ Years"
-                        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
-                        link="/job-apply/software-engineer4"
+                        title="IT Sales representative"
+                        exp="1+ Years"
+                        description="We are seeking a highly motivated and results-driven IT Sales Representative to join our dynamic team. In this role, you will be responsible for selling our cutting-edge IT services to a diverse range of customers. The ideal candidate will have at least one year of sales experience, preferably within the IT industry, and a proven track record of success."
+                        link="/job-apply/IT-sales-representative"
                     />
                 </div>
             </div>

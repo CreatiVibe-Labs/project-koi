@@ -7,62 +7,62 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function CloudMigration() {
 
-  const [isReverse, setIsReverse] = useState(false);
+    const [isReverse, setIsReverse] = useState(false);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsReverse((prev) => !prev); // Toggle state
-    }, 32000);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIsReverse((prev) => !prev); // Toggle state
+        }, 32000);
 
-    return () => clearInterval(interval);
-  }, []);
+        return () => clearInterval(interval);
+    }, []);
 
-  useEffect(() => {
-    const elements = document.querySelectorAll('.border-top');
-    elements.forEach((el) => {
-      if (isReverse) {
-        el.classList.add('reverse');
-      } else {
-        el.classList.remove('reverse');
-      }
-    });
+    useEffect(() => {
+        const elements = document.querySelectorAll('.border-top');
+        elements.forEach((el) => {
+            if (isReverse) {
+                el.classList.add('reverse');
+            } else {
+                el.classList.remove('reverse');
+            }
+        });
 
-    const elements2 = document.querySelectorAll('.border-bottom');
-    elements2.forEach((el2) => {
-      if (isReverse) {
-        el2.classList.add('reverse');
-      } else {
-        el2.classList.remove('reverse');
-      }
-    });
+        const elements2 = document.querySelectorAll('.border-bottom');
+        elements2.forEach((el2) => {
+            if (isReverse) {
+                el2.classList.add('reverse');
+            } else {
+                el2.classList.remove('reverse');
+            }
+        });
 
-    const elements3 = document.querySelectorAll('.border-left');
-    elements3.forEach((el3) => {
-      if (isReverse) {
-        el3.classList.add('reverse');
-      } else {
-        el3.classList.remove('reverse');
-      }
-    });
+        const elements3 = document.querySelectorAll('.border-left');
+        elements3.forEach((el3) => {
+            if (isReverse) {
+                el3.classList.add('reverse');
+            } else {
+                el3.classList.remove('reverse');
+            }
+        });
 
-    const elements4 = document.querySelectorAll('.border-right');
-    elements4.forEach((el4) => {
-      if (isReverse) {
-        el4.classList.add('reverse');
-      } else {
-        el4.classList.remove('reverse');
-      }
-    });
+        const elements4 = document.querySelectorAll('.border-right');
+        elements4.forEach((el4) => {
+            if (isReverse) {
+                el4.classList.add('reverse');
+            } else {
+                el4.classList.remove('reverse');
+            }
+        });
 
-    const elements5 = document.querySelectorAll('.front-face span');
-    elements5.forEach((el5) => {
-      if (isReverse) {
-        el5.classList.add('reverse');
-      } else {
-        el5.classList.remove('reverse');
-      }
-    });
-  }, [isReverse]);
+        const elements5 = document.querySelectorAll('.front-face span');
+        elements5.forEach((el5) => {
+            if (isReverse) {
+                el5.classList.add('reverse');
+            } else {
+                el5.classList.remove('reverse');
+            }
+        });
+    }, [isReverse]);
     return (
         <div>
             <div className="industriesServeMainWrapper webDev">
@@ -107,7 +107,7 @@ export default function CloudMigration() {
                 <div className="is-heading gradient-background"><h3>Migration Pathway</h3></div>
                 <div className="isContentTimeLine">
                     <div className="itemsWrapper">
-                        <div className='migrationPathWay'>
+                        {/* <div className='migrationPathWay'>
                             <div class="migration-box gradient-background">
                                 <div class="top-face">
                                     <div className='border-left w-[2px] absolute top-0 left-0 h-[100%]'></div>
@@ -174,7 +174,42 @@ export default function CloudMigration() {
                                 <div class="left-face2"></div>
                                 <div class="right-face"></div>
                             </div>
+                        </div> */}
+                        <div class="stairWrapper">
+                            <div class="mainbox1 mainbox">
+                                <div class="scene">
+                                    <div class="topbox1 topbox panel panel--rotate-x">
+                                        <span>Lorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum Donor.</span>
+                                    </div>
+                                </div>
+                                <div class='bottombox1 bottombox'><span>Lorem Ispum Donor</span></div>
+                            </div>
+                            <div class="mainbox2 mainbox">
+                                <div class="scene">
+                                    <div class="topbox1 topbox panel panel--rotate-x">
+                                        <span>Lorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum Donor.</span>
+                                    </div>
+                                </div>
+                                <div class='bottombox2 bottombox'><span>Lorem Ispum Donor</span></div>
+                            </div>
+                            <div class="mainbox3 mainbox">
+                                <div class="scene">
+                                    <div class="topbox1 topbox panel panel--rotate-x">
+                                        <span>Lorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum Donor.</span>
+                                    </div>
+                                </div>
+                                <div class='bottombox3 bottombox'><span>Lorem Ispum Donor</span></div>
+                            </div>
+                            <div class="mainbox4 mainbox">
+                                <div class="scene">
+                                    <div class="topbox1 topbox panel panel--rotate-x">
+                                        <span>Lorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum Donor.</span>
+                                    </div>
+                                </div>
+                                <div class='bottombox4 bottombox'><span>Lorem Ispum Donor</span></div>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             </div>
