@@ -9,6 +9,16 @@ export default function CloudMigration() {
 
     const [isReverse, setIsReverse] = useState(false);
 
+    const [reverse, setReverse] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setReverse(prev => !prev); // toggle har 20s baad
+        }, 20000); // 20000 ms = 20s
+
+        return () => clearInterval(interval); // cleanup
+    }, []);
+
     useEffect(() => {
         const interval = setInterval(() => {
             setIsReverse((prev) => !prev); // Toggle state
@@ -175,38 +185,39 @@ export default function CloudMigration() {
                                 <div class="right-face"></div>
                             </div>
                         </div> */}
-                        <div class="stairWrapper">
+                        <div class={`stairWrapper !w-[100%] ${reverse ? 'reverse' : 'forward'}`}>
                             <div class="mainbox1 mainbox">
-                                <div class="scene">
-                                    <div class="topbox1 topbox panel panel--rotate-x">
-                                        <span>Lorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum Donor.</span>
-                                    </div>
+                                <div class="scene relative !flex justify-center items-center">
+                                    <span className='absolute'>Provide post migration testing, validation,
+                                        optimization and ongoing support to maximize the benefits of your cloud
+                                        environment</span>
+                                    <div class="topbox1 topbox panel panel--rotate-x"></div>
                                 </div>
-                                <div class='bottombox1 bottombox'><span>Lorem Ispum Donor</span></div>
+                                <div class='bottombox1 bottombox'><span>Optimization & Ongoing Support</span></div>
                             </div>
                             <div class="mainbox2 mainbox">
-                                <div class="scene">
-                                    <div class="topbox1 topbox panel panel--rotate-x">
-                                        <span>Lorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum Donor.</span>
-                                    </div>
+                                <div class="scene relative !flex justify-center items-center">
+                                    <span className='absolute'>Implement migration with minimal disruptions, ensuring data
+                                        integrity and security</span>
+                                    <div class="topbox2 topbox panel panel--rotate-x"></div>
                                 </div>
-                                <div class='bottombox2 bottombox'><span>Lorem Ispum Donor</span></div>
+                                <div class='bottombox2 bottombox'><span>Migration Execution</span></div>
                             </div>
                             <div class="mainbox3 mainbox">
-                                <div class="scene">
-                                    <div class="topbox1 topbox panel panel--rotate-x">
-                                        <span>Lorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum Donor.</span>
-                                    </div>
+                                <div class="scene relative !flex justify-center items-center">
+                                    <span className='absolute'>Develop a customized cloud architecture that aligns with
+                                        your business goals and compliance requirements</span>
+                                    <div class="topbox3 topbox panel panel--rotate-x"></div>
                                 </div>
-                                <div class='bottombox3 bottombox'><span>Lorem Ispum Donor</span></div>
+                                <div class='bottombox3 bottombox'><span>Architecture & Strategy</span></div>
                             </div>
                             <div class="mainbox4 mainbox">
-                                <div class="scene">
-                                    <div class="topbox1 topbox panel panel--rotate-x">
-                                        <span>Lorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum DonorLorem Ispum Donor.</span>
-                                    </div>
+                                <div class="scene relative !flex justify-center items-center">
+                                    <span className='absolute'>Conduct a thorough analysis of your current
+                                        infrastructure and define migration objectives</span>
+                                    <div class="topbox4 topbox panel panel--rotate-x"></div>
                                 </div>
-                                <div class='bottombox4 bottombox'><span>Lorem Ispum Donor</span></div>
+                                <div class='bottombox4 bottombox'><span>Assessment & Planning</span></div>
                             </div>
                         </div>
 
