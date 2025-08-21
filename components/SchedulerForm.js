@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef } from "react";
-import { DtCalendar } from 'react-calendar-datetime-picker';
+import { DtPicker } from 'react-calendar-datetime-picker';
 import 'react-calendar-datetime-picker/dist/style.css';
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
 
@@ -69,12 +69,15 @@ export default function SchedulerForm({ params }) {
         <div className="contactForm whyChooseUsCardContents">
           <form onSubmit={handleSubmit} className="contact-form">
             <div className="calender">
-              <DtCalendar
+              <DtPicker
                 type='single'
                 local='en'
                 withTime
                 showWeekend
                 todayBtn="true"
+                inputClass="input-field"
+                placeholder="Select Schedule Date"
+                showTimeInput
               />
             </div>
 

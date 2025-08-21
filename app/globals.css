@@ -831,14 +831,18 @@ form.contact-form {
 
 .contact-form .input-field {
   border: 1px solid #ffffff66;
-  width: 100%;
-  border-radius: 10px;
-  padding: 15px 10px;
+  border-color: #ffffff66 !important;
+  text-align: left !important;
+  width: 100% !important;
+  border-radius: 10px !important;
+  padding: 15px 10px !important;
   font-size: 16px;
   font-weight: 500;
   outline: none;
   resize: none;
   margin-top: 0.5rem;
+  height: auto !important;
+  line-height: normal !important;
 }
 
 .contact-form .input-field.error {
@@ -2655,10 +2659,12 @@ select {
 }
 
 .calender-modal {
-  width: 100% !important;
+  width: 41% !important;
   border-radius: 14px !important;
   overflow: hidden !important;
-  background-color: transparent !important;
+  background-color: rgba(25, 22, 22, .84) !important;
+  backdrop-filter: blur(15px);
+  padding-bottom: 60px;
 }
 
 .react-calendar-datetime-picker {
@@ -2672,6 +2678,21 @@ select {
   width: 100%;
 }
 
+.calender-modal .daysList {
+  padding: 20px 40px;
+}
+
+.daysList-day {
+    font-size: 20px !important;
+    font-weight: 500;
+    margin: 0px !important;
+    height: 70px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white !important;
+}
+
 .calender-modal .header--btn {
   min-width: 2%;
 }
@@ -2683,8 +2704,8 @@ select {
 
 .calender-modal .todayBtn {
   position: absolute !important;
-  bottom: 0 !important;
-  left: 1% !important;
+  bottom: -60px !important;
+  left: 3% !important;
   background: transparent;
 }
 
@@ -2884,14 +2905,17 @@ select.input-field option {
 
 /* Reverse Animation */
 .reverse .panel {
+  background-color: rgb(19, 244, 239, 0.40);
   animation: changeTopBg2 3s ease-in-out forwards;
 }
 
 .reverse .bottombox span {
+  color: #FFBF00;
   animation: changeColor2 2s ease-in-out forwards;
 }
 
 .reverse .bottombox {
+  background-color: rgb(19, 244, 239, 0.20);
   animation: changeBg2 2s ease-in-out forwards;
 }
 
