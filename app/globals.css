@@ -2634,6 +2634,7 @@ select {
 .styles-module_whatsappChatBox__MdQ5U {
   background-color: transparent !important;
   backdrop-filter: blur(15px) !important;
+  height: 450px !important;
 }
 
 .styles-module_triangle__K9ViC {
@@ -2649,6 +2650,10 @@ select {
   max-width: 80% !important;
 }
 
+.styles-module_message__Z9MOV p {
+  font-size: 16px !important;
+}
+
 
 .styles-module_chatBody__VBxQH {
   overflow-y: auto;
@@ -2659,19 +2664,43 @@ select {
 }
 
 .calender-modal {
-  width: 41% !important;
+  width: 33% !important;
   border-radius: 14px !important;
   overflow: hidden !important;
   background-color: rgba(25, 22, 22, .84) !important;
   backdrop-filter: blur(15px);
-  padding-bottom: 60px;
+  top: 62px !important;
+  bottom: unset !important;
+  /* padding-bottom: 70px; */
+
+}
+
+.daysList {
+  padding-bottom: 80px !important;
+}
+
+.yearWrapper::before,
+.yearWrapper::after {
+  background: none !important;
 }
 
 .react-calendar-datetime-picker {
   border-radius: 24px !important;
   background-color: transparent !important;
+}
 
+.monthList * {
+  font-size: 20px !important;
+  font-weight: 500;
+  color: white !important;
+}
 
+.monthList .is-selected-month {
+  color: #03bf1f !important;
+}
+
+.daysList-day.is-disabled {
+  background-color: rgb(255 255 255 / 20%) !important;
 }
 
 .calender-modal svg {
@@ -2682,15 +2711,40 @@ select {
   padding: 20px 40px;
 }
 
+.time * {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  color: white !important;
+}
+
+.time {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+}
+
+.time button {
+  opacity: 1 !important;
+  width: 30px !important;
+}
+
+.time input {
+  width: 30px !important;
+}
+
+.time svg {
+  fill: white !important;
+}
+
 .daysList-day {
-    font-size: 20px !important;
-    font-weight: 500;
-    margin: 0px !important;
-    height: 70px !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white !important;
+  font-size: 20px !important;
+  font-weight: 500;
+  margin: 0px !important;
+  height: 55px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
 }
 
 .calender-modal .header--btn {
@@ -2704,9 +2758,11 @@ select {
 
 .calender-modal .todayBtn {
   position: absolute !important;
-  bottom: -60px !important;
+  bottom: 3px !important;
   left: 3% !important;
   background: transparent;
+  min-width: 100px !important;
+  width: 100px !important;
 }
 
 .flex.flex-col.gap-5.items-start.html-content h2 {
