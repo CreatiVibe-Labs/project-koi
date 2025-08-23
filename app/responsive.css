@@ -352,6 +352,7 @@
   .servicePageWrapper .sideBarWrapper {
     padding: 8px !important;
     gap: 10px;
+    position: relative;
 
     a {
       font-size: 14px !important;
@@ -406,16 +407,30 @@
     .migrationIcons .service-card-wrap {
       width: 32% !important;
     }
+  }
 
-    .tab {
-      margin: 1rem 0 !important;
+  .tab {
+    margin: 1rem 0 !important;
 
-      button img {
+    button {
+      font-size: 14px !important;
+      gap: 0.5rem !important;
+
+      img {
         width: 40px !important;
       }
     }
   }
 
+  .roundSvg {
+    width: 100% !important;
+    max-width: 80% !important;
+    left: 17px !important;
+  }
+
+  .centerIcon img {
+    width: 50px !important;
+  }
 
   /* media query end */
 }
