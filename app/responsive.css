@@ -82,7 +82,11 @@
     .wcu-heading span.heading-1,
     .whyCHooseUsWrapper .heading,
     .IndustriesWeServe p,
-    .stContent p.heading-1 {
+    .stContent p.heading-1,
+    .jobMainWrap p.titleText,
+    .contactBg a,
+    .exp,
+    .clock p {
       font-size: 14px !important;
     }
 
@@ -102,6 +106,15 @@
     .stContent p.content {
       line-height: normal;
     }
+
+    .contactBg ul li {
+      margin-bottom: 1rem;
+    }
+/* 
+    .contactBg li img {
+      width: 16px;
+      height: 16px;
+    } */
 
     .homepageServices .ServicesCardsContent img {
       border-radius: 10px;
@@ -201,7 +214,8 @@
 
   .StillThinkingMainWrapper,
   .industriesServeMainWrapper,
-  .whyCHooseUsWrapper {
+  .whyCHooseUsWrapper,
+  .contactForm {
     margin-top: 30px !important;
   }
 
@@ -228,13 +242,8 @@
     margin-top: 10px !important;
   }
 
-  .jobMainWrap p.titleText {
-    font-size: 14px;
-  }
 
-  .exp {
-    font-size: 14px !important;
-  }
+
 
   .coreValues .aboutCoreval {
     margin-bottom: 0 !important;
