@@ -13,7 +13,7 @@ import HowItWorks from "@/components/HowItWorks";
 export default function MainServicePage() {
 
     const pathname = usePathname();
-    
+
     useEffect(() => {
         const hash = window.location.hash.replace("#", "");
         if (hash) {
@@ -31,7 +31,7 @@ export default function MainServicePage() {
                 <div className="content-section">
                     <h1>Bridging Today’s Needs with Tomorrow’s Tech</h1>
                     <p className="!font-medium !mt-8">We design and build custom digital tools that align with your exact needs — from secure cloud migrations to purpose-built applications</p>
-                    <span className="2text-content !mt-6">
+                    <span className="2text-content md:!mt-6 mt-2">
                         <p className="white-text">
                             <Image alt="image" src="/icons/tick.png" width={20} height={10}></Image>
                             SMEs friendly
@@ -41,7 +41,7 @@ export default function MainServicePage() {
                             Cost efficient
                         </p>
                     </span>
-                    <div className="buttons-wrapper !mt-[65px]">
+                    <div className="buttons-wrapper md:!mt-[65px] mt-3">
                         <Link href="#">Talk to a Solutions Expert</Link>
                     </div>
                 </div>
@@ -141,7 +141,7 @@ export default function MainServicePage() {
             </div>
 
             <div className="industriesServeMainWrapper featuresHighlight cmsWork cmsWork2">
-                <div className=" gradient-background text-[#c3f8d9] text-[40px] font-bold p-3 rounded-2xl"><h3>Tech Stack</h3></div>
+                <div className=" gradient-background text-[#c3f8d9] md:text-[40px] text-[20px] font-bold p-3 rounded-2xl"><h3>Tech Stack</h3></div>
                 <div className="">
                     <div className="itemsWrapper">
                         <FeatureHighlights2

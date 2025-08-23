@@ -110,7 +110,8 @@
     .contactBg ul li {
       margin-bottom: 1rem;
     }
-/* 
+
+    /* 
     .contactBg li img {
       width: 16px;
       height: 16px;
@@ -135,9 +136,7 @@
       padding: 8px;
     }
 
-    .homeWhyChooseUS {
-      margin-top: 30px !important;
-    }
+
 
     .homepageServices .service-card-wrap,
     .homeWhyChooseUS .service-card-wrap {
@@ -212,10 +211,13 @@
     }
   }
 
+  .homeWhyChooseUS,
   .StillThinkingMainWrapper,
   .industriesServeMainWrapper,
   .whyCHooseUsWrapper,
-  .contactForm {
+  .contactForm,
+  .service-hero-section,
+  .ServicesCardsWrapper {
     margin-top: 30px !important;
   }
 
@@ -268,4 +270,68 @@
   .footerWrapper {
     flex-direction: column;
   }
+
+  /* Services Page */
+  .service-hero-section {
+    padding: 0;
+
+    p.white-text {
+      width: 50% !important;
+      margin-top: 0 !important;
+    }
+  }
+
+  .ServicesCardsContent .mainWrapper {
+    width: 100% !important;
+
+    .serviceContent .heading {
+      width: 100% !important;
+      min-height: max-content !important;
+      padding-bottom: 0.5rem;
+
+      h5 {
+        font-size: 14px;
+        line-height: normal;
+      }
+    }
+  }
+
+  .services-videos .bgImage {
+    height: 160px !important;
+
+    video {
+      height: 160px !important;
+    }
+  }
+
+  .serviceContent {
+    padding: 8px !important;
+
+    .description {
+      margin-top: 0;
+      padding-bottom: 0.5rem;
+
+      min-height: max-content !important;
+    }
+
+    .mainServiceLink a {
+      margin-top: 0;
+    }
+  }
+
+  .cmsWork2 .service-card-wrap {
+    width: 23% !important;
+    padding: 0 !important;
+  }
+
+  .featuresHighlight .service-card-wrap .heading {
+    font-size: 14px !important;
+  }
+
+  .featuresHighlight .service-card-wrap img {
+    width: 30px !important;
+    height: 30px !important;
+  }
+
+  /* media query end */
 }
