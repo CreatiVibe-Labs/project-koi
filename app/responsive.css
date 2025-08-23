@@ -155,6 +155,7 @@
       .jobMainWrap {
         flex-direction: column;
         gap: 1rem;
+        padding: 0.5rem !important;
       }
     }
 
@@ -173,6 +174,7 @@
 
   .hero-section-about {
     display: flex !important;
+    padding: 0 !important;
   }
 
   .coreValues {
@@ -197,20 +199,61 @@
     }
   }
 
+  .StillThinkingMainWrapper,
+  .industriesServeMainWrapper,
+  .whyCHooseUsWrapper {
+    margin-top: 30px !important;
+  }
+
+  .industriesServeMainWrapper .isContent,
+  .StillThinkingMainWrapper .stContent {
+    padding: 8px !important;
+
+  }
+
+  .StillThinkingMainWrapper .buttons-wrapper,
+  .letsBuildToghether .buttons-wrapper {
+    margin: 1rem 0 0.5rem !important;
+  }
+
   .reviewslider {
     grid-template-columns: 1fr !important;
   }
 
-  .missionVission .coreValues {
-    margin-top: 10px;
+  .coreValues .aboutCoreval {
+    margin-bottom: 0 !important;
   }
 
-  p.titleText {
-    font-size: 18px;
+  .missionVission .coreValues {
+    margin-top: 10px !important;
+  }
+
+  .jobMainWrap p.titleText {
+    font-size: 14px;
   }
 
   .exp {
     font-size: 14px !important;
+  }
+
+  .coreValues .aboutCoreval {
+    margin-bottom: 0 !important;
+  }
+
+  .missionVission .whyChooseUsCardContents {
+    padding: 0.5rem !important;
+  }
+
+  .missionVission .whyChooseUsCardContents .cardWrappers {
+    margin-top: 0 !important;
+  }
+
+  .missionVission .whyChooseUsCardContents p {
+    padding-left: 0 !important;
+  }
+
+  .whyChooseUsCardContents {
+    padding: 0.5rem !important;
   }
 
   .footerWrapper {

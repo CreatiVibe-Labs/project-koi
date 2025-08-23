@@ -64,7 +64,7 @@ export default function AboutUs() {
             <div className="whyCHooseUsWrapper coreValues mt-[-32px] md:!mt-[100px]">
                 <div className="whyChooseUsHeading gradient-background"><h2>Core Values</h2></div>
                 <div className="whyChooseUsCardContentss">
-                    <div className="cardWrappers gap-4 md:!gap-0 !flex-nowrap justify-between mt-4  !rounded-[30px]">
+                    <div className="cardWrappers gap-2 md:!gap-0 !flex-nowrap justify-between mt-4  !rounded-[30px]">
                         <ServicesCards2
                             imageUrl="/icons/coreValue-4.png"
                             heading="Innovation"
@@ -111,7 +111,7 @@ export default function AboutUs() {
                 </div>
                 <div className="whyCHooseUsWrapper coreValues w-[50%] md:!w-[51%]">
                     {/* <div className="whyChooseUsHeading gradient-background"><h2>Vision</h2></div> */}
-                    <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none !pl-[30px]  !rounded-[30px]">
+                    <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none pl-0 md:!pl-[30px]  !rounded-[30px]">
                         <div className="cardWrappers">
                             <p className="text-xs md:text-lg !font-medium pl-1+0">
                                 We en<b className="bold-text text-[#98c1a9]">vision</b> a world where technology enhances every human experience

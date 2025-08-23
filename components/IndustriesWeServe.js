@@ -52,7 +52,7 @@ const industries = [
 ];
 export default function IndustriesWeServe({ }) {
     return (
-        <ul className='IndustriesWeServe grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-4'>
+        <ul className='IndustriesWeServe grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6 gap-2 md:gap-4'>
             {industries.map((item, index) => (
                 <li key={index} style={{ flex: '0 0 15%' }}
                     className="bg-[#4966552e] border-[#dbe7d9] flex flex-col items-center justify-between gap-2 min-w-0 transition-all duration-500 ease-in-out border rounded-[19px] p-2 md:p-2.5 font-medium text-lg hover:scale-105 cursor-pointer">
@@ -65,7 +65,7 @@ export default function IndustriesWeServe({ }) {
                             className='w-[48px] h-[47px]'
                         />
                     </div>
-                    <p className='!font-medium'>{item.text}</p>
+                    <p className='!font-medium text-center'>{item.text}</p>
                 </li>
             ))}
         </ul>
