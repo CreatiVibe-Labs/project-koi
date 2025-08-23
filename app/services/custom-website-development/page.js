@@ -18,7 +18,7 @@ export default function CustomWebsiteDevelopment() {
                 <div className='sideBarWrapper'>
                     <SideBar />
                 </div>
-                <div className='serviceContentWrapper'>
+                <div className='serviceContentWrapper singleSerivce'>
                     <div className="industriesServeMainWrapper webDev">
                         <div className="is-heading gradient-background"><h3>Custom Websites That Do More Than Look Good</h3></div>
                         <div className="isContent">

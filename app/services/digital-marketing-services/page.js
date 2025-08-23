@@ -21,7 +21,7 @@ export default function DigitalMarketingServices() {
                 <div className='sideBarWrapper'>
                     <SideBar />
                 </div>
-                <div className='serviceContentWrapper'>
+                <div className='serviceContentWrapper singleSerivce'>
                     <div className="industriesServeMainWrapper webDev">
                         <div className="is-heading gradient-background"><h3>Marketing That Moves the Needle</h3></div>
                         <div className="isContent">

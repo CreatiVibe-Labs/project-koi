@@ -5,7 +5,7 @@ import FeatureHighlights from '@/components/FeatureHighlights';
 export default function CloudStorage() {
     return (
         <div>
-            <div className="industriesServeMainWrapper webDev cloudStorage">
+            <div className="industriesServeMainWrapper webDev cloudStorage singleSerivce">
                 <div className="is-heading gradient-background"><h3>Introduction</h3></div>
                 <div className="isContent">
                     <div className="itemsWrapper">
@@ -28,11 +28,11 @@ export default function CloudStorage() {
                     </div>
                 </div>
             </div>
-            <div className="whyCHooseUsWrapper industriesServeMainWrapper">
+            <div className="whyCHooseUsWrapper industriesServeMainWrapper singleSerivce">
                 <div className="is-heading whyChooseUsHeading gradient-background"><h3>Private Storage</h3></div>
                 <div className="whyChooseUsCardContents">
                     <div className='itemsWrapper'>
-                        <p className="wcu-heading"><span className="heading-1">Sensitive Data? We provide Privacy-Driven Cloud Storage.</span></p><br /><br />
+                        <p className="wcu-heading pb-2"><span className="heading-1">Sensitive Data? We provide Privacy-Driven Cloud Storage.</span></p>
                         <p className='!font-medium'>
                             We understand that in industries like healthcare, finance, and legal
                             services, privacy isn’t optional — it’s a legal and ethical obligation. That’s
@@ -44,7 +44,7 @@ export default function CloudStorage() {
                 </div>
             </div>
 
-            <div className="industriesServeMainWrapper featuresHighlight">
+            <div className="industriesServeMainWrapper featuresHighlight singleSerivce">
                 <div className="is-heading gradient-background"><h3>Key Features</h3></div>
                 <div className="mt-5">
                     <div className="itemsWrapper">

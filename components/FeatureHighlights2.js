@@ -9,7 +9,7 @@ export default function FeatureHighlights({
   description,
 }) {
   return (
-    <div className="service-card-wrap p-4 text-center backdrop-blur-lg pb-2">
+    <div className="service-card-wrap md:p-4 p-2 text-center backdrop-blur-lg md:pb-2">
       <div className="image-button-wrap">
         {imageUrl &&
           <Image
@@ -23,7 +23,7 @@ export default function FeatureHighlights({
       </div>
       <ol>
         <li className='border-0 text-center'>
-          {title && <p className=''><span className="text-xl font-extrabold mb-2 heading">{title}</span></p>}
+          {title && <p className=''><span className="!text-[14px] md:text-xl font-extrabold mb-2 heading">{title}</span></p>}
           {description && <p className="text-gray-600 mb-4 description pt-3">{description}</p>}
         </li>
       </ol>

@@ -18,7 +18,7 @@ export default function AiPoweredSolutions() {
                 <div className='sideBarWrapper'>
                     <SideBar />
                 </div>
-                <div className='serviceContentWrapper'>
+                <div className='serviceContentWrapper singleSerivce'>
                     <div className="industriesServeMainWrapper webDev">
                         <div className="is-heading gradient-background"><h3>Reimagine What’s Possible with AI</h3></div>
                         <div className="isContent">

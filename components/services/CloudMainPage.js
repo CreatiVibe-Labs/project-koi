@@ -25,7 +25,7 @@ export default function CloudMainPage() {
                 </div>
                 <div className='serviceContentWrapper'>
 
-                    <div className="tab">
+                    <div className="md:my-0 !mt-4  tab">
                         {tabs.map((tab) => (
                             <button
                                 key={tab.name}

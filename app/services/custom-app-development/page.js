@@ -13,7 +13,7 @@ export default function CustomAppDevelopment() {
     return (
         <div>
             {/* <Breadcrumb /> */}
-            <div className='servicePageWrapper'>
+            <div className='servicePageWrapper singleSerivce'>
                 <div className='sideBarWrapper'>
                     <SideBar />
                 </div>
@@ -21,7 +21,7 @@ export default function CustomAppDevelopment() {
                     {/* <div className='bannerImage'>
                         <Image src="/images/custom-app-development.png" width={6000} height={6000} alt="Logo" />
                     </div> */}
-                    <div className="industriesServeMainWrapper mt0">
+                    <div className="industriesServeMainWrapper md:mt0 !mt-2">
                         <div className="is-heading gradient-background"><h3>Tailored Solutions That Work the Way You Do</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">

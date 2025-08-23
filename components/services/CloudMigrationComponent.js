@@ -74,7 +74,7 @@ export default function CloudMigration() {
         });
     }, [isReverse]);
     return (
-        <div>
+        <div className='singleSerivce'>
             <div className="industriesServeMainWrapper webDev">
                 <div className="is-heading gradient-background"><h3>Cloud Migration Made Simple, Secure, and Scalable</h3></div>
                 <div className="isContent">

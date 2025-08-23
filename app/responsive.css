@@ -333,5 +333,89 @@
     height: 30px !important;
   }
 
+  /* Serivce Innerpage */
+  .servicePageWrapper {
+    flex-direction: column !important;
+
+    .sideBarWrapper,
+    .serviceContentWrapper {
+      width: 100% !important;
+    }
+
+    .serviceContentWrapper {
+      position: relative;
+      z-index: 9999;
+    }
+  }
+
+  /* singleSerivce page*/
+  .servicePageWrapper .sideBarWrapper {
+    padding: 8px !important;
+    gap: 10px;
+
+    a {
+      font-size: 14px !important;
+      padding: 10px !important;
+    }
+  }
+
+  .singleSerivce {
+
+    h3, h4 {
+      font-size: 20px !important;
+    }
+
+    p, .duoColumns p {
+      font-size: 12px !important;
+    }
+
+    .itemsWrapper img {
+      margin-top: 0 !important;
+    }
+
+    .content-wrapper .cardWrappers {
+      grid-template-columns: 1fr !important;
+    }
+
+    .review-container {
+      height: 120px !important;
+    }
+
+    .duoColumns h3,
+    .duoColumns h4,
+    .scene span, .bottombox span {
+      font-size: 14px !important;
+    }
+
+    .ServiceHighlight .service-card-wrap {
+      padding: 0.25rem 0 !important;
+    }
+
+    .itemsWrapper ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+
+      li {
+        font-size: 12px !important;
+        width: 100% !important;
+        min-width: fit-content;
+      }
+    }
+
+    .migrationIcons .service-card-wrap {
+      width: 32% !important;
+    }
+
+    .tab {
+      margin: 1rem 0 !important;
+
+      button img {
+        width: 40px !important;
+      }
+    }
+  }
+
+
   /* media query end */
 }
