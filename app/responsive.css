@@ -1,5 +1,8 @@
 @media screen and (max-width: 767px) {
   header {
+    .headerWrapper {
+      padding: 1rem !important;
+    }
 
     /* .searchLangWrapper {
       gap: 1rem;
@@ -267,10 +270,6 @@
     padding: 0.5rem !important;
   }
 
-  .footerWrapper {
-    flex-direction: column;
-  }
-
   /* Services Page */
   .service-hero-section {
     padding: 0;
@@ -384,7 +383,8 @@
 
     .duoColumns h3,
     .duoColumns h4,
-    .scene span, .bottombox span {
+    .scene span, .bottombox span,
+    .mobileLinks a {
       font-size: 14px !important;
     }
 
@@ -430,6 +430,24 @@
 
   .centerIcon img {
     width: 50px !important;
+  }
+
+  /* footerWrapper */
+  .footer {
+    padding: 1rem !important;
+
+    .footerWrapper {
+      flex-direction: column;
+
+      .section1,
+      .contentWrapper {
+        width: 100% !important;
+      }
+    }
+
+    .logoWrapper img{
+      width: 15% !important;
+    }
   }
 
   /* media query end */
