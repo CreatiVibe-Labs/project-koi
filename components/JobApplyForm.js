@@ -121,16 +121,43 @@ export default function JobApplyForm({ params }) {
 
     const animatedComponents = makeAnimated();
     const [formData, setFormData] = useState({
-        company: '',
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        apply_for: slugWithSpace,
+        salutation: '', // required
+        first_name: '',
+        last_name: '',// required
+        email: '',// required
+        phone: '',// required
+        linkedin_profile: '',
+        portfolio_website: '',
+        position_applied_for: slugWithSpace,// required
+        employment_type: '',// required
+        preferred_location: '',// required
+        desired_salary_currency: "",
+        desired_salary_amount:"",
+        desired_salary_time: '',
+        resume_cv: '',// required
+        cover_letter: '',
+        additional_document: '',
+        question_answers: '', //json
+        is_information_true: '', //checkbox // required
+        consent_data_processing: '',//checkbox // required
     });
 
+    const validate = () => {
+        const newErrors = {};
+        if (!formData.salutation.trim()) newErrors.salutation = 'Salutation is required';
+        if (!formData.last_name.trim()) newErrors.last_name = 'Last name is required';
+        if (!formData.email.trim()) newErrors.email = 'Email is required';
+        if (!formData.subject.trim()) newErrors.subject = 'Please select a subject';
+        if (!formData.message.trim()) newErrors.message = 'Message is required';
+        if (!formData.position_applied_for.trim()) newErrors.position_applied_for = 'Position Applied for is required';
+        if (!formData.employment_type.trim()) newErrors.employment_type = 'Employment Type is required';
+        if (!formData.preferred_location.trim()) newErrors.preferred_location = 'Preffered Location is required';
+        if (!formData.resume_cv.trim()) newErrors.resume_cv = 'Resume is required';
+        if (!formData.is_information_true.trim()) newErrors.is_information_true = 'Required';
+        if (!formData.consent_data_processing.trim()) newErrors.consent_data_processing = 'Required';
+        return newErrors;
+    };
+    
     const empolyment_type = [
         { value: 'full_time', label: 'Full Time' },
         { value: 'part_time', label: 'Part Time' },
@@ -195,16 +222,6 @@ export default function JobApplyForm({ params }) {
         }
     };
 
-    const validate = () => {
-        const newErrors = {};
-        if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
-        if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
-        if (!formData.email.trim()) newErrors.email = 'Email is required';
-        if (!formData.subject.trim()) newErrors.subject = 'Please select a subject';
-        if (!formData.message.trim()) newErrors.message = 'Message is required';
-        return newErrors;
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         const validationErrors = validate();
@@ -238,8 +255,8 @@ export default function JobApplyForm({ params }) {
                         <div className="flex gap-[20px]">
                             <div className="relative !w-[10%]">
                                 <select
-                                    name="title"
-                                    value={formData.title}
+                                    name="salutation"
+                                    value={formData.salutation}
                                     onChange={handleChange}
                                     className="input-field"
                                 >
@@ -249,21 +266,22 @@ export default function JobApplyForm({ params }) {
                                     <option value="Ms.">Ms.</option>
                                     <option value="Miss.">Miss.</option>
                                 </select>
+                                {errors['salutation'] && <p className="text-red-500 text-sm mt-1">{errors['salutation']}</p>}
                             </div>
                             <div className="relative !w-[45%]">
                                 <input
-                                    name={'lastName'}
-                                    value={formData.lastName}
+                                    name={'last_name'}
+                                    value={formData.last_name}
                                     onChange={handleChange}
-                                    className={` input-field ${errors['lastName'] ? 'error' : ''}`}
+                                    className={` input-field ${errors['last_name'] ? 'error' : ''}`}
                                     placeholder={'Last Name (Required) '}
                                 />
-                                {errors['lastName'] && <p className="text-red-500 text-sm mt-1">{errors['lastName']}</p>}
+                                {errors['last_name'] && <p className="text-red-500 text-sm mt-1">{errors['last_name']}</p>}
                             </div>
                             <div className="relative !w-[45%]">
                                 <input
-                                    name={'firstName'}
-                                    value={formData.firstName}
+                                    name={'first_name'}
+                                    value={formData.first_name}
                                     onChange={handleChange}
                                     className={` input-field ${errors['firstName'] ? 'error' : ''}`}
                                     placeholder={'First Name (Optional) '}
@@ -301,8 +319,8 @@ export default function JobApplyForm({ params }) {
                         <div className="doubleRows">
                             <div className="relative">
                                 <input
-                                    name="linkedin"
-                                    value={formData.linkedin}
+                                    name="linkedin_profile"
+                                    value={formData.linkedin_profile}
                                     onChange={handleChange}
                                     className="input-field"
                                     placeholder="LinkedIn Profile (Optional)"
@@ -312,8 +330,8 @@ export default function JobApplyForm({ params }) {
                             {/* Phone (optional) */}
                             <div className="relative">
                                 <input
-                                    name="portfolio"
-                                    value={formData.phone}
+                                    name="portfolio_website"
+                                    value={formData.portfolio_website}
                                     onChange={handleChange}
                                     className=" input-field"
                                     placeholder="Portfolio / Website (Optional)"
@@ -332,13 +350,14 @@ export default function JobApplyForm({ params }) {
                             </div>
                             <div className="relative">
                                 <input
-                                    name="apply_for"
-                                    value={formData.apply_for}
+                                    name="position_applied_for"
+                                    value={formData.position_applied_for}
                                     onChange={handleChange}
-                                    className=" input-field capitalize"
+                                    className={`capitalize input-field ${errors.position_applied_for ? 'error' : ''}`}
                                     placeholder="Position Applying For"
                                     readOnly
                                 />
+                                {errors.position_applied_for && <p className="text-red-500 text-sm mt-1">{errors.position_applied_for}</p>}
                             </div>
                         </div>
 

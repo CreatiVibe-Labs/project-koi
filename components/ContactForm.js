@@ -5,15 +5,18 @@ import { useState } from 'react';
 export default function ContactForm() {
   const [formData, setFormData] = useState({
     company: '',
-    firstName: '',
-    lastName: '',
+    salutation: '',
+    first_name: '',
+    last_name: '',
     email: '',
     phone: '',
     subject: '',
-    message: ''
+    description: ''
   });
 
   const [errors, setErrors] = useState({});
+  const [status, setStatus] = useState(null); // success/error message
+
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -21,25 +24,69 @@ export default function ContactForm() {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.firstName.trim()) newErrors.firstName = 'First name is required';
-    if (!formData.lastName.trim()) newErrors.lastName = 'Last name is required';
+    if (!formData.last_name.trim()) newErrors.last_name = 'Last name is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
     if (!formData.subject.trim()) newErrors.subject = 'Please select a subject';
-    if (!formData.message.trim()) newErrors.message = 'Message is required';
+    if (!formData.description.trim()) newErrors.description = 'Message is required';
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
+
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      setStatus(null);
     } else {
       setErrors({});
-      console.log('Form submitted:', formData);
-      // Submit logic here
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/contacts`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok || data.status === false) {
+          if (data.errors) {
+            // Laravel ke validation errors ko React state me map karo
+            const apiErrors = {};
+            Object.keys(data.errors).forEach((field) => {
+              apiErrors[field] = data.errors[field][0]; // har field ka pehla error le lo
+            });
+            setErrors(apiErrors);
+          }
+
+          setStatus({
+            type: "error",
+            msg: data.message || "Form submission failed.",
+          });
+          return;
+        }
+
+        // Success
+        setStatus({ type: "success", msg: "Form submitted successfully!" });
+        setFormData({
+          company: '',
+          salutation: '',
+          first_name: '',
+          last_name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          description: ''
+        });
+      } catch (error) {
+        setStatus({ type: "error", msg: "Server error. Try again later." });
+      }
     }
   };
+
+
 
   return (
     <form onSubmit={handleSubmit} className="contact-form">
@@ -57,22 +104,44 @@ export default function ContactForm() {
       </div>
 
       {/* First Name & Last Name */}
-      <div className="doubleRows">
-        {['firstName', 'lastName'].map((field, i) => (
-          <div key={i} className="relative">
-            {/* <label>{field === 'firstName' ? 'First Name' : 'Last Name'}</label> */}
-
-
-            <input
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              className={` input-field ${errors[field] ? 'error' : ''} `}
-              placeholder={field === 'firstName' ? 'First Name' : 'Last Name'}
-            />
-            {errors[field] && <p className="text-red-500 text-sm mt-1">{errors[field]}</p>}
-          </div>
-        ))}
+      {/* First Name & Last Name */}
+      <div className="flex gap-[20px]">
+        <div className="relative !w-[10%]">
+          <select
+            name="salutation"
+            value={formData.salutation}
+            onChange={handleChange}
+            className="input-field"
+          >
+            <option value="Dr.">Dr.</option>
+            <option value="Mr.">Mr.</option>
+            <option value="Mrs.">Mrs.</option>
+            <option value="Ms.">Ms.</option>
+            <option value="Miss.">Miss.</option>
+          </select>
+          {errors.salutation && (
+            <p className="text-red-500 text-sm mt-1">{errors.salutation}</p>
+          )}
+        </div>
+        <div className="relative !w-[45%]">
+          <input
+            name={'last_name'}
+            value={formData.last_name}
+            onChange={handleChange}
+            className={` input-field ${errors['last_name'] ? 'error' : ''}`}
+            placeholder={'Last Name (Required) '}
+          />
+          {errors['last_name'] && <p className="text-red-500 text-sm mt-1">{errors['last_name']}</p>}
+        </div>
+        <div className="relative !w-[45%]">
+          <input
+            name={'firstName'}
+            value={formData.first_name}
+            onChange={handleChange}
+            className={` input-field ${errors['first_name'] ? 'error' : ''}`}
+            placeholder={'First Name (Optional) '}
+          />
+        </div>
       </div>
 
       {/* Email & Phone */}
@@ -129,14 +198,14 @@ export default function ContactForm() {
         {/* <label>Your message</label> */}
 
         <textarea
-          name="message"
-          value={formData.message}
+          name="description"
+          value={formData.description}
           onChange={handleChange}
           rows="4"
-          className={` input-field textarea ${errors.message ? 'error' : ''}`}
+          className={` input-field textarea ${errors.description ? 'error' : ''}`}
           placeholder="Detailed Description"
         ></textarea>
-        {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+        {errors.description && <p className="text-red-500 text-sm mt-1">{errors.description}</p>}
       </div>
 
       {/* Submit Button */}
@@ -148,6 +217,14 @@ export default function ContactForm() {
           Submit
         </button>
       </div>
+      {status && (
+        <p
+          className={`mt-3 !font-semibold ${status.type === "success" ? "text-green-600" : "text-red-600"
+            }`}
+        >
+          {status.msg}
+        </p>
+      )}
     </form>
   );
 }
