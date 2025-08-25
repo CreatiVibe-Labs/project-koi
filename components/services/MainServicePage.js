@@ -9,6 +9,9 @@ import WhyChooseUs from "@/components/WhyChooseUs";
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import HowItWorks from "@/components/HowItWorks";
+import { Swiper, SwiperSlide } from "swiper/react";
+// import required modules
+import { Pagination, Navigation } from 'swiper/modules';
 
 export default function MainServicePage() {
 
@@ -142,7 +145,7 @@ export default function MainServicePage() {
 
             <div className="industriesServeMainWrapper featuresHighlight cmsWork cmsWork2">
                 <div className=" gradient-background text-[#c3f8d9] md:text-[40px] text-[20px] font-bold p-3 rounded-2xl"><h3>Tech Stack</h3></div>
-                <div className="">
+                <div className="hidden lg:block">
                     <div className="itemsWrapper">
                         <FeatureHighlights2
                             imageUrl="/icons/react.png"
@@ -204,6 +207,117 @@ export default function MainServicePage() {
                             title="TensorFlow"
                             description=""
                         />
+                    </div>
+                </div>
+                <div className="block lg:hidden">
+                    <div className="itemsWrapper !block">
+                        <Swiper
+                            spaceBetween={16}        // gap between slides
+                            slidesPerView="auto"        // default (desktop)
+                            autoplay={{ delay: 3000 }} // autoplay enabled
+                            loop={true}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            navigation={true}
+                            modules={[Pagination, Navigation]}
+                            breakpoints={{
+                                768: {
+                                    slidesPerView: 6,    // tablet & desktop → 3 slides
+                                },
+                                426: {
+                                    slidesPerView: 3.5,    // tablet (426–1023px) → 3 slides
+                                },
+                                0: {
+                                    slidesPerView: 3,  // mobile (<426px) → 1.2 slides
+                                },
+                            }}
+                        >
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/react.png"
+                                    title="React"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/nodejs.png"
+                                    title="Node.js"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/net.png"
+                                    title=".NET"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/python.png"
+                                    title="Python"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/c++.png"
+                                    title="C++"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/go.webp"
+                                    title="Golang"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/mongodb.svg"
+                                    title="MongoDB"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/postgresql.png"
+                                    title="MySQL"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/firebase.svg"
+                                    title="Firebase"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/aws.png"
+                                    title="AWS"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/azure.png"
+                                    title="Azure"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <FeatureHighlights2
+                                    imageUrl="/icons/tensorflow.png"
+                                    title="TensorFlow"
+                                    description=""
+                                />
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
                 </div>
             </div>

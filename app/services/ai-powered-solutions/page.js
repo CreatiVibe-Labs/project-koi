@@ -2,15 +2,107 @@ import Breadcrumb from '@/components/Breadcrumb';
 import FeatureHighlights from '@/components/FeatureHighlights';
 import FeatureHighlights2 from '@/components/FeatureHighlights2';
 import SideBar from '@/components/Sidebar';
+import Platforms from '@/components/sliders/Platforms';
+import SliderCards from '@/components/sliders/SliderCards';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata = {
-  title: "AI Powered Solutions & Machine Learning - Aerialink Inc",
-  description: "AI Powered Solutions & Machine Learning - Aerialink Inc",
+    title: "AI Powered Solutions & Machine Learning - Aerialink Inc",
+    description: "AI Powered Solutions & Machine Learning - Aerialink Inc",
 };
 
 export default function AiPoweredSolutions() {
+
+    const services = [
+        {
+            imageUrl: "/icons/tensorflow.png",
+            title: "TensorFlow",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/pytorch.png",
+            title: "PyTorch",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/scikit.png",
+            title: "Scikit Learn",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/opencv.png",
+            title: "OpenCV",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/face.png",
+            title: "Hugging Face",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/aws.png",
+            title: "AWS SageMaker",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/vertex.png",
+            title: "Google Vertex AI",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/azure.png",
+            title: "Microsoft Azure AI",
+            description: "",
+        }
+    ];
+
+    const keyFeatures1 = [
+        {
+            imageUrl: "",
+            title: "Custom Machine Learning Models",
+            description: "We build and train machine learning models on your data to deliver tailored predictions and classifications.",
+        },
+        {
+            imageUrl: "",
+            title: "Natural Language Processing (NLP)",
+            description: "Extract meaning from conversations, documents, and user inputs. We design chatbots, smart search, and content analysis tools that understand human language.",
+        },
+        {
+            imageUrl: "",
+            title: "Computer Vision",
+            description: "From quality checks on assembly lines to image-based authentication, we use deep learning to help machines “see” and act in real-world scenarios.",
+        },
+        {
+            imageUrl: "",
+            title: "AI-Powered Automation",
+            description: "We create intelligent systems that act on real-time data — automating repetitive workflows, surfacing insights, and reducing human error.",
+        }
+    ];
+
+    const keyFeatures2 = [
+        {
+            imageUrl: "",
+            title: "Retail & E-Commerce",
+            description: "Demand forecasting, dynamic pricing, personalized recommendations, and inventory predictions.",
+        },
+        {
+            imageUrl: "",
+            title: "Healthcare",
+            description: "Predictive diagnosis, automated chart review, medical record extraction.",
+        },
+        {
+            imageUrl: "",
+            title: "Finance",
+            description: "Fraud detection, real-time credit scoring, NLP-powered compliance scanning and sentiment analysis",
+        },
+        {
+            imageUrl: "",
+            title: "Manufacturing & Logistics",
+            description: "Defects detection, AI assisted route optimization, inventory management.",
+        }
+    ];
+
     return (
         <div>
             {/* <Breadcrumb /> */}
@@ -38,51 +130,13 @@ export default function AiPoweredSolutions() {
                         <div className="is-heading gradient-background"><h3>Feature Hightlights</h3></div>
                         <div className="mt-5">
                             <p className='subHeadings'>What We Deliver</p>
-                            <div className="itemsWrapper">
-                                <FeatureHighlights
-                                    imageUrl=""
-                                    title="Custom Machine Learning Models"
-                                    description="We build and train machine learning models on your data to deliver tailored predictions and classifications."
-                                />
-                                <FeatureHighlights
-                                    imageUrl=""
-                                    title="Natural Language Processing (NLP)"
-                                    description="Extract meaning from conversations, documents, and user inputs. We design chatbots, smart search, and content analysis tools that understand human language."
-                                />
-                                <FeatureHighlights
-                                    imageUrl=""
-                                    title="Computer Vision"
-                                    description="From quality checks on assembly lines to image-based authentication, we use deep learning to help machines “see” and act in real-world scenarios."
-                                />
-                                <FeatureHighlights
-                                    imageUrl=""
-                                    title="AI-Powered Automation"
-                                    description="We create intelligent systems that act on real-time data — automating repetitive workflows, surfacing insights, and reducing human error."
-                                />
-                            </div>
+                            <SliderCards
+                                slides={keyFeatures1}
+                            />
                             <p className='subHeadings pt-5'>Industry-Specific Use Cases</p>
-                            <div className="itemsWrapper">
-                                <FeatureHighlights
-                                    imageUrl=""
-                                    title="Retail & E-Commerce"
-                                    description="Demand forecasting, dynamic pricing, personalized recommendations, and inventory predictions."
-                                />
-                                <FeatureHighlights
-                                    imageUrl=""
-                                    title="Healthcare"
-                                    description="Predictive diagnosis, automated chart review, medical record extraction."
-                                />
-                                <FeatureHighlights
-                                    imageUrl=""
-                                    title="Finance"
-                                    description="Fraud detection, real-time credit scoring, NLP-powered compliance scanning and sentiment analysis"
-                                />
-                                <FeatureHighlights
-                                    imageUrl=""
-                                    title="Manufacturing & Logistics"
-                                    description="Defects detection, AI assisted route optimization, inventory management."
-                                />
-                            </div>
+                            <SliderCards
+                                slides={keyFeatures2}
+                            />
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper ai-cta letsBuildToghether featuresHighlight cmsWork">
@@ -91,49 +145,9 @@ export default function AiPoweredSolutions() {
                             <p className="content !font-medium">
                                 Whether you’re just starting with AI or ready to scale a solution, we design around your data, goals, and industry.
                             </p>
-
-                            <div className="itemsWrapper justify-center">
-                                <FeatureHighlights2
-                                    imageUrl="/icons/tensorflow.png"
-                                    title="TensorFlow"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/pytorch.png"
-                                    title="PyTorch"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/scikit.png"
-                                    title="Scikit Learn"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/opencv.png"
-                                    title="OpenCV"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/face.png"
-                                    title="Hugging Face"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/aws.png"
-                                    title="AWS SageMaker"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/vertex.png"
-                                    title="Google Vertex AI"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/azure.png"
-                                    title="Microsoft Azure AI"
-                                    description=""
-                                />
-                            </div>
+                            <Platforms
+                                features={services}
+                            />
                             <div className="buttons-wrapper">
                                 <Link href="/scheduler/AI-powered-solutions">Talk to an AI Consultant</Link>
                             </div>

@@ -7,13 +7,77 @@ import Link from 'next/link';
 import animationData from "../../../public/lottie/rising-chart.json";
 import WhyChooseUs2 from '@/components/WhyChooseUs2';
 import Circle from '@/components/Circle';
+import Platforms from '@/components/sliders/Platforms';
+import SliderCards from '@/components/sliders/SliderCards';
 
 export const metadata = {
-  title: "Digital Marketing - Aerialink Inc",
-  description: "Digital Marketing - Aerialink Inc",
+    title: "Digital Marketing - Aerialink Inc",
+    description: "Digital Marketing - Aerialink Inc",
 };
 
 export default function DigitalMarketingServices() {
+
+    const services = [
+        {
+            imageUrl: "/icons/adwords.png",
+            title: "Google Ads",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/meta.png",
+            title: "Meta Ads",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/hubspot.png",
+            title: "HubSpot",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/mailchimp.png",
+            title: "Mailchimp",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/semrush.png",
+            title: "SEMrush",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/google-analytics.png",
+            title: "GA4",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/linkedin.png",
+            title: "LinkedIn Ads",
+            description: "",
+        },
+        {
+            imageUrl: "/icons/klaviyo.png",
+            title: "Klaviyo",
+            description: "",
+        }
+    ];
+
+    const keyFeatures = [
+        {
+            imageUrl: "/icons/search-engine.png",
+            title: "SEO & Content Strategy",
+            description: "Be Found. Be Chosen. Be Trusted.",
+        },
+        {
+            imageUrl: "/icons/email-marketing.png",
+            title: "Email Marketing & Automation",
+            description: "Automated campaigns that drive repeat business",
+        },
+        {
+            imageUrl: "/icons/pay-per-click.png",
+            title: "Paid Media (PPC & Display Ads)",
+            description: "Maximize ROI with hyper-targeted ad campaigns across major platforms.",
+        }
+    ];
+
     return (
         <div>
             {/* <Breadcrumb /> */}
@@ -55,23 +119,10 @@ export default function DigitalMarketingServices() {
                     <div className="industriesServeMainWrapper serviceType featuresHighlight">
                         <div className="is-heading gradient-background"><h3>Service types</h3></div>
                         <div className="mt-5">
-                            <div className="grid grid-cols-3 gap-2.5 justify-center">
-                                <FeatureHighlights
-                                    imageUrl="/icons/search-engine.png"
-                                    title="SEO & Content Strategy"
-                                    description="Be Found. Be Chosen. Be Trusted."
-                                />
-                                <FeatureHighlights
-                                    imageUrl="/icons/email-marketing.png"
-                                    title="Email Marketing & Automation"
-                                    description="Automated campaigns that drive repeat business"
-                                />
-                                <FeatureHighlights
-                                    imageUrl="/icons/pay-per-click.png"
-                                    title="Paid Media (PPC & Display Ads)"
-                                    description="Maximize ROI with hyper-targeted ad campaigns across major platforms."
-                                />
-                            </div>
+                            <SliderCards
+                                slides={keyFeatures}
+                                options="2"
+                            />
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper pieChart featuresHighlight cmsWork">
@@ -80,48 +131,9 @@ export default function DigitalMarketingServices() {
                             <div className="">
                                 <Circle />
                             </div>
-                            <div className="itemsWrapper">
-                                <FeatureHighlights2
-                                    imageUrl="/icons/adwords.png"
-                                    title="Google Ads"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/meta.png"
-                                    title="Meta Ads"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/hubspot.png"
-                                    title="HubSpot"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/mailchimp.png"
-                                    title="Mailchimp"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/semrush.png"
-                                    title="SEMrush"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/google-analytics.png"
-                                    title="GA4"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/linkedin.png"
-                                    title="LinkedIn Ads"
-                                    description=""
-                                />
-                                <FeatureHighlights2
-                                    imageUrl="/icons/klaviyo.png"
-                                    title="Klaviyo"
-                                    description=""
-                                />
-                            </div>
+                            <Platforms
+                                features={services}
+                            />
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper letsBuildToghether">

@@ -1,6 +1,11 @@
 import { Public_Sans } from 'next/font/google';
 import "./globals.css";
 import "./desktop.css";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import "swiper/css";
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import "./responsive.css";  
 import RipplesBackground from '@/components/RipplesBackground';
 // import ChatWrapper from "@/components/ChatWrapper";

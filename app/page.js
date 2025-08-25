@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from 'next/link';
 import ServicesCards from '@/components/ServicesCards';
-import WhyChooseUsCard from '@/components/whyChooseUsCard';
 import IndustriesWeServe from "@/components/IndustriesWeServe";
-import WhyChooseUs from "@/components/WhyChooseUs";
+import HomeWhyChooseUs from "@/components/sliders/HomeWhyChooseUs";
 
 export const metadata = {
   title: "Homepage - Aerialink Inc",
@@ -80,30 +79,9 @@ export default function Home() {
         <div className="whyChooseUsCardContents">
           <p className="wcu-heading">
             <span className="heading-1 block mb-2">Smart IT Solutions with Real Business Benefits</span>
-            <span className="heading-2 !font-medium">We don’t just provide services – we deliver results. Here’s what you can expect when you partner with us.</span></p>
-          <div className="cardWrappers">
-            <WhyChooseUsCard
-              imageUrl="/images/landing_performance.jpg"
-              link=""
-              title="Performance-Focused Solutions"
-              tags={[]}
-              description="We focus on measurable outcomes – we deliver solutions that drive real business value."
-            />
-            <WhyChooseUsCard
-              imageUrl="/images/landing_expertise.jpg"
-              link=""
-              title="End-to-End Expertise"
-              tags={[]}
-              description="We off complete digital solutions – from strategy to launch – so you get everything under one roof."
-            />
-            <WhyChooseUsCard
-              imageUrl="/images/landing_support.jpg"
-              link=""
-              title="Reliable Support & Partnership"
-              tags={[]}
-              description="We don’t just delivery projects – we build long-term relationships with proactive support and honest communication."
-            />
-          </div>
+            <span className="heading-2 !font-medium">We don’t just provide services – we deliver results. Here’s what you can expect when you partner with us.</span>
+          </p>
+          <HomeWhyChooseUs />
         </div>
         {/* <div className="whyChooseUsCardContents items-center justify-center">
           <WhyChooseUs />

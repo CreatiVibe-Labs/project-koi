@@ -3,7 +3,7 @@ import Link from 'next/link';
 import FeatureHighlights from '@/components/FeatureHighlights';
 import FeatureHighlights2 from '@/components/FeatureHighlights2';
 import { useEffect, useRef, useState } from 'react';
-
+import SliderCards from '@/components/sliders/SliderCards';
 
 export default function CloudMigration() {
 
@@ -73,6 +73,30 @@ export default function CloudMigration() {
             }
         });
     }, [isReverse]);
+
+    const keyFeatures = [
+        {
+            imageUrl: "/icons/downtime.png",
+            title: "Zero Downtime Migration",
+            description: "Our staged migration approach ensures business continuity throughout the process",
+        },
+        {
+            imageUrl: "/icons/data-transfer.png",
+            title: "Secure Data Transfer & Compliance",
+            description: "We adhere to top security protocols and industry compliance standards like GDPR, HIPAA, and SOC 2",
+        },
+        {
+            imageUrl: "/icons/cloud-platform.png",
+            title: "Cloud Platform Flexibility",
+            description: "We work across AWS, Azure, Google Cloud, and hybrid environments – you choose, we optimize",
+        },
+        {
+            imageUrl: "/icons/optimization.png",
+            title: "Post-Migration Optimization",
+            description: "We fine-tune performance, cost, and security after deployment – not just lift and shift",
+        }
+    ];
+
     return (
         <div className='singleSerivce'>
             <div className="industriesServeMainWrapper webDev">
@@ -89,28 +113,9 @@ export default function CloudMigration() {
             <div className="industriesServeMainWrapper featuresHighlight">
                 <div className="is-heading gradient-background"><h3>Key Features</h3></div>
                 <div className="mt-5">
-                    <div className="itemsWrapper">
-                        <FeatureHighlights
-                            imageUrl="/icons/downtime.png"
-                            title="Zero Downtime Migration"
-                            description="Our staged migration approach ensures business continuity throughout the process"
-                        />
-                        <FeatureHighlights
-                            imageUrl="/icons/data-transfer.png"
-                            title="Secure Data Transfer & Compliance"
-                            description="We adhere to top security protocols and industry compliance standards like GDPR, HIPAA, and SOC 2"
-                        />
-                        <FeatureHighlights
-                            imageUrl="/icons/cloud-platform.png"
-                            title="Cloud Platform Flexibility"
-                            description="We work across AWS, Azure, Google Cloud, and hybrid environments – you choose, we optimize"
-                        />
-                        <FeatureHighlights
-                            imageUrl="/icons/optimization.png"
-                            title="Post-Migration Optimization"
-                            description="We fine-tune performance, cost, and security after deployment – not just lift and shift"
-                        />
-                    </div>
+                    <SliderCards 
+                        slides={keyFeatures}
+                    />
                 </div>
             </div>
             <div className="industriesServeMainWrapper timelineWrapper">

@@ -1,8 +1,33 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import FeatureHighlights from '@/components/FeatureHighlights';
+import SliderCards from '../sliders/SliderCards';
 
 export default function CloudStorage() {
+
+    const keyFeatures = [
+        {
+            imageUrl: "/icons/hot.png",
+            title: "Cold, warm, or hot storage",
+            description: "We align access speed with your usage needs to control costs",
+        },
+        {
+            imageUrl: "/icons/encrypted.png",
+            title: "End-to-End Data Encryption",
+            description: "Your data is protected in transit and at rest with enterprise-grade encryption",
+        },
+        {
+            imageUrl: "/icons/backup.png",
+            title: "Automated Backups & Redundancy",
+            description: "Replication across zones for high availability and fast disaster recovery",
+        },
+        {
+            imageUrl: "/icons/security-system.png",
+            title: "Privacy-first Architecture",
+            description: "We implement region-based data residency, fine-grained access isolation (IAM policies), role-based permissions with audit trails and private VPC and encryption key ownership",
+        }
+    ];
+
     return (
         <div>
             <div className="industriesServeMainWrapper webDev cloudStorage singleSerivce">
@@ -47,28 +72,9 @@ export default function CloudStorage() {
             <div className="industriesServeMainWrapper featuresHighlight singleSerivce">
                 <div className="is-heading gradient-background"><h3>Key Features</h3></div>
                 <div className="mt-5">
-                    <div className="itemsWrapper">
-                        <FeatureHighlights
-                            imageUrl="/icons/hot.png"
-                            title="Cold, warm, or hot storage"
-                            description="We align access speed with your usage needs to control costs"
-                        />
-                        <FeatureHighlights
-                            imageUrl="/icons/encrypted.png"
-                            title="End-to-End Data Encryption"
-                            description="Your data is protected in transit and at rest with enterprise-grade encryption"
-                        />
-                        <FeatureHighlights
-                            imageUrl="/icons/backup.png"
-                            title="Automated Backups & Redundancy"
-                            description="Replication across zones for high availability and fast disaster recovery"
-                        />
-                        <FeatureHighlights
-                            imageUrl="/icons/security-system.png"
-                            title="Privacy-first Architecture"
-                            description="We implement region-based data residency, fine-grained access isolation (IAM policies), role-based permissions with audit trails and private VPC and encryption key ownership"
-                        />
-                    </div>
+                    <SliderCards
+                        slides={keyFeatures}
+                    />
                     <div className="buttons-wrapper">
                         <Link href="#">Explore Our Storage Plan</Link>
                         <Link href="#">Book a Free Consultation</Link>
