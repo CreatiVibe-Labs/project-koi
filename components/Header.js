@@ -133,17 +133,62 @@ export default function Header() {
             {menuOpen && (
               <div className="md:hidden bg-white shadow-md px-4 py-4 space-y-2">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className={`block text-sm font-medium ${isActive(link.href)
-                      ? 'text-blue-600 underline underline-offset-4'
-                      : 'text-gray-700 hover:text-blue-600'
-                      }`}
-                    onClick={() => setMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
+                  !link.subMenu ? (
+                    <div key={link.href} className='relative nav_menu_wrapper'>
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        className={`text-black relative ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
+                        onClick={() => setMenuOpen(false)}
+                      >
+                        {link.name}
+                      </Link>
+                    </div>
+                  ) : (
+                    <div key={link.href} className="relative nav_menu_wrapper">
+                      {/** Check if any subLink is active */}
+                      {(() => {
+                        const isParentActive =
+                          isActive(link.href) ||
+                          link.subMenu?.some((subLink) =>
+                            isActive(`${link.href}/${subLink.href.replace(/^\//, '')}`)
+                          );
+
+                        return (
+                          <>
+                            <Link
+                              href={link.href}
+                              className={`text-black relative ${isParentActive ? 'nav-menu active' : 'nav-menu'}`}
+                              onClick={() => setMenuOpen(false)}
+                            >
+                              {link.name}
+                            </Link>
+
+                            {pathname === link.href && (
+                              <div className="absolute subMenuWrapper">
+                                <div className="sub-menu">
+                                  {link.subMenu.map((subLink) => {
+                                    const finalLink = `${link.href}/${subLink.href.replace(/^\//, '')}`;
+                                    return (
+                                      <Link
+                                        key={link.href + subLink.href}
+                                        href={finalLink}
+                                        className={`text-black sub-nav-menu ${isActive(finalLink) ? 'active' : ''}`}
+                                        onClick={() => setMenuOpen(false)}
+                                      >
+                                        {subLink.name}
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            )}
+
+                          </>
+                        );
+                      })()}
+                    </div>
+                  )
                 ))}
 
                 {/* Search Input for Mobile */}
