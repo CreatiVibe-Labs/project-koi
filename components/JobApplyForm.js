@@ -2,9 +2,11 @@
 
 import React, { useState, useRef } from "react";
 import { content2 } from '@/constant/jobContent';
+import { useRouter } from "next/navigation";
+import FormLoading from "@/components/formLoading";
 
 export default function JobApplyForm({ params }) {
-
+    const router = useRouter();
     const { slug } = React.use(params); // unwrap the params Promise
     const slug2 = slug.replace(/-/g, "_");
     const slugWithSpace = slug2.replace(/_/g, " ");
@@ -42,6 +44,8 @@ export default function JobApplyForm({ params }) {
         consent_data_processing: '',//checkbox // required
     });
 
+    const [formSubmitting, setFormSubmitting] = useState(false);
+
     const validate = () => {
         const newErrors = {};
         if (!formData.first_name.trim()) newErrors.first_name = 'First name is required';
@@ -65,8 +69,8 @@ export default function JobApplyForm({ params }) {
     };
 
     const questions = [
-        { id: "q1", text: "Why are you interested in this position?" },
-        { id: "q2", text: "Describe your most relevant experience for this role" },
+        { id: "Why are you interested in this position?", text: "Why are you interested in this position?" },
+        { id: "Describe your most relevant experience for this role", text: "Describe your most relevant experience for this role" },
     ];
 
     const [errors, setErrors] = useState({});
@@ -177,10 +181,12 @@ export default function JobApplyForm({ params }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setFormSubmitting(true);
         const validationErrors = validate();
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             console.log({ errors })
+            setFormSubmitting(false);
         } else {
             console.log('Form submitted:', formData);
             setErrors({});
@@ -235,6 +241,7 @@ export default function JobApplyForm({ params }) {
                         type: "error",
                         msg: data.message || "Form submission failed.",
                     });
+                    setFormSubmitting(false);
                     return;
                 }
 
@@ -258,8 +265,11 @@ export default function JobApplyForm({ params }) {
                     is_information_true: false,
                     consent_data_processing: false,
                 });
+                setFormSubmitting(false);
+                router.push("/thank-you");
             } catch (error) {
                 setStatus({ type: "error", msg: "Server error. Try again later." });
+                setFormSubmitting(false);
             }
         }
     };
@@ -574,9 +584,10 @@ export default function JobApplyForm({ params }) {
                         <div className='text-center'>
                             <button
                                 type="submit"
-                                className="button"
+                                className="button flex justify-center m-auto !max-h-[51px]"
+                                disabled={formSubmitting ? true : false}
                             >
-                                Submit
+                                {formSubmitting ? <FormLoading /> : 'Submit'}
                             </button>
                         </div>
                         {status && (
@@ -588,8 +599,8 @@ export default function JobApplyForm({ params }) {
                             </p>
                         )}
                     </form>
-                </div>
-            </div>
+                </div >
+            </div >
         </>
     );
 }

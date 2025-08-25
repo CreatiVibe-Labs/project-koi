@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import FormLoading from "@/components/formLoading";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -16,7 +17,7 @@ export default function ContactForm() {
 
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState(null); // success/error message
-
+  const [formSubmitting, setFormSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -33,11 +34,13 @@ export default function ContactForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setFormSubmitting(true);
     const validationErrors = validate();
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       setStatus(null);
+      setFormSubmitting(false);
     } else {
       setErrors({});
       try {
@@ -65,6 +68,7 @@ export default function ContactForm() {
             type: "error",
             msg: data.message || "Form submission failed.",
           });
+          setFormSubmitting(false);
           return;
         }
 
@@ -80,8 +84,10 @@ export default function ContactForm() {
           subject: '',
           description: ''
         });
+        setFormSubmitting(false);
       } catch (error) {
         setStatus({ type: "error", msg: "Server error. Try again later." });
+        setFormSubmitting(false);
       }
     }
   };
@@ -129,13 +135,13 @@ export default function ContactForm() {
             value={formData.last_name}
             onChange={handleChange}
             className={` input-field ${errors['last_name'] ? 'error' : ''}`}
-            placeholder={'Last Name (Required) '}
+            placeholder={'Last Name  '}
           />
           {errors['last_name'] && <p className="text-red-500 text-sm mt-1">{errors['last_name']}</p>}
         </div>
         <div className="relative !w-[45%]">
           <input
-            name={'firstName'}
+            name={'first_name'}
             value={formData.first_name}
             onChange={handleChange}
             className={` input-field ${errors['first_name'] ? 'error' : ''}`}
@@ -212,9 +218,10 @@ export default function ContactForm() {
       <div className='text-center'>
         <button
           type="submit"
-          className="button"
+          className="button flex justify-center m-auto !max-h-[51px]"
+          disabled={formSubmitting ? true : false}
         >
-          Submit
+          {formSubmitting ? <FormLoading /> : 'Submit'}
         </button>
       </div>
       {status && (
