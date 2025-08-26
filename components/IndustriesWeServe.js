@@ -5,58 +5,59 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
-const industries = [
-    {
-        img: "/icons/industries8.png",
-        text: "Manufacture"
-    },
-    {
-        img: "/icons/industries7.png",
-        text: "Imp / Exp"
-    }, {
-        img: "/icons/industries9.png",
-        text: "Logistics"
-    },
-    {
-        img: "/icons/industries2.png",
-        text: "Retail"
-    },
-    {
-        img: "/icons/industries11.png",
-        text: "Finance"
-    },
-    {
-        img: "/icons/industries10.png",
-        text: "Professional"
-    },
-    {
-        img: "/icons/industries1.png",
-        text: "Schools"
-    },
-    {
-        img: "/icons/industries3.png",
-        text: "Health Service"
-    },
-    {
-        img: "/icons/industries6.png",
-        text: "Food Service"
-    },
-    {
-        img: "/icons/industries12.png",
-        text: "Renovation"
-    },
-    {
-        img: "/icons/industries5.png",
-        text: "Freelance"
-    },
-    {
-        img: "/icons/industries4.png",
-        text: "And More..."
-    }
-];
+export default function IndustriesWeServe({ apiData, lang, ASSETS_URL }) {
 
-
-export default function IndustriesWeServe({ }) {
+    const industries = [
+        {
+            img: apiData?.content?.image_manufacture_image?.[lang] ? (ASSETS_URL + apiData.content.image_manufacture_image?.[lang]) : "/icons/industries8.png",
+            text: apiData?.content?.manufacture?.[lang] || "Manufacture"
+        },
+        {
+            img: apiData?.content?.["image_imp/exp_image"]?.[lang]
+                ? (ASSETS_URL + apiData.content["image_imp/exp_image"]?.[lang])
+                : "/icons/industries7.png",
+            text: apiData?.content["imp/exp"]?.[lang] || "Imp / Exp"
+        }, {
+            img: apiData?.content?.image_logistic_image?.[lang] ? (ASSETS_URL + apiData.content.image_logistic_image?.[lang]) : "/icons/industries9.png",
+            text: apiData?.content?.logistic?.[lang] || "Logistics"
+        },
+        {
+            img: apiData?.content?.image_retail_image?.[lang] ? (ASSETS_URL + apiData.content.image_retail_image?.[lang]) : "/icons/industries2.png",
+            text: apiData?.content?.retail?.[lang] || "Retail"
+        },
+        {
+            img: apiData?.content?.image_finance_image?.[lang] ? (ASSETS_URL + apiData.content.image_finance_image?.[lang]) : "/icons/industries11.png",
+            text: apiData?.content?.finance?.[lang] || "Finance"
+        },
+        {
+            img: apiData?.content?.image_professional_image?.[lang] ? (ASSETS_URL + apiData.content.image_professional_image?.[lang]) : "/icons/industries10.png",
+            text: apiData?.content?.professional?.[lang] || "Professional"
+        },
+        {
+            img: apiData?.content?.image_schools_image?.[lang] ? (ASSETS_URL + apiData.content.image_schools_image?.[lang]) : "/icons/industries1.png",
+            text: apiData?.content?.schools?.[lang] || "Schools"
+        },
+        {
+            img: apiData?.content?.image_health_service_image?.[lang] ? (ASSETS_URL + apiData.content.image_health_service_image?.[lang]) : "/icons/industries3.png",
+            text: apiData?.content?.health_service?.[lang] || "Health Service"
+        },
+        {
+            img: apiData?.content?.image_food_service_image?.[lang] ? (ASSETS_URL + apiData.content.image_food_service_image?.[lang]) : "/icons/industries6.png",
+            text: apiData?.content?.food_service?.[lang] || "Food Service"
+        },
+        {
+            img: apiData?.content?.image_renovation_image?.[lang] ? (ASSETS_URL + apiData.content.image_renovation_image?.[lang]) : "/icons/industries12.png",
+            text: apiData?.content?.renovation?.[lang] || "Renovation"
+        },
+        {
+            img: apiData?.content?.image_freelance_image?.[lang] ? (ASSETS_URL + apiData.content.image_freelance_image?.[lang]) : "/icons/industries5.png",
+            text: apiData?.content?.freelance?.[lang] || "Freelance"
+        },
+        {
+            img: apiData?.content?.image_and_more_image?.[lang] ? (ASSETS_URL + apiData.content.image_and_more_image?.[lang]) : "/icons/industries4.png",
+            text: apiData?.content?.and_more?.[lang] || "And More..."
+        }
+    ];
 
     return (
         <>

@@ -49,9 +49,9 @@ export default function FlagDropdown() {
         <Image
           src={selected.src}
           alt={selected.name}
-          width={48}
-          height={32}
-          className="mainFlagImage"
+          width={600}
+          height={600}
+          className="mainFlagImage w-[48%] h-[32%]"
         />
       </div>
 
@@ -69,9 +69,9 @@ export default function FlagDropdown() {
                 <Image
                   src={flag.src}
                   alt={flag.name}
-                  width={48}
-                  height={32}
-                  className="rounded"
+                  width={600}
+                  height={600}
+                  className="rounded w-full h-full"
                 />
               </div>
             ))}

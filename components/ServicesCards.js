@@ -19,6 +19,7 @@ export default function ServicesCards({
           width={100}
           height={100}
           className="rounded mb-0 md:mb-4 object-cover"
+          priority={true}
         />}
         {link && <Link href={link}>
           <span className="buttonText">{buttonText}</span>
