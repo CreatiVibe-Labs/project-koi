@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
 
 const flags = [
   {
@@ -11,13 +12,13 @@ const flags = [
     src: '/flags/uk.png',
   },
   {
-    code: 'jp',
+    code: 'ja',
     name: 'Japanese',
     country: 'Japan',
     src: '/flags/japan.png',
   },
   {
-    code: 'cn',
+    code: 'zh',
     name: 'Chinese',
     country: 'China',
     src: '/flags/china.png',
@@ -25,6 +26,9 @@ const flags = [
 ];
 
 export default function FlagDropdown() {
+
+  const router = useRouter();
+
   const [selected, setSelected] = useState(flags[0]);
   const [open, setOpen] = useState(false);
 
@@ -33,6 +37,9 @@ export default function FlagDropdown() {
   const handleSelect = (flag) => {
     setSelected(flag);
     setOpen(false);
+
+    document.cookie = `lang=${flag.code}; path=/`; // frontend cookie
+    router.refresh(); // server components ko re-render karne ke liye
   };
 
   return (

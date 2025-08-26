@@ -8,7 +8,7 @@ export const metadata = {
 export default function ThankYou() {
     return (
         <>
-            <svg className="m-auto pb-5" fill="#39ff14" width="100px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#39ff14" stroke-width="0.00024000000000000003"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm5.676,8.237-6,5.5a1,1,0,0,1-1.383-.03l-3-3a1,1,0,1,1,1.414-1.414l2.323,2.323,5.294-4.853a1,1,0,1,1,1.352,1.474Z"></path></g></svg>
+            <svg className="m-auto pb-5" fill="#39ff14" width="100px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#39ff14" strokeWidth="0.00024000000000000003"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm5.676,8.237-6,5.5a1,1,0,0,1-1.383-.03l-3-3a1,1,0,1,1,1.414-1.414l2.323,2.323,5.294-4.853a1,1,0,1,1,1.352,1.474Z"></path></g></svg>
             <p className="text-7xl text-center !font-bold">Thank You</p>
             <div className="buttons-wrapper flex !justify-center">
                 <Link href="/">Go to Home Page</Link>

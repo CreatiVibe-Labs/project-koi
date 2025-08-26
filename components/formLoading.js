@@ -5,10 +5,10 @@ export default function FormLoading() {
                 shapeRendering: "auto",
                 display: "block",
                 background: "transparent",
-            }} ><g><circle stroke-width="2" stroke="#39ff14" fill="none" r="0" cy="50" cx="50">
+            }} ><g><circle strokeWidth="2" stroke="#39ff14" fill="none" r="0" cy="50" cx="50">
                 <animate begin="0s" calcMode="spline" keySplines="0 0.2 0.8 1" keyTimes="0;1" values="0;40" dur="1s" repeatCount="indefinite" attributeName="r"></animate>
                 <animate begin="0s" calcMode="spline" keySplines="0.2 0 0.8 1" keyTimes="0;1" values="1;0" dur="1s" repeatCount="indefinite" attributeName="opacity"></animate>
-            </circle><circle stroke-width="2" stroke="#39ff14" fill="none" r="0" cy="50" cx="50">
+            </circle><circle strokeWidth="2" stroke="#39ff14" fill="none" r="0" cy="50" cx="50">
                         <animate begin="-0.5s" calcMode="spline" keySplines="0 0.2 0.8 1" keyTimes="0;1" values="0;40" dur="1s" repeatCount="indefinite" attributeName="r"></animate>
                         <animate begin="-0.5s" calcMode="spline" keySplines="0.2 0 0.8 1" keyTimes="0;1" values="1;0" dur="1s" repeatCount="indefinite" attributeName="opacity"></animate>
                     </circle><g></g></g>

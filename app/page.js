@@ -1,25 +1,35 @@
+
 import Image from "next/image";
 import Link from 'next/link';
 import ServicesCards from '@/components/ServicesCards';
 import IndustriesWeServe from "@/components/IndustriesWeServe";
 import HomeWhyChooseUs from "@/components/sliders/HomeWhyChooseUs";
+import { getHomePageData } from "@/constant/ContentApi";
+
+import { cookies } from "next/headers";
 
 export const metadata = {
   title: "Homepage - Aerialink Inc",
   description: "Homepage - Aerialink Inc",
 };
 
-export default function Home() {
+export default async function Home() {
+  const cookieStore = await cookies();
+  const lang = cookieStore.get("lang")?.value ?? 'en';
+  console.log({lang})
+
+  const apiData = await getHomePageData({ section_name: 'landing-page' });
+
   return (
     <>
       <div className="hero-section homeBanner">
         <div className="content-section border-[1px] border-[#ffffff66] gradient-background">
-          <h1>IT Solutions Tailored to Your Business</h1>
-          <p className="!font-medium">From day-to-day support to long term strategy, we deliver cost efficient, flexible IT services designed to match your goals and specific way of working</p>
+          <h1>{apiData?.content?.hero_section_heading?.[lang] || "IT Solutions Tailored to Your Business"}</h1>
+          <p className="!font-medium">{apiData?.content?.hero_section_description?.[lang] || "From day-to-day support to long term strategy, we deliver cost efficient, flexible IT services designed to match your goals and specific way of working"}</p>
           <div className="buttons-wrapper">
-            <Link className="callUs" href="tel:+81788552760">Call us</Link>
-            <Link href="/services" className="border-[1px] border-[#39ff14]">Check Services</Link>
-            <Link href="/demo">Try Demo</Link>
+            <Link className="callUs" href="tel:+81788552760">{apiData?.content?.cta_1?.[lang] || "Call us"}</Link>
+            <Link href="/services" className="border-[1px] border-[#39ff14]">{apiData?.content?.cta_2?.[lang] || "Check Services"}</Link>
+            <Link href="/demo">{apiData?.content?.cta_3?.[lang] || "Try Demo"}</Link>
           </div>
         </div>
         <div className="image-section">
