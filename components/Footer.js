@@ -13,7 +13,7 @@ export default function Footer() {
                 <div className='section1 md:gap-12 gap-6'>
                     <div className='group1 flex flex-col md:gap-4 gap-2'>
                         <div className='logoWrapper'>
-                            <Link href='#' className='flex gap-5 items-center font-semibold md:text-4xl text-lg'><Image src="/images/logo.png" width={100} height={10} alt="Logo" />Aerialink</Link>
+                            <Link href='#' className='flex gap-2.5 md:gap-5 items-center font-semibold md:text-4xl text-lg'><Image src="/images/logo.png" width={100} height={10} alt="Logo" />Aerialink</Link>
                         </div>
                         <div className='contentWrapper'>
                             <span className='font-semibold mt-[-2%] md:text-2xl text-lg'>
@@ -45,7 +45,7 @@ export default function Footer() {
                     </div>
                 </div>
                 <div className='section2 md:gap-10 !gap-5 md:!w-[27%] !w-full md:items-end !items-start '>
-                    <div className='mobileMenuWrapper md:justify-end justify-start md:mt-[58px] mt-6'>
+                    <div className='mobileMenuWrapper md:justify-end justify-start md:mt-[58px] my-8 '>
                         <div className='mobileLinks'>
                             {footerLinks1.map((link) => (
                                 <Link key={link.href} href={link.href} className={`nav-menu`}>

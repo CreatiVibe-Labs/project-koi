@@ -1,7 +1,11 @@
 @media screen and (max-width: 767px) {
   header {
-    .headerWrapper {
-      padding: 1rem !important;
+    .headerMainWrapper {
+      max-width: 100% !important;
+
+      .headerWrapper {
+        padding: 1rem !important;
+      }
     }
 
     /* .searchLangWrapper {
@@ -16,6 +20,15 @@
       width: 30% !important;
       gap: 1rem !important;
     }
+  }
+
+  .homeBanner {
+    padding-bottom: 15rem !important;
+
+    .content-section {
+      padding-bottom: 3rem !important;
+    }
+
   }
 
   .content-section {
@@ -57,9 +70,10 @@
       gap: 1rem;
 
       .image-section img {
-        position: relative;
+        /* position: relative; */
         width: 100%;
-        height: 100%;
+        height: 70%;
+        top: 230px !important;
       }
     }
 
@@ -123,7 +137,7 @@
     .homepageServices .ServicesCardsContent img {
       border-radius: 10px;
       width: 141px;
-      height: 40px;
+      height: 50px;
     }
 
     .homeWhyChooseUS img {
@@ -162,7 +176,7 @@
     .image-button-wrap a {
       min-width: 150px !important;
       position: relative;
-      top: -9px;
+      top: 0;
       left: 28px;
     }
 
@@ -445,8 +459,12 @@
       }
     }
 
-    .logoWrapper img{
+    .logoWrapper img {
       width: 15% !important;
+    }
+
+    .mobileLinks a{
+      height: 7px !important;
     }
   }
 
