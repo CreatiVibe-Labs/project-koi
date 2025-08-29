@@ -15,7 +15,7 @@ export default function ContactPage({ imageUrl, title, text }) {
         <>
             <div className="hero-section contact flex-col">
                 <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
-                    <div className="contactBg backdrop-blur-lg border-0 border-amber-50 rounded-2xl md:p-10 p-2.5 flex items-end">
+                    <div className="contactBg backdrop-blur-lg border-0 border-amber-50 rounded-2xl md:p-10 p-2.5 pb-17 flex items-end">
                         <ul>
                             <li className="flex items-center gap-2.5 md:gap-5 ">
                                 <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/phone.png" width={30} height={30}></Image></div>
@@ -32,25 +32,26 @@ export default function ContactPage({ imageUrl, title, text }) {
                             </li>
                             <li className="flex items-center gap-2.5 md:gap-5">
                                 <div className="bg-white rounded-full px-2.5 py-2"><Image alt="icon" src="/icons/address.png" width={25} height={25}></Image></div>
-                                <Link href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target="_blank" className="flex items-center  gap-5 custom-shaodw !w-[70%] md:w-[90%]">6E-02, 6-9 Koyochonaka, Higashinadaku, Kobe  Hyogo 658-0032 Japan</Link>
+                                <Link href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target="_blank" className="flex items-center  gap-5 custom-shaodw !w-[60%] md:w-[90%]">6E-02, 6-9 Koyochonaka, Higashinadaku, Kobe  Hyogo 658-0032 Japan</Link>
                             </li>
                         </ul>
 
                         <div className="clock absolute">
-                            <p className="custom-shaodw !font-semibold mt-[-5px] ml-2 absolute top-0 left-[7px] w-[175px]">
-                                &nbsp;Mon – Fri &nbsp; 9:00 – 18:00<br /><br />
-                                &nbsp;Sat – Sun &nbsp; Closed
-                            </p>
+                            <div className="custom-shaodw text-center mt-[-5px] ml-2 absolute top-0 md:left-[7px] left-10 w-[175px]">
+                                <p className="!font-semibold">Mon – Fri  9:00 – 18:00</p>
+                                <p className="!font-semibold">Sat – Sun  Closed</p>
+                            </div>
                         </div>
 
                         <div className="absolute end-2.5 md:bottom-[2px] bottom-[20px]"><Image className="w-[80px]" alt="icon" src="/icons/qr-code.png" width={100} height={100}></Image></div>
                     </div>
                     <div className="border-0 border-amber-50 rounded-2xl backdrop-blur-lg">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.635822438208!2d135.2681585!3d34.6891397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008d7bbb2ec4fd%3A0x3fc8f7fe18f2b3bf!2s6-ch%C5%8Dme-9%20K%C5%8Dy%C5%8Dch%C5%8Dnaka%2C%20Higashinada%20Ward%2C%20Kobe%2C%20Hyogo%20658-0032%2C%20Japan!5e0!3m2!1sen!2s!4v1754675364488!5m2!1sen!2s" width="100%" height="380"
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.635822438208!2d135.2681585!3d34.6891397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008d7bbb2ec4fd%3A0x3fc8f7fe18f2b3bf!2s6-ch%C5%8Dme-9%20K%C5%8Dy%C5%8Dch%C5%8Dnaka%2C%20Higashinada%20Ward%2C%20Kobe%2C%20Hyogo%20658-0032%2C%20Japan!5e0!3m2!1sen!2s!4v1754675364488!5m2!1sen!2s"
+                            width="100%" height="380"
                             allowFullScreen
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            className="rounded-2xl border-0">
+                            className="rounded-2xl border-0 md:h-[380px] h-[190px]">
                         </iframe>
                     </div>
                 </div>

@@ -133,6 +133,12 @@
       width: 16px;
       height: 16px;
     } */
+    .clock::before {
+      width: 100px;
+      height: 100px;
+      top: -90px;
+      left: 100px;
+    }
 
     .homepageServices .ServicesCardsContent img {
       border-radius: 10px;
@@ -463,10 +469,25 @@
       width: 15% !important;
     }
 
-    .mobileLinks a{
+    .mobileLinks a {
       height: 7px !important;
     }
   }
 
+  .coreValues .aboutCoreval .heading {
+    font-size: 18px !important;
+  }
+
+  .coreValues .aboutCoreval .description {
+    font-size: 14px !important;
+  }
+
+  .aboutCoreval img {
+    width: 50px;
+  }
+
+  .coreValues .bold-text{
+    font-size: 16px !important;
+  }
   /* media query end */
 }

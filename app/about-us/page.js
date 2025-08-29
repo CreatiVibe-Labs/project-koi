@@ -58,13 +58,13 @@ export default function AboutUs() {
                     Your browser does not support the video tag.
                 </video>
                 {/* <img src="/images/about.png" width="100%" alt=""/> */}
-                <h1 className="text-center text-2xl md:text-5xl font-bold pt-2.5 mt-[-113px] opacity-[0.5]">Driven by innovation. United by purpose</h1>
+                <h1 className="text-center text-2xl md:text-5xl font-bold pt-2.5  opacity-[0.5]">Driven by innovation. United by purpose</h1>
             </div>
 
             <div className="whyCHooseUsWrapper coreValues mt-[-32px] md:!mt-[100px]">
                 <div className="whyChooseUsHeading gradient-background"><h2>Core Values</h2></div>
                 <div className="whyChooseUsCardContentss">
-                    <div className="cardWrappers gap-2 md:!gap-0 !flex-nowrap justify-between mt-4  !rounded-[30px]">
+                    <div className="cardWrappers !gap-0 !flex-nowrap justify-between mt-4  !rounded-[30px]">
                         <ServicesCards2
                             imageUrl="/icons/coreValue-4.png"
                             heading="Innovation"
@@ -96,7 +96,7 @@ export default function AboutUs() {
             </div>
 
             <div className="missionVission gap-4 md:!gap-0">
-                <div className="whyCHooseUsWrapper coreValues w-[50%] md:!w-[51%] md:mr-[-12px] ">
+                <div className="whyCHooseUsWrapper coreValues w-[50%] md:!w-[51%] md:mr-[-12px] md:mt-0 !-mt-3">
                     {/* <div className="whyChooseUsHeading gradient-background"><h2>Mission</h2></div> */}
                     <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none  !rounded-[30px]">
                         <div className="cardWrappers">
@@ -109,7 +109,7 @@ export default function AboutUs() {
                         </div>
                     </div>
                 </div>
-                <div className="whyCHooseUsWrapper coreValues w-[50%] md:!w-[51%]">
+                <div className="whyCHooseUsWrapper coreValues w-[50%] md:!w-[51%] md:mt-0 !-mt-3">
                     {/* <div className="whyChooseUsHeading gradient-background"><h2>Vision</h2></div> */}
                     <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none pl-0 md:!pl-[30px]  !rounded-[30px]">
                         <div className="cardWrappers">
@@ -184,7 +184,7 @@ export default function AboutUs() {
 
             <div className="whyCHooseUsWrapper coreValues careerOp">
                 <div className="whyChooseUsHeading gradient-background"><h2>Career Opportunities</h2></div>
-                <div className="cardWrappers">
+                <div className="cardWrappers !grid-cols-1">
                     <Jobs
                         title="IT Sales representative"
                         exp="1+ Years"

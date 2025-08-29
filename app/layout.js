@@ -3,7 +3,7 @@ import "./globals.css";
 import "./desktop.css";
 import "swiper/css";
 import 'swiper/css/pagination';
-import 'swiper/css/navigation';
+// import 'swiper/css/navigation';
 import "./responsive.css";  
 import RipplesBackground from '@/components/RipplesBackground';
 // import ChatWrapper from "@/components/ChatWrapper";

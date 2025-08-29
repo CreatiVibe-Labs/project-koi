@@ -95,7 +95,7 @@ export default function ContactForm() {
 
 
   return (
-    <form onSubmit={handleSubmit} className="contact-form">
+    <form onSubmit={handleSubmit} className="contact-form md:0 pb-2.5 !md:gap-5 !gap-2.5">
 
       {/* Company */}
       <div className="relative">
@@ -111,25 +111,36 @@ export default function ContactForm() {
 
       {/* First Name & Last Name */}
       {/* First Name & Last Name */}
-      <div className="flex gap-[20px]">
-        <div className="relative !w-[10%]">
-          <select
-            name="salutation"
-            value={formData.salutation}
-            onChange={handleChange}
-            className="input-field"
-          >
-            <option value="Dr.">Dr.</option>
-            <option value="Mr.">Mr.</option>
-            <option value="Mrs.">Mrs.</option>
-            <option value="Ms.">Ms.</option>
-            <option value="Miss.">Miss.</option>
-          </select>
-          {errors.salutation && (
-            <p className="text-red-500 text-sm mt-1">{errors.salutation}</p>
-          )}
+      <div className="flex gap-[20px] justify-between md:flex-row flex-col !md:gap-5 !gap-2.5">
+        <div className="flex gap-[20px] md:!w-[50%] w-full">
+          <div className="relative md:!w-[20%] w-[30%]">
+            <select
+              name="salutation"
+              value={formData.salutation}
+              onChange={handleChange}
+              className="input-field"
+            >
+              <option value="Dr.">Dr.</option>
+              <option value="Mr.">Mr.</option>
+              <option value="Mrs.">Mrs.</option>
+              <option value="Ms.">Ms.</option>
+              <option value="Miss.">Miss.</option>
+            </select>
+            {errors.salutation && (
+              <p className="text-red-500 text-sm mt-1">{errors.salutation}</p>
+            )}
+          </div>
+          <div className="relative md:!w-[80%] w-[70%]">
+            <input
+              name={'first_name'}
+              value={formData.first_name}
+              onChange={handleChange}
+              className={` input-field ${errors['first_name'] ? 'error' : ''}`}
+              placeholder={'First Name (Optional) '}
+            />
+          </div>
         </div>
-        <div className="relative !w-[45%]">
+        <div className="relative md:!w-[50%] w-full">
           <input
             name={'last_name'}
             value={formData.last_name}
@@ -139,15 +150,7 @@ export default function ContactForm() {
           />
           {errors['last_name'] && <p className="text-red-500 text-sm mt-1">{errors['last_name']}</p>}
         </div>
-        <div className="relative !w-[45%]">
-          <input
-            name={'first_name'}
-            value={formData.first_name}
-            onChange={handleChange}
-            className={` input-field ${errors['first_name'] ? 'error' : ''}`}
-            placeholder={'First Name (Optional) '}
-          />
-        </div>
+
       </div>
 
       {/* Email & Phone */}
@@ -218,7 +221,7 @@ export default function ContactForm() {
       <div className='text-center'>
         <button
           type="submit"
-          className="button flex justify-center m-auto !max-h-[51px]"
+          className="button flex justify-center m-auto !max-h-[51px] md:px-5 md:py-2.5 !px-8 !py-2"
           disabled={formSubmitting ? true : false}
         >
           {formSubmitting ? <FormLoading /> : 'Submit'}
