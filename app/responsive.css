@@ -304,7 +304,8 @@
   /* Services Page */
   .service-hero-section {
     padding: 0;
-
+    background-position: 100% 107% !important;
+    padding-bottom: 100px !important;
     p.white-text {
       width: 50% !important;
       margin-top: 0 !important;
@@ -313,6 +314,7 @@
 
   .ServicesCardsContent .mainWrapper {
     width: 100% !important;
+    border-radius: 50px 15px 15px !important;
 
     .serviceContent .heading {
       width: 100% !important;
@@ -324,6 +326,11 @@
         line-height: normal;
       }
     }
+  }
+
+  .services-videos .mainWrapper {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
   }
 
   .services-videos .bgImage {
@@ -350,7 +357,7 @@
   }
 
   .cmsWork2 .service-card-wrap {
-    width: 23% !important;
+    width: 100%;
     padding: 0 !important;
   }
 
@@ -508,6 +515,15 @@
 
   .homepageServices {
     margin-top: -55px !important;
+  }
+
+  .letsBuildToghether .isContent p {
+    font-size: 14px !important;
+  }
+
+  .serviceContent .Icon {
+    position: relative;
+    top: 30px;
   }
 
   /* media query end */

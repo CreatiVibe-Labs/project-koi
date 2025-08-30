@@ -74,7 +74,7 @@ export default async function AboutUs() {
             <div className="whyCHooseUsWrapper coreValues mt-[-32px] md:!mt-[100px]">
                 <div className="whyChooseUsHeading gradient-background"><h2>Core Values</h2></div>
                 <div className="whyChooseUsCardContentss">
-                    <div className="cardWrappers !gap-0 !flex-nowrap justify-between mt-4  !rounded-[30px]">
+                    <div className="cardWrappers !gap-0 !flex-nowrap justify-between mt-4 !rounded-[30px]">
                         <ServicesCards2
                             imageUrl="/icons/coreValue-4.png"
                             heading="Innovation"
@@ -180,7 +180,7 @@ export default async function AboutUs() {
 
             <div className="industriesServeMainWrapper letsBuildToghether about">
                 <div className="isContent">
-                    <p className="content md:text-5xl text-2xl">
+                    <p className="content">
                         Passionate people, bold ideas
                     </p>
                     <div className="buttons-wrapper">

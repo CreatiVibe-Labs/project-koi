@@ -48,9 +48,9 @@ export default function SliderCards({ slides, options }) {
                         slidesPerView="auto"        // default (desktop)
                         autoplay={{ delay: 3000 }} // autoplay enabled
                         loop={true}
-                        pagination={{
-                            clickable: true,
-                        }}
+                        // pagination={{
+                        //     clickable: true,
+                        // }}
                         navigation={true}
                         modules={[Pagination, Navigation]}
                         breakpoints={{
