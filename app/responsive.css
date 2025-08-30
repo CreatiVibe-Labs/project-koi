@@ -23,7 +23,7 @@
   }
 
   .homeBanner {
-    padding-bottom: 15rem !important;
+    /* padding-bottom: 15rem !important; */
 
     .content-section {
       padding-bottom: 3rem !important;
@@ -72,8 +72,9 @@
       .image-section img {
         /* position: relative; */
         width: 100%;
-        height: 70%;
-        top: 230px !important;
+        height: 100%;
+        top: -55px !important;
+        position: relative;
       }
     }
 
@@ -105,6 +106,10 @@
     .exp,
     .clock p {
       font-size: 14px !important;
+    }
+
+    .IndustriesWeServe li {
+      height: 110px !important;
     }
 
     .description,
@@ -147,7 +152,8 @@
     }
 
     .homeWhyChooseUS img {
-      height: 100% !important;
+      height: 200px !important;
+
     }
 
     .arrow img {
@@ -165,6 +171,11 @@
     .homeWhyChooseUS .service-card-wrap {
       width: 100% !important;
       border-radius: 7px !important;
+
+    }
+
+    .homeWhyChooseUS .service-card-wrap {
+      height: 350px;
     }
 
     span.buuttonIcon {
@@ -174,7 +185,7 @@
     .ServicesCardsContent,
     .cardWrappers {
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.5rem !important;
+      gap: 0.3rem !important;
       display: grid;
       margin-top: 0.75rem;
     }
@@ -183,7 +194,7 @@
       min-width: 150px !important;
       position: relative;
       top: 0;
-      left: 28px;
+      left: 18px;
     }
 
     .careerOp {
@@ -455,6 +466,7 @@
   /* footerWrapper */
   .footer {
     padding: 1rem !important;
+    margin-top: 1.5rem !important;
 
     .footerWrapper {
       flex-direction: column;
@@ -486,8 +498,17 @@
     width: 50px;
   }
 
-  .coreValues .bold-text{
+  .coreValues .bold-text {
     font-size: 16px !important;
   }
+
+  .review p {
+    font-size: 18px !important;
+  }
+
+  .homepageServices {
+    margin-top: -55px !important;
+  }
+
   /* media query end */
 }

@@ -23,7 +23,7 @@ export default function FeatureHighlights({
       </div>
       <ol>
         <li className='border-0 text-left'>
-          {title && <p className=''><span className="!text-[14px] md:text-xl font-extrabold mb-2 heading">{title}</span></p>}
+          {title && <p className=''><span className="text-xl font-extrabold mb-2 heading">{title}</span></p>}
           {description && <p className="text-gray-600 mb-4 description pt-3 !font-medium">{description}</p>}
         </li>
       </ol>

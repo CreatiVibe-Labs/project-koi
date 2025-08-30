@@ -67,7 +67,8 @@ export default async function AboutUs() {
                     Your browser does not support the video tag.
                 </video>
                 {/* <img src="/images/about.png" width="100%" alt=""/> */}
-                <h1 className="text-center text-2xl md:text-5xl font-bold pt-2.5  opacity-[0.5]">Driven by innovation. United by purpose</h1>
+                <h1 className="text-center text-2xl md:text-5xl font-bold pt-2.5 opacity-[0.5] mt-[-113px]
+                ">Driven by innovation. United by purpose</h1>
             </div>
 
             <div className="whyCHooseUsWrapper coreValues mt-[-32px] md:!mt-[100px]">
