@@ -15,7 +15,7 @@ export default function ContactPage({ imageUrl, title, text }) {
         <>
             <div className="hero-section contact flex-col">
                 <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
-                    <div className="contactBg backdrop-blur-lg border-0 border-amber-50 rounded-2xl md:p-10 p-2.5 pb-17 flex items-end">
+                    <div className="contactBg backdrop-blur-lg border-0 border-amber-50 rounded-2xl md:p-8 p-2.5 pb-17 flex items-end">
                         <ul>
                             <li className="flex items-center gap-2.5 md:gap-5 ">
                                 <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/phone.png" width={30} height={30}></Image></div>
@@ -32,13 +32,13 @@ export default function ContactPage({ imageUrl, title, text }) {
                             </li>
                             <li className="flex items-center gap-2.5 md:gap-5">
                                 <div className="bg-white rounded-full px-2.5 py-2"><Image alt="icon" src="/icons/address.png" width={25} height={25}></Image></div>
-                                <Link href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target="_blank" className="flex items-center  gap-5 custom-shaodw !w-[60%] md:w-[90%]">6E-02, 6-9 Koyochonaka, Higashinadaku, Kobe  Hyogo 658-0032 Japan</Link>
+                                <Link href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target="_blank" className="flex items-center  gap-5 custom-shaodw !w-[80%] md:w-[90%]">6E-02, 6-9 Koyochonaka, Higashinadaku, Kobe  Hyogo 658-0032 Japan</Link>
                             </li>
                         </ul>
 
                         <div className="clock absolute">
-                            <div className="custom-shaodw text-center mt-[-5px] ml-2 absolute top-0 md:left-[7px] left-10 w-[175px]">
-                                <p className="!font-semibold">Mon – Fri  9:00 – 18:00</p>
+                            <div className="custom-shaodw md:text-start text-center mt-[-5px] ml-2 absolute top-0 md:left-[9px] left-10 w-[175px]">
+                                <p className="!font-semibold md:pb-5 pb-0">Mon – Fri  9:00 – 18:00</p>
                                 <p className="!font-semibold">Sat – Sun  Closed</p>
                             </div>
                         </div>
