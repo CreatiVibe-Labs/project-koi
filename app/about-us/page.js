@@ -4,13 +4,23 @@ import ServicesCards2 from '@/components/ServicesCards2';
 import ReviewSlider from '@/components/ReviewSlider';
 import Jobs from '@/components/Jobs';
 import Organizationstructure from "@/components/Organizationstructure";
+import { cookies } from "next/headers";
+import { getAboutPageData, getOrganizationData } from "@/constant/ContentApi";
 
 export const metadata = {
     title: "About us - Aerialink Inc",
     description: "About us - Aerialink Inc",
 };
 
-export default function AboutUs() {
+export default async function AboutUs() {
+
+    const cookieStore = await cookies();
+    const lang = cookieStore.get("lang")?.value ?? 'en';
+    const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+    const apiData = await getAboutPageData();
+    const organizationData = await getOrganizationData();
+
+    console.log(organizationData.content.checkbox_enable_organization.en)
 
     const quotes = [
         {
@@ -29,7 +39,6 @@ export default function AboutUs() {
             designation: "CAO"
         }
     ];
-
 
     return (
         <>
@@ -135,52 +144,12 @@ export default function AboutUs() {
                 </div>
             </div>
 
-            <div className="whyCHooseUsWrapper coreValues">
+            {organizationData.content.checkbox_enable_organization.en == 1 && <div className="whyCHooseUsWrapper coreValues">
                 <div className="whyChooseUsHeading gradient-background"><h2>Organization Structure</h2></div>
                 <div className="whyChooseUsCardContents">
-                    {/* <div className="cardWrappers">
-                        <div className="org-chart">
-                            <div className="org-node">Board of Directors</div>
-
-                            <div className="line-vertical"></div>
-
-                            <div className="org-node">CEO</div>
-
-                            <div className="line-vertical"></div>
-
-                            <div className="horizontal-group">
-                                <div className="group-connector">
-                                    <div className="org-node">CTO</div>
-                                </div>
-                                <div className="group-connector">
-                                    <div className="org-node">COD</div>
-                                </div>
-                                <div className="group-connector">
-                                    <div className="org-node">CFO</div>
-                                </div>
-                            </div>
-
-                            <div className="line-vertical"></div>
-
-                            <div className="horizontal-group">
-                                <div className="group-connector">
-                                    <div className="org-node">Developer</div>
-                                </div>
-                                <div className="group-connector">
-                                    <div className="org-node">Designer</div>
-                                </div>
-                                <div className="group-connector">
-                                    <div className="org-node">Finance Officer</div>
-                                </div>
-                                <div className="group-connector">
-                                    <div className="org-node">HR</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
-                    <Organizationstructure />
+                    <Organizationstructure apiData={organizationData} lang={lang} ASSETS_URL={ASSETS_URL} />
                 </div>
-            </div>
+            </div>}
 
             <div className="whyCHooseUsWrapper coreValues careerOp">
                 <div className="whyChooseUsHeading gradient-background"><h2>Career Opportunities</h2></div>

@@ -32,3 +32,37 @@ export async function getIndustriesData() {
     return [];
   }
 }
+
+export async function getAboutPageData() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=about-us`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getOrganizationData() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=organization`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
