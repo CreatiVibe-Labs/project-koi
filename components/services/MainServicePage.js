@@ -146,7 +146,7 @@ export default function MainServicePage() {
             <div className="industriesServeMainWrapper featuresHighlight cmsWork cmsWork2">
                 <div className=" gradient-background text-[#c3f8d9] md:text-[40px] text-[20px] font-bold p-3 rounded-2xl"><h3>Tech Stack</h3></div>
                 <div className="hidden lg:block">
-                    <div className="itemsWrapper">
+                    <div className="itemsWrapper ">
                         <FeatureHighlights2
                             imageUrl="/icons/react.png"
                             title="React"
@@ -210,7 +210,7 @@ export default function MainServicePage() {
                     </div>
                 </div>
                 <div className="block lg:hidden">
-                    <div className="itemsWrapper !block">
+                    <div className="itemsWrapper !block techIcon">
                         <Swiper
                             spaceBetween={16}        // gap between slides
                             slidesPerView="auto"        // default (desktop)

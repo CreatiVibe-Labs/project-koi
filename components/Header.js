@@ -37,6 +37,7 @@ export default function Header() {
       }
     };
   }, []);
+  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState(null);
 
   return (
     <>
@@ -129,16 +130,15 @@ export default function Header() {
               </button>
             </div>
           </div>
-          <div className='mobileHeaderWrappe '>
+          <div className='mobileHeaderWrapper'>
             {menuOpen && (
               <div className="md:hidden shadow-md px-4 py-4 space-y-2 h-lvh backdrop-blur-2xl">
                 {navLinks.map((link) => (
                   !link.subMenu ? (
                     <div key={link.href} className='relative nav_menu_wrapper md:py-0 py-2'>
                       <Link
-                        key={link.href}
                         href={link.href}
-                        className={`text-white  relative ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
+                        className={`text-white relative ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
                         onClick={() => setMenuOpen(false)}
                       >
                         {link.name}
@@ -146,63 +146,45 @@ export default function Header() {
                     </div>
                   ) : (
                     <div key={link.href} className="relative nav_menu_wrapper">
-                      {/** Check if any subLink is active */}
-                      {(() => {
-                        const isParentActive =
-                          isActive(link.href) ||
-                          link.subMenu?.some((subLink) =>
-                            isActive(`${link.href}/${subLink.href.replace(/^\//, '')}`)
-                          );
+                      {/* Mobile Toggle for parent */}
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileSubMenuOpen(mobileSubMenuOpen === link.href ? null : link.href)
+                        }
+                        className={`w-full text-left flex justify-between items-center text-white ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
+                      >
+                        <span>{link.name}</span>
+                        <span>{mobileSubMenuOpen === link.href ? '−' : '+'}</span>
+                      </button>
 
-                        return (
-                          <>
-                            <Link
-                              href={link.href}
-                              className={`text-black relative ${isParentActive ? 'nav-menu active' : 'nav-menu'}`}
-                              onClick={() => setMenuOpen(false)}
-                            >
-                              {link.name}
-                            </Link>
-
-                            {pathname === link.href && (
-                              <div className="absolute subMenuWrapper">
-                                <div className="sub-menu">
-                                  {link.subMenu.map((subLink) => {
-                                    const finalLink = `${link.href}/${subLink.href.replace(/^\//, '')}`;
-                                    return (
-                                      <Link
-                                        key={link.href + subLink.href}
-                                        href={finalLink}
-                                        className={`text-black sub-nav-menu ${isActive(finalLink) ? 'active' : ''}`}
-                                        onClick={() => setMenuOpen(false)}
-                                      >
-                                        {subLink.name}
-                                      </Link>
-                                    );
-                                  })}
-                                </div>
-                              </div>
-                            )}
-
-                          </>
-                        );
-                      })()}
+                      {/* Submenu list */}
+                      {mobileSubMenuOpen === link.href && (
+                        <ul>
+                          {link.subMenu.map((subLink) => {
+                            const finalLink = `${link.href}/${subLink.href.replace(/^\//, '')}`;
+                            return (
+                              <li className='py-2'>
+                                  <Link
+                                    key={link.href + subLink.href}
+                                    href={finalLink}
+                                    className={`text-white sub-nav-menu ${isActive(finalLink) ? 'active' : ''}`}
+                                    onClick={() => setMenuOpen(false)}
+                                  >
+                                    {subLink.name}
+                                  </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
                     </div>
                   )
                 ))}
-
-                {/* Search Input for Mobile 
-                <div className="flex items-center border rounded px-2 py-1 mt-2"> */}
-                {/* <Search className="w-4 h-4 text-gray-500" />
-                  <input
-                    type="text"
-                    placeholder="Search..."
-                    className="ml-2 outline-none text-sm w-full"
-                  /> 
-                </div>*/}
               </div>
             )}
           </div>
+
         </div>
       </header>
     </>
