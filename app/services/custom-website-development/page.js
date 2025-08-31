@@ -64,7 +64,7 @@ export default function CustomWebsiteDevelopment() {
                     </div>
                     <div className="industriesServeMainWrapper featuresHighlight cmsWork">
                         <div className="is-heading gradient-background"><h3>CMS & Technology Options</h3></div>
-                        <div className="">
+                        <div className="techIcon">
                             <WebCms />
                         </div>
                     </div>

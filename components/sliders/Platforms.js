@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
-export default function Platforms({features}) {
+export default function Platforms({ features }) {
 
     return (
         <>
@@ -23,16 +23,16 @@ export default function Platforms({features}) {
                 </div>
             </div>
 
-            <div className="block lg:hidden">
+            <div className="block lg:hidden techIcon">
                 <div className="itemsWrapper !block">
                     <Swiper
                         spaceBetween={16}        // gap between slides
                         slidesPerView="auto"        // default (desktop)
                         autoplay={{ delay: 3000 }} // autoplay enabled
                         loop={true}
-                        pagination={{
-                            clickable: true,
-                        }}
+                        // pagination={{
+                        //     clickable: true,
+                        // }}
                         navigation={true}
                         modules={[Pagination, Navigation]}
                         breakpoints={{

@@ -240,7 +240,7 @@ export default function CloudMigration() {
                             <li className='!font-medium'>Hybrid Cloud Solutions</li>
                         </ul>
                     </div>
-                    <div className="itemsWrapper">
+                    <div className="itemsWrapper techIcon">
                         <FeatureHighlights2
                             imageUrl="/icons/aws.png"
                             title="AWS"
