@@ -129,16 +129,16 @@ export default function Header() {
               </button>
             </div>
           </div>
-          <div className='mobileHeaderWrapper'>
+          <div className='mobileHeaderWrappe '>
             {menuOpen && (
-              <div className="md:hidden bg-white shadow-md px-4 py-4 space-y-2">
+              <div className="md:hidden shadow-md px-4 py-4 space-y-2 h-lvh backdrop-blur-2xl">
                 {navLinks.map((link) => (
                   !link.subMenu ? (
-                    <div key={link.href} className='relative nav_menu_wrapper'>
+                    <div key={link.href} className='relative nav_menu_wrapper md:py-0 py-2'>
                       <Link
                         key={link.href}
                         href={link.href}
-                        className={`text-black relative ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
+                        className={`text-white  relative ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
                         onClick={() => setMenuOpen(false)}
                       >
                         {link.name}
@@ -191,15 +191,15 @@ export default function Header() {
                   )
                 ))}
 
-                {/* Search Input for Mobile */}
-                <div className="flex items-center border rounded px-2 py-1 mt-2">
-                  {/* <Search className="w-4 h-4 text-gray-500" />
+                {/* Search Input for Mobile 
+                <div className="flex items-center border rounded px-2 py-1 mt-2"> */}
+                {/* <Search className="w-4 h-4 text-gray-500" />
                   <input
                     type="text"
                     placeholder="Search..."
                     className="ml-2 outline-none text-sm w-full"
-                  /> */}
-                </div>
+                  /> 
+                </div>*/}
               </div>
             )}
           </div>
