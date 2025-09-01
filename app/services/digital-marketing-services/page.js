@@ -9,6 +9,7 @@ import WhyChooseUs2 from '@/components/WhyChooseUs2';
 import Circle from '@/components/Circle';
 import Platforms from '@/components/sliders/Platforms';
 import SliderCards from '@/components/sliders/SliderCards';
+import { CalendlyLink } from '@/constant/constants';
 
 export const metadata = {
     title: "Digital Marketing - Aerialink Inc",
@@ -145,7 +146,7 @@ export default function DigitalMarketingServices() {
                                 craft a strategy built around results.
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href="/scheduler/digital-marketing-services">Speak to a Strategist</Link>
+                                <Link href={CalendlyLink}>Speak to a Strategist</Link>
                             </div>
                         </div>
                     </div>

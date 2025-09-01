@@ -2,6 +2,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import FeatureHighlights from '@/components/FeatureHighlights';
 import ReviewSlider from '@/components/ReviewSlider';
 import SideBar from '@/components/Sidebar';
+import { CalendlyLink } from '@/constant/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -136,7 +137,7 @@ export default function managedItServices() {
                                 Choose a plan or customize your own. Pay only for what you need
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href="/scheduler/managed-IT-services-consulting">Request a Free Analysis</Link>
+                                <Link href={CalendlyLink}>Request a Free Analysis</Link>
                             </div>
                         </div>
                     </div>

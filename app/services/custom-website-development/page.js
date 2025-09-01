@@ -5,6 +5,7 @@ import WebTypesWebsite from '@/components/sliders/WebTypesWebsite';
 import WebWebsite from '@/components/sliders/WebWebsite';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CalendlyLink } from '@/constant/constants';
 
 export const metadata = {
     title: "Custom Website Development - Aerialink Inc",
@@ -75,7 +76,7 @@ export default function CustomWebsiteDevelopment() {
                                 Whether you're starting from scratch or rebuilding with purpose, we’ll help you create a site that not only looks great — it performs where it counts.
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href="/scheduler/custom-website-development">Get a Free Website Audit</Link>
+                                <Link href={CalendlyLink}>Get a Free Website Audit</Link>
                             </div>
                         </div>
                     </div>

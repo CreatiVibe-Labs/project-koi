@@ -40,3 +40,5 @@ export const SideBarLinks = [
   { name: 'Managed IT Services & Consulting', href: '/services/managed-it-services-consulting' },
   { name: 'Digital Marketing', href: '/services/digital-marketing-services' },
 ];
+
+export const CalendlyLink = 'https://calendly.com/a-wasay1612/service-schedule';

@@ -4,6 +4,7 @@ import FeatureHighlights2 from '@/components/FeatureHighlights2';
 import SideBar from '@/components/Sidebar';
 import Platforms from '@/components/sliders/Platforms';
 import SliderCards from '@/components/sliders/SliderCards';
+import { CalendlyLink } from '@/constant/constants';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -149,7 +150,7 @@ export default function AiPoweredSolutions() {
                                 features={services}
                             />
                             <div className="buttons-wrapper">
-                                <Link href="/scheduler/AI-powered-solutions">Talk to an AI Consultant</Link>
+                                <Link href={CalendlyLink}>Talk to an AI Consultant</Link>
                             </div>
                         </div>
                     </div>

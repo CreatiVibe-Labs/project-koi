@@ -4,6 +4,8 @@ import FeatureHighlights from '@/components/FeatureHighlights';
 import FeatureHighlights2 from '@/components/FeatureHighlights2';
 import { useEffect, useRef, useState } from 'react';
 import SliderCards from '@/components/sliders/SliderCards';
+import { CalendlyLink } from '@/constant/constants';
+
 
 export default function CloudMigration() {
 
@@ -280,7 +282,7 @@ export default function CloudMigration() {
                         Contact us to schedule a consultation and begin your cloud migration journey.
                     </p>
                     <div className="buttons-wrapper">
-                        <Link href="/scheduler/cloud-migration">Start a Free Review</Link>
+                        <Link href={CalendlyLink} target='_blank'>Start a Free Review</Link>
                     </div>
                 </div>
             </div>
