@@ -532,23 +532,32 @@
     top: 30px;
   }
 
-  .singleSerivce .featuresHighlight .service-card-wrap {
-    height: 200px;
-  }
-
-  .singleSerivce .industriesServeMainWrapper2 .service-card-wrap {
-    height: 180px !important;
-  }
-
   .featuresHighlight .service-card-wrap {
     height: 150px !important;
   }
 
+
+  .singleSerivce .featuresHighlight .service-card-wrap {
+    height: 200px;
+  }
+
+  .singleSerivce .industriesServeMainWrapper2 .service-card-wrap,
+  .aiPoweredSolutions .service-card-wrap {
+    height: 180px !important;
+  }
+
+  .aiPoweredSolutions .industry-Specific .service-card-wrap {
+    height: 130px !important;
+  }
+
   .customAppDevelopment .service-card-wrap,
   .customWebsiteDevelopment .service-card-wrap,
-  .cloudStorage .service-card-wrap,
   .digitalMarketingServices .service-card-wrap {
     height: 200px !important;
+  }
+
+  .cloudStorageTab .service-card-wrap {
+    height: 300px !important;
   }
 
   .pieChart .service-card-wrap,
@@ -577,5 +586,24 @@
     flex-direction: column !important;
   }
 
+  .sub-nav-menu.active {
+    border: 0;
+    padding: 0;
+  }
+
+  .ai-cta .service-card-wrap {
+    height: 120px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   /* media query end */
 }
+
+/* MOB END */
+
+/* TABLET */
+@media screen and (min-width: 768px) and (max-width: 1024px) {}
+
+/* TABLET END*/

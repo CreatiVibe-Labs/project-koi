@@ -516,7 +516,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#649C50", endC
   width: 100%;
   height: 100%;
   left: 0;
-  background-size: contain;
+  background-size: cover;
   border-bottom-right-radius: 28px;
 }
 .contactBg a {

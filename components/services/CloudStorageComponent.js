@@ -29,7 +29,7 @@ export default function CloudStorage() {
     ];
 
     return (
-        <div className='cloudStorage'>
+        <div className='cloudStorageTab'>
             <div className="industriesServeMainWrapper webDev singleSerivce">
                 <div className="is-heading gradient-background"><h3>Introduction</h3></div>
                 <div className="isContent">

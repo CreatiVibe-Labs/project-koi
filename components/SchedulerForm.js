@@ -322,7 +322,7 @@ export default function SchedulerForm({ params }) {
             </div>
             {status && (
               <p
-                className={`mt-3 !font-semibold ${status.type === "success" ? "text-green-600" : "text-red-600"
+                className={`mt-3 !font-semibold ${status.type === "success" ? "text-[#FF5F1F]" : "text-red-600"
                   }`}
               >
                 {status.msg}

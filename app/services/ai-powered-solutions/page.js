@@ -111,7 +111,7 @@ export default function AiPoweredSolutions() {
                 <div className='sideBarWrapper'>
                     <SideBar />
                 </div>
-                <div className='serviceContentWrapper singleSerivce'>
+                <div className='serviceContentWrapper singleSerivce aiPoweredSolutions'>
                     <div className="industriesServeMainWrapper webDev">
                         <div className="is-heading gradient-background"><h3>Reimagine What’s Possible with AI</h3></div>
                         <div className="isContent">
@@ -135,9 +135,11 @@ export default function AiPoweredSolutions() {
                                 slides={keyFeatures1}
                             />
                             <p className='subHeadings pt-5'>Industry-Specific Use Cases</p>
-                            <SliderCards
-                                slides={keyFeatures2}
-                            />
+                            <div className='industry-Specific'>
+                                <SliderCards
+                                    slides={keyFeatures2}
+                                />
+                                </div>
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper ai-cta letsBuildToghether featuresHighlight cmsWork">
