@@ -276,13 +276,13 @@ export default function JobApplyForm({ params }) {
     return (
         <>
             <div className="jobApplyWrap flex flex-col gap-4">
-                <div className="flex gap-5 items-center"><p className="title !text-2xl !font-semibold">Title: </p><p className="!text-2xl !font-medium capitalize">{slugWithSpace}</p></div>
-                <div className="flex gap-5 items-center"><p className="exp !text-2xl !font-semibold">Experience: </p><p className="!text-2xl !font-medium">2+ Years</p></div>
+                <div className="flex gap-5 items-center"><p className="title md:!text-2xl !font-semibold">Title: </p><p className="md:!text-2xl  !font-medium capitalize">{slugWithSpace}</p></div>
+                <div className="flex gap-5 items-center"><p className="exp md:!text-2xl !font-semibold">Experience: </p><p className="md:!text-2xl !font-medium">2+ Years</p></div>
                 <div className="flex flex-col gap-5 items-start html-content">
                     {htmlContent ? (
                         <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
                     ) : (
-                        <p>No content found for: {slug}</p>
+                        <p className="md:!-text-2xl text-lg">No content found for: {slug}</p>
                     )}
                 </div>
             </div>
@@ -290,7 +290,7 @@ export default function JobApplyForm({ params }) {
                 <div className="whyChooseUsHeading gradient-background"><h2>Job Application Form</h2></div>
                 <div className="contactForm whyChooseUsCardContents">
                     <form onSubmit={handleSubmit} className="contact-form">
-                        <p className='text-center input-field !text-2xl gradient-background'>Personal Information</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>Personal Information</p>
                         {/* First Name & Last Name */}
                         <div className="flex gap-[20px]">
                             <div className="relative !w-[10%]">
@@ -381,7 +381,7 @@ export default function JobApplyForm({ params }) {
                             </div>
                         </div>
 
-                        <p className='text-center input-field !text-2xl gradient-background'>Position Details</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>Position Details</p>
 
                         {/* Position */}
                         <div className="doubleRows input-field">
@@ -484,7 +484,7 @@ export default function JobApplyForm({ params }) {
                             </div>
                         </div>
 
-                        <p className='text-center input-field !text-2xl gradient-background'>Documents</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>Documents</p>
 
                         <div className='relative'>
                             <input
@@ -546,7 +546,7 @@ export default function JobApplyForm({ params }) {
                         </div>
                         {errors.additional_document && <p className="text-red-500 text-sm mt-1">{errors.additional_document}</p>}
 
-                        <p className='text-center input-field !text-2xl gradient-background'>Questionnaire</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>Questionnaire</p>
 
                         {questions.map((q) => (
                             <div key={q.id} className="relative">
@@ -560,7 +560,7 @@ export default function JobApplyForm({ params }) {
                             </div>
                         ))}
 
-                        <p className='text-center input-field !text-2xl gradient-background'>Consent</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>Consent</p>
 
                         <div className="reative flex items-center gap-3">
 

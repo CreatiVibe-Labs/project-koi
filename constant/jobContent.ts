@@ -1,7 +1,7 @@
 export const content2 = {
     backend_developer:
         `<h2><strong>Job Description:</strong></h2>
-            <p><span style="font-weight: 400;">We are looking for a detail-oriented </span><strong>Backend Developer</strong><span style="font-weight: 400;"> to support the development of a secure, scalable private storage and file sharing platform. Working closely with an </span><strong>Infrastructure Engineer</strong><span style="font-weight: 400;">, you will be responsible for implementing server-side logic, managing data flow, and integrating core services related to storage, user access, and file handling. You will also collaborate with frontend team, product managers, and other stakeholders to ensure robust and scalable solutions.</span></p>
+            <p ><span style="font-weight: 400;">We are looking for a detail-oriented </span><strong>Backend Developer</strong><span style="font-weight: 400;"> to support the development of a secure, scalable private storage and file sharing platform. Working closely with an </span><strong>Infrastructure Engineer</strong><span style="font-weight: 400;">, you will be responsible for implementing server-side logic, managing data flow, and integrating core services related to storage, user access, and file handling. You will also collaborate with frontend team, product managers, and other stakeholders to ensure robust and scalable solutions.</span></p>
             <h2><strong>Responsibilities</strong></h2>
             <ul>
             <li style="font-weight: 400;"><span style="font-weight: 400;">Build and implement scalable, secure backend systems for an </span><strong>enterprise-grade file sharing and secure vault platform</strong><span style="font-weight: 400;"> using </span><strong>Node.js</strong></li>

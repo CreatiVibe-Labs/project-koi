@@ -47,7 +47,7 @@ export default function Header() {
         <div className={`headerMainWrapper border-b-[1px] border-b-[#ffffff66] rounded-[0] gradient-background w-full  inset-x-0 top-0 fixed z-10 ${scrolled ? 'customStickyHeader' : ''}`}>
           <div className='headerWrapper'>
             <div className='logoWrapper'>
-              <Link href='#' className='flex gap-2.5 md:gap-5 items-center text-4xl font-semibold'><Image src="/images/logo.png" width={100} height={100} alt="Logo" />Aerialink</Link>
+              <Link href='http://aerialink.jp/' className='flex gap-2.5 md:gap-5 items-center text-4xl font-semibold'><Image src="/images/logo.png" width={100} height={100} alt="Logo" />Aerialink</Link>
             </div>
             <div className='menuWrapper mobile-hide'>
               <nav className="navBar">
@@ -135,7 +135,7 @@ export default function Header() {
               <div className="md:hidden shadow-md px-4 py-4 space-y-2 h-lvh backdrop-blur-2xl">
                 {navLinks.map((link) => (
                   !link.subMenu ? (
-                    <div key={link.href} className='relative nav_menu_wrapper md:py-0 py-2'>
+                    <div key={link.href} className='relative nav_menu_wrapper mt-4'>
                       <Link
                         href={link.href}
                         className={`text-white relative ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
@@ -152,9 +152,9 @@ export default function Header() {
                         onClick={() =>
                           setMobileSubMenuOpen(mobileSubMenuOpen === link.href ? null : link.href)
                         }
-                        className={`w-full text-left flex justify-between items-center text-white ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
+                          className={`my-4 w-full text-left flex justify-between items-center text-white ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
                       >
-                        <span>{link.name}</span>
+                          <Link href={link.href} className='!text-start'>{link.name}</Link>
                         <span>{mobileSubMenuOpen === link.href ? '−' : '+'}</span>
                       </button>
 

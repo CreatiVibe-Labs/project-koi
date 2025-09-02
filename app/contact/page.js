@@ -37,13 +37,13 @@ export default function ContactPage({ imageUrl, title, text }) {
                         </ul>
 
                         <div className="clock absolute">
-                            <div className="custom-shaodw md:text-start text-center mt-[-5px] ml-2 absolute top-0 md:left-[9px] left-10 w-[175px]">
+                            <div className="custom-shaodw md:text-start text-center mt-[-5px] ml-2 absolute md:top-0 -top-12 md:left-[9px] left-10 w-[175px]">
                                 <p className="!font-semibold md:pb-5 pb-0">Mon – Fri  9:00 – 18:00</p>
                                 <p className="!font-semibold">Sat – Sun  Closed</p>
                             </div>
                         </div>
 
-                        <div className="absolute end-2.5 md:bottom-[2px] bottom-[20px]"><Image className="w-[80px]" alt="icon" src="/icons/qr-code.png" width={100} height={100}></Image></div>
+                        <div className="absolute end-2.5 md:bottom-[2px] bottom-[10px]"><Image className="w-[80px]" alt="icon" src="/icons/qr-code.png" width={100} height={100}></Image></div>
                     </div>
                     <div className="border-0 border-amber-50 rounded-2xl backdrop-blur-lg">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.635822438208!2d135.2681585!3d34.6891397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008d7bbb2ec4fd%3A0x3fc8f7fe18f2b3bf!2s6-ch%C5%8Dme-9%20K%C5%8Dy%C5%8Dch%C5%8Dnaka%2C%20Higashinada%20Ward%2C%20Kobe%2C%20Hyogo%20658-0032%2C%20Japan!5e0!3m2!1sen!2s!4v1754675364488!5m2!1sen!2s"

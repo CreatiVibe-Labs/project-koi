@@ -29,8 +29,8 @@ export default function CloudStorage() {
     ];
 
     return (
-        <div>
-            <div className="industriesServeMainWrapper webDev cloudStorage singleSerivce">
+        <div className='cloudStorage'>
+            <div className="industriesServeMainWrapper webDev singleSerivce">
                 <div className="is-heading gradient-background"><h3>Introduction</h3></div>
                 <div className="isContent">
                     <div className="itemsWrapper">
@@ -69,7 +69,7 @@ export default function CloudStorage() {
                 </div>
             </div>
 
-            <div className="industriesServeMainWrapper featuresHighlight singleSerivce">
+            <div className="industriesServeMainWrapper industriesServeMainWrapper2 featuresHighlight">
                 <div className="is-heading gradient-background"><h3>Key Features</h3></div>
                 <div className="mt-5">
                     <SliderCards

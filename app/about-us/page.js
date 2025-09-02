@@ -106,7 +106,7 @@ export default async function AboutUs() {
             </div>
 
             <div className="missionVission gap-4 md:!gap-0">
-                <div className="whyCHooseUsWrapper coreValues w-[50%] md:!w-[51%] md:mr-[-12px] md:mt-0 !-mt-3">
+                <div className="whyCHooseUsWrapper coreValues w-[50%] md:!w-[51%] md:mr-[-12px] md:mt-0 !-mt-[8px]">
                     {/* <div className="whyChooseUsHeading gradient-background"><h2>Mission</h2></div> */}
                     <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none  !rounded-[30px]">
                         <div className="cardWrappers">

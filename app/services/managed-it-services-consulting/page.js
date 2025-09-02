@@ -37,7 +37,7 @@ export default function managedItServices() {
                 <div className='sideBarWrapper'>
                     <SideBar />
                 </div>
-                <div className='serviceContentWrapper singleSerivce'>
+                <div className='serviceContentWrapper'>
                     <div className="industriesServeMainWrapper webDev">
                         <div className="is-heading gradient-background"><h3>Reliable IT, Strategic Insight — Without the Overhead</h3></div>
                         <div className="isContent">
@@ -55,7 +55,7 @@ export default function managedItServices() {
                         <div className="is-heading gradient-background "><h3>Service Highlight</h3></div>
                         <div className="mt-5">
                             <div className="itemsWrapper manageIT ServiceHighlight">
-                                <div className='duoColumns gap-3'>
+                                <div className='duoColumns md:flex-col flex-row gap-3'>
                                     <div className='duoColumn1 isContent border rounded-xl shadow-sm p-3'>
                                         <div className='contentWrapper'>
                                             <div className='border rounded-xl shadow-sm p-3 font-bold mb-2.5'><h3>Stress-Free IT Support for Small and Midsize Teams</h3></div>
@@ -121,11 +121,13 @@ export default function managedItServices() {
                     <div className="whyCHooseUsWrapper coreValues">
                         <div className="whyChooseUsHeading gradient-background"><h2>What Our Clients Say</h2></div>
                         <div className="whyChooseUsCardContents">
-                            <ReviewSlider
-                                reviews={quotes}
-                                color={'text-[#FF5F1F]'}
-                                size={"text-3xl"}
-                            />
+                            <div className='cardWrappers reviewslider'>
+                                <ReviewSlider
+                                    reviews={quotes}
+                                    color={'text-[#FF5F1F]'}
+                                    size={"text-3xl"}
+                                />
+                            </div>
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper letsBuildToghether">

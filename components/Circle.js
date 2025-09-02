@@ -9,14 +9,14 @@ export default function Circle() {
             <div className='CircleWrapper relative justify-center items-center flex flex-col gap-2'>
                 <div className='circle-box1 w-full flex gap-2 justify-between'>
                     <div className='circlebox border w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
-                        <span className='font-bold md:text-2xl text-sm'>
+                        <span className='font-bold md:text-2xl text-[12px]'>
                             Landing pages <br />
                             Retargeting<br />
                             Funnels
                         </span>
                     </div>
                     <div className='circlebox border text-right w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
-                        <span className='font-bold md:text-2xl text-sm'>
+                        <span className='font-bold md:text-2xl text-[12px]'>
                             Paids Ads<br />
                             Social<br />
                             SEO
@@ -25,14 +25,14 @@ export default function Circle() {
                 </div>
                 <div className='circle-box2 w-full flex gap-2 justify-between'>
                     <div className='circlebox border w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
-                        <span className='font-bold md:text-2xl text-sm'>
+                        <span className='font-bold md:text-2xl text-[12px]'>
                             Email<br />
                             CRM Sync<br />
                             Loyalty Programs
                         </span>
                     </div>
                     <div className='circlebox border w-full text-right backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
-                        <span className='font-bold md:text-2xl text-sm  w-full'>
+                        <span className='font-bold md:text-2xl text-[12px]  w-full'>
                             Content<br />
                             Video<br />
                             Interactive Posts

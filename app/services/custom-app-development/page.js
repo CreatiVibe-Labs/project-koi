@@ -14,7 +14,7 @@ export default function CustomAppDevelopment() {
     return (
         <div>
             {/* <Breadcrumb /> */}
-            <div className='servicePageWrapper singleSerivce'>
+            <div className='servicePageWrapper singleSerivce customAppDevelopment'>
                 <div className='sideBarWrapper'>
                     <SideBar />
                 </div>

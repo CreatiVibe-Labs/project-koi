@@ -28,10 +28,10 @@ export default function ReviewSlider({ reviews, color, size }) {
   return (
     <div className="review-container">
       <div key={current} className="review">
-        <p className={`${size ? size : 'md:text-4xl'}  text-left mb-2`}>
+        <p className={`${size ? size : 'md:text-4xl'}  text-left mb-2 pb-2`}>
           <span className={`italic digital7 ${color}`}>{finalReviews[current].review}</span>
         </p>
-        <p className={`text-sm md:text-lg mt-2 digital7 text-right italic mr-2 ${color}`}>{finalReviews[current].name}</p>
+        <p className={`text-sm md:text-lg mt-2 digital7 text-right italic mr-2 pb-2 ${color}`}>{finalReviews[current].name}</p>
         <p className={`text-sm md:text-lg digital7 text-right italic mr-2 ${color}`}>{finalReviews[current].designation}</p>
       </div>
     </div>

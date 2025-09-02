@@ -23,7 +23,7 @@ export default function Platforms({ features }) {
                 </div>
             </div>
 
-            <div className="block lg:hidden techIcon">
+            <div className="block lg:hidden techIcon mt-4">
                 <div className="itemsWrapper !block">
                     <Swiper
                         spaceBetween={16}        // gap between slides

@@ -100,7 +100,7 @@ export default function CloudMigration() {
     ];
 
     return (
-        <div className='singleSerivce'>
+        <div className='singleSerivce cloudMigration'>
             <div className="industriesServeMainWrapper webDev">
                 <div className="is-heading gradient-background"><h3>Cloud Migration Made Simple, Secure, and Scalable</h3></div>
                 <div className="isContent">
@@ -112,7 +112,7 @@ export default function CloudMigration() {
                     </div>
                 </div>
             </div>
-            <div className="industriesServeMainWrapper featuresHighlight">
+            <div className="industriesServeMainWrapper industriesServeMainWrapper2 featuresHighlight">
                 <div className="is-heading gradient-background"><h3>Key Features</h3></div>
                 <div className="mt-5">
                     <SliderCards 
@@ -239,7 +239,7 @@ export default function CloudMigration() {
                             <li className='!font-medium'>Legacy System Modernization</li>
                             <li className='!font-medium'>On-Prem to Cloud Infrastructure</li>
                             <li className='!font-medium'>Cloud-to-Cloud Migrations</li>
-                            <li className='!font-medium'>Hybrid Cloud Solutions</li>
+                            <li className='!font-medium md:block flex items-center'>Hybrid Cloud Solutions</li>
                         </ul>
                     </div>
                     <div className="itemsWrapper techIcon">

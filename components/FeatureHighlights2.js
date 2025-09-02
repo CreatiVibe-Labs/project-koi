@@ -9,7 +9,7 @@ export default function FeatureHighlights({
   description,
 }) {
   return (
-    <div className="service-card-wrap md:p-4 p-2 text-center backdrop-blur-lg md:pb-2 ">
+    <div className="service-card-wrap md:p-4 !p-2 text-center backdrop-blur-lg md:pb-2 ">
       <div className="image-button-wrap">
         {imageUrl &&
           <Image

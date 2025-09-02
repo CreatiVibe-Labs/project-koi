@@ -20,7 +20,7 @@ export default function CustomWebsiteDevelopment() {
                 <div className='sideBarWrapper'>
                     <SideBar />
                 </div>
-                <div className='serviceContentWrapper singleSerivce'>
+                <div className='serviceContentWrapper singleSerivce customWebsiteDevelopment'>
                     <div className="industriesServeMainWrapper webDev">
                         <div className="is-heading gradient-background"><h3>Custom Websites That Do More Than Look Good</h3></div>
                         <div className="isContent">
@@ -56,7 +56,7 @@ export default function CustomWebsiteDevelopment() {
                             <WebWebsite />
                         </div>
                     </div>
-                    <div className="industriesServeMainWrapper featuresHighlight">
+                    <div className="industriesServeMainWrapper industriesServeMainWrapper2 featuresHighlight">
                         <div className="is-heading gradient-background"><h3>Types of Websites We Build</h3></div>
                         <div className="mt-5">
                             <WebTypesWebsite />
@@ -64,7 +64,7 @@ export default function CustomWebsiteDevelopment() {
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper featuresHighlight cmsWork">
-                        <div className="is-heading gradient-background"><h3>CMS & Technology Options</h3></div>
+                        <div className="is-heading gradient-background md:p-3 pt-[5px] pb-2.5 px-[18px] md:mb-0 mb-2.5"><h3>CMS & Technology Options</h3></div>
                         <div className="techIcon">
                             <WebCms />
                         </div>

@@ -92,7 +92,7 @@
     }
 
     .whyChooseUsHeading h2, .is-heading h2, .ServicesCardsHeading h2, .StillThinkingMainWrapper h2,
-    .stContent p.heading-1 {
+    .stContent p.heading-1, .is-heading h3, .is-heading h4 {
       font-size: 20px !important;
     }
 
@@ -104,7 +104,8 @@
     .jobMainWrap p.titleText,
     .contactBg a,
     .exp,
-    .clock p {
+    .clock p,
+    .isContent p {
       font-size: 14px !important;
     }
 
@@ -432,7 +433,7 @@
     }
 
     .ServiceHighlight .service-card-wrap {
-      padding: 0.25rem 0 !important;
+      padding: 1rem 0 !important;
     }
 
     .itemsWrapper ul {
@@ -515,7 +516,7 @@
   }
 
   .review p {
-    font-size: 12px !important;
+    font-size: 16px !important;
   }
 
   .homepageServices {
@@ -531,13 +532,49 @@
     top: 30px;
   }
 
+  .singleSerivce .featuresHighlight .service-card-wrap {
+    height: 200px;
+  }
+
+  .singleSerivce .industriesServeMainWrapper2 .service-card-wrap {
+    height: 180px !important;
+  }
+
   .featuresHighlight .service-card-wrap {
-    height: 150px;
+    height: 150px !important;
+  }
+
+  .customAppDevelopment .service-card-wrap,
+  .customWebsiteDevelopment .service-card-wrap,
+  .cloudStorage .service-card-wrap,
+  .digitalMarketingServices .service-card-wrap {
+    height: 200px !important;
   }
 
   .pieChart .service-card-wrap,
   .techIcon .service-card-wrap {
     height: fit-content !important;
+  }
+
+  .IndustriesWeServe img {
+    height: 50px;
+    object-fit: contain;
+    width: 80px;
+  }
+
+  .howItWorksWrapper {
+    transform: scale(0.29);
+    margin-top: -7.5rem;
+    margin-bottom: -9rem;
+  }
+
+  .contactBg:before {
+    background-position: bottom left;
+    background-size: cover;
+  }
+
+  .duoColumns {
+    flex-direction: column !important;
   }
 
   /* media query end */
