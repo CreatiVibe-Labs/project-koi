@@ -8,6 +8,7 @@ export default function MainServicesCard({
     Heading,
     Description,
     LinkURL,
+    Button,
 }) {
     return (
         <div className="mainWrapper">
@@ -31,7 +32,7 @@ export default function MainServicesCard({
                 </div>
                 <div className='mainServiceLink'>
                     <Link href={LinkURL} className='site_readmore md:!text-[18px] text-[11px]'>
-                        Learn More
+                        {Button}
                         <Image src="/images/arrow-icon.png" width={30} height={17} className='bounce' alt='arrow icon'></Image>
                     </Link>
                 </div>

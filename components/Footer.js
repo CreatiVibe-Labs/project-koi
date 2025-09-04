@@ -1,12 +1,21 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { footerLinks1 } from '@/constant/constants';
-import { footerLinks2 } from '@/constant/constants';
 
-export default function Footer() {
+export default function Footer({ lang, ASSETS_URL, apiData }) {
+
+    const footerLinks1 = [
+        { name: apiData?.content?.home?.[lang] || "Home", href: '/' },
+        { name: apiData?.content?.resources?.[lang] || "Resources", href: '/resources' },
+        { name: apiData?.content?.about_us?.[lang] || "About Us", href: '/about-us' },
+    ];
+
+    const footerLinks2 = [
+        { name: apiData?.content?.services?.[lang] || "Services", href: '/services' },
+        { name: apiData?.content?.demo?.[lang] || "Demo", href: '/demo' },
+        { name: apiData?.content?.contact?.[lang] || "Contact", href: '/contact-us' },
+    ];
     return (
         <div className='footer border-t-[1px] border-b-0 border-t-[#ffffff66] left-gradient-background'>
             <div className='footerWrapper'>
@@ -17,7 +26,7 @@ export default function Footer() {
                         </div>
                         <div className='contentWrapper'>
                             <span className='font-semibold mt-[-2%] md:text-2xl text-lg'>
-                                Empowering Your Digital Future
+                                {apiData?.content?.description?.[lang] || "Empowering Your Digital Future"}
                             </span>
                         </div>
                     </div>
@@ -62,20 +71,20 @@ export default function Footer() {
                         </div>
                     </div>
                     <div className='socialIconsWrapper gap-8 md:justify-end justify-center md:mt-4 mt-0'>
-                        <p>Follow <span className='neon-green'>us</span></p>
+                        <p>{apiData?.content?.follow_us?.[lang] || "Follow us"}</p>
                         <div className='icons'>
-                            <Link href="#">
+                            <Link href={apiData?.content?.linkedin?.en || "#"}>
                                 <Image src="/icons/linkin.png" width={1000} height={1000} className='w-[40px]' alt='linkedin icon' />
                             </Link>
-                            <Link href="#">
+                            <Link href={apiData?.content?.twitter?.en || "#"}>
                                 <Image src="/icons/x.png" width={1000} height={1000} className='w-[30px]' alt='twitter icon' />
                             </Link>
-                            <Link href="#">
+                            <Link href={apiData?.content?.youtube?.en || "#"}>
                                 <Image src="/icons/yt.png" width={1000} height={1000} className='w-[40px]' alt='yt icon' />
                             </Link>
                         </div>
                     </div>
-                    <p className='neon-green font-semibold md:mt-4 mt-0 text-center'>© Aerialink Inc. 2025. All rights reserved. </p>
+                    <p className='neon-green font-semibold md:mt-4 mt-0 text-center'>{apiData?.content?.copy_right?.[lang] || "© Aerialink Inc. 2025. All rights reserved."}</p>
                 </div>
             </div>
         </div>

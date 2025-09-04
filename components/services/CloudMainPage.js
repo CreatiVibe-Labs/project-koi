@@ -9,12 +9,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function CloudMainPage() {
+export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2}) {
+
+    console.log({apiData, apiData2})
+
     const [activeTab, setActiveTab] = useState('Cloud Migration');
 
     const tabs = [
-        { name: 'Cloud Migration', content: <CloudMigration />, icon: '/icons/migration.png' },
-        { name: 'Cloud Storage', content: <CloudStorage />, icon: '/icons/cloud.png' },
+        { name: apiData?.content?.cloud_migration_tab?.[lang] || 'Cloud Migration', content: <CloudMigration lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData}/>, icon: '/icons/migration.png' },
+        { name: apiData?.content?.cloud_storage_tab?.[lang] || 'Cloud Storage', content: <CloudStorage lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData2}/>, icon: '/icons/cloud.png' },
     ];
     return (
         <div className='pageWrapper'>

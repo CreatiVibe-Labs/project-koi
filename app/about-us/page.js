@@ -20,7 +20,7 @@ export default async function AboutUs() {
     const apiData = await getAboutPageData();
     const organizationData = await getOrganizationData();
 
-    console.log(organizationData.content.checkbox_enable_organization.en)
+    // console.log(organizationData.content.checkbox_enable_organization.en)
 
     const quotes = [
         {

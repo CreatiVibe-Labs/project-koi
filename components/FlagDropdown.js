@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
 
@@ -31,6 +31,18 @@ export default function FlagDropdown() {
 
   const [selected, setSelected] = useState(flags[0]);
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const cookieValue = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("lang="))
+      ?.split("=")[1];
+
+    if (cookieValue) {
+      const matchedFlag = flags.find((f) => f.code === cookieValue);
+      if (matchedFlag) setSelected(matchedFlag);
+    }
+  }, []);
 
   const toggleDropdown = () => setOpen((prev) => !prev);
 

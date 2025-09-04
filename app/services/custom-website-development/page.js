@@ -5,6 +5,8 @@ import WebTypesWebsite from '@/components/sliders/WebTypesWebsite';
 import WebWebsite from '@/components/sliders/WebWebsite';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getWebDevData } from '@/constant/ContentApi';
+import { cookies } from "next/headers";
 import { CalendlyLink } from '@/constant/constants';
 
 export const metadata = {
@@ -12,7 +14,13 @@ export const metadata = {
     description: "Custom Website Development - Aerialink Inc",
 };
 
-export default function CustomWebsiteDevelopment() {
+export default async function CustomWebsiteDevelopment() {
+
+    const cookieStore = await cookies();
+    const lang = cookieStore.get("lang")?.value ?? 'en';
+    const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+    const apiData = await getWebDevData();
+
     return (
         <div>
             {/* <Breadcrumb /> */}
@@ -22,24 +30,19 @@ export default function CustomWebsiteDevelopment() {
                 </div>
                 <div className='serviceContentWrapper singleSerivce customWebsiteDevelopment'>
                     <div className="industriesServeMainWrapper webDev">
-                        <div className="is-heading gradient-background"><h3>Custom Websites That Do More Than Look Good</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.custom_websites_heading?.[lang] || "Custom Websites That Do More Than Look Good"}</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
                                 <p className='!font-medium'>
-                                    Your website is more than a digital brochure – it’s your band’s first impression, your
-                                    24/7 sales team, and a key driver of trust. We build responsive high-performance
-                                    websites that are optimized for search engines and crafted to convert visitors into
-                                    customers.
+                                    {apiData?.content?.custom_websites_description1?.[lang] || "Your website is more than a digital brochure – it’s your band’s first impression, your 24/7 sales team, and a key driver of trust. We build responsive high-performance websites that are optimized for search engines and crafted to convert visitors into customers."}
                                 </p>
                                 <br />
                                 <p className='!font-medium'>
-                                    Whether you're launching a product, building a brand presence, or scaling your
-                                    business online, we deliver web experiences that blend design excellence with
-                                    technical precision.
+                                    {apiData?.content?.custom_websites_description2?.[lang] || "Whether you're launching a product, building a brand presence, or scaling your business online, we deliver web experiences that blend design excellence with technical precision."}
                                 </p>
                                 {/* <Image src="/images/web-dev-image1.png" width={6000} height={6000} alt="banner image" /> */}
                                 <video className='mt-4' width="100%" height="240" loop autoPlay muted preload="none">
-                                    <source src="/videos/subpage_web_custom.mp4" type="video/mp4" />
+                                    <source src={ASSETS_URL + (apiData?.content?.custom_websites_video?.[lang] || "/videos/subpage_web_custom.mp4")} type="video/mp4" />
                                     <track
                                         kind="subtitles"
                                         srcLang="en"
@@ -51,32 +54,32 @@ export default function CustomWebsiteDevelopment() {
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper featuresHighlight">
-                        <div className="is-heading gradient-background"><h3>What Sets Our Websites Apart</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.what_sets_our_website_heading?.[lang] || "What Sets Our Websites Apart"}</h3></div>
                         <div className="mt-5">
-                            <WebWebsite />
+                            <WebWebsite apiData={apiData} lang={lang} ASSETS_URL={ASSETS_URL}/>
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper industriesServeMainWrapper2 featuresHighlight">
-                        <div className="is-heading gradient-background"><h3>Types of Websites We Build</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.types_of_websites_heading?.[lang] || "Types of Websites We Build"}</h3></div>
                         <div className="mt-5">
-                            <WebTypesWebsite />
-                            
+                            <WebTypesWebsite apiData={apiData} lang={lang} ASSETS_URL={ASSETS_URL}/>
+
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper featuresHighlight cmsWork">
-                        <div className="is-heading gradient-background md:p-3 pt-[5px] pb-2.5 px-[18px] md:mb-0 mb-2.5"><h3>CMS & Technology Options</h3></div>
+                        <div className="is-heading gradient-background md:p-3 pt-[5px] pb-2.5 px-[18px] md:mb-0 mb-2.5"><h3>{apiData?.content?.cms_and_technology_options_heading?.[lang] || "CMS & Technology Options"}</h3></div>
                         <div className="techIcon">
-                            <WebCms />
+                            <WebCms/>
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper letsBuildToghether">
-                        <div className="is-heading gradient-background"><h3>Your Project Start Here</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.your_project_start_here_heading?.[lang] || "Your Project Start Here"}</h3></div>
                         <div className="isContent">
                             <p className="content !font-medium">
-                                Whether you're starting from scratch or rebuilding with purpose, we’ll help you create a site that not only looks great — it performs where it counts.
+                                {apiData?.content?.your_project_start_here_description?.[lang] || "Whether you're starting from scratch or rebuilding with purpose, we’ll help you create a site that not only looks great — it performs where it counts."}
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href={CalendlyLink}>Get a Free Website Audit</Link>
+                                <Link href={CalendlyLink}>{apiData?.content?.your_project_start_here_button?.[lang] || "Get a Free Website Audit"}</Link>
                             </div>
                         </div>
                     </div>

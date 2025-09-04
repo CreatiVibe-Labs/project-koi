@@ -6,28 +6,28 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
-export default function WebTypesWebsite() {
+export default function WebTypesWebsite({lang, ASSETS_URL, apiData}) {
 
     const features = [
         {
-            imageUrl:"/icons/bullhorn.png",
-            title:"Marketing & Brand Websites ",
-            description:"Your online presence, built to impress and convert.",
+            imageUrl: ASSETS_URL + (apiData?.content?.image_marketing_image?.[lang] || "/icons/bullhorn.png"),
+            title: apiData?.content?.marketing_heading?.[lang] || "Marketing & Brand Websites ",
+            description: apiData?.content?.marketing_description?.[lang] || "Your online presence, built to impress and convert.",
         },
         {
-            imageUrl:"/icons/monitor.png",
-            title:"Corporate Portals & Intranets",
-            description:"Secure, role-based platforms for Internal communications, knowledge sharing, and operations",
+            imageUrl: ASSETS_URL + (apiData?.content?.image_corporate_portals_image?.[lang] || "/icons/monitor.png"),
+            title: apiData?.content?.corporate_portals_heading?.[lang] || "Corporate Portals & Intranets",
+            description: apiData?.content?.corporate_portals_description?.[lang] || "Secure, role-based platforms for Internal communications, knowledge sharing, and operations",
         },
         {
-            imageUrl:"/icons/ecommerce.png",
-            title:"E-commerce Platforms",
-            description:"Seamlessly Integrated stores that handle payments, inventory, customer experience and analytics at ease",
+            imageUrl: ASSETS_URL + (apiData?.content?.image_ecommerce_image?.[lang] || "/icons/ecommerce.png"),
+            title: apiData?.content?.ecommerce_heading?.[lang] || "E-commerce Platforms",
+            description: apiData?.content?.ecommerce_description?.[lang] || "Seamlessly Integrated stores that handle payments, inventory, customer experience and analytics at ease",
         },
         {
-            imageUrl:"/icons/ladning-page.png",
-            title:"Landing Pages & Microsites",
-            description:"Agile web experiences for campaigns, product launches and lead capture",
+            imageUrl: ASSETS_URL + (apiData?.content?.image_landing_pages_image?.[lang] || "/icons/ladning-page.png"),
+            title: apiData?.content?.landing_pages_heading?.[lang] || "Landing Pages & Microsites",
+            description: apiData?.content?.landing_pages_description?.[lang] || "Agile web experiences for campaigns, product launches and lead capture",
         },
     ];
 

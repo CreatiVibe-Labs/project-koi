@@ -13,8 +13,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
-export default function MainServicePage() {
-
+export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
+    
     const pathname = usePathname();
 
     useEffect(() => {
@@ -32,119 +32,94 @@ export default function MainServicePage() {
         <>
             <div className="service-hero-section">
                 <div className="content-section">
-                    <h1>Bridging Today’s Needs with Tomorrow’s Tech</h1>
-                    <p className="!font-medium !mt-8">We design and build custom digital tools that align with your exact needs — from secure cloud migrations to purpose-built applications</p>
+                    <h1>{apiData?.content?.hero_section_heading?.[lang] || "Bridging Today’s Needs with Tomorrow’s Tech"}</h1>
+                    <p className="!font-medium !mt-8">{apiData?.content?.hero_section_description?.[lang] || "We design and build custom digital tools that align with your exact needs — from secure cloud migrations to purpose-built applications"}</p>
                     <span className="2text-content md:!mt-6 mt-2">
                         <p className="white-text">
                             <Image alt="image" src="/icons/tick.png" width={20} height={10}></Image>
-                            SMEs friendly
+                            {apiData?.content?.icon_1?.[lang] || "SMEs friendly"}
                         </p>
                         <p className="white-text">
                             <Image alt="image" src="/icons/tick.png" width={60} height={60}></Image>
-                            Cost efficient
+                            {apiData?.content?.icon_2?.[lang] || "Cost efficient"}
                         </p>
                     </span>
                     <div className="buttons-wrapper md:!mt-[65px] mt-3">
-                        <Link href="#">Talk to a Solutions Expert</Link>
+                        <Link href="#">{apiData?.content?.cta?.[lang] || "Talk to a Solutions Expert"}</Link>
                     </div>
                 </div>
             </div>
 
             <div className="ServicesCardsWrapper">
-                <div className="ServicesCardsHeading gradient-background"><h2>Featured Solutions</h2></div>
+                <div className="ServicesCardsHeading gradient-background"><h2>{apiData?.content?.featured_solutions_heading?.[lang] || "Featured Solutions"}</h2></div>
                 <div className="ServicesCardsContent services-videos">
                     <MainServicesCard
                         Icon="/icons/app-development.png"
                         bgImage=""
-                        video="/videos/service_app_custom.mp4"
+                        video={ASSETS_URL + apiData?.content?.video_service_1_video?.[lang] || "/videos/service_app_custom.mp4"}
+                        Button={apiData?.content?.service_1_button?.[lang] || "Learn More"}
                         LinkURL="/services/custom-app-development/"
-                        Heading="Custom Software / App Development"
-                        Description="Tailored desktop, mobile, and backend applications built around your workflow"
+                        Heading={apiData?.content?.service_1_heading?.[lang] || "Custom Software / App Development"}
+                        Description={apiData?.content?.service_1_description?.[lang] || "Tailored desktop, mobile, and backend applications built around your workflow"}
                     />
                     <MainServicesCard
                         Icon="/icons/web-development.png"
                         bgImage=""
-                        video="/videos/service_web_custom.mp4"
+                        video={ASSETS_URL + apiData?.content?.video_service_2_video?.[lang] || "/videos/service_web_custom.mp4"}
+                        Button={apiData?.content?.service_2_button?.[lang] || "Learn More"}
                         LinkURL="/services/custom-website-development/"
-                        Heading="Custom Website Development"
-                        Description="Responsive, high-performance websites that reflect your brand and business needs"
+                        Heading={apiData?.content?.service_2_heading?.[lang] || "Custom Website Development"}
+                        Description={apiData?.content?.service_2_description?.[lang] || "Responsive, high-performance websites that reflect your brand and business needs"}
                     />
                     <MainServicesCard
                         Icon="/icons/cloud-migration.png"
                         bgImage=""
-                        video="/videos/service_cloud.mp4"
+                        video={ASSETS_URL + apiData?.content?.video_service_3_video?.[lang] || "/videos/service_cloud.mp4"}
+                        Button={apiData?.content?.service_3_button?.[lang] || "Learn More"}
                         LinkURL="/services/cloud-migration-services/"
-                        Heading="Cloud Migration & Storage Services"
-                        Description="Secure and seamless migration of your data, applications and workloads to the cloud, with zero downtime."
+                        Heading={apiData?.content?.service_3_heading?.[lang] || "Cloud Migration & Storage Services"}
+                        Description={apiData?.content?.service_3_description?.[lang] || "Secure and seamless migration of your data, applications and workloads to the cloud, with zero downtime."}
                     />
                     <MainServicesCard
                         Icon="/icons/ai-powered.png"
                         bgImage=""
-                        video="/videos/service_ai.mp4"
+                        video={ASSETS_URL + apiData?.content?.video_service_4_video?.[lang] || "/videos/service_ai.mp4"}
+                        Button={apiData?.content?.service_4_button?.[lang] || "Learn More"}
                         LinkURL="/services/ai-powered-solutions/"
-                        Heading="AI Powered Solutions & Machine Learning/"
-                        Description="From predictive analytics to custom ML model training — harness the power of AI to drive smarter decisions."
+                        Heading={apiData?.content?.service_4_heading?.[lang] || "AI Powered Solutions & Machine Learning/" }
+                        Description={apiData?.content?.service_4_description?.[lang] || "From predictive analytics to custom ML model training — harness the power of AI to drive smarter decisions." }
                     />
                     <MainServicesCard
                         Icon="/icons/it-services.png"
                         bgImage=""
-                        video="/videos/service_it.mp4"
+                        video={ASSETS_URL + apiData?.content?.video_service_5_video?.[lang] || "/videos/service_it.mp4"}
+                        Button={apiData?.content?.service_5_button?.[lang] || "Learn More"}
                         LinkURL="/services/managed-it-services-consulting/"
-                        Heading="Managed IT Services & Consulting"
-                        Description="Expert IT support and strategic consulting for businesses of all sizes—with a special focus on the unique needs of SMEs. Scalable, affordable, and designed to grow with you."
+                        Heading={apiData?.content?.service_5_heading?.[lang] || "Managed IT Services & Consulting"}
+                        Description={apiData?.content?.service_5_description?.[lang] || "Expert IT support and strategic consulting for businesses of all sizes—with a special focus on the unique needs of SMEs. Scalable, affordable, and designed to grow with you."}
                     />
                     <MainServicesCard
                         Icon="/icons/digital-marketing.png"
                         bgImage=""
-                        video="/videos/service_digital.mp4"
+                        video={ASSETS_URL + apiData?.content?.video_service_6_video?.[lang] || "/videos/service_digital.mp4"}
+                        Button={apiData?.content?.service_6_button?.[lang] || "Learn More"}
                         LinkURL="/services/digital-marketing-services/"
-                        Heading="Digital Marketing"
-                        Description="From predictive analytics to custom ML model training — harness the power of AI to drive smarter decisions."
+                        Heading={apiData?.content?.service_6_heading?.[lang] || "Digital Marketing"}
+                        Description={apiData?.content?.service_6_description?.[lang] || "From predictive analytics to custom ML model training — harness the power of AI to drive smarter decisions."}
                     />
 
                 </div>
             </div>
 
             <div className="whyCHooseUsWrapper" id="how-it-works">
-                <div className="whyChooseUsHeading gradient-background"><h2>How It Works</h2></div>
-                {/* <div className="whyChooseUsCardContents">
-                    <p className="wcu-heading">
-                        <span className="heading-1 block mb-2">Smart IT Solutions with Real Business Benefits</span>
-                        <span className="heading-2">We don’t just provide services – we deliver results. Here’s what you can expect when you partner with us.</span></p>
-                    <div className="cardWrappers">
-                        <WhyChooseUsCard
-                            imageUrl="/images/why-choose-1.png"
-                            link="#"
-                            title="End-to-End Expertise"
-                            tags={['3D', 'AR/VR/MR', '2D']}
-                            description="We off complete digital solutions – from strategy to launch – so you get everything under one roof."
-                        />
-                        <WhyChooseUsCard
-                            imageUrl="/images/why-choose-2.png"
-                            link="#"
-                            title="Performance-Focused Solutions"
-                            tags={['3D', 'AR/VR/MR', '2D']}
-                            description="We focus on measurable outcomes – we deliver solutions that drive real business value."
-                        />
-                        <WhyChooseUsCard
-                            imageUrl="/images/why-choose-3.png"
-                            link="#"
-                            title="Reliable Support & Partnership"
-                            tags={['3D', 'AR/VR/MR', '2D']}
-                            description="We don’t just delivery projects – we build long-term relationships with proactive support and honest communication."
-                        />
-                    </div>
-                </div> */}
-                {/* <div className="whyChooseUsCardContents items-center justify-center relative serviceWhy">
-                    <WhyChooseUs />
-                </div> */}
+                <div className="whyChooseUsHeading gradient-background"><h2>{apiData?.content?.how_it_works_heading?.[lang] || "How It Works"}</h2></div>
                 <div className="whyChooseUsCardContents howItWorksWrapper items-center justify-center relative serviceWhy">
-                    <HowItWorks />
+                    <HowItWorks lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData} />
                 </div>
             </div>
 
             <div className="industriesServeMainWrapper featuresHighlight cmsWork cmsWork2">
-                <div className=" gradient-background text-[#c3f8d9] md:text-[40px] text-[20px] font-bold md:p-3 pt-[5px] pb-2.5 px-[18px] rounded-2xl md:mb-0 mb-2.5"><h3>Tech Stack</h3></div>
+                <div className=" gradient-background text-[#c3f8d9] md:text-[40px] text-[20px] font-bold md:p-3 pt-[5px] pb-2.5 px-[18px] rounded-2xl md:mb-0 mb-2.5"><h3>{apiData?.content?.tech_stack?.[lang] || "Tech Stack"}</h3></div>
                 <div className="hidden lg:block">
                     <div className="itemsWrapper ">
                         <FeatureHighlights2
@@ -325,11 +300,11 @@ export default function MainServicePage() {
             <div className="StillThinkingMainWrapper industriesServeMainWrapper">
                 <div className="stContent">
                     <p className="heading-1 mb-4 text-center">
-                        Ready to Streamline Your IT Operations?
+                        {apiData?.content?.title?.[lang] || "Ready to Streamline Your IT Operations?"}
                     </p>
                     <div className="buttons-wrapper ga">
-                        <Link href="#">Contact Us</Link>
-                        <Link href="#">Schedule an Assessment</Link>
+                        <Link href="#">{apiData?.content?.cta_1?.[lang] || "Contact Us"}</Link>
+                        <Link href="#">{apiData?.content?.cta_2?.[lang] || "Schedule an Assessment"}</Link>
                     </div>
                 </div>
             </div>

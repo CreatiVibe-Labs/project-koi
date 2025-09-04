@@ -9,6 +9,8 @@ import RipplesBackground from '@/components/RipplesBackground';
 // import ChatWrapper from "@/components/ChatWrapper";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { cookies } from "next/headers";
+import { getHeaderData, getFooterData } from '@/constant/ContentApi';
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
@@ -22,7 +24,14 @@ export const metadata = {
   description: "Default - Aerialink Inc",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
+  const cookieStore = await cookies();
+  const lang = cookieStore.get("lang")?.value ?? 'en';
+  const ASSETS_URL_LAYOUT = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+  const headerData = await getHeaderData();
+  const footerData = await getFooterData();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -40,9 +49,9 @@ export default function RootLayout({ children }) {
               position: 'static',
             }}>
             {/* <RipplesBackground /> */}
-            <Header />
+            <Header lang={lang} ASSETS_URL={ASSETS_URL_LAYOUT} apiData={headerData}/>
             <div className="content-wrapper">{children}</div>
-            <Footer />
+            <Footer lang={lang} ASSETS_URL={ASSETS_URL_LAYOUT} apiData={footerData}/>
           </div>
         </div>
       </body>

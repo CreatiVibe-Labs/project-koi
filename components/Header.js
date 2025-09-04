@@ -6,15 +6,35 @@ import { usePathname } from 'next/navigation';
 // import { Search } from 'lucide-react';
 import Image from 'next/image';
 import FlagDropdown from '@/components/FlagDropdown';
-import { navLinks } from '@/constant/constants';
 
-export default function Header() {
+export default function Header({ lang, ASSETS_URL, apiData }) {
+
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isActive = (href) => pathname === href;
   const [scrolled, setScrolled] = useState(false);
 
   const sentinelRef = useRef(null);
+
+  const navLinks = [
+    { name: apiData?.content?.home?.[lang] || "Home", href: '/' },
+    {
+      name: apiData?.content?.services?.[lang] || "Services",
+      href: '/services',
+      subMenu: [
+        { name: apiData?.content?.custom_app_dev?.[lang] || "Custom App Development", href: '/custom-app-development' },
+        { name: apiData?.content?.custom_web_dev?.[lang] || "Custom Website Development", href: '/custom-website-development' },
+        { name: apiData?.content?.cloud_migration?.[lang] || "Cloud Migration & Storage Services", href: '/cloud-migration-services' },
+        { name: apiData?.content?.ai_powered_solutions?.[lang] || "AI Powered Solutions & Machine Learning", href: '/ai-powered-solutions' },
+        { name: apiData?.content?.IT_services?.[lang] || "Managed IT Services & Consulting", href: '/managed-it-services-consulting' },
+        { name: apiData?.content?.digital_marketing?.[lang] || "Digital Marketing", href: '/digital-marketing-services' },
+      ],
+    },
+    { name: apiData?.content?.resources?.[lang] || "Resources", href: '/resources' },
+    { name: apiData?.content?.demo?.[lang] || "Demo", href: '/demo' },
+    { name: apiData?.content?.about_us?.[lang] || "About us", href: '/about-us' },
+    { name: apiData?.content?.contact?.[lang] || "Contact", href: '/contact' },
+  ];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -152,9 +172,9 @@ export default function Header() {
                         onClick={() =>
                           setMobileSubMenuOpen(mobileSubMenuOpen === link.href ? null : link.href)
                         }
-                          className={`my-4 w-full text-left flex justify-between items-center text-white ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
+                        className={`my-4 w-full text-left flex justify-between items-center text-white ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
                       >
-                          <Link href={link.href} className='!text-start'>{link.name}</Link>
+                        <Link href={link.href} className='!text-start'>{link.name}</Link>
                         <span>{mobileSubMenuOpen === link.href ? '−' : '+'}</span>
                       </button>
 
@@ -165,14 +185,14 @@ export default function Header() {
                             const finalLink = `${link.href}/${subLink.href.replace(/^\//, '')}`;
                             return (
                               <li className='py-2'>
-                                  <Link
-                                    key={link.href + subLink.href}
-                                    href={finalLink}
-                                    className={`text-white sub-nav-menu ${isActive(finalLink) ? 'active' : ''}`}
-                                    onClick={() => setMenuOpen(false)}
-                                  >
-                                    {subLink.name}
-                                  </Link>
+                                <Link
+                                  key={link.href + subLink.href}
+                                  href={finalLink}
+                                  className={`text-white sub-nav-menu ${isActive(finalLink) ? 'active' : ''}`}
+                                  onClick={() => setMenuOpen(false)}
+                                >
+                                  {subLink.name}
+                                </Link>
                               </li>
                             );
                           })}
