@@ -17,7 +17,7 @@ export default function FeatureHighlights({
             alt={title}
             width={204}
             height={118}
-            className="rounded md:mb-4 !my-2 object-cover"
+            className="rounded md:mb-4 !mb-2 object-cover"
           />
         }
       </div>

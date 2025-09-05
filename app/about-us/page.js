@@ -180,7 +180,7 @@ export default async function AboutUs() {
 
             <div className="industriesServeMainWrapper letsBuildToghether about">
                 <div className="isContent">
-                    <p className="content">
+                    <p className="content !md:text-3xl ">
                         Passionate people, bold ideas
                     </p>
                     <div className="buttons-wrapper">

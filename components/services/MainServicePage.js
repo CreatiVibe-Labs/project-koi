@@ -50,7 +50,7 @@ export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
                 </div>
             </div>
 
-            <div className="ServicesCardsWrapper">
+            <div className="ServicesCardsWrapper mainServicesContent">
                 <div className="ServicesCardsHeading gradient-background"><h2>{apiData?.content?.featured_solutions_heading?.[lang] || "Featured Solutions"}</h2></div>
                 <div className="ServicesCardsContent services-videos">
                     <MainServicesCard

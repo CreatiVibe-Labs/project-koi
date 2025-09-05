@@ -55,7 +55,7 @@ export default function managedItServices() {
                         <div className="is-heading gradient-background "><h3>Service Highlight</h3></div>
                         <div className="mt-5">
                             <div className="itemsWrapper manageIT ServiceHighlight">
-                                <div className='duoColumns md:flex-col flex-row gap-3'>
+                                <div className='duoColumns flex-row gap-3'>
                                     <div className='duoColumn1 isContent border rounded-xl shadow-sm p-3'>
                                         <div className='contentWrapper'>
                                             <div className='border rounded-xl shadow-sm p-3 font-bold mb-2.5'><h3>Stress-Free IT Support for Small and Midsize Teams</h3></div>

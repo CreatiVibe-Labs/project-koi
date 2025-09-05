@@ -985,9 +985,13 @@ a.sidebar-menu.active {
   color: #39ff14;
 }
 
-.serviceContentWrapper .itemsWrapper p,
-.letsBuildToghether .isContent p {
+.serviceContentWrapper .itemsWrapper p {
   font-size: 20px;
+  font-weight: 400;
+}
+
+.letsBuildToghether .isContent p {
+  font-size: 32px !important;
   font-weight: 400;
 }
 

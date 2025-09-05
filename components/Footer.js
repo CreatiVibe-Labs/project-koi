@@ -22,7 +22,7 @@ export default function Footer({ lang, ASSETS_URL, apiData }) {
                 <div className='section1 md:gap-12 gap-6'>
                     <div className='group1 flex flex-col md:gap-4 gap-2'>
                         <div className='logoWrapper'>
-                            <Link href='http://aerialink.jp/' className='flex gap-2.5 md:gap-5 items-center font-semibold md:text-4xl text-lg'><Image src="/images/logo.png" width={100} height={10} alt="Logo" />Aerialink</Link>
+                            <Link href='/' className='flex gap-2.5 md:gap-5 items-center font-semibold md:text-4xl text-lg'><Image src="/images/logo.png" width={100} height={10} alt="Logo" />Aerialink</Link>
                         </div>
                         <div className='contentWrapper'>
                             <span className='font-semibold mt-[-2%] md:text-2xl text-lg'>
