@@ -625,16 +625,649 @@
     }
   }
 
+  .mainServicesContent .description p {
+    line-height: normal !important;
+    min-height: 112px;
+    height: 100%;
+  }
+
   /* media query end */
   /* Frontend Dev MOB*/
+
 }
 
 /* MOB END */
 
 /* TABLET */
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  /* Frontend Dev MOB*/
+  header {
+    .headerMainWrapper {
+      max-width: 100% !important;
 
+      .headerWrapper {
+        padding: 1rem !important;
+      }
+    }
+
+    /* .searchLangWrapper {
+      gap: 1rem;
+    } */
+    .logoWrapper a {
+      min-width: 194px;
+      font-size: 16px;
+    }
+
+    .searchLangWrapper {
+      width: 30% !important;
+      gap: 1rem !important;
+    }
+  }
+
+  .homeBanner {
+    /* padding-bottom: 15rem !important; */
+
+    .content-section {
+      padding-bottom: 3rem !important;
+    }
+
+  }
+
+  .content-section {
+    width: 100%;
+    padding: 15px 10px !important;
+
+    h1,
+    .hero-section-about h1 {
+      font-size: 1.5rem !important;
+      line-height: normal !important;
+    }
+
+    p {
+      font-size: 1rem !important;
+      line-height: normal !important;
+
+    }
+
+    .buttons-wrapper {
+      margin-top: 1rem;
+    }
+
+  }
+
+  .buttons-wrapper a, .button {
+    font-size: 12px !important;
+    min-width: max-content !important;
+    padding: 5px 10px;
+  }
+
+  .content-wrapper {
+    margin-top: 80px;
+    padding: 0.75rem;
+
+    .hero-section,
+    .hero-section-about {
+      margin-top: 0px;
+      flex-wrap: wrap;
+      gap: 1rem;
+
+      .image-section img {
+        /* position: relative; */
+        width: 100%;
+        height: 100%;
+        top: -55px !important;
+        position: relative;
+      }
+    }
+
+    .hero-section-about .whyCHooseUsWrapper {
+      margin-top: 1rem;
+    }
+
+    .coreValues .service-card-wrap {
+      width: 48%;
+      margin-bottom: 1rem;
+    }
+
+    .ServicesCardsWrapper {
+      margin-top: 10px;
+    }
+
+    .whyChooseUsHeading h2, .is-heading h2, .ServicesCardsHeading h2, .StillThinkingMainWrapper h2,
+    .stContent p.heading-1, .is-heading h3, .is-heading h4 {
+      font-size: 20px !important;
+    }
+
+    .ServicesCardsContent .heading,
+    .wcu-heading span.heading-1,
+    .whyCHooseUsWrapper .heading,
+    .IndustriesWeServe p,
+    .stContent p.heading-1,
+    .jobMainWrap p.titleText,
+    .contactBg a,
+    .exp,
+    .clock p,
+    .isContent p {
+      font-size: 14px !important;
+    }
+
+    .IndustriesWeServe li {
+      height: 110px !important;
+    }
+
+    .description,
+    .wcu-heading span.heading-2,
+    .homeWhyChooseUS .content-description,
+    .stContent p.content {
+      font-size: 12px;
+      margin-bottom: 0 !important;
+      /* overflow: hidden; */
+    }
+
+    span.buttonText {
+      font-size: 11px;
+    }
+
+    .stContent p.content {
+      line-height: normal;
+    }
+
+    .contactBg ul li {
+      margin-bottom: 1rem;
+    }
+
+    /* 
+    .contactBg li img {
+      width: 16px;
+      height: 16px;
+    } */
+    .clock::before {
+      width: 100px;
+      height: 100px;
+      top: -90px;
+      left: 100px;
+    }
+
+    .homepageServices .ServicesCardsContent img {
+      border-radius: 10px;
+      width: 141px;
+      height: 50px;
+    }
+
+    .homeWhyChooseUS img {
+      height: 200px !important;
+
+    }
+
+    .arrow img {
+      width: 15px !important;
+      height: 20px !important;
+    }
+
+    .homeWhyChooseUS .whyChooseUsCardContents {
+      padding: 8px;
+    }
+
+
+
+    .homepageServices .service-card-wrap,
+    .homeWhyChooseUS .service-card-wrap {
+      width: 100% !important;
+      border-radius: 7px !important;
+
+    }
+
+    .homeWhyChooseUS .service-card-wrap {
+      height: 350px;
+    }
+
+    span.buuttonIcon {
+      width: 68%;
+    }
+
+    .ServicesCardsContent,
+    .cardWrappers {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.3rem !important;
+      display: grid;
+      margin-top: 0.75rem;
+    }
+
+    .image-button-wrap a {
+      min-width: 150px !important;
+      position: relative;
+      top: 0;
+      left: 18px;
+    }
+
+    .careerOp {
+      .jobMainWrap {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.5rem !important;
+      }
+    }
+
+    .image-button-wrap {
+      margin-bottom: 0 !important;
+    }
+
+    .contactForm {
+      padding: 1rem;
+
+      .doubleRows {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .hero-section-about {
+    display: flex !important;
+    padding: 0 !important;
+  }
+
+  .coreValues {
+    .cardWrappers {
+      gap: 1rem !important;
+
+      .service-card-wrap {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .missionVission {
+    flex-wrap: wrap !important;
+
+    .whyCHooseUsWrapper {
+      width: 100% !important;
+
+      .cardWrappers {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  }
+
+  .homeWhyChooseUS,
+  .StillThinkingMainWrapper,
+  .industriesServeMainWrapper,
+  .whyCHooseUsWrapper,
+  .contactForm,
+  .service-hero-section,
+  .ServicesCardsWrapper {
+    margin-top: 30px !important;
+  }
+
+  .industriesServeMainWrapper .isContent,
+  .StillThinkingMainWrapper .stContent {
+    padding: 8px !important;
+
+  }
+
+  .StillThinkingMainWrapper .buttons-wrapper,
+  .letsBuildToghether .buttons-wrapper {
+    margin: 1rem 0 0.5rem !important;
+  }
+
+  .reviewslider {
+    grid-template-columns: 1fr !important;
+  }
+
+  .coreValues .aboutCoreval {
+    margin-bottom: 0 !important;
+  }
+
+  .missionVission .coreValues {
+    margin-top: 10px !important;
+  }
+
+
+
+
+  .coreValues .aboutCoreval {
+    margin-bottom: 0 !important;
+  }
+
+  .missionVission .whyChooseUsCardContents {
+    padding: 0.5rem !important;
+  }
+
+  .missionVission .whyChooseUsCardContents .cardWrappers {
+    margin-top: 0 !important;
+  }
+
+  .missionVission .whyChooseUsCardContents p {
+    padding-left: 0 !important;
+  }
+
+  .whyChooseUsCardContents {
+    padding: 0.5rem !important;
+  }
+
+  /* Services Page */
+  .service-hero-section {
+    padding: 0;
+    background-position: 100% 107% !important;
+    padding-bottom: 100px !important;
+
+    p.white-text {
+      width: 50% !important;
+      margin-top: 0 !important;
+    }
+  }
+
+  .featuresHighlight .service-card-wrap {
+    width: 100%;
+  }
+
+  .ServicesCardsContent .mainWrapper {
+    width: 100% !important;
+    border-radius: 50px 15px 15px !important;
+
+    .serviceContent .heading {
+      width: 100% !important;
+      padding-bottom: 0.5rem;
+
+      h5 {
+        font-size: 14px;
+        line-height: normal;
+      }
+    }
+  }
+
+  .mainServicesContent .heading {
+    min-height: 38px;
+  }
+
+  .services-videos .mainWrapper {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+  }
+
+  .services-videos .bgImage {
+    height: 160px !important;
+
+    video {
+      height: 160px !important;
+    }
+  }
+
+  .serviceContent {
+    padding: 8px !important;
+
+    .description {
+      margin-top: 0;
+      padding-bottom: 0.5rem;
+
+      min-height: max-content !important;
+    }
+
+    .mainServiceLink a {
+      margin-top: 0;
+    }
+  }
+
+  .cmsWork2 .service-card-wrap {
+    width: 100%;
+    padding: 0 !important;
+  }
+
+  .featuresHighlight .service-card-wrap .heading {
+    font-size: 14px !important;
+  }
+
+  .featuresHighlight .service-card-wrap img {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 0 !important;
+  }
+
+  /* Serivce Innerpage */
+  .servicePageWrapper {
+    flex-direction: column !important;
+
+    .sideBarWrapper,
+    .serviceContentWrapper {
+      width: 100% !important;
+    }
+
+    .serviceContentWrapper {
+      position: relative;
+      z-index: 9999;
+    }
+  }
+
+  /* singleSerivce page*/
+  .servicePageWrapper .sideBarWrapper {
+    padding: 8px !important;
+    gap: 10px;
+    position: relative;
+
+    a {
+      font-size: 14px !important;
+      padding: 10px !important;
+    }
+  }
+
+  .singleSerivce {
+
+    h3, h4 {
+      font-size: 20px !important;
+    }
+
+    p, .duoColumns p {
+      font-size: 12px !important;
+    }
+
+    .itemsWrapper img {
+      margin-top: 0 !important;
+    }
+
+    .content-wrapper .cardWrappers {
+      grid-template-columns: 1fr !important;
+    }
+
+    .review-container {
+      height: 120px !important;
+    }
+
+    .duoColumns h3,
+    .duoColumns h4,
+    .scene span, .bottombox span,
+    .mobileLinks a {
+      font-size: 14px !important;
+    }
+
+    .ServiceHighlight .service-card-wrap {
+      padding: 1rem 0 !important;
+    }
+
+    .itemsWrapper ul {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.5rem;
+
+      li {
+        font-size: 12px !important;
+        width: 100% !important;
+        min-width: fit-content;
+      }
+    }
+
+    .migrationIcons .service-card-wrap {
+      width: 32% !important;
+    }
+  }
+
+  .tab {
+    margin: 1rem 0 !important;
+
+    button {
+      font-size: 14px !important;
+      gap: 0.5rem !important;
+
+      img {
+        width: 40px !important;
+      }
+    }
+  }
+
+  .roundSvg {
+    width: 100% !important;
+    max-width: 80% !important;
+    left: 17px !important;
+  }
+
+  .centerIcon img {
+    width: 50px !important;
+  }
+
+  /* footerWrapper */
+  .footer {
+    padding: 1rem !important;
+    margin-top: 1.5rem !important;
+
+    .footerWrapper {
+      flex-direction: column;
+
+      .section1,
+      .contentWrapper {
+        width: 100% !important;
+      }
+    }
+
+    .logoWrapper img {
+      width: 20% !important;
+    }
+
+    .mobileLinks a {
+      height: 7px !important;
+    }
+  }
+
+  .coreValues .aboutCoreval .heading {
+    font-size: 18px !important;
+  }
+
+  .coreValues .aboutCoreval .description {
+    font-size: 14px !important;
+  }
+
+  .aboutCoreval img {
+    width: 50px;
+  }
+
+  .coreValues .bold-text {
+    font-size: 16px !important;
+  }
+
+  .review p {
+    font-size: 16px !important;
+  }
+
+  .homepageServices {
+    margin-top: -55px !important;
+  }
+
+  .letsBuildToghether .isContent p {
+    font-size: 14px !important;
+  }
+
+  .serviceContent .Icon {
+    position: relative;
+    top: 30px;
+  }
+
+  .featuresHighlight .service-card-wrap {
+    height: 150px !important;
+  }
+
+
+  .singleSerivce .featuresHighlight .service-card-wrap {
+    height: 200px;
+  }
+
+  .singleSerivce .industriesServeMainWrapper2 .service-card-wrap,
+  .aiPoweredSolutions .service-card-wrap {
+    height: 180px !important;
+  }
+
+  .aiPoweredSolutions .industry-Specific .service-card-wrap {
+    height: 130px !important;
+  }
+
+  .customAppDevelopment .service-card-wrap,
+  .customWebsiteDevelopment .service-card-wrap,
+  .digitalMarketingServices .service-card-wrap {
+    height: 200px !important;
+  }
+
+  .cloudStorageTab .service-card-wrap {
+    height: 300px !important;
+  }
+
+  .pieChart .service-card-wrap,
+  .techIcon .service-card-wrap {
+    height: fit-content !important;
+  }
+
+  .IndustriesWeServe img {
+    height: 35px;
+    object-fit: contain;
+    width: 60px;
+  }
+
+  .howItWorksWrapper {
+    transform: scale(0.29);
+    margin-top: -7.5rem;
+    margin-bottom: -9rem;
+  }
+
+  .contactBg:before {
+    background-position: bottom left;
+    background-size: cover;
+  }
+
+  .duoColumns {
+    flex-direction: column !important;
+  }
+
+  .sub-nav-menu.active {
+    border: 0;
+    padding: 0;
+  }
+
+  .ai-cta .service-card-wrap {
+    height: 95px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .lineglow {
+    width: 100%;
+    height: 8px;
+  }
+
+  @keyframes animate {
+
+    0%,
+    20% {
+      transform: scalex(0);
+    }
+
+    40%,
+    60% {
+      transform: scaleX(1);
+    }
+
+    80%,
+    100% {
+      transform: scaleX(0);
+    }
+  }
+
+  /* media query end */
+  /* Frontend Dev MOB*/
 }
 
 /* TABLET END*/
