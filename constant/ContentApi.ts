@@ -4,11 +4,18 @@ let headerData = '',
   industriesData = '',
   aboutData = '',
   organizationData = '',
+  jobs = '',
   ServicesPageData = '',
+  quotes = '',
+  jobForm = '',
+  testimonials = '',
   WebDevData = '',
   AppDevData = '',
+  itServicesData = '',
   cloudMigrationData = '',
   cloudStorageData = '',
+  aiPoweredData = '',
+  sidebar = '',
   sideBarData = '';
 
 // app/constants/apiConstants.js
@@ -290,6 +297,198 @@ export async function getCloudStorageData() {
     const data = await res.json();
 
     cloudStorageData = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getAIPoweredData() {
+  try {
+
+    if (aiPoweredData != '') {
+      return aiPoweredData;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=ai-powered-solutions`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    aiPoweredData = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getItServicesData() {
+  try {
+
+    if (itServicesData != '') {
+      return itServicesData;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=managed-it-services`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    itServicesData = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getTestimonials() {
+  try {
+
+    if (testimonials != '') {
+      return testimonials;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=testimonials`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    testimonials = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getDigitalMarketingData() {
+  try {
+
+    if (testimonials != '') {
+      return testimonials;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=digital-marketing`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    testimonials = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getSideBarData() {
+  try {
+
+    if (sidebar != '') {
+      return sidebar;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=sidebar`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    sidebar = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getQuotesData() {
+  try {
+
+    if (quotes != '') {
+      return quotes;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=quotes-from-team`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    quotes = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getJobsData() {
+  try {
+
+    if (jobs != '') {
+      return jobs;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=jobs`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    jobs = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getJobsFormData() {
+  try {
+
+    if (jobForm != '') {
+      return jobForm;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=job-form`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    jobForm = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);

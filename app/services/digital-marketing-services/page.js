@@ -11,12 +11,22 @@ import Platforms from '@/components/sliders/Platforms';
 import SliderCards from '@/components/sliders/SliderCards';
 import { CalendlyLink } from '@/constant/constants';
 
+import { getDigitalMarketingData, getSideBarData } from "@/constant/ContentApi";
+
+import { cookies } from "next/headers";
+
 export const metadata = {
     title: "Digital Marketing - Aerialink Inc",
     description: "Digital Marketing - Aerialink Inc",
 };
 
-export default function DigitalMarketingServices() {
+export default async function DigitalMarketingServices() {
+
+    const cookieStore = await cookies();
+    const lang = cookieStore.get("lang")?.value ?? 'en';
+    const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+    const apiData = await getDigitalMarketingData();
+    const sideBarData = await getSideBarData();
 
     const services = [
         {
@@ -63,19 +73,19 @@ export default function DigitalMarketingServices() {
 
     const keyFeatures = [
         {
-            imageUrl: "/icons/search-engine.png",
-            title: "SEO & Content Strategy",
-            description: "Be Found. Be Chosen. Be Trusted.",
+            imageUrl: ASSETS_URL + apiData?.content?.image_content_strategy_image?.[lang] || "/icons/search-engine.png",
+            title: apiData?.content?.content_strategy_heading?.[lang] || "SEO & Content Strategy",
+            description: apiData?.content?.content_strategy_description?.[lang] || "Be Found. Be Chosen. Be Trusted.",
         },
         {
-            imageUrl: "/icons/email-marketing.png",
-            title: "Email Marketing & Automation",
-            description: "Automated campaigns that drive repeat business",
+            imageUrl: ASSETS_URL + apiData?.content?.image_email_marketing_image?.[lang] || "/icons/email-marketing.png",
+            title: apiData?.content?.email_marketing_heading?.[lang] || "Email Marketing & Automation",
+            description: apiData?.content?.email_marketing_description?.[lang] || "Automated campaigns that drive repeat business",
         },
         {
-            imageUrl: "/icons/pay-per-click.png",
-            title: "Paid Media (PPC & Display Ads)",
-            description: "Maximize ROI with hyper-targeted ad campaigns across major platforms.",
+            imageUrl: ASSETS_URL + apiData?.content?.image_paid_media_image?.[lang] || "/icons/pay-per-click.png",
+            title: apiData?.content?.paid_media_heading?.[lang] || "Paid Media (PPC & Display Ads)",
+            description: apiData?.content?.paid_media_description?.[lang] || "Maximize ROI with hyper-targeted ad campaigns across major platforms.",
         }
     ];
 
@@ -84,23 +94,19 @@ export default function DigitalMarketingServices() {
             {/* <Breadcrumb /> */}
             <div className='servicePageWrapper'>
                 <div className='sideBarWrapper'>
-                    <SideBar />
+                    <SideBar lang={lang} sideBarData={sideBarData} />
                 </div>
                 <div className='serviceContentWrapper singleSerivce digitalMarketingServices'>
                     <div className="industriesServeMainWrapper webDev">
-                        <div className="is-heading gradient-background"><h3>Marketing That Moves the Needle</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.marketing_heading?.[lang] || "Marketing That Moves the Needle"}</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
                                 <p className='!font-medium'>
-                                    Data-driven digital strategies that turn browsers into buyers, clicks into conversions,
-                                    and awareness into measurable ROI (Return On Investment)
+                                    {apiData?.content?.marketing_description_1?.[lang] || "Data-driven digital strategies that turn browsers into buyers, clicks into conversions, and awareness into measurable ROI (Return On Investment)"}
                                 </p>
                                 <br />
                                 <p className='!font-medium'>
-                                    We help businesses attract the right audience, convert more leads, and grow
-                                    revenue through strategic, data-driven digital marketing. Whether you're launching a
-                                    product, scaling a brand, or fixing underperforming campaigns — we’re your growth
-                                    partner
+                                    {apiData?.content?.marketing_description_2?.[lang] || "We help businesses attract the right audience, convert more leads, and grow revenue through strategic, data-driven digital marketing. Whether you're launching a product, scaling a brand, or fixing underperforming campaigns — we’re your growth partner"}
                                 </p>
                                 <video className='mt-4' width="100%" height="240" loop muted autoPlay preload="none">
                                     <source src="/videos/subpage_digital.mp4" type="video/mp4" />
@@ -118,7 +124,7 @@ export default function DigitalMarketingServices() {
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper serviceType featuresHighlight">
-                        <div className="is-heading gradient-background"><h3>Service types</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.service_types_heading?.[lang] || "Service types"}</h3></div>
                         <div className="mt-5">
                             <SliderCards
                                 slides={keyFeatures}
@@ -127,10 +133,10 @@ export default function DigitalMarketingServices() {
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper pieChart featuresHighlight cmsWork">
-                        <div className="is-heading gradient-background"><h3>Funnel-Based Solutions</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.funnel_based_solutions_heading?.[lang] || "Funnel-Based Solutions"}</h3></div>
                         <div className="mt-5">
                             <div className="">
-                                <Circle />
+                                <Circle apiData={apiData} lang={lang} />
                             </div>
                             <Platforms
                                 features={services}
@@ -138,15 +144,13 @@ export default function DigitalMarketingServices() {
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper letsBuildToghether">
-                        <div className="is-heading gradient-background"><h3>Let’s Build a Digital Marketing Strategy That Works</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.cta_section_heading?.[lang] || "Let’s Build a Digital Marketing Strategy That Works"}</h3></div>
                         <div className="isContent">
                             <p className="content !font-medium">
-                                We’ll help you generate qualified leads, boost your brand, and track every click.
-                                Whether you need a full-service marketing team or campaign-specific support, we’ll
-                                craft a strategy built around results.
+                                {apiData?.content?.cta_section_description?.[lang] || "We’ll help you generate qualified leads, boost your brand, and track every click. Whether you need a full-service marketing team or campaign-specific support, we’ll craft a strategy built around results."}
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href={CalendlyLink}>Speak to a Strategist</Link>
+                                <Link href={CalendlyLink}>{apiData?.content?.cta_section_button?.[lang] || "Speak to a Strategist"}</Link>
                             </div>
                         </div>
                     </div>

@@ -2,40 +2,32 @@
 import Image from 'next/image'
 import React from 'react'
 
-export default function Circle() {
+export default function Circle({ apiData, lang }) {
 
     return (
         <>
             <div className='CircleWrapper relative justify-center items-center flex flex-col gap-2'>
                 <div className='circle-box1 w-full flex gap-2 justify-between'>
                     <div className='circlebox border w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
-                        <span className='font-bold md:text-2xl text-[12px]'>
-                            Landing pages <br />
-                            Retargeting<br />
-                            Funnels
+                        <span className='font-bold md:text-2xl text-[12px] block max-w-[170px]'>
+                            {apiData?.content?.retention?.[lang] || "Landing pages Retargeting Funnels"}
                         </span>
                     </div>
-                    <div className='circlebox border text-right w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
-                        <span className='font-bold md:text-2xl text-[12px]'>
-                            Paids Ads<br />
-                            Social<br />
-                            SEO
+                    <div className='circlebox border text-right flex justify-end w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
+                        <span className='font-bold md:text-2xl text-[12px] block max-w-[115px]'>
+                            {apiData?.content?.awareness?.[lang] || "Paids Ads Social SEO"}
                         </span>
                     </div>
                 </div>
                 <div className='circle-box2 w-full flex gap-2 justify-between'>
                     <div className='circlebox border w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
-                        <span className='font-bold md:text-2xl text-[12px]'>
-                            Email<br />
-                            CRM Sync<br />
-                            Loyalty Programs
+                        <span className='font-bold md:text-2xl text-[12px] block max-w-[170px]'>
+                            {apiData?.content?.conversion?.[lang] || "Email CRM Sync Loyalty Programs"}
                         </span>
                     </div>
-                    <div className='circlebox border w-full text-right backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
-                        <span className='font-bold md:text-2xl text-[12px]  w-full'>
-                            Content<br />
-                            Video<br />
-                            Interactive Posts
+                    <div className='circlebox border w-full text-right flex justify-end backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
+                        <span className='font-bold md:text-2xl text-[12px]  w-full block max-w-[170px]'>
+                            {apiData?.content?.engagement?.[lang] || "Content Video Interactive Posts"}
                         </span>
                     </div>
                 </div>

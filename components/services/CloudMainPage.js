@@ -9,9 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2}) {
-
-    console.log({apiData, apiData2})
+export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2, sideBarData}) {
 
     const [activeTab, setActiveTab] = useState('Cloud Migration');
 
@@ -24,7 +22,7 @@ export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2}) {
             {/* <Breadcrumb /> */}
             <div className='servicePageWrapper'>
                 <div className='sideBarWrapper'>
-                    <SideBar />
+                    <SideBar lang={lang} sideBarData={sideBarData} />
                 </div>
                 <div className='serviceContentWrapper'>
 

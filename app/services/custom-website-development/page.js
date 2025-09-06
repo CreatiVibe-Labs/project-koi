@@ -5,7 +5,7 @@ import WebTypesWebsite from '@/components/sliders/WebTypesWebsite';
 import WebWebsite from '@/components/sliders/WebWebsite';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getWebDevData } from '@/constant/ContentApi';
+import { getWebDevData, getSideBarData } from '@/constant/ContentApi';
 import { cookies } from "next/headers";
 import { CalendlyLink } from '@/constant/constants';
 
@@ -21,12 +21,14 @@ export default async function CustomWebsiteDevelopment() {
     const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
     const apiData = await getWebDevData();
 
+    const sideBarData = await getSideBarData();
+
     return (
         <div>
             {/* <Breadcrumb /> */}
             <div className='servicePageWrapper'>
                 <div className='sideBarWrapper'>
-                    <SideBar />
+                    <SideBar lang={lang} sideBarData={sideBarData} />
                 </div>
                 <div className='serviceContentWrapper singleSerivce customWebsiteDevelopment'>
                     <div className="industriesServeMainWrapper webDev">
@@ -56,20 +58,20 @@ export default async function CustomWebsiteDevelopment() {
                     <div className="industriesServeMainWrapper featuresHighlight">
                         <div className="is-heading gradient-background"><h3>{apiData?.content?.what_sets_our_website_heading?.[lang] || "What Sets Our Websites Apart"}</h3></div>
                         <div className="mt-5">
-                            <WebWebsite apiData={apiData} lang={lang} ASSETS_URL={ASSETS_URL}/>
+                            <WebWebsite apiData={apiData} lang={lang} ASSETS_URL={ASSETS_URL} />
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper industriesServeMainWrapper2 featuresHighlight">
                         <div className="is-heading gradient-background"><h3>{apiData?.content?.types_of_websites_heading?.[lang] || "Types of Websites We Build"}</h3></div>
                         <div className="mt-5">
-                            <WebTypesWebsite apiData={apiData} lang={lang} ASSETS_URL={ASSETS_URL}/>
+                            <WebTypesWebsite apiData={apiData} lang={lang} ASSETS_URL={ASSETS_URL} />
 
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper featuresHighlight cmsWork">
                         <div className="is-heading gradient-background md:p-3 pt-[5px] pb-2.5 px-[18px] md:mb-0 mb-2.5"><h3>{apiData?.content?.cms_and_technology_options_heading?.[lang] || "CMS & Technology Options"}</h3></div>
                         <div className="techIcon">
-                            <WebCms/>
+                            <WebCms />
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper letsBuildToghether">

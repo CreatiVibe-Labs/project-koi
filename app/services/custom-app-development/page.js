@@ -2,7 +2,7 @@ import AppFeatureHigh from '@/components/sliders/AppFeatureHigh';
 import SideBar from '@/components/Sidebar';
 import Link from 'next/link';
 import { CalendlyLink } from '@/constant/constants';
-import { getAppDevData } from '@/constant/ContentApi';
+import { getAppDevData, getSideBarData } from '@/constant/ContentApi';
 import { cookies } from "next/headers";
 
 export const metadata = {
@@ -12,17 +12,18 @@ export const metadata = {
 
 export default async function CustomAppDevelopment() {
 
-    const cookieStore = await cookies();    
+    const cookieStore = await cookies();
     const lang = cookieStore.get("lang")?.value ?? 'en';
     const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
     const apiData = await getAppDevData();
+    const sideBarData = await getSideBarData();
 
     return (
         <div>
             {/* <Breadcrumb /> */}
             <div className='servicePageWrapper singleSerivce customAppDevelopment'>
                 <div className='sideBarWrapper'>
-                    <SideBar />
+                    <SideBar lang={lang} sideBarData={sideBarData} />
                 </div>
                 <div className='serviceContentWrapper'>
                     <div className="industriesServeMainWrapper md:mt0 !mt-2">

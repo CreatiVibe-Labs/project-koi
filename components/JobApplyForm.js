@@ -1,26 +1,29 @@
 'use client';
 
 import React, { useState, useRef } from "react";
-import { content2 } from '@/constant/jobContent';
 import { useRouter } from "next/navigation";
 import FormLoading from "@/components/formLoading";
+import parse from 'html-react-parser';
 
-export default function JobApplyForm({ params }) {
+export default function JobApplyForm({ params, lang, ASSETS_URL, apiData, jobs, jobFormData }) {
     const router = useRouter();
     const { slug } = React.use(params); // unwrap the params Promise
     const slug2 = slug.replace(/-/g, "_");
     const slugWithSpace = slug2.replace(/_/g, " ");
 
-    const htmlContent = content2[slug2]; // yahan se apna content mil jaayega
+    let jobData = jobs.find((job) => job.link === slug) || null;
 
-    const [fileName1, setFileName1] = useState("Resume / CV (PDF, DOCX – Required)");
+    console.log({jobFormData})
+
+    const [fileName1, setFileName1] = useState(jobFormData?.content?.resume_label?.[lang] || "Resume / CV (PDF, DOCX – Required)");
     const fileInputRef1 = useRef(null);
 
-    const [fileName2, setFileName2] = useState("Cover Letter (PDF, DOCX – Optional)");
+    const [fileName2, setFileName2] = useState(jobFormData?.content?.cover_letter_label?.[lang] || "Cover Letter (PDF, DOCX – Optional)");
     const fileInputRef2 = useRef(null);
 
-    const [fileName3, setFileName3] = useState("Additional Documents (Certificates, References - Optional)");
+    const [fileName3, setFileName3] = useState(jobFormData?.content?.additional_document_label?.[lang] || "Additional Documents (Certificates, References - Optional)");
     const fileInputRef3 = useRef(null);
+
 
     const [formData, setFormData] = useState({
 
@@ -69,8 +72,8 @@ export default function JobApplyForm({ params }) {
     };
 
     const questions = [
-        { id: "Why are you interested in this position?", text: "Why are you interested in this position?" },
-        { id: "Describe your most relevant experience for this role", text: "Describe your most relevant experience for this role" },
+        { id: jobFormData?.content?.q1?.[lang] || "Why are you interested in this position?", text: jobFormData?.content?.q1?.[lang] || "Why are you interested in this position?" },
+        { id: jobFormData?.content?.q2?.[lang] || "Describe your most relevant experience for this role", text: jobFormData?.content?.q2?.[lang] || "Describe your most relevant experience for this role" },
     ];
 
     const [errors, setErrors] = useState({});
@@ -129,7 +132,7 @@ export default function JobApplyForm({ params }) {
                 resume_cv: file, // store actual file
             }));
         } else {
-            setFileName1("Resume / CV (PDF, DOCX – Required)");
+            setFileName1(jobFormData?.content?.resume_label?.[lang] || "Resume / CV (PDF, DOCX – Required)");
             setFormData((prev) => ({
                 ...prev,
                 resume_cv: '', // reset if no file
@@ -150,7 +153,7 @@ export default function JobApplyForm({ params }) {
                 cover_letter: file,
             }));
         } else {
-            setFileName2("Cover Letter (PDF, DOCX – Optional)");
+            setFileName2(jobFormData?.content?.cover_letter_label?.[lang] || "Cover Letter (PDF, DOCX – Optional)");
             setFormData((prev) => ({
                 ...prev,
                 cover_letter: '',
@@ -171,7 +174,7 @@ export default function JobApplyForm({ params }) {
                 additional_document: file,
             }));
         } else {
-            setFileName3("Additional Documents (Certificates, References - Optional)");
+            setFileName3(jobFormData?.content?.additional_document_label?.[lang] || "Additional Documents (Certificates, References - Optional)");
             setFormData((prev) => ({
                 ...prev,
                 additional_document: '',
@@ -245,7 +248,7 @@ export default function JobApplyForm({ params }) {
                     return;
                 }
 
-                setStatus({ type: "success", msg: "Form submitted successfully!" });
+                setStatus({ type: "success", msg: apiData?.content?.success_message?.[lang] || "Form submitted successfully!" });
                 // Reset form
                 setFormData({
                     salutation: "",
@@ -276,21 +279,17 @@ export default function JobApplyForm({ params }) {
     return (
         <>
             <div className="jobApplyWrap flex flex-col gap-4">
-                <div className="flex gap-5 items-center"><p className="title md:!text-2xl !font-semibold">Title: </p><p className="md:!text-2xl  !font-medium capitalize">{slugWithSpace}</p></div>
-                <div className="flex gap-5 items-center"><p className="exp md:!text-2xl !font-semibold">Experience: </p><p className="md:!text-2xl !font-medium">2+ Years</p></div>
+                <div className="flex gap-5 items-center"><p className="title md:!text-2xl !font-semibold">{apiData?.content?.title?.[lang] || "Title"}:</p><p className="md:!text-2xl  !font-medium capitalize">{jobData.title}</p></div>
+                <div className="flex gap-5 items-center"><p className="exp md:!text-2xl !font-semibold">{apiData?.content?.experience?.[lang] || "Experience"}:</p><p className="md:!text-2xl !font-medium">{jobData.exp}</p></div>
                 <div className="flex flex-col gap-5 items-start html-content">
-                    {htmlContent ? (
-                        <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-                    ) : (
-                        <p className="md:!-text-2xl text-lg">No content found for: {slug}</p>
-                    )}
+                    {parse(jobData.description || 'No Content')}
                 </div>
             </div>
             <div className="whyCHooseUsWrapper coreValues careerOp">
-                <div className="whyChooseUsHeading gradient-background"><h2>Job Application Form</h2></div>
+                <div className="whyChooseUsHeading gradient-background"><h2>{jobFormData?.content?.form_heading?.[lang] || "Job Application Form"}</h2></div>
                 <div className="contactForm whyChooseUsCardContents">
                     <form onSubmit={handleSubmit} className="contact-form">
-                        <p className='text-center input-field md:!text-2xl gradient-background'>Personal Information</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>{jobFormData?.content?.personal_info_heading?.[lang] || "Personal Information"}</p>
                         {/* First Name & Last Name */}
                         <div className="flex gap-[20px]">
                             <div className="relative !w-[10%]">
@@ -315,7 +314,7 @@ export default function JobApplyForm({ params }) {
                                     value={formData.first_name}
                                     onChange={handleChange}
                                     className={` input-field ${errors['first_name'] ? 'error' : ''}`}
-                                    placeholder={'First Name'}
+                                    placeholder={jobFormData?.content?.first_name?.[lang] || 'First Name'}
                                 />
                                 {errors['first_name'] && <p className="text-red-500 text-sm mt-1">{errors['first_name']}</p>}
                             </div>
@@ -325,7 +324,7 @@ export default function JobApplyForm({ params }) {
                                     value={formData.last_name}
                                     onChange={handleChange}
                                     className={` input-field ${errors['last_name'] ? 'error' : ''}`}
-                                    placeholder={'Last Name'}
+                                    placeholder={jobFormData?.content?.last_name?.[lang] || 'Last Name'}
                                 />
                                 {errors['last_name'] && <p className="text-red-500 text-sm mt-1">{errors['last_name']}</p>}
                             </div>
@@ -339,7 +338,7 @@ export default function JobApplyForm({ params }) {
                                     value={formData.email}
                                     onChange={handleChange}
                                     className={` input-field ${errors.email ? 'error' : ''}`}
-                                    placeholder="Email Address"
+                                    placeholder={jobFormData?.content?.email?.[lang] || "Email Address"}
                                 />
                                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                             </div>
@@ -351,7 +350,7 @@ export default function JobApplyForm({ params }) {
                                     value={formData.phone}
                                     onChange={handleChange}
                                     className={` input-field ${errors.phone ? 'error' : ''}`}
-                                    placeholder="Phone"
+                                    placeholder={jobFormData?.content?.phone?.[lang] || "Phone"}
                                 />
                                 {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                             </div>
@@ -365,7 +364,7 @@ export default function JobApplyForm({ params }) {
                                     value={formData.linkedin_profile}
                                     onChange={handleChange}
                                     className="input-field"
-                                    placeholder="LinkedIn Profile (Optional)"
+                                    placeholder={jobFormData?.content?.linkedin?.[lang] || "LinkedIn Profile (Optional)"}
                                 />
                             </div>
 
@@ -376,18 +375,18 @@ export default function JobApplyForm({ params }) {
                                     value={formData.portfolio_website}
                                     onChange={handleChange}
                                     className=" input-field"
-                                    placeholder="Portfolio / Website (Optional)"
+                                    placeholder={jobFormData?.content?.portfolio?.[lang] || "Portfolio / Website (Optional)"}
                                 />
                             </div>
                         </div>
 
-                        <p className='text-center input-field md:!text-2xl gradient-background'>Position Details</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>{jobFormData?.content?.position_details_heading?.[lang] || "Position Details"}</p>
 
                         {/* Position */}
                         <div className="doubleRows input-field">
                             <div className="relative">
                                 <div className=' w-full'>
-                                    Position Applying For
+                                    {jobFormData?.content?.position_applying_for?.[lang] || "Position Applying For"}
                                 </div>
                             </div>
                             <div className="relative">
@@ -396,7 +395,7 @@ export default function JobApplyForm({ params }) {
                                     value={formData.position_applied_for}
                                     onChange={handleChange}
                                     className={`capitalize  ${errors.position_applied_for ? 'error' : ''}`}
-                                    placeholder="Position Applying For"
+                                    placeholder={jobFormData?.content?.position_applying_for?.[lang] || "Position Applying For"}
                                     readOnly
                                 />
                                 {errors.position_applied_for && <p className="text-red-500 text-sm mt-1">{errors.position_applied_for}</p>}
@@ -407,39 +406,46 @@ export default function JobApplyForm({ params }) {
                         <div className="doubleRows input-field">
                             <div className="relative">
                                 <div className=' w-full flex flex-col gap-2 items-start'>
-                                    <span>Empolyment Type</span>
-                                    <span className="text-sm">(Select one or more)</span>
+                                    <span>{jobFormData?.content?.employment_type?.[lang] || "Empolyment Type"}</span>
+                                    <span className="text-sm">{jobFormData?.content?.select_one_or_more?.[lang] || "(Select one or more)"}</span>
                                 </div>
                             </div>
                             <div className="relative flex flex-col gap-2">
-                                <div className="reative flex items-center gap-3">
+                                {jobFormData?.content?.full_time?.[lang] != null &&
+                                    <div className="reative flex items-center gap-3">
 
-                                    <label className="check-container text-lg font-medium flex items-center">Full Time
-                                        <input type="checkbox" id="fulltime" name="employment_type" onChange={handleChange} value="Full-Time" />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div className="reative flex items-center gap-3">
+                                        <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.full_time?.[lang] || "Full Time"}
+                                            <input type="checkbox" id="fulltime" name="employment_type" onChange={handleChange} value="Full-Time" />
+                                            <span className="checkmark"></span>
+                                        </label>
+                                    </div>}
+                                {jobFormData?.content?.part_time?.[lang] != null &&
+                                    <div className="reative flex items-center gap-3">
 
-                                    <label className="check-container text-lg font-medium flex items-center">Part Time
-                                        <input type="checkbox" id="Part" name="employment_type" onChange={handleChange} value="Part-Time" />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div className="reative flex items-center gap-3">
+                                        <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.part_time?.[lang] || "Part Time"}
+                                            <input type="checkbox" id="Part" name="employment_type" onChange={handleChange} value="Part-Time" />
+                                            <span className="checkmark"></span>
+                                        </label>
+                                    </div>
+                                }
+                                {jobFormData?.content?.contract?.[lang] != null &&
+                                    <div className="reative flex items-center gap-3">
 
-                                    <label className="check-container text-lg font-medium flex items-center">Contract
-                                        <input type="checkbox" id="Contract" name="employment_type" onChange={handleChange} value="Contract" />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div className="reative flex items-center gap-3">
+                                        <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.contract?.[lang] || "Contract"}
+                                            <input type="checkbox" id="Contract" name="employment_type" onChange={handleChange} value="Contract" />
+                                            <span className="checkmark"></span>
+                                        </label>
+                                    </div>
+                                }
+                                {jobFormData?.content?.freelancer?.[lang] != null &&
+                                    <div className="reative flex items-center gap-3">
 
-                                    <label className="check-container text-lg font-medium flex items-center">Freelance
-                                        <input type="checkbox" id="Freelance" name="employment_type" onChange={handleChange} value="Freelance" />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
+                                        <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.freelancer?.[lang] || "Freelance"}
+                                            <input type="checkbox" id="Freelance" name="employment_type" onChange={handleChange} value="Freelance" />
+                                            <span className="checkmark"></span>
+                                        </label>
+                                    </div>
+                                }
                                 {errors.employment_type && <p className="text-red-500 text-sm mt-1">{errors.employment_type}</p>}
                             </div>
                         </div>
@@ -448,43 +454,51 @@ export default function JobApplyForm({ params }) {
                         <div className="doubleRows input-field">
                             <div className="relative">
                                 <div className=' w-full flex gap-2 items-center'>
-                                    <span>Preferred Location </span>
+                                    <span>{jobFormData?.content?.prefferd_location?.[lang] || "Preferred Location"} </span>
                                 </div>
                             </div>
                             <div className="relative flex flex-col gap-2">
-                                <div className="reative flex items-center gap-3">
+                                {jobFormData?.content?.japan?.[lang] != null &&
+                                    <div className="reative flex items-center gap-3">
 
-                                    <label className="check-container text-lg font-medium flex items-center">Japan
-                                        <input type="radio" id="Japan" name="preferred_location" onChange={handleChange} value="Japan" />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div className="reative flex items-center gap-3">
+                                        <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.japan?.[lang] || "Japan"}
+                                            <input type="radio" id="Japan" name="preferred_location" onChange={handleChange} value="Japan" />
+                                            <span className="checkmark"></span>
+                                        </label>
+                                    </div>
+                                }
+                                {jobFormData?.content?.hong_kong?.[lang] != null &&
+                                    <div className="reative flex items-center gap-3">
 
-                                    <label className="check-container text-lg font-medium flex items-center">Hong Kong
-                                        <input type="radio" id="hong" name="preferred_location" onChange={handleChange} value="Hong Kong" />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div className="reative flex items-center gap-3">
+                                        <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.hong_kong?.[lang] || "Hong Kong"}
+                                            <input type="radio" id="hong" name="preferred_location" onChange={handleChange} value="Hong Kong" />
+                                            <span className="checkmark"></span>
+                                        </label>
+                                    </div>
+                                }
+                                {jobFormData?.content?.remote?.[lang] != null &&
+                                    <div className="reative flex items-center gap-3">
 
-                                    <label className="check-container text-lg font-medium flex items-center">Remote
-                                        <input type="radio" id="Remote" name="preferred_location" onChange={handleChange} value="Remote" />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div className="reative flex items-center gap-3">
+                                        <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.remote?.[lang] || "Remote"}
+                                            <input type="radio" id="Remote" name="preferred_location" onChange={handleChange} value="Remote" />
+                                            <span className="checkmark"></span>
+                                        </label>
+                                    </div>
+                                }
+                                {jobFormData?.content?.hybrid?.[lang] != null &&
+                                    <div className="reative flex items-center gap-3">
 
-                                    <label className="check-container text-lg font-medium flex items-center">Hybrid
-                                        <input type="radio" id="Hybrid" name="preferred_location" onChange={handleChange} value="Hybrid" />
-                                        <span className="checkmark"></span>
-                                    </label>
-                                </div>
+                                        <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.hybrid?.[lang] || "Hybrid"}
+                                            <input type="radio" id="Hybrid" name="preferred_location" onChange={handleChange} value="Hybrid" />
+                                            <span className="checkmark"></span>
+                                        </label>
+                                    </div>
+                                }
                                 {errors.preferred_location && <p className="text-red-500 text-sm mt-1">{errors.preferred_location}</p>}
                             </div>
                         </div>
 
-                        <p className='text-center input-field md:!text-2xl gradient-background'>Documents</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>{jobFormData?.content?.documents_heading?.[lang] || "Documents"}</p>
 
                         <div className='relative'>
                             <input
@@ -500,7 +514,7 @@ export default function JobApplyForm({ params }) {
                                     {fileName1}
                                 </span>
                                 <div className="upload-button button" onClick={handleButtonClick}>
-                                    Upload
+                                    {jobFormData?.content?.upload_button?.[lang] || "Upload"}
                                 </div>
                             </div>
                         </div>
@@ -520,7 +534,7 @@ export default function JobApplyForm({ params }) {
                                     {fileName2}
                                 </span>
                                 <div className="upload-button button" onClick={handleButtonClick2}>
-                                    Upload
+                                    {jobFormData?.content?.upload_button?.[lang] || "Upload"}
                                 </div>
                             </div>
                         </div>
@@ -540,13 +554,13 @@ export default function JobApplyForm({ params }) {
                                     {fileName3}
                                 </span>
                                 <div className="upload-button button" onClick={handleButtonClick3}>
-                                    Upload
+                                    {jobFormData?.content?.upload_button?.[lang] || "Upload"}
                                 </div>
                             </div>
                         </div>
                         {errors.additional_document && <p className="text-red-500 text-sm mt-1">{errors.additional_document}</p>}
 
-                        <p className='text-center input-field md:!text-2xl gradient-background'>Questionnaire</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>{jobFormData?.content?.questionnaire_heading?.[lang] || "Questionnaire"}</p>
 
                         {questions.map((q) => (
                             <div key={q.id} className="relative">
@@ -560,11 +574,11 @@ export default function JobApplyForm({ params }) {
                             </div>
                         ))}
 
-                        <p className='text-center input-field md:!text-2xl gradient-background'>Consent</p>
+                        <p className='text-center input-field md:!text-2xl gradient-background'>{jobFormData?.content?.consent_heading?.[lang] || "Consent"}</p>
 
                         <div className="reative flex items-center gap-3">
 
-                            <label className="check-container text-lg font-medium flex items-center">I certify that the information submitted is true and complete.
+                            <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.consent_1?.[lang] || "I certify that the information submitted is true and complete."}
                                 <input type="checkbox" onChange={handleChange} name="is_information_true" />
                                 <span className="checkmark"></span>
                             </label>
@@ -573,7 +587,7 @@ export default function JobApplyForm({ params }) {
 
                         <div className="reative flex items-center gap-3">
 
-                            <label className="check-container text-lg font-medium flex items-center">I consent to the processing of my data for recruitment purposes.
+                            <label className="check-container text-lg font-medium flex items-center">{jobFormData?.content?.consent_2?.[lang] || "I consent to the processing of my data for recruitment purposes."}
                                 <input type="checkbox" onChange={handleChange} name="consent_data_processing" />
                                 <span className="checkmark"></span>
                             </label>
@@ -587,7 +601,7 @@ export default function JobApplyForm({ params }) {
                                 className="button flex justify-center m-auto !max-h-[51px]"
                                 disabled={formSubmitting ? true : false}
                             >
-                                {formSubmitting ? <FormLoading /> : 'Submit'}
+                                {formSubmitting ? <FormLoading /> : jobFormData?.content?.submit_button?.[lang] || 'Submit'}
                             </button>
                         </div>
                         {status && (

@@ -5,81 +5,78 @@ import SideBar from '@/components/Sidebar';
 import { CalendlyLink } from '@/constant/constants';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getItServicesData, getTestimonials, getSideBarData } from "@/constant/ContentApi";
+
+import { cookies } from "next/headers";
 
 export const metadata = {
     title: "Managed IT Services & Consulting - Aerialink Inc",
     description: "Managed IT Services & Consulting - Aerialink Inc",
 };
 
-export default function managedItServices() {
-    const quotes = [
-        {
-            name: "M. Lee",
-            review: "With no IT background, we were initially overwhelmed by the idea of building a mobile app. Thanks to their outstanding customer care, the process was smooth, professional, and stress-free.We're thrilled with the result!",
-            designation: "Owner"
-        },
-        {
-            name: "K. Takeshita",
-            review: "The team is incredibly knowledgeable and takes care of all our IT needs, allowing us to focus on growing our business. Their expertise and dedication have been invaluable. Highly recommended!",
-            designation: "Entrepreneur",
-        },
-        {
-            name: "E. Kobayashi",
-            review: "Our customers adore the virtual showroom feature on our website! They love interacting with it, and it's become a highlight of their shopping experience. The positive feedback has been amazing.",
-            designation: "Marketing Manager",
+export default async function managedItServices() {
 
-        }
-    ];
+    const cookieStore = await cookies();
+    const lang = cookieStore.get("lang")?.value ?? 'en';
+    const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+    const apiData = await getItServicesData();
+    const testimonials = await getTestimonials();
+
+    const sideBarData = await getSideBarData();
+
+    const quotes = testimonials?.content?.testimonials?.map((t) => ({
+        name: t.name?.[lang] || "",
+        review: t.review?.[lang] || "",
+        designation: t.designation?.[lang] || "",
+    })) || [];
+
     return (
         <div>
             {/* <Breadcrumb /> */}
             <div className='servicePageWrapper'>
                 <div className='sideBarWrapper'>
-                    <SideBar />
+                    <SideBar lang={lang} sideBarData={sideBarData} />
                 </div>
                 <div className='serviceContentWrapper'>
                     <div className="industriesServeMainWrapper webDev">
-                        <div className="is-heading gradient-background"><h3>Reliable IT, Strategic Insight — Without the Overhead</h3></div>
+                        <div className="is-heading gradient-background"><h3>{apiData?.content?.reliable_IT_heading?.[lang] || "Reliable IT, Strategic Insight — Without the Overhead"}</h3></div>
                         <div className="isContent">
                             <div className="itemsWrapper">
                                 <p className='!font-medium'>
-                                    We help businesses stay focused on what they do best by taking care of their
-                                    technology — from hands-on support to long-term planning. Whether you need a
-                                    full-service IT partner or expert guidance for a specific challenge, we’re here to keep
-                                    your systems secure, efficient, and future-ready.
+                                    {apiData?.content?.reliable_IT_description?.[lang] || "We help businesses stay focused on what they do best by taking care of their technology — from hands-on support to long-term planning. Whether you need a full-service IT partner or expert guidance for a specific challenge, we’re here to keep your systems secure, efficient, and future-ready."}
                                 </p>
                             </div>
                         </div>
                     </div>
                     <div className="industriesServeMainWrapper">
-                        <div className="is-heading gradient-background "><h3>Service Highlight</h3></div>
+                        <div className="is-heading gradient-background "><h3>{apiData?.content?.service_highlights_main_heading?.[lang] || "Service Highlight"}</h3></div>
                         <div className="mt-5">
                             <div className="itemsWrapper manageIT ServiceHighlight">
                                 <div className='duoColumns flex-row gap-3'>
                                     <div className='duoColumn1 isContent border rounded-xl shadow-sm p-3'>
                                         <div className='contentWrapper'>
-                                            <div className='border rounded-xl shadow-sm p-3 font-bold mb-2.5'><h3>Stress-Free IT Support for Small and Midsize Teams</h3></div>
+                                            <div className='border rounded-xl shadow-sm p-3 font-bold mb-2.5'><h3>{apiData?.content?.service_highlights_heading_1?.[lang] || "Stress-Free IT Support for Small and Midsize Teams"}</h3></div>
                                             <div className='md:p-3 p-2'>
-                                                <h4 className='font-bold'>Key Features:</h4>
+                                                <h4 className='font-bold'>{apiData?.content?.key_features?.[lang] || "Key Features:"}</h4>
                                                 <FeatureHighlights
                                                     imageUrl=""
-                                                    title="24/7 Monitoring & Support"
-                                                    description="Our team proactively monitors your infrastructure to catch issues before they cause downtime. When something breaks, we’re just a call or clickaway"
+                                                    title={apiData?.content?.monitoring_heading?.[lang] || "24/7 Monitoring & Support"}
+                                                    description={apiData?.content?.monitoring_description?.[lang] || "Our team proactively monitors your infrastructure to catch issues before they cause downtime. When something breaks, we’re just a call or clickaway"}
                                                 />
                                                 <FeatureHighlights
                                                     imageUrl=""
-                                                    title="Endpoint Management"
-                                                    description="We manage updates, patches, antivirus, and backups across every user device — ensuring your workforce stays protected and productive."
+                                                    title={apiData?.content?.endpoint_heading?.[lang] || "Endpoint Management"}
+                                                    description={apiData?.content?.endpoint_description?.[lang] || "We manage updates, patches, antivirus, and backups across every user device — ensuring your workforce stays protected and productive."}
                                                 />
                                                 <FeatureHighlights
                                                     imageUrl=""
-                                                    title="Server & Network Administration"
-                                                    description="From cloud servers to office networks, we ensure your systems run fast, stay secure, and scale smoothly as your business grows."
+                                                    title={apiData?.content?.server_and_network_heading?.[lang] || "Server & Network Administration"}
+                                                    description={apiData?.content?.server_and_network_description?.[lang] || "From cloud servers to office networks, we ensure your systems run fast, stay secure, and scale smoothly as your business grows."}
                                                 />
                                                 <FeatureHighlights
                                                     imageUrl=""
-                                                    title="Helpdesk Services"
-                                                    description="Get fast, reliable support from real technicians — no phone trees or long waits. We resolve most user issues in minutes, not hours."
+                                                    title={apiData?.content?.helpdesk_heading?.[lang] || "Helpdesk Services"}
+                                                    description={apiData?.content?.helpdesk_description?.[lang] || "Get fast, reliable support from real technicians — no phone trees or long waits. We resolve most user issues in minutes, not hours."}
                                                 />
                                             </div>
                                         </div>
@@ -87,29 +84,29 @@ export default function managedItServices() {
                                     <div class="lineglow"></div>
                                     <div className='duoColumn2 isContent border rounded-xl shadow-sm p-3'>
                                         <div className='contentWrapper'>
-                                            <div className='border rounded-xl shadow-sm p-3 font-bold mb-2.5'><h3>Expert Guidance for Smarter IT Decisions
+                                            <div className='border rounded-xl shadow-sm p-3 font-bold mb-2.5'><h3>{apiData?.content?.service_highlights_heading_2?.[lang] || "Expert Guidance for Smarter IT Decisions"}
                                             </h3></div>
                                             <div className='md:p-3 p-2'>
-                                                <h4 className='font-bold'>Key Features:</h4>
+                                                <h4 className='font-bold'>{apiData?.content?.key_features?.[lang] || "Key Features:"}</h4>
                                                 <FeatureHighlights
                                                     imageUrl=""
-                                                    title="Technology Strategy & Planning"
-                                                    description="We align your IT infrastructure with your business goals — helping you plan smarter, budget better, and avoid tech debt."
+                                                    title={apiData?.content?.technology_heading?.[lang] || "Technology Strategy & Planning"}
+                                                    description={apiData?.content?.technology_description?.[lang] || "We align your IT infrastructure with your business goals — helping you plan smarter, budget better, and avoid tech debt."}
                                                 />
                                                 <FeatureHighlights
                                                     imageUrl=""
-                                                    title="Infrastructure Audits"
-                                                    description="Get a detailed view of what's working, what's not, and how to strengthen your systems for reliability and compliance."
+                                                    title={apiData?.content?.infrastructure_heading?.[lang] || "Infrastructure Audits"}
+                                                    description={apiData?.content?.infrastructure_description?.[lang] || "Get a detailed view of what's working, what's not, and how to strengthen your systems for reliability and compliance."}
                                                 />
                                                 <FeatureHighlights
                                                     imageUrl=""
-                                                    title="Vendor & Tool Selection"
-                                                    description="From software platforms to cloud providers, we help you choose solutions that fit your business — and avoid the ones that don’t."
+                                                    title={apiData?.content?.vendor_heading?.[lang] || "Vendor & Tool Selection"}
+                                                    description={apiData?.content?.vendor_description?.[lang] || "From software platforms to cloud providers, we help you choose solutions that fit your business — and avoid the ones that don’t."}
                                                 />
                                                 <FeatureHighlights
                                                     imageUrl=""
-                                                    title="Cybersecurity Advisory"
-                                                    description="Stay ahead of risks with expert assessments, compliance support (like HIPAA or ISO 27001), and actionable risk mitigation strategies."
+                                                    title={apiData?.content?.cybersecurity_heading?.[lang] || "Cybersecurity Advisory"}
+                                                    description={apiData?.content?.cybersecurity_description?.[lang] || "Stay ahead of risks with expert assessments, compliance support (like HIPAA or ISO 27001), and actionable risk mitigation strategies."}
                                                 />
                                             </div>
                                         </div>
@@ -119,7 +116,7 @@ export default function managedItServices() {
                         </div>
                     </div>
                     <div className="whyCHooseUsWrapper coreValues">
-                        <div className="whyChooseUsHeading gradient-background"><h2>What Our Clients Say</h2></div>
+                        <div className="whyChooseUsHeading gradient-background"><h2>{apiData?.content?.what_our_clients_say_heading?.[lang] || "What Our Clients Say"}</h2></div>
                         <div className="whyChooseUsCardContents">
                             <div className='cardWrappers reviewslider'>
                                 <ReviewSlider
@@ -132,14 +129,14 @@ export default function managedItServices() {
                     </div>
                     <div className="industriesServeMainWrapper letsBuildToghether">
                         <div className="is-heading gradient-background">
-                            <h4 className='font-bold text-[26px]'>Flexible Plans That Fit Your Business — Let’s Make IT Your Advantage</h4>
+                            <h4 className='font-bold text-[26px]'>{apiData?.content?.flexible_plans_heading?.[lang] || "Flexible Plans That Fit Your Business — Let’s Make IT Your Advantage"}</h4>
                         </div>
                         <div className="isContent">
                             <p className="content !font-medium">
-                                Choose a plan or customize your own. Pay only for what you need
+                                {apiData?.content?.flexible_plans_description?.[lang] || "Choose a plan or customize your own. Pay only for what you need"}
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href={CalendlyLink}>Request a Free Analysis</Link>
+                                <Link href={CalendlyLink}>{apiData?.content?.flexible_plans_button?.[lang] || "Request a Free Analysis"}</Link>
                             </div>
                         </div>
                     </div>

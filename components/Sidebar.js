@@ -1,11 +1,21 @@
 'use client';
 
-import { SideBarLinks } from '@/constant/constants';
+// import { SideBarLinks } from '@/constant/constants';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
-export default function SideBar() {
+export default function SideBar({ sideBarData, lang }) {
+
+  const SideBarLinks = [
+    { name: sideBarData?.content?.custom_app_dev?.[lang] || "Custom App Development", href: '/services/custom-app-development' },
+    { name: sideBarData?.content?.custom_web_dev?.[lang] || 'Custom Website Development', href: '/services/custom-website-development' },
+    { name: sideBarData?.content?.cloud_migration?.[lang] || 'Cloud Migration & Storage Services', href: '/services/cloud-migration-services' },
+    { name: sideBarData?.content?.ai_powered_solutions?.[lang] || 'AI Powered Solutions & Machine Learning', href: '/services/ai-powered-solutions' },
+    { name: sideBarData?.content?.IT_services?.[lang] || 'Managed IT Services & Consulting', href: '/services/managed-it-services-consulting' },
+    { name: sideBarData?.content?.digital_marketing?.[lang] || 'Digital Marketing', href: '/services/digital-marketing-services' },
+  ];
+
   const pathname = usePathname();
   const isActive = (href) => pathname === href;
 
