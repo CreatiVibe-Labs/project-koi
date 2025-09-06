@@ -6,7 +6,7 @@ import SliderCards from '@/components/sliders/SliderCards';
 import { CalendlyLink } from '@/constant/constants';
 
 
-export default function CloudMigration({lang, ASSETS_URL, apiData}) {
+export default function CloudMigration({ lang, ASSETS_URL, apiData }) {
 
     const [isReverse, setIsReverse] = useState(false);
 
@@ -112,45 +112,45 @@ export default function CloudMigration({lang, ASSETS_URL, apiData}) {
                 </div>
             </div>
             <div className="industriesServeMainWrapper industriesServeMainWrapper2 featuresHighlight">
-                <div className="is-heading gradient-background"><h3>{apiData?.content?.key_features_heading?.[lang] || "Key Features" }</h3></div>
+                <div className="is-heading gradient-background"><h3>{apiData?.content?.key_features_heading?.[lang] || "Key Features"}</h3></div>
                 <div className="mt-5">
-                    <SliderCards 
+                    <SliderCards
                         slides={keyFeatures}
                     />
                 </div>
             </div>
             <div className="industriesServeMainWrapper timelineWrapper">
-                <div className="is-heading gradient-background"><h3>{apiData?.content?.migration_pathway_heading?.[lang] || "Migration Pathway" }</h3></div>
+                <div className="is-heading gradient-background"><h3>{apiData?.content?.migration_pathway_heading?.[lang] || "Migration Pathway"}</h3></div>
                 <div className="isContentTimeLine">
                     <div className="itemsWrapper">
-                        <div class={`stairWrapper !w-[100%] ${reverse ? 'reverse' : 'forward'}`}>
-                            <div class="mainbox1 mainbox">
-                                <div class="scene relative !flex justify-center items-center">
-                                    <span className='absolute'>{apiData?.content?.optimization_description?.[lang] || "Provide post migration testing, validation, optimization and ongoing support to maximize the benefits of  your cloud environment" }</span>
-                                    <div class="topbox1 topbox panel panel--rotate-x"></div>
+                        <div className={`stairWrapper !w-[100%] ${reverse ? 'reverse' : 'forward'}`}>
+                            <div className="mainbox1 mainbox">
+                                <div className="scene relative !flex justify-center items-center">
+                                    <span className='absolute'>{apiData?.content?.optimization_description?.[lang] || "Provide post migration testing, validation, optimization and ongoing support to maximize the benefits of  your cloud environment"}</span>
+                                    <div className="topbox1 topbox panel panel--rotate-x"></div>
                                 </div>
-                                <div class='bottombox1 bottombox'><span>{apiData?.content?.optimization_heading?.[lang] || "Optimization & Ongoing Support" }</span></div>
+                                <div className='bottombox1 bottombox'><span>{apiData?.content?.optimization_heading?.[lang] || "Optimization & Ongoing Support"}</span></div>
                             </div>
-                            <div class="mainbox2 mainbox">
-                                <div class="scene relative !flex justify-center items-center">
-                                    <span className='absolute'>{apiData?.content?.migration_execution_description?.[lang] || "Implement migration with minimal disruptions, ensuring data integrity and security" }</span>
-                                    <div class="topbox2 topbox panel panel--rotate-x"></div>
+                            <div className="mainbox2 mainbox">
+                                <div className="scene relative !flex justify-center items-center">
+                                    <span className='absolute'>{apiData?.content?.migration_execution_description?.[lang] || "Implement migration with minimal disruptions, ensuring data integrity and security"}</span>
+                                    <div className="topbox2 topbox panel panel--rotate-x"></div>
                                 </div>
-                                <div class='bottombox2 bottombox'><span>{apiData?.content?.migration_execution_heading?.[lang] || "Migration Execution" }</span></div>
+                                <div className='bottombox2 bottombox'><span>{apiData?.content?.migration_execution_heading?.[lang] || "Migration Execution"}</span></div>
                             </div>
-                            <div class="mainbox3 mainbox">
-                                <div class="scene relative !flex justify-center items-center">
-                                    <span className='absolute'>{apiData?.content?.architecture_description?.[lang] || "Develop a customized cloud architecture that aligns with your business goals and compliance requirements" }</span>
-                                    <div class="topbox3 topbox panel panel--rotate-x"></div>
+                            <div className="mainbox3 mainbox">
+                                <div className="scene relative !flex justify-center items-center">
+                                    <span className='absolute'>{apiData?.content?.architecture_description?.[lang] || "Develop a customized cloud architecture that aligns with your business goals and compliance requirements"}</span>
+                                    <div className="topbox3 topbox panel panel--rotate-x"></div>
                                 </div>
-                                <div class='bottombox3 bottombox'><span>{apiData?.content?.architecture_heading?.[lang] || "Architecture & Strategy" }</span></div>
+                                <div className='bottombox3 bottombox'><span>{apiData?.content?.architecture_heading?.[lang] || "Architecture & Strategy"}</span></div>
                             </div>
-                            <div class="mainbox4 mainbox">
-                                <div class="scene relative !flex justify-center items-center">
-                                    <span className='absolute'>{apiData?.content?.assessment_description?.[lang] || "Conduct a thorough analysis of your current infrastructure and define migration objectives" }</span>
-                                    <div class="topbox4 topbox panel panel--rotate-x"></div>
+                            <div className="mainbox4 mainbox">
+                                <div className="scene relative !flex justify-center items-center">
+                                    <span className='absolute'>{apiData?.content?.assessment_description?.[lang] || "Conduct a thorough analysis of your current infrastructure and define migration objectives"}</span>
+                                    <div className="topbox4 topbox panel panel--rotate-x"></div>
                                 </div>
-                                <div class='bottombox4 bottombox'><span>{apiData?.content?.assessment_heading?.[lang] || "Assessment & Planning" }</span></div>
+                                <div className='bottombox4 bottombox'><span>{apiData?.content?.assessment_heading?.[lang] || "Assessment & Planning"}</span></div>
                             </div>
                         </div>
 
@@ -158,14 +158,14 @@ export default function CloudMigration({lang, ASSETS_URL, apiData}) {
                 </div>
             </div>
             <div className="industriesServeMainWrapper featuresHighlight migrationIcons cmsWork">
-                <div className="is-heading gradient-background"><h3>{apiData?.content?.migration_scenario_heading?.[lang] || "Migration Scenarios" }</h3></div>
+                <div className="is-heading gradient-background"><h3>{apiData?.content?.migration_scenario_heading?.[lang] || "Migration Scenarios"}</h3></div>
                 <div className="">
                     <div className="itemsWrapper1 itemsWrapper">
                         <ul>
-                            <li className='!font-medium'>{apiData?.content?.legacy_system?.[lang] || "Legacy System Modernization" }</li>
-                            <li className='!font-medium'>{apiData?.content?.cloud_infrastructure?.[lang] || "On-Prem to Cloud Infrastructure" }</li>
-                            <li className='!font-medium'>{apiData?.content?.cloud_to_cloud_migrations?.[lang] || "Cloud-to-Cloud Migrations" }</li>
-                            <li className='!font-medium md:block flex items-center'>{apiData?.content?.hybrid_cloud_solutions?.[lang] || "Hybrid Cloud Solutions" }</li>
+                            <li className='!font-medium'>{apiData?.content?.legacy_system?.[lang] || "Legacy System Modernization"}</li>
+                            <li className='!font-medium'>{apiData?.content?.cloud_infrastructure?.[lang] || "On-Prem to Cloud Infrastructure"}</li>
+                            <li className='!font-medium'>{apiData?.content?.cloud_to_cloud_migrations?.[lang] || "Cloud-to-Cloud Migrations"}</li>
+                            <li className='!font-medium md:block flex items-center'>{apiData?.content?.hybrid_cloud_solutions?.[lang] || "Hybrid Cloud Solutions"}</li>
                         </ul>
                     </div>
                     <div className="itemsWrapper techIcon">
@@ -205,10 +205,10 @@ export default function CloudMigration({lang, ASSETS_URL, apiData}) {
             <div className="industriesServeMainWrapper letsBuildToghether">
                 <div className="isContent">
                     <p className="content !font-medium">
-                        {apiData?.content?.cta_section_description?.[lang] || "Contact us to schedule a consultation and begin your cloud migration journey." }
+                        {apiData?.content?.cta_section_description?.[lang] || "Contact us to schedule a consultation and begin your cloud migration journey."}
                     </p>
                     <div className="buttons-wrapper">
-                        <Link href={CalendlyLink} target='_blank'>{apiData?.content?.cta_section_button?.[lang] || "Start a Free Review" }</Link>
+                        <Link href={CalendlyLink} target='_blank'>{apiData?.content?.cta_section_button?.[lang] || "Start a Free Review"}</Link>
                     </div>
                 </div>
             </div>

@@ -53,8 +53,8 @@ export default function Circle({ apiData, lang }) {
                             </div>
                         </div>
                         <svg viewBox="0 0 150 150" className='roundSvg absolute top-0 left-0' preserveAspectRatio="xMidYMid meet">
-                            <circle class="bg-circle" cx="75" cy="75" r="70" />
-                            <circle class="progress-circle" cx="75" cy="75" r="70" />
+                            <circle className="bg-circle" cx="75" cy="75" r="70" />
+                            <circle className="progress-circle" cx="75" cy="75" r="70" />
                         </svg>
                     </div>
                     <div className='centerIcon absolute'>

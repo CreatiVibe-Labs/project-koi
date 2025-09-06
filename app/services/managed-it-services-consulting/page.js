@@ -81,7 +81,7 @@ export default async function managedItServices() {
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="lineglow"></div>
+                                    <div className="lineglow"></div>
                                     <div className='duoColumn2 isContent border rounded-xl shadow-sm p-3'>
                                         <div className='contentWrapper'>
                                             <div className='border rounded-xl shadow-sm p-3 font-bold mb-2.5'><h3>{apiData?.content?.service_highlights_heading_2?.[lang] || "Expert Guidance for Smarter IT Decisions"}
