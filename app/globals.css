@@ -2784,7 +2784,7 @@ select {
 }
 
 .flex.flex-col.gap-5.items-start.html-content p {
-  font-size: 1.2rem !important;
+  font-size: 1.2rem;
 }
 
 .flex.flex-col.gap-5.items-start.html-content ul {

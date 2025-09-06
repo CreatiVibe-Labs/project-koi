@@ -281,7 +281,7 @@ export default function JobApplyForm({ params, lang, ASSETS_URL, apiData, jobs, 
             <div className="jobApplyWrap flex flex-col gap-4">
                 <div className="flex gap-5 items-center"><p className="title md:!text-2xl !font-semibold">{apiData?.content?.title?.[lang] || "Title"}:</p><p className="md:!text-2xl  !font-medium capitalize">{jobData.title}</p></div>
                 <div className="flex gap-5 items-center"><p className="exp md:!text-2xl !font-semibold">{apiData?.content?.experience?.[lang] || "Experience"}:</p><p className="md:!text-2xl !font-medium">{jobData.exp}</p></div>
-                <div className="flex flex-col gap-5 items-start html-content">
+                <div className="flex flex-col md:gap-5 gap-2.5 items-start html-content">
                     {parse(jobData.description || 'No Content')}
                 </div>
             </div>

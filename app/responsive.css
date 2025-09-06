@@ -639,12 +639,12 @@
     margin-top: 0 !important;
   }
 
-  .detailedJobPg p, .detailedJobPg span, .detailedJobPg p strong, .detailedJobPg label {
+  .detailedJobPg p, .detailedJobPg span, .detailedJobPg p strong, .detailedJobPg label, .detailedJobPg li {
     font-size: 12px !important;
   }
 
   .detailedJobPg .checkmark {
-    top: 4px;
+    top: 0px;
   }
 
   /* media query end */
