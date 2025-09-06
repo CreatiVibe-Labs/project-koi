@@ -277,7 +277,7 @@ export default function JobApplyForm({ params, lang, ASSETS_URL, apiData, jobs, 
         }
     };
     return (
-        <>
+        <div className="detailedJobPg">
             <div className="jobApplyWrap flex flex-col gap-4">
                 <div className="flex gap-5 items-center"><p className="title md:!text-2xl !font-semibold">{apiData?.content?.title?.[lang] || "Title"}:</p><p className="md:!text-2xl  !font-medium capitalize">{jobData.title}</p></div>
                 <div className="flex gap-5 items-center"><p className="exp md:!text-2xl !font-semibold">{apiData?.content?.experience?.[lang] || "Experience"}:</p><p className="md:!text-2xl !font-medium">{jobData.exp}</p></div>
@@ -615,6 +615,6 @@ export default function JobApplyForm({ params, lang, ASSETS_URL, apiData, jobs, 
                     </form>
                 </div >
             </div >
-        </>
+        </div>
     );
 }

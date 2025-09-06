@@ -631,6 +631,22 @@
     height: 100%;
   }
 
+  .detailedJobPg h2 strong {
+    font-size: 14px !important;
+  }
+
+  .detailedJobPg h2 {
+    margin-top: 0 !important;
+  }
+
+  .detailedJobPg p, .detailedJobPg span, .detailedJobPg p strong, .detailedJobPg label {
+    font-size: 12px !important;
+  }
+
+  .detailedJobPg .checkmark {
+    top: 4px;
+  }
+
   /* media query end */
   /* Frontend Dev MOB*/
 
