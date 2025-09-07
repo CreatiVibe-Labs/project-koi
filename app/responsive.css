@@ -691,6 +691,15 @@
     width: 100%;
   }
 
+  .textStep1,
+  .textStep2,
+  .textStep3,
+  .textStep4,
+  .textStep5,
+  .textStep6 {
+    padding-top: 15px !important;
+  }
+
   /* media query end */
   /* Frontend Dev MOB*/
 

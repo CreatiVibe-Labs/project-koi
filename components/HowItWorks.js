@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
-export default function HowItWorks({lang, ASSETS_URL, apiData}) {
-    
+export default function HowItWorks({ lang, ASSETS_URL, apiData }) {
+
     const [activeStep, setActiveStep] = useState(1);
 
     // Animate steps 1-6 in a loop
@@ -37,33 +37,33 @@ export default function HowItWorks({lang, ASSETS_URL, apiData}) {
 
             <div className='howItWorksText'>
                 <div className={`textStep textStep1 ${activeStep == 1 ? 'active' : ''}`}>
-                    <h6 className='text-right'>{apiData?.content?.point_1_heading?.[lang] || "Assessment"}</h6>
-                    <p className='text-right !text-[18px]'>{apiData?.content?.point_1_description?.[lang] || "We begin by understanding your needs, goals, and technical environment"}</p>
+                    <h6 className='md:!text-[28px] !text-[40px] text-right'>{apiData?.content?.point_1_heading?.[lang] || "Assessment"}</h6>
+                    <p className='text-right md:!text-[18px] !text-2xl'>{apiData?.content?.point_1_description?.[lang] || "We begin by understanding your needs, goals, and technical environment"}</p>
                 </div>
                 <div className={`textStep textStep2 ${activeStep == 2 ? 'active' : ''}`}>
-                    <h6 className='text-right'>{apiData?.content?.point_2_heading?.[lang] || "Design"}</h6>
+                    <h6 className='md:!text-[28px] !text-[40px] text-right'>{apiData?.content?.point_2_heading?.[lang] || "Design"}</h6>
                     {/* <p className='text-right !text-[21px]'>We begin by understanding your needs, goals, and technical environment</p> */}
-                    <p className='text-right !text-[18px]'>{apiData?.content?.point_2_description?.[lang] || "Wireframes and prototypes shape the ideal user experience."}</p>
+                    <p className='text-right md:!text-[18px] !text-2xl'>{apiData?.content?.point_2_description?.[lang] || "Wireframes and prototypes shape the ideal user experience."}</p>
                 </div>
                 <div className={`textStep textStep3 ${activeStep == 3 ? 'active' : ''}`}>
-                    <h6 className='text-right'>{apiData?.content?.point_3_heading?.[lang] || "Development"}</h6>
+                    <h6 className='md:!text-[28px] !text-[40px] text-right'>{apiData?.content?.point_3_heading?.[lang] || "Development"}</h6>
                     {/* <p className='text-right !text-[21px]'>We begin by understanding your needs, goals, and technical environment</p> */}
-                    <p className='text-right !text-[18px]'>{apiData?.content?.point_3_description?.[lang] || "Our engineers bring your solution to life using agile sprints."}</p>
+                    <p className='text-right md:!text-[18px] !text-2xl'>{apiData?.content?.point_3_description?.[lang] || "Our engineers bring your solution to life using agile sprints."}</p>
                 </div>
                 <div className={`textStep textStep4 ${activeStep == 4 ? 'active' : ''}`}>
-                    <h6>{apiData?.content?.point_4_heading?.[lang] || "Testing"}</h6>
+                    <h6 className='md:!text-[28px] !text-[40px] '>{apiData?.content?.point_4_heading?.[lang] || "Testing"}</h6>
                     {/* <p className='text-left !text-[21px]'>We begin by understanding your needs, goals, and technical environment</p> */}
-                    <p className='!text-[18px]'>{apiData?.content?.point_4_description?.[lang] || "Rigorous QA ensures functionality, security, and performance."}</p>
+                    <p className='md:!text-[18px] !text-2xl'>{apiData?.content?.point_4_description?.[lang] || "Rigorous QA ensures functionality, security, and performance."}</p>
                 </div>
                 <div className={`textStep textStep5 ${activeStep == 5 ? 'active' : ''}`}>
-                    <h6>{apiData?.content?.point_5_heading?.[lang] || "Deployment"}</h6>
+                    <h6 className='md:!text-[28px] !text-[40px] '> {apiData?.content?.point_5_heading?.[lang] || "Deployment"}</h6>
                     {/* <p className='text-left !text-[21px]'>We begin by understanding your needs, goals, and technical environment</p> */}
-                    <p className='!text-[18px]'>{apiData?.content?.point_5_description?.[lang] || "We handle rollout, scaling"}</p>
+                    <p className='md:!text-[18px] !text-2xl'>{apiData?.content?.point_5_description?.[lang] || "We handle rollout, scaling"}</p>
                 </div>
                 <div className={`textStep textStep6 ${activeStep == 6 ? 'active' : ''}`}>
-                    <h6>{apiData?.content?.point_6_heading?.[lang] || "Support"}</h6>
+                    <h6 className='md:!text-[28px] !text-[40px] '>{apiData?.content?.point_6_heading?.[lang] || "Support"}</h6>
                     {/* <p className='text-left !text-[21px]'>We begin by understanding your needs, goals, and technical environment</p> */}
-                    <p className='!text-[18px]'>{apiData?.content?.point_6_description?.[lang] || "We provide ongoing support as needed."}</p>
+                    <p className='md:!text-[18px] !text-2xl'>{apiData?.content?.point_6_description?.[lang] || "We provide ongoing support as needed."}</p>
                 </div>
             </div>
         </>
