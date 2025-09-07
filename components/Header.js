@@ -65,19 +65,19 @@ export default function Header({ lang, ASSETS_URL, apiData }) {
 
       <header>
         <div className={`headerMainWrapper border-b-[1px] border-b-[#ffffff66] rounded-[0] gradient-background w-full  inset-x-0 top-0 fixed z-10 ${scrolled ? 'customStickyHeader' : ''}`}>
-          <div className='headerWrapper'>
+          <div className='headerWrapper lg:px-0 md:!px-[1rem]'>
             <div className='logoWrapper'>
-              <Link href='/' className='flex gap-2.5 md:gap-5 items-center text-4xl font-semibold'><Image src="/images/logo.png" width={100} height={100} alt="Logo" />Aerialink</Link>
+              <Link href='/' className='flex gap-2.5 md:gap-5 items-center lg:text-4xl md:text-lg font-semibold'><Image src="/images/logo.png" width={100} height={100} alt="Logo" />Aerialink</Link>
             </div>
             <div className='menuWrapper mobile-hide'>
-              <nav className="navBar">
+              <nav className="navBar md:items-center">
                 {navLinks.map((link) => (
                   !link.subMenu ? (
                     <div key={link.href} className='relative nav_menu_wrapper'>
                       <Link
                         key={link.href}
                         href={link.href}
-                        className={`relative ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
+                        className={`relative lg:!text-[18px] md:!text-sm lg:!p[10px 15px] md:!px-1.5 ${isActive(link.href) ? 'nav-menu active' : 'nav-menu'}`}
                         onClick={() => setMenuOpen(false)}
                       >
                         {link.name}
@@ -97,7 +97,7 @@ export default function Header({ lang, ASSETS_URL, apiData }) {
                           <>
                             <Link
                               href={link.href}
-                              className={`relative ${isParentActive ? 'nav-menu active' : 'nav-menu'}`}
+                              className={`relative lg:!text-[18px] md:!text-sm lg:!p[10px 15px] md:!px-1.5 ${isParentActive ? 'nav-menu active' : 'nav-menu'}`}
                               onClick={() => setMenuOpen(false)}
                             >
                               {link.name}

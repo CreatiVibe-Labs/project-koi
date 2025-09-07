@@ -19,19 +19,19 @@ export default function Footer({ lang, ASSETS_URL, apiData }) {
     return (
         <div className='footer border-t-[1px] border-b-0 border-t-[#ffffff66] left-gradient-background'>
             <div className='footerWrapper'>
-                <div className='section1 md:gap-12 gap-6'>
+                <div className='section1 lg:gap-12 gap-6'>
                     <div className='group1 flex flex-col md:gap-4 gap-2'>
                         <div className='logoWrapper'>
-                            <Link href='/' className='flex gap-2.5 md:gap-5 items-center font-semibold md:text-4xl text-lg'><Image src="/images/logo.png" width={100} height={10} alt="Logo" />Aerialink</Link>
+                            <Link href='/' className='flex gap-2.5 md:gap-5 items-center font-semibold lg:text-4xl text-lg'><Image src="/images/logo.png" width={100} height={10} alt="Logo" />Aerialink</Link>
                         </div>
-                        <div className='contentWrapper'>
+                        <div className='contentWrapper lg:!w-[45%] !w-full'>
                             <span className='font-semibold mt-[-2%] md:text-2xl text-lg'>
                                 {apiData?.content?.description?.[lang] || "Empowering Your Digital Future"}
                             </span>
                         </div>
                     </div>
                     <div className='group2'>
-                        <div className='footerContactWrapper md:w-[45%] w-full flex flex-col gap-3'>
+                        <div className='footerContactWrapper lg:w-[45%] w-full flex flex-col gap-3'>
                             <div className='wrp flex items-center gap-6'>
                                 <Image src='/icons/phone.png' width={20} height={20} alt='phone' className='brightness-2000' />
                                 <Link className='w-auto !text-left font-normal text-sm md:text-[1rem] ' href="tel:+81788552760">+81 78 855 2760</Link>
@@ -53,7 +53,7 @@ export default function Footer({ lang, ASSETS_URL, apiData }) {
                         </div>
                     </div>
                 </div>
-                <div className='section2 md:gap-10 !gap-5 md:!w-[27%] !w-full md:items-end !items-start '>
+                <div className='section2 lg:gap-10 md:!gap-0 !gap-5 lg:!w-[27%] md:!w-[50%] !w-full md:items-end !items-start '>
                     <div className='mobileMenuWrapper md:justify-end justify-start md:mt-[58px] my-8 '>
                         <div className='mobileLinks'>
                             {footerLinks1.map((link) => (

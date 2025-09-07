@@ -119,7 +119,7 @@ export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
             </div>
 
             <div className="industriesServeMainWrapper featuresHighlight cmsWork cmsWork2">
-                <div className=" gradient-background text-[#c3f8d9] md:text-[40px] text-[20px] font-bold md:p-3 pt-[5px] pb-2.5 px-[18px] rounded-2xl md:mb-0 mb-2.5"><h3>{apiData?.content?.tech_stack?.[lang] || "Tech Stack"}</h3></div>
+                <div className=" gradient-background text-[#c3f8d9] lg:text-[40px] md:text-[24px] text-[20px] font-bold md:p-3 pt-[5px] pb-2.5 px-[18px] rounded-2xl lg:mb-0 mb-2.5"><h3>{apiData?.content?.tech_stack?.[lang] || "Tech Stack"}</h3></div>
                 <div className="hidden lg:block">
                     <div className="itemsWrapper ">
                         <FeatureHighlights2

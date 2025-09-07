@@ -26,7 +26,7 @@ export default async function ContactPage({ imageUrl, title, text }) {
         <>
             <div className="hero-section contact flex-col">
                 <div className="grid md:grid-cols-2 grid-cols-1 w-full gap-5">
-                    <div className="contactBg backdrop-blur-lg border-0 border-amber-50 rounded-2xl md:p-8 p-2.5 pb-17 flex items-end">
+                    <div className="contactBg backdrop-blur-lg border-0 border-amber-50 rounded-2xl lg:p-8 p-2.5 pb-17 flex items-end">
                         <ul>
                             <li className="flex items-center gap-2.5 md:gap-5 ">
                                 <div className="bg-white rounded-full p-2"><Image alt="icon" src="/icons/phone.png" width={30} height={30}></Image></div>
@@ -48,8 +48,8 @@ export default async function ContactPage({ imageUrl, title, text }) {
                         </ul>
 
                         <div className="clock absolute">
-                            <div className="custom-shaodw md:text-start text-center mt-[-5px] ml-2 absolute md:top-0 -top-12 md:left-[9px] left-10 w-[175px]">
-                                <p className="!font-semibold md:pb-5 pb-0">Mon – Fri  9:00 – 18:00</p>
+                            <div className="custom-shaodw lg:text-start text-center mt-[-5px] ml-2 absolute lg:top-0 -top-12 lg:left-[9px] left-10 w-[175px]">
+                                <p className="!font-semibold lg:pb-5 pb-0">Mon – Fri  9:00 – 18:00</p>
                                 <p className="!font-semibold">Sat – Sun  Closed</p>
                             </div>
                         </div>
@@ -68,7 +68,7 @@ export default async function ContactPage({ imageUrl, title, text }) {
                 </div>
             </div>
             <div className="contactForm whyChooseUsCardContents">
-                <h3 className="pb-3 text-[20px] md:text-3xl font-bold text-center">{apiData?.content?.inquiry_form_heading?.[lang] || "Inquiry Form"}</h3>
+                <h3 className="pb-3 text-[20px] lg:text-3xl md:text-2xl font-bold text-center">{apiData?.content?.inquiry_form_heading?.[lang] || "Inquiry Form"}</h3>
                 <ContactForm apiData={apiData} lang={lang}/>
             </div>
             <Whatsapp />

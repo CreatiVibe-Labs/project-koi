@@ -32,7 +32,7 @@ export default function ServicesCards({
           </span>
         </Link>}
       </div>
-      <p className="text-xl font-semibold md:mb-2 my-2 heading">{heading}</p>
+      <p className="text-xl font-semibold lg:mb-2 md:!mb-2 my-2 heading">{heading}</p>
       <p className="text-gray-600 mb-4 description">{description}</p>
     </div>
   );

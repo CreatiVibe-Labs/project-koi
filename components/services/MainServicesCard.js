@@ -13,7 +13,7 @@ export default function MainServicesCard({
     return (
         <div className="mainWrapper">
             <div className="bgImage">
-                {video && <video className="md:rounded rounded-0" autoPlay muted loop>
+                {video && <video className="lg:rounded rounded-0" autoPlay muted loop>
                     <source src={video} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>}

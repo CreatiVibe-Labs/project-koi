@@ -12,14 +12,14 @@ export default function ServicesCards({
   CustomClass,
 }) {
   return (
-    <div className={`aboutCoreval p-2 md:p-4 border rounded-md shadow-sm service-card-wrap ${CustomClass}`}>
+    <div className={`aboutCoreval p-2 md:p-3 lg:p-4 border rounded-md shadow-sm service-card-wrap ${CustomClass}`}>
       <div className="flex items-center justify-center">
         {imageUrl && <Image
           src={imageUrl}
           alt={heading}
           width={100}
           height={100}
-          className="rounded md:mb-4 object-cover"
+          className="rounded lg:mb-4 md:mb-0 object-cover"
         />}
         {link && <Link href={link}>
           <span className="buttonText">{buttonText}</span>
@@ -32,7 +32,7 @@ export default function ServicesCards({
           </span>
         </Link>}
       </div>
-      <p className="text-xl font-semibold md:mb-2 my-2 heading">{heading}</p>
+      <p className="text-xl font-semibold lg:mb-2 md:!mb-0 my-2 heading">{heading}</p>
       <p className="text-gray-600 mb-4 description">{description}</p>
     </div>
   );

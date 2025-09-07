@@ -111,9 +111,9 @@ export default function ContactForm({ apiData, lang }) {
 
       {/* First Name & Last Name */}
       {/* First Name & Last Name */}
-      <div className="flex gap-[20px] justify-between md:flex-row flex-col !md:gap-5 !gap-2.5">
+      <div className="flex justify-between md:flex-row flex-col !md:gap-5 !gap-2.5">
         <div className="flex gap-[20px] md:!w-[50%] w-full">
-          <div className="relative md:!w-[20%] w-[30%]">
+          <div className="relative lg:!w-[20%] w-[30%]">
             <select
               name="salutation"
               value={formData.salutation}
