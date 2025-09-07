@@ -38,8 +38,8 @@ export default function Footer({ lang, ASSETS_URL, apiData }) {
                             </div>
                             <div className='wrp flex items-center gap-6'>
                                 <Image src='/icons/address.png' width={20} height={20} alt='phone' className='brightness-2000' />
-                                <Link className='w-auto !text-left font-normal text-sm md:text-[1rem] ' href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A">
-                                    6E-02, 6-9 Koyocho-naka, Higashinada-ku, Kobe Hyogo, 658-0032 Japan
+                                <Link className='w-auto !text-left font-normal text-sm md:text-[1rem] ' href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target='_blank'>
+                                    {apiData?.content?.address?.[lang] || "6E-02, 6-9 Koyocho-naka, Higashinada-ku, Kobe Hyogo, 658-0032 Japan"}
                                 </Link>
                             </div>
                             <div className='wrp flex items-center gap-5'>
@@ -64,7 +64,7 @@ export default function Footer({ lang, ASSETS_URL, apiData }) {
                         </div>
                         <div className='mobileLinks'>
                             {footerLinks2.map((link) => (
-                                <Link key={link.href} href={link.href} className="nav-menu md:text-lg !text-sm">
+                                <Link key={link.href} href={link.href} className="nav-menu">
                                     {link.name}
                                 </Link>
                             ))}

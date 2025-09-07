@@ -1,32 +1,7 @@
-let headerData = '',
-  footerData = '',
-  homeData = '',
-  industriesData = '',
-  aboutData = '',
-  organizationData = '',
-  jobs = '',
-  ServicesPageData = '',
-  contactUs = '',
-  quotes = '',
-  jobForm = '',
-  testimonials = '',
-  WebDevData = '',
-  AppDevData = '',
-  itServicesData = '',
-  cloudMigrationData = '',
-  cloudStorageData = '',
-  aiPoweredData = '',
-  sidebar = '',
-  sideBarData = '';
-
 // app/constants/apiConstants.js
 export async function getHomePageData() {
   try {
-
-    if (homeData != '') {
-      return homeData;
-    }
-
+   
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=landing-page`, {
       cache: "no-store", // ensures fresh data
     });
@@ -35,7 +10,6 @@ export async function getHomePageData() {
     }
 
     const data = await res.json();
-    homeData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -46,10 +20,6 @@ export async function getHomePageData() {
 export async function getHeaderData() {
   try {
 
-    if (headerData != '') {
-      return headerData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=header`, {
       cache: "no-store", // ensures fresh data
     });
@@ -58,7 +28,6 @@ export async function getHeaderData() {
     }
 
     const data = await res.json();
-    headerData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -68,11 +37,6 @@ export async function getHeaderData() {
 
 export async function getFooterData() {
   try {
-
-    if (footerData != '') {
-      return footerData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=footer`, {
       cache: "no-store", // ensures fresh data
     });
@@ -81,7 +45,6 @@ export async function getFooterData() {
     }
 
     const data = await res.json();
-    footerData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -92,10 +55,6 @@ export async function getFooterData() {
 export async function getIndustriesData() {
   try {
 
-    if (industriesData != '') {
-      return industriesData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=industries-we-serves`, {
       cache: "no-store", // ensures fresh data
     });
@@ -105,7 +64,6 @@ export async function getIndustriesData() {
 
     const data = await res.json();
 
-    industriesData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -116,10 +74,6 @@ export async function getIndustriesData() {
 export async function getAboutPageData() {
   try {
 
-    if (aboutData != '') {
-      return aboutData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=about-us`, {
       cache: "no-store", // ensures fresh data
     });
@@ -129,7 +83,6 @@ export async function getAboutPageData() {
 
     const data = await res.json();
 
-    aboutData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -140,10 +93,6 @@ export async function getAboutPageData() {
 export async function getOrganizationData() {
   try {
 
-    if (organizationData != '') {
-      return organizationData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=organization`, {
       cache: "no-store", // ensures fresh data
     });
@@ -153,7 +102,6 @@ export async function getOrganizationData() {
 
     const data = await res.json();
 
-    organizationData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -164,10 +112,6 @@ export async function getOrganizationData() {
 export async function getServicesPageData() {
   try {
 
-    if (ServicesPageData != '') {
-      return ServicesPageData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=services`, {
       cache: "no-store", // ensures fresh data
     });
@@ -177,7 +121,6 @@ export async function getServicesPageData() {
 
     const data = await res.json();
 
-    ServicesPageData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -188,10 +131,6 @@ export async function getServicesPageData() {
 export async function getSidebarData() {
   try {
 
-    if (sideBarData != '') {
-      return sideBarData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=sidebar`, {
       cache: "no-store", // ensures fresh data
     });
@@ -201,7 +140,6 @@ export async function getSidebarData() {
 
     const data = await res.json();
 
-    sideBarData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -212,10 +150,6 @@ export async function getSidebarData() {
 export async function getAppDevData() {
   try {
 
-    if (AppDevData != '') {
-      return AppDevData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=custom-app-development`, {
       cache: "no-store", // ensures fresh data
     });
@@ -225,7 +159,6 @@ export async function getAppDevData() {
 
     const data = await res.json();
 
-    AppDevData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -236,10 +169,6 @@ export async function getAppDevData() {
 export async function getWebDevData() {
   try {
 
-    if (WebDevData != '') {
-      return WebDevData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=custom-website-development`, {
       cache: "no-store", // ensures fresh data
     });
@@ -249,7 +178,6 @@ export async function getWebDevData() {
 
     const data = await res.json();
 
-    WebDevData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -260,10 +188,6 @@ export async function getWebDevData() {
 export async function getCloudMigrationData() {
   try {
 
-    if (cloudMigrationData != '') {
-      return cloudMigrationData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=cloud-migration`, {
       cache: "no-store", // ensures fresh data
     });
@@ -273,7 +197,6 @@ export async function getCloudMigrationData() {
 
     const data = await res.json();
 
-    cloudMigrationData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -284,9 +207,6 @@ export async function getCloudMigrationData() {
 export async function getCloudStorageData() {
   try {
 
-    if (cloudStorageData != '') {
-      return cloudStorageData;
-    }
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=cloud-storage`, {
       cache: "no-store", // ensures fresh data
@@ -297,7 +217,6 @@ export async function getCloudStorageData() {
 
     const data = await res.json();
 
-    cloudStorageData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -308,9 +227,6 @@ export async function getCloudStorageData() {
 export async function getAIPoweredData() {
   try {
 
-    if (aiPoweredData != '') {
-      return aiPoweredData;
-    }
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=ai-powered-solutions`, {
       cache: "no-store", // ensures fresh data
@@ -321,7 +237,6 @@ export async function getAIPoweredData() {
 
     const data = await res.json();
 
-    aiPoweredData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -332,10 +247,6 @@ export async function getAIPoweredData() {
 export async function getItServicesData() {
   try {
 
-    if (itServicesData != '') {
-      return itServicesData;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=managed-it-services`, {
       cache: "no-store", // ensures fresh data
     });
@@ -345,7 +256,6 @@ export async function getItServicesData() {
 
     const data = await res.json();
 
-    itServicesData = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -356,10 +266,6 @@ export async function getItServicesData() {
 export async function getTestimonials() {
   try {
 
-    if (testimonials != '') {
-      return testimonials;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=testimonials`, {
       cache: "no-store", // ensures fresh data
     });
@@ -369,7 +275,6 @@ export async function getTestimonials() {
 
     const data = await res.json();
 
-    testimonials = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -380,10 +285,6 @@ export async function getTestimonials() {
 export async function getDigitalMarketingData() {
   try {
 
-    if (testimonials != '') {
-      return testimonials;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=digital-marketing`, {
       cache: "no-store", // ensures fresh data
     });
@@ -393,7 +294,6 @@ export async function getDigitalMarketingData() {
 
     const data = await res.json();
 
-    testimonials = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -404,10 +304,6 @@ export async function getDigitalMarketingData() {
 export async function getSideBarData() {
   try {
 
-    if (sidebar != '') {
-      return sidebar;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=sidebar`, {
       cache: "no-store", // ensures fresh data
     });
@@ -417,7 +313,6 @@ export async function getSideBarData() {
 
     const data = await res.json();
 
-    sidebar = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -428,10 +323,6 @@ export async function getSideBarData() {
 export async function getQuotesData() {
   try {
 
-    if (quotes != '') {
-      return quotes;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=quotes-from-team`, {
       cache: "no-store", // ensures fresh data
     });
@@ -441,7 +332,6 @@ export async function getQuotesData() {
 
     const data = await res.json();
 
-    quotes = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -452,10 +342,6 @@ export async function getQuotesData() {
 export async function getJobsData() {
   try {
 
-    if (jobs != '') {
-      return jobs;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=jobs`, {
       cache: "no-store", // ensures fresh data
     });
@@ -465,7 +351,6 @@ export async function getJobsData() {
 
     const data = await res.json();
 
-    jobs = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
@@ -500,10 +385,6 @@ export async function getJobsFormData() {
 export async function getContactData() {
   try {
 
-    if (contactUs != '') {
-      return contactUs;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=contact-us`, {
       cache: "no-store", // ensures fresh data
     });
@@ -513,7 +394,6 @@ export async function getContactData() {
 
     const data = await res.json();
 
-    contactUs = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);
