@@ -37,7 +37,7 @@ export default function SideBar({ sideBarData, lang }) {
       <div className="md:hidden">
         <button
           onClick={() => setOpen(!open)}
-          className="w-full flex justify-between items-center md:px-2 py-3  text-white font-medium rounded-md"
+          className="w-full flex justify-between items-center md:px-2 py-1  text-white font-medium rounded-md"
         >
           <span>{selected?.name}</span>
           <span className="text-sm">{open ? '−' : '+'}</span>

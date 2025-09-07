@@ -4,13 +4,24 @@ import Image from "next/image";
 import Link from 'next/link';
 import ContactForm from '@/components/ContactForm';
 import Whatsapp from "@/components/Whatsapp";
+import { getContactData } from "@/constant/ContentApi";
+
+import { cookies } from "next/headers";
 
 export const metadata = {
     title: "Contact us - Aerialink Inc",
     description: "Contact us - Aerialink Inc",
 };
 
-export default function ContactPage({ imageUrl, title, text }) {
+export default async function ContactPage({ imageUrl, title, text }) {
+
+    const cookieStore = await cookies();
+    const lang = cookieStore.get("lang")?.value ?? 'en';
+    const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+    const apiData = await getContactData();
+
+    console.log({apiData})
+
     return (
         <>
             <div className="hero-section contact flex-col">
@@ -32,7 +43,7 @@ export default function ContactPage({ imageUrl, title, text }) {
                             </li>
                             <li className="flex items-center gap-2.5 md:gap-5">
                                 <div className="bg-white rounded-full px-2.5 py-2"><Image alt="icon" src="/icons/address.png" width={25} height={25}></Image></div>
-                                <Link href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target="_blank" className="flex items-center  gap-5 custom-shaodw !w-[80%] md:w-[90%]">6E-02, 6-9 Koyochonaka, Higashinadaku, Kobe  Hyogo 658-0032 Japan</Link>
+                                <Link href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target="_blank" className="flex items-center  gap-5 custom-shaodw !w-[80%] md:w-[90%]">{apiData?.content?.address?.[lang] || "6E-02, 6-9 Koyochonaka, Higashinadaku, Kobe  Hyogo 658-0032 Japan"}</Link>
                             </li>
                         </ul>
 
@@ -57,8 +68,8 @@ export default function ContactPage({ imageUrl, title, text }) {
                 </div>
             </div>
             <div className="contactForm whyChooseUsCardContents">
-                <h3 className="pb-3 text-[20px] md:text-3xl font-bold text-center">Inquiry Form</h3>
-                <ContactForm />
+                <h3 className="pb-3 text-[20px] md:text-3xl font-bold text-center">{apiData?.content?.inquiry_form_heading?.[lang] || "Inquiry Form"}</h3>
+                <ContactForm apiData={apiData} lang={lang}/>
             </div>
             <Whatsapp />
         </>

@@ -53,7 +53,8 @@
 
   }
 
-  .buttons-wrapper a, .button {
+  .buttons-wrapper a,
+  .button {
     font-size: 12px !important;
     min-width: max-content !important;
     padding: 5px 10px;
@@ -91,8 +92,13 @@
       margin-top: 10px;
     }
 
-    .whyChooseUsHeading h2, .is-heading h2, .ServicesCardsHeading h2, .StillThinkingMainWrapper h2,
-    .stContent p.heading-1, .is-heading h3, .is-heading h4 {
+    .whyChooseUsHeading h2,
+    .is-heading h2,
+    .ServicesCardsHeading h2,
+    .StillThinkingMainWrapper h2,
+    .stContent p.heading-1,
+    .is-heading h3,
+    .is-heading h4 {
       font-size: 20px !important;
     }
 
@@ -227,9 +233,12 @@
   .coreValues {
     .cardWrappers {
       gap: 1rem !important;
+      margin-bottom: 2%;
 
       .service-card-wrap {
-        width: 100% !important;
+        width: 102% !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
       }
     }
   }
@@ -283,7 +292,7 @@
 
 
   .coreValues .aboutCoreval {
-    margin-bottom: 0 !important;
+    margin-bottom: -4% !important;
   }
 
   .missionVission .whyChooseUsCardContents {
@@ -295,7 +304,8 @@
   }
 
   .missionVission .whyChooseUsCardContents p {
-    padding-left: 0 !important;
+    padding-left: 5px !important;
+    padding: 5px !important;
   }
 
   .whyChooseUsCardContents {
@@ -409,11 +419,13 @@
 
   .singleSerivce {
 
-    h3, h4 {
+    h3,
+    h4 {
       font-size: 20px !important;
     }
 
-    p, .duoColumns p {
+    p,
+    .duoColumns p {
       font-size: 12px !important;
     }
 
@@ -431,7 +443,8 @@
 
     .duoColumns h3,
     .duoColumns h4,
-    .scene span, .bottombox span,
+    .scene span,
+    .bottombox span,
     .mobileLinks a {
       font-size: 14px !important;
     }
@@ -472,12 +485,16 @@
 
   .roundSvg {
     width: 100% !important;
-    max-width: 80% !important;
-    left: 17px !important;
+    max-width: 100% !important;
+    left: unset !important;
+  }
+
+  .middleCircleWrap .shape img {
+    height: 58px !important;
   }
 
   .centerIcon img {
-    width: 50px !important;
+    width: 35px !important;
   }
 
   /* footerWrapper */
@@ -508,7 +525,7 @@
   }
 
   .coreValues .aboutCoreval .description {
-    font-size: 14px !important;
+    font-size: 12px !important;
   }
 
   .aboutCoreval img {
@@ -639,12 +656,39 @@
     margin-top: 0 !important;
   }
 
-  .detailedJobPg p, .detailedJobPg span, .detailedJobPg p strong, .detailedJobPg label, .detailedJobPg li {
+  .detailedJobPg p,
+  .detailedJobPg span,
+  .detailedJobPg p strong,
+  .detailedJobPg label,
+  .detailedJobPg li {
     font-size: 12px !important;
   }
 
   .detailedJobPg .checkmark {
     top: 0px;
+  }
+
+  .CircleWrapper .circlebox span {
+    max-width: 85px !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .CircleWrapper .middleCircleWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .CustomCoreVal2 {
+    margin-left: -2% !important;
+  }
+
+  .hero-section-about h1 {
+    font-size: 16px;
+    margin-top: -62px;
+    text-align: center;
+    width: 100%;
   }
 
   /* media query end */
@@ -710,7 +754,8 @@
 
   }
 
-  .buttons-wrapper a, .button {
+  .buttons-wrapper a,
+  .button {
     font-size: 12px !important;
     min-width: max-content !important;
     padding: 5px 10px;
@@ -748,8 +793,13 @@
       margin-top: 10px;
     }
 
-    .whyChooseUsHeading h2, .is-heading h2, .ServicesCardsHeading h2, .StillThinkingMainWrapper h2,
-    .stContent p.heading-1, .is-heading h3, .is-heading h4 {
+    .whyChooseUsHeading h2,
+    .is-heading h2,
+    .ServicesCardsHeading h2,
+    .StillThinkingMainWrapper h2,
+    .stContent p.heading-1,
+    .is-heading h3,
+    .is-heading h4 {
       font-size: 20px !important;
     }
 
@@ -1066,11 +1116,13 @@
 
   .singleSerivce {
 
-    h3, h4 {
+    h3,
+    h4 {
       font-size: 20px !important;
     }
 
-    p, .duoColumns p {
+    p,
+    .duoColumns p {
       font-size: 12px !important;
     }
 
@@ -1088,7 +1140,8 @@
 
     .duoColumns h3,
     .duoColumns h4,
-    .scene span, .bottombox span,
+    .scene span,
+    .bottombox span,
     .mobileLinks a {
       font-size: 14px !important;
     }
@@ -1127,10 +1180,21 @@
     }
   }
 
+
+  .CircleWrapper .middleCircleWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .roundSvg {
     width: 100% !important;
-    max-width: 80% !important;
-    left: 17px !important;
+    max-width: 100% !important;
+    left: unset !important;
+  }
+
+  .middleCircleWrap .shape img {
+    height: 152px !important;
   }
 
   .centerIcon img {
@@ -1280,6 +1344,13 @@
     100% {
       transform: scaleX(0);
     }
+  }
+
+  .hero-section-about h1 {
+    font-size: 32px;
+    margin-top: -88px;
+    text-align: center;
+    width: 100%;
   }
 
   /* media query end */

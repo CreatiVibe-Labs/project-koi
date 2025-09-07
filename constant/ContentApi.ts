@@ -6,6 +6,7 @@ let headerData = '',
   organizationData = '',
   jobs = '',
   ServicesPageData = '',
+  contactUs = '',
   quotes = '',
   jobForm = '',
   testimonials = '',
@@ -489,6 +490,30 @@ export async function getJobsFormData() {
     const data = await res.json();
 
     jobForm = data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getContactData() {
+  try {
+
+    if (contactUs != '') {
+      return contactUs;
+    }
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=contact-us`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+
+    contactUs = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);

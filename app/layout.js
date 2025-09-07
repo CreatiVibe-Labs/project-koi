@@ -41,7 +41,7 @@ export default async function RootLayout({ children }) {
           <div className="transition-opacity duration-700 opacity-100 background-image"
             style={{
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundPosition: 'center top',
               width: '100%',
               height: '100vh',
               overflow: 'hidden',

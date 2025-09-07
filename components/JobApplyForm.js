@@ -606,7 +606,7 @@ export default function JobApplyForm({ params, lang, ASSETS_URL, apiData, jobs, 
                         </div>
                         {status && (
                             <p
-                                className={`mt-3 !font-semibold ${status.type === "success" ? "text-[#FF5F1F]" : "text-red-600"
+                                className={`text-2xl mt-3 !font-semibold ${status.type === "success" ? "text-[#FF5F1F]" : "text-red-600"
                                     }`}
                             >
                                 {status.msg}
