@@ -58,7 +58,7 @@ export default async function CustomAppDevelopment() {
                                 {apiData?.content?.lets_build_yours_description?.[lang] || "Whether you need an internal tool, a customer portal, or a full-scale SaaS platform, we’re here to turn your ideas into powerful, working software."}
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href={CalendlyLink}>{apiData?.content?.lets_build_yours_button?.[lang] || "Book a Free Consultation"}</Link>
+                                <Link href="https://calendly.com/dashboard-aerialink/app-design" target='_blank'>{apiData?.content?.lets_build_yours_button?.[lang] || "Book a Free Consultation"}</Link>
                             </div>
                         </div>
                     </div>
