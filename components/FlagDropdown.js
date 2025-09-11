@@ -25,7 +25,7 @@ const flags = [
   },
 ];
 
-export default function FlagDropdown() {
+export default function FlagDropdown({ IP }) {
 
   const router = useRouter();
 
@@ -42,6 +42,24 @@ export default function FlagDropdown() {
       const matchedFlag = flags.find((f) => f.code === cookieValue);
       if (matchedFlag) setSelected(matchedFlag);
     }
+
+    let country = IP.country;
+
+    let defaultLang = "en"; // fallback English
+
+    if (country === "Japan") {
+      defaultLang = "ja";
+    } else if (
+      ["Taiwan", "Macau", "China"].includes(country)
+    ) {
+      defaultLang = "zh";
+    } else {
+      defaultLang = "en"; // all others (including Hong Kong)
+    }
+
+    const matchedFlagWithIP = flags.find(flag => flag.code === defaultLang);
+
+    handleSelect(matchedFlagWithIP);
   }, []);
 
   const toggleDropdown = () => setOpen((prev) => !prev);
