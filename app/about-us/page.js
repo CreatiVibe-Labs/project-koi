@@ -5,7 +5,7 @@ import ReviewSlider from '@/components/ReviewSlider';
 import Jobs from '@/components/Jobs';
 import Organizationstructure from "@/components/Organizationstructure";
 import { cookies } from "next/headers";
-import { getAboutPageData, getOrganizationData, getQuotesData, getJobsData } from "@/constant/ContentApi";
+import { getAboutPageData, getOrganizationData, getQuotesData, getJobsData, getServicesPageData } from "@/constant/ContentApi";
 
 export const metadata = {
     title: "About us - Aerialink Inc",
@@ -21,6 +21,7 @@ export default async function AboutUs() {
     const organizationData = await getOrganizationData();
     const quotesData = await getQuotesData();
     const jobsData = await getJobsData();
+    const serviceApiData = await getServicesPageData();
 
     const quotes = quotesData?.content?.testimonials?.map((t) => ({
         name: t.name?.[lang] || "",
@@ -162,7 +163,7 @@ export default async function AboutUs() {
                         {apiData?.content?.cta_section_heading?.[lang] || "Passionate people, bold ideas"}
                     </p>
                     <div className="buttons-wrapper">
-                        <Link href="mailto:inquiry@aerialink.jp">{apiData?.content?.cta_section_button?.[lang] || "Contact Our Team"}</Link>
+                        <Link href={serviceApiData?.content?.about_us_cta?.en || "#"}>{apiData?.content?.cta_section_button?.[lang] || "Contact Our Team"}</Link>
                     </div>
                 </div>
             </div>

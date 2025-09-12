@@ -7,7 +7,7 @@ import SliderCards from '@/components/sliders/SliderCards';
 import { CalendlyLink } from '@/constant/constants';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getAIPoweredData, getSideBarData } from "@/constant/ContentApi";
+import { getAIPoweredData, getSideBarData, getServicesPageData } from "@/constant/ContentApi";
 
 import { cookies } from "next/headers";
 
@@ -22,6 +22,7 @@ export default async function AiPoweredSolutions() {
     const lang = cookieStore.get("lang")?.value ?? 'en';
     const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
     const apiData = await getAIPoweredData();
+    const serviceApiData = await getServicesPageData();
 
     const sideBarData = await getSideBarData();
 
@@ -162,7 +163,7 @@ export default async function AiPoweredSolutions() {
                                 features={services}
                             />
                             <div className="buttons-wrapper">
-                                <Link href={CalendlyLink}>{apiData?.content?.AI_to_your_business_button?.[lang] || "Talk to an AI Consultant"}</Link>
+                                <Link href={serviceApiData?.content?.ai_powered_cta?.en || "#"}>{apiData?.content?.AI_to_your_business_button?.[lang] || "Talk to an AI Consultant"}</Link>
                             </div>
                         </div>
                     </div>

@@ -5,7 +5,7 @@ import SideBar from '@/components/Sidebar';
 import { CalendlyLink } from '@/constant/constants';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getItServicesData, getTestimonials, getSideBarData } from "@/constant/ContentApi";
+import { getItServicesData, getTestimonials, getSideBarData, getServicesPageData } from "@/constant/ContentApi";
 
 import { cookies } from "next/headers";
 
@@ -21,6 +21,8 @@ export default async function managedItServices() {
     const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
     const apiData = await getItServicesData();
     const testimonials = await getTestimonials();
+
+    const serviceApiData = await getServicesPageData();
 
     const sideBarData = await getSideBarData();
 
@@ -136,7 +138,7 @@ export default async function managedItServices() {
                                 {apiData?.content?.flexible_plans_description?.[lang] || "Choose a plan or customize your own. Pay only for what you need"}
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href={CalendlyLink}>{apiData?.content?.flexible_plans_button?.[lang] || "Request a Free Analysis"}</Link>
+                                <Link href={serviceApiData?.content?.it_service_cta?.en || "#"}>{apiData?.content?.flexible_plans_button?.[lang] || "Request a Free Analysis"}</Link>
                             </div>
                         </div>
                     </div>

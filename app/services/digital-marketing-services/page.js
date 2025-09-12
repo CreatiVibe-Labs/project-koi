@@ -11,7 +11,7 @@ import Platforms from '@/components/sliders/Platforms';
 import SliderCards from '@/components/sliders/SliderCards';
 import { CalendlyLink } from '@/constant/constants';
 
-import { getDigitalMarketingData, getSideBarData } from "@/constant/ContentApi";
+import { getDigitalMarketingData, getSideBarData, getServicesPageData } from "@/constant/ContentApi";
 
 import { cookies } from "next/headers";
 
@@ -28,6 +28,7 @@ export default async function DigitalMarketingServices() {
     const apiData = await getDigitalMarketingData();
     const sideBarData = await getSideBarData();
 
+    const serviceApiData = await getServicesPageData();
     const services = [
         {
             imageUrl: "/icons/adwords.png",
@@ -150,7 +151,7 @@ export default async function DigitalMarketingServices() {
                                 {apiData?.content?.cta_section_description?.[lang] || "We’ll help you generate qualified leads, boost your brand, and track every click. Whether you need a full-service marketing team or campaign-specific support, we’ll craft a strategy built around results."}
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href={CalendlyLink}>{apiData?.content?.cta_section_button?.[lang] || "Speak to a Strategist"}</Link>
+                                <Link href={serviceApiData?.content?.digital_marketing_cta?.en || "#"}>{apiData?.content?.cta_section_button?.[lang] || "Speak to a Strategist"}</Link>
                             </div>
                         </div>
                     </div>

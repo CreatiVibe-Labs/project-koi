@@ -14,6 +14,8 @@ export default async function Services() {
   const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
   const apiData = await getServicesPageData();
 
+  console.log({apiData})
+
   return (
     <MainServicePage lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData} />
   );

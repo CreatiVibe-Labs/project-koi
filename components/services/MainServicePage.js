@@ -14,7 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from 'swiper/modules';
 
 export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
-    
+
     const pathname = usePathname();
 
     useEffect(() => {
@@ -45,7 +45,7 @@ export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
                         </p>
                     </span>
                     <div className="buttons-wrapper md:!mt-[65px] mt-3">
-                        <Link href="#">{apiData?.content?.cta?.[lang] || "Talk to a Solutions Expert"}</Link>
+                        <Link href={apiData?.content?.service_cta_1?.en || "#"}>{apiData?.content?.cta?.[lang] || "Talk to a Solutions Expert"}</Link>
                     </div>
                 </div>
             </div>
@@ -86,8 +86,8 @@ export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
                         video={ASSETS_URL + apiData?.content?.video_service_4_video?.[lang] || "/videos/service_ai.mp4"}
                         Button={apiData?.content?.service_4_button?.[lang] || "Learn More"}
                         LinkURL="/services/ai-powered-solutions/"
-                        Heading={apiData?.content?.service_4_heading?.[lang] || "AI Powered Solutions & Machine Learning/" }
-                        Description={apiData?.content?.service_4_description?.[lang] || "From predictive analytics to custom ML model training — harness the power of AI to drive smarter decisions." }
+                        Heading={apiData?.content?.service_4_heading?.[lang] || "AI Powered Solutions & Machine Learning/"}
+                        Description={apiData?.content?.service_4_description?.[lang] || "From predictive analytics to custom ML model training — harness the power of AI to drive smarter decisions."}
                     />
                     <MainServicesCard
                         Icon="/icons/it-services.png"
@@ -303,8 +303,8 @@ export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
                         {apiData?.content?.title?.[lang] || "Ready to Streamline Your IT Operations?"}
                     </p>
                     <div className="buttons-wrapper ga">
-                        <Link href="#">{apiData?.content?.cta_1?.[lang] || "Contact Us"}</Link>
-                        <Link href="#">{apiData?.content?.cta_2?.[lang] || "Schedule an Assessment"}</Link>
+                        <Link href={apiData?.content?.service_cta_2?.en || "#"}>{apiData?.content?.cta_1?.[lang] || "Contact Us"}</Link>
+                        <Link href={apiData?.content?.service_cta_3?.en || "#"}>{apiData?.content?.cta_2?.[lang] || "Schedule an Assessment"}</Link>
                     </div>
                 </div>
             </div>

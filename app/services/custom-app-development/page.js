@@ -2,7 +2,7 @@ import AppFeatureHigh from '@/components/sliders/AppFeatureHigh';
 import SideBar from '@/components/Sidebar';
 import Link from 'next/link';
 import { CalendlyLink } from '@/constant/constants';
-import { getAppDevData, getSideBarData } from '@/constant/ContentApi';
+import { getAppDevData, getSideBarData, getServicesPageData } from '@/constant/ContentApi';
 import { cookies } from "next/headers";
 
 export const metadata = {
@@ -17,6 +17,8 @@ export default async function CustomAppDevelopment() {
     const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
     const apiData = await getAppDevData();
     const sideBarData = await getSideBarData();
+
+    const serviceApiData = await getServicesPageData();
 
     return (
         <div>
@@ -58,7 +60,7 @@ export default async function CustomAppDevelopment() {
                                 {apiData?.content?.lets_build_yours_description?.[lang] || "Whether you need an internal tool, a customer portal, or a full-scale SaaS platform, we’re here to turn your ideas into powerful, working software."}
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href="https://calendly.com/dashboard-aerialink/app-design" target='_blank'>{apiData?.content?.lets_build_yours_button?.[lang] || "Book a Free Consultation"}</Link>
+                                <Link href={serviceApiData?.content?.app_dev_cta?.en || "#"} target='_blank'>{apiData?.content?.lets_build_yours_button?.[lang] || "Book a Free Consultation"}</Link>
                             </div>
                         </div>
                     </div>

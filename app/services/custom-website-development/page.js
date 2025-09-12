@@ -5,7 +5,7 @@ import WebTypesWebsite from '@/components/sliders/WebTypesWebsite';
 import WebWebsite from '@/components/sliders/WebWebsite';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getWebDevData, getSideBarData } from '@/constant/ContentApi';
+import { getWebDevData, getSideBarData, getServicesPageData } from '@/constant/ContentApi';
 import { cookies } from "next/headers";
 import { CalendlyLink } from '@/constant/constants';
 
@@ -21,6 +21,7 @@ export default async function CustomWebsiteDevelopment() {
     const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
     const apiData = await getWebDevData();
 
+    const serviceApiData = await getServicesPageData();
     const sideBarData = await getSideBarData();
 
     return (
@@ -81,7 +82,7 @@ export default async function CustomWebsiteDevelopment() {
                                 {apiData?.content?.your_project_start_here_description?.[lang] || "Whether you're starting from scratch or rebuilding with purpose, we’ll help you create a site that not only looks great — it performs where it counts."}
                             </p>
                             <div className="buttons-wrapper">
-                                <Link href={CalendlyLink}>{apiData?.content?.your_project_start_here_button?.[lang] || "Get a Free Website Audit"}</Link>
+                                <Link href={serviceApiData?.content?.web_dev_cta?.en || "#"}>{apiData?.content?.your_project_start_here_button?.[lang] || "Get a Free Website Audit"}</Link>
                             </div>
                         </div>
                     </div>

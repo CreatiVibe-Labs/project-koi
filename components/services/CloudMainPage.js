@@ -9,13 +9,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2, sideBarData}) {
+export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2, sideBarData, serviceApiData}) {
 
     const [activeTab, setActiveTab] = useState('Cloud Migration');
 
     const tabs = [
-        { name: apiData?.content?.cloud_migration_tab?.[lang] || 'Cloud Migration', content: <CloudMigration lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData}/>, icon: '/icons/migration.png' },
-        { name: apiData?.content?.cloud_storage_tab?.[lang] || 'Cloud Storage', content: <CloudStorage lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData2}/>, icon: '/icons/cloud.png' },
+        { name: apiData?.content?.cloud_migration_tab?.[lang] || 'Cloud Migration', content: <CloudMigration lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData} serviceApiData={serviceApiData}/>, icon: '/icons/migration.png' },
+        { name: apiData?.content?.cloud_storage_tab?.[lang] || 'Cloud Storage', content: <CloudStorage lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData2} serviceApiData={serviceApiData}/>, icon: '/icons/cloud.png' },
     ];
     return (
         <div className='pageWrapper'>

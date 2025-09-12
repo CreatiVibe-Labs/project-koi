@@ -6,7 +6,7 @@ import SliderCards from '@/components/sliders/SliderCards';
 import { CalendlyLink } from '@/constant/constants';
 
 
-export default function CloudMigration({ lang, ASSETS_URL, apiData }) {
+export default function CloudMigration({ lang, ASSETS_URL, apiData, serviceApiData }) {
 
     const [isReverse, setIsReverse] = useState(false);
 
@@ -208,7 +208,7 @@ export default function CloudMigration({ lang, ASSETS_URL, apiData }) {
                         {apiData?.content?.cta_section_description?.[lang] || "Contact us to schedule a consultation and begin your cloud migration journey."}
                     </p>
                     <div className="buttons-wrapper">
-                        <Link href={CalendlyLink} target='_blank'>{apiData?.content?.cta_section_button?.[lang] || "Start a Free Review"}</Link>
+                        <Link href={serviceApiData?.content?.cloud_migration_cta?.en || "#"} target='_blank'>{apiData?.content?.cta_section_button?.[lang] || "Start a Free Review"}</Link>
                     </div>
                 </div>
             </div>
