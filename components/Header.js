@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import FlagDropdown from '@/components/FlagDropdown';
 
-export default function Header({ lang, ASSETS_URL, apiData, IP }) {
+export default function Header({ lang, ASSETS_URL, apiData }) {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -142,7 +142,7 @@ export default function Header({ lang, ASSETS_URL, apiData, IP }) {
               />
             </div> */}
               <div className='LangWrapper'>
-                <FlagDropdown IP={IP} />
+                <FlagDropdown />
               </div>
               {/* Hamburger Menu */}
               <button className="md:hidden focus:outline-none" onClick={() => setMenuOpen(!menuOpen)} >

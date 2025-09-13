@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from "next/navigation";
+import { getIP } from '@/constant/ContentApi';
 
 const flags = [
   {
@@ -25,42 +26,104 @@ const flags = [
   },
 ];
 
-export default function FlagDropdown({ IP }) {
+export default function FlagDropdown() {
 
   const router = useRouter();
 
   const [selected, setSelected] = useState(flags[0]);
   const [open, setOpen] = useState(false);
 
+  // useEffect(() => {
+  //   const cookieValue = document.cookie
+  //     .split("; ")
+  //     .find((row) => row.startsWith("lang="))
+  //     ?.split("=")[1];
+
+  //   if (cookieValue) {
+  //     const matchedFlag = flags.find((f) => f.code === cookieValue);
+  //     if (matchedFlag) setSelected(matchedFlag);
+  //   }
+
+  //   // let country = IP.country;
+
+  //   let defaultLang = "en"; // fallback English
+
+  //   if (country === "Japan") {
+  //     defaultLang = "ja";
+  //   } else if (
+  //     ["Taiwan", "Macau", "China"].includes(country)
+  //   ) {
+  //     defaultLang = "zh";
+  //   } else {
+  //     defaultLang = "en"; // all others (including Hong Kong)
+  //   }
+
+  //   const matchedFlagWithIP = flags.find(flag => flag.code === defaultLang);
+
+  //   handleSelect(matchedFlagWithIP);
+  // }, []);
+
   useEffect(() => {
-    const cookieValue = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("lang="))
-      ?.split("=")[1];
+    let mounted = true;
 
-    if (cookieValue) {
-      const matchedFlag = flags.find((f) => f.code === cookieValue);
-      if (matchedFlag) setSelected(matchedFlag);
-    }
+    (async () => {
+      try {
+        // 1) check cookie first
+        const cookieValue = document.cookie
+          .split("; ")
+          .find((row) => row.startsWith("lang="))
+          ?.split("=")[1];
 
-    let country = IP.country;
+        if (cookieValue) {
+          const matchedFlag = flags.find((f) => f.code === cookieValue);
+          if (matchedFlag && mounted) {
+            setSelected(matchedFlag);
+            handleSelect(matchedFlag);
+            return; // cookie wins — stop further geo checks
+          }
+        }
 
-    let defaultLang = "en"; // fallback English
+        // 2) fetch public IP
+        const ipRes = await fetch("https://api.ipify.org?format=json", { cache: "no-store" });
+        if (!ipRes.ok) throw new Error("Failed to fetch IP");
+        const ipJson = await ipRes.json();
+        const ip = ipJson.ip;
 
-    if (country === "Japan") {
-      defaultLang = "ja";
-    } else if (
-      ["Taiwan", "Macau", "China"].includes(country)
-    ) {
-      defaultLang = "zh";
-    } else {
-      defaultLang = "en"; // all others (including Hong Kong)
-    }
+        let apiData = await getIP(ip);
 
-    const matchedFlagWithIP = flags.find(flag => flag.code === defaultLang);
+        let country = apiData.country;
 
-    handleSelect(matchedFlagWithIP);
-  }, []);
+        // 4) determine default language from country
+        let defaultLang = "en"; // fallback English
+        if (country === "Japan") {
+          defaultLang = "ja";
+        } else if (["Taiwan", "Macau", "China"].includes(country)) {
+          defaultLang = "zh";
+        } else {
+          defaultLang = "en";
+        }
+
+        const matchedFlagWithIP = flags.find((f) => f.code === defaultLang);
+        console.log({ matchedFlagWithIP })
+        if (matchedFlagWithIP && mounted) {
+          setSelected(matchedFlagWithIP);
+          handleSelect(matchedFlagWithIP);
+        }
+      } catch (err) {
+        // graceful fallback: set English if nothing else works
+        console.error("Language/Geo detection failed:", err);
+        const fallback = flags.find((f) => f.code === "en");
+        if (fallback && mounted) {
+          setSelected(fallback);
+          handleSelect(fallback);
+        }
+      }
+    })();
+
+    return () => {
+      mounted = false;
+    };
+  }, []); // run once
 
   const toggleDropdown = () => setOpen((prev) => !prev);
 

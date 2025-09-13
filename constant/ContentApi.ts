@@ -401,10 +401,10 @@ export async function getContactData() {
   }
 }
 
-export async function getIP() {
+export async function getIP(ip) {
   try {
-
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-ip`, {
+    
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-ip?ip=${ip}`, {
       cache: "no-store", // ensures fresh data
     });
 
