@@ -743,8 +743,10 @@
     font-size: 16px !important;
   }
 
-  .StillThinkingMainWrapper {
-    margin-top: 0 !important;
+  .StillThinkingMainWrapper,
+  .industriesServeMainWrapper,
+  .homeWhyChooseUS {
+    margin-top: 20px !important;
   }
 
   .servicePageWrapper {
