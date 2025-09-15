@@ -11,7 +11,7 @@ export default function WhyChooseUsCardComponent({
   description,
 }) {
   return (
-    <div className="service-card-wrap border rounded-lg p-0 md:p-4 shadow-md">
+    <div className="service-card-wrap border rounded-lg p-0 lg:p-4 md:p-2 shadow-md">
         <div>
             <div className='ImageWrapper'>
                 <Image src={imageUrl} alt="Card Image" width={400} height={250} className="lg:rounded rounded-0 mb-0 md:mb-4" />

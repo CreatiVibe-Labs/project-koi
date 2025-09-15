@@ -150,7 +150,7 @@ export default function FlagDropdown() {
 
       {/* Dropdown */}
       {open && (
-        <div className="absolute mt-2 w-12 gradient-background border rounded shadow z-10 md:left-0 -left-1.5">
+        <div className="absolute mt-2 w-12 gradient-background border rounded shadow z-10 lg:left-0 md:-left-1 -left-1.5">
           {flags
             .filter((flag) => flag.code !== selected.code)
             .map((flag) => (

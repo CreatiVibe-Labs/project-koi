@@ -98,7 +98,7 @@ export default async function AboutUs() {
                     {/* <div className="whyChooseUsHeading gradient-background"><h2>Mission</h2></div> */}
                     <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none  !rounded-[30px]">
                         <div className="cardWrappers">
-                            <p className="text-xs lg:text-lg md:text[1rem] !font-medium pl-5">
+                            <p className="lg:text-lg md:text-lg text-xs !font-medium pl-5">
                                 {apiData?.content?.mission_before_bold?.[lang] || "We’re on a"} <b className="bold-text text-[#98c1a9]">{apiData?.content?.mission_bold?.[lang] || "mission"}</b> {apiData?.content?.mission_after_bold?.[lang] || "to reshape the way people interact with technology. By combining cutting-edge innovation with user-centered design, we build products that simplify, connect, and empower — making life and work smarter, not harder."}
                             </p>
                         </div>
@@ -108,7 +108,7 @@ export default async function AboutUs() {
                     {/* <div className="whyChooseUsHeading gradient-background"><h2>Vision</h2></div> */}
                     <div className="whyChooseUsCardContents gradient-background !backdrop-blur-none pl-0 md:!pl-[30px]  !rounded-[30px]">
                         <div className="cardWrappers">
-                            <p className="text-xs lg:text-lg md:text[1rem] !font-medium pl-1+0">
+                            <p className="lg:text-lg md:text-lg text-xs !font-medium pl-1+0">
                                 {apiData?.content?.vision_before_bold?.[lang] || "We en"}<b className="bold-text text-[#98c1a9]">{apiData?.content?.vision_bold?.[lang] || "vision"}</b> {apiData?.content?.vision_after_bold?.[lang] || "a world where technology enhances every human experience — seamless, intuitive, and inclusive. Our goal is to pioneer bold ideas that shape the future and empower people to thrive in a connected world."}
                             </p>
                         </div>
