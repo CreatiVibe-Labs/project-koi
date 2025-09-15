@@ -134,7 +134,7 @@ export default async function managedItServices() {
                             <h4 className='font-bold text-[26px]'>{apiData?.content?.flexible_plans_heading?.[lang] || "Flexible Plans That Fit Your Business — Let’s Make IT Your Advantage"}</h4>
                         </div>
                         <div className="isContent">
-                            <p className="content !font-medium">
+                            <p className="content !font-medium lg:text-start text-center">
                                 {apiData?.content?.flexible_plans_description?.[lang] || "Choose a plan or customize your own. Pay only for what you need"}
                             </p>
                             <div className="buttons-wrapper">

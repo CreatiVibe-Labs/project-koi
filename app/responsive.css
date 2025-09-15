@@ -755,6 +755,7 @@
   .sideBarWrapper {
     width: 100% !important;
     position: relative !important;
+    margin-bottom: 1rem;
   }
 
 
@@ -785,11 +786,13 @@
     height: 220px !important;
   }
 
-  .cmsWork .techIcon .service-card-wrap,
-  .aiPoweredSolutions .industry-Specific .service-card-wrap {
-    height: 110px !important;
+  .cmsWork .techIcon .service-card-wrap {
+    height: 120px !important;
   }
 
+  .aiPoweredSolutions .industry-Specific .service-card-wrap {
+    height: 140px !important;
+  }
 
   .digitalMarketingServices .service-card-wrap {
     height: 240px !important;
@@ -802,6 +805,10 @@
   .cmsWork .techIcon {
     flex-wrap: nowrap;
     margin-bottom: 3rem;
+  }
+
+  .cmsWork .image-button-wrap {
+    margin-bottom: 0 !important;
   }
 
   .featuresHighlight .service-card-wrap img {
@@ -957,8 +964,13 @@
 
   .button, .buttons-wrapper a {
     font-size: 14px !important;
-    min-width: max-content !important;
+    min-width: 220px !important;
     padding: 5px 10px;
+  }
+
+  .homeBanner .button,
+  .homeBanner .buttons-wrapper a {
+    min-width: max-content !important;
   }
 
   .image-button-wrap a {

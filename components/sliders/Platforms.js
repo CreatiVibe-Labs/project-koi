@@ -37,7 +37,7 @@ export default function Platforms({ features }) {
                         modules={[Pagination, Navigation]}
                         breakpoints={{
                             768: {
-                                slidesPerView: 5,    // tablet & desktop → 3 slides
+                                slidesPerView: 4,    // tablet & desktop → 3 slides
                             },
                             426: {
                                 slidesPerView: 3.5,    // tablet (426–1023px) → 3 slides

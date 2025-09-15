@@ -56,7 +56,7 @@ export default async function CustomAppDevelopment() {
                     <div className="industriesServeMainWrapper letsBuildToghether">
                         <div className="is-heading gradient-background"><h3>{apiData?.content?.lets_build_yours_heading?.[lang] || "Let’s Build Yours"}</h3></div>
                         <div className="isContent">
-                            <p className="content !font-medium">
+                            <p className="content !font-medium lg:text-start text-center">
                                 {apiData?.content?.lets_build_yours_description?.[lang] || "Whether you need an internal tool, a customer portal, or a full-scale SaaS platform, we’re here to turn your ideas into powerful, working software."}
                             </p>
                             <div className="buttons-wrapper">

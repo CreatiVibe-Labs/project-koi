@@ -156,7 +156,7 @@ export default async function AiPoweredSolutions() {
                     <div className="industriesServeMainWrapper ai-cta letsBuildToghether featuresHighlight cmsWork">
                         <div className="is-heading gradient-background"><h3>{apiData?.content?.AI_to_your_business_heading?.[lang] || "Bring AI to Your Business — On Your Terms"}</h3></div>
                         <div className="isContent">
-                            <p className="content !font-medium">
+                            <p className="content !font-medium lg:text-start text-center">
                                 {apiData?.content?.AI_to_your_business_description?.[lang] || "Whether you’re just starting with AI or ready to scale a solution, we design around your data, goals, and industry."}
                             </p>
                             <Platforms

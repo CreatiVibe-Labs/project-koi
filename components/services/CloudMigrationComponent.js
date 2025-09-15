@@ -204,7 +204,7 @@ export default function CloudMigration({ lang, ASSETS_URL, apiData, serviceApiDa
             </div>
             <div className="industriesServeMainWrapper letsBuildToghether">
                 <div className="isContent">
-                    <p className="content !font-medium">
+                    <p className="content !font-medium lg:text-start text-center">
                         {apiData?.content?.cta_section_description?.[lang] || "Contact us to schedule a consultation and begin your cloud migration journey."}
                     </p>
                     <div className="buttons-wrapper">

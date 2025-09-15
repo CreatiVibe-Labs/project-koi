@@ -78,7 +78,7 @@ export default async function CustomWebsiteDevelopment() {
                     <div className="industriesServeMainWrapper letsBuildToghether">
                         <div className="is-heading gradient-background"><h3>{apiData?.content?.your_project_start_here_heading?.[lang] || "Your Project Start Here"}</h3></div>
                         <div className="isContent">
-                            <p className="content !font-medium">
+                            <p className="content !font-medium lg:text-start text-center">
                                 {apiData?.content?.your_project_start_here_description?.[lang] || "Whether you're starting from scratch or rebuilding with purpose, we’ll help you create a site that not only looks great — it performs where it counts."}
                             </p>
                             <div className="buttons-wrapper">

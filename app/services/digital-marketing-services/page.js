@@ -147,7 +147,7 @@ export default async function DigitalMarketingServices() {
                     <div className="industriesServeMainWrapper letsBuildToghether">
                         <div className="is-heading gradient-background"><h3>{apiData?.content?.cta_section_heading?.[lang] || "Let’s Build a Digital Marketing Strategy That Works"}</h3></div>
                         <div className="isContent">
-                            <p className="content !font-medium">
+                            <p className="content !font-medium lg:text-start text-center">
                                 {apiData?.content?.cta_section_description?.[lang] || "We’ll help you generate qualified leads, boost your brand, and track every click. Whether you need a full-service marketing team or campaign-specific support, we’ll craft a strategy built around results."}
                             </p>
                             <div className="buttons-wrapper">
