@@ -34,7 +34,7 @@ export default function SideBar({ sideBarData, lang }) {
   return (
     <div className="w-full">
       {/* Mobile Dropdown */}
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <button
           onClick={() => setOpen(!open)}
           className="w-full flex justify-between items-center md:px-2 py-1  text-white font-medium rounded-md"
@@ -64,7 +64,7 @@ export default function SideBar({ sideBarData, lang }) {
       </div>
 
       {/* Desktop Sidebar */}
-      <div className="hidden md:flex flex-col gap-2">
+      <div className="hidden lg:flex flex-col gap-2">
         {SideBarLinks.map((link) => (
           <Link
             key={link.href}

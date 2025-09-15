@@ -33,8 +33,8 @@ export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
             <div className="service-hero-section">
                 <div className="content-section">
                     <h1>{apiData?.content?.hero_section_heading?.[lang] || "Bridging Today’s Needs with Tomorrow’s Tech"}</h1>
-                    <p className="!font-medium !mt-8">{apiData?.content?.hero_section_description?.[lang] || "We design and build custom digital tools that align with your exact needs — from secure cloud migrations to purpose-built applications"}</p>
-                    <span className="2text-content md:!mt-6 mt-2">
+                    <p className="!font-medium lg:!mt-8 md:!mt-4">{apiData?.content?.hero_section_description?.[lang] || "We design and build custom digital tools that align with your exact needs — from secure cloud migrations to purpose-built applications"}</p>
+                    <span className="2text-content lg:!mt-6 mt-2">
                         <p className="white-text">
                             <Image alt="image" src="/icons/tick.png" width={20} height={10}></Image>
                             {apiData?.content?.icon_1?.[lang] || "SMEs friendly"}
@@ -44,7 +44,7 @@ export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
                             {apiData?.content?.icon_2?.[lang] || "Cost efficient"}
                         </p>
                     </span>
-                    <div className="buttons-wrapper md:!mt-[65px] mt-3">
+                    <div className="buttons-wrapper lg:!mt-[65px] md:mt-2 mt-3">
                         <Link href={apiData?.content?.service_cta_1?.en || "#"}>{apiData?.content?.cta?.[lang] || "Talk to a Solutions Expert"}</Link>
                     </div>
                 </div>
@@ -198,7 +198,7 @@ export default function MainServicePage({ lang, ASSETS_URL, apiData }) {
                             modules={[Pagination, Navigation]}
                             breakpoints={{
                                 768: {
-                                    slidesPerView: 6,    // tablet & desktop → 3 slides
+                                    slidesPerView: 5,    // tablet & desktop → 3 slides
                                 },
                                 426: {
                                     slidesPerView: 3.5,    // tablet (426–1023px) → 3 slides

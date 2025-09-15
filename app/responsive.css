@@ -598,6 +598,8 @@
     margin-bottom: -9rem;
   }
 
+
+
   .contactBg:before {
     background-position: bottom left;
     background-size: cover;
@@ -741,8 +743,78 @@
     font-size: 16px !important;
   }
 
+  .StillThinkingMainWrapper {
+    margin-top: 0 !important;
+  }
+
+  .servicePageWrapper {
+    flex-direction: column !important;
+  }
+
+  .serviceContentWrapper,
+  .sideBarWrapper {
+    width: 100% !important;
+    position: relative !important;
+  }
+
+
+
+
+
+
+  .customAppDevelopment .service-card-wrap,
+  .customWebsiteDevelopment .service-card-wrap {
+    height: 300px !important;
+    margin-bottom: 3rem !important;
+  }
+
+
+  .industriesServeMainWrapper2 .service-card-wrap {
+    height: 270px !important;
+  }
+
+  .pieChart .service-card-wrap {
+    height: fit-content !important;
+  }
+
+  .singleSerivce .featuresHighlight .service-card-wrap {
+    height: 200px;
+  }
+
+  .aiPoweredSolutions .service-card-wrap {
+    height: 220px !important;
+  }
+
+  .cmsWork .techIcon .service-card-wrap,
+  .aiPoweredSolutions .industry-Specific .service-card-wrap {
+    height: 110px !important;
+  }
+
+
+  .digitalMarketingServices .service-card-wrap {
+    height: 240px !important;
+  }
+
+  .cloudStorageTab .service-card-wrap {
+    height: 300px !important;
+  }
+
+  .cmsWork .techIcon {
+    flex-wrap: nowrap;
+    margin-bottom: 3rem;
+  }
+
+  .featuresHighlight .service-card-wrap img {
+    margin-top: 0 !important;
+  }
+
+  .serviceContentWrapper button img {
+    width: 60px !important;
+  }
+
   .content-wrapper {
     padding: 0 1rem;
+    margin: 110px auto 0 !important;
 
     .clock:before {
       width: 100px;
@@ -846,6 +918,32 @@
     font-size: 24px !important;
   }
 
+  .buttons-wrapper {
+    margin-top: 20px;
+  }
+
+  .service-hero-section {
+    background-size: 85% !important;
+  }
+
+  .ServicesCardsContent .mainWrapper {
+    border-radius: 50px 15px 15px !important;
+  }
+
+  .serviceContent .Icon {
+    margin-top: -55px;
+  }
+
+  .serviceContent .description {
+    margin-top: 0;
+  }
+
+  .howItWorksWrapper {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    transform: scale(0.6);
+  }
+
   .content-section h1 {
     font-size: 30px;
     line-height: normal;
@@ -903,11 +1001,7 @@
     border-radius: 0 !important;
   }
 
-  .howItWorksWrapper {
-    transform: scale(0.6);
-    margin-top: -7.5rem;
-    margin-bottom: -9rem;
-  }
+
 
 
   /* TABLET END*/

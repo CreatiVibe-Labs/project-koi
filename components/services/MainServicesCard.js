@@ -22,7 +22,7 @@ export default function MainServicesCard({
             <div className='serviceContent'>
 
                 <div className='Icon !w-full flex justify-end'>
-                    <Image src={Icon} width={6000} height={6000} alt="icon image" className='md:!w-[80px] md:h-full h-[50px] !w-[50px] '></Image>
+                    <Image src={Icon} width={6000} height={6000} alt="icon image" className='lg:!w-[80px] lg:h-full md:h-[60px] md:!w-[60px]  h-[50px] !w-[50px] '></Image>
                 </div>
                 <div className='heading !mt-0'>
                     <h5>{Heading}</h5>
