@@ -150,7 +150,7 @@ export default function Header({ lang, ASSETS_URL, apiData }) {
               </button>
             </div>
           </div>
-          <div className='mobileHeaderWrapper'>
+          {/* <div className='mobileHeaderWrapper'>
             {menuOpen && (
               <div className="md:hidden shadow-md px-4 py-4 space-y-2 h-lvh backdrop-blur-2xl">
                 {navLinks.map((link) => (
@@ -166,7 +166,6 @@ export default function Header({ lang, ASSETS_URL, apiData }) {
                     </div>
                   ) : (
                     <div key={link.href} className="relative nav_menu_wrapper">
-                      {/* Mobile Toggle for parent */}
                       <button
                         type="button"
                         onClick={() =>
@@ -178,7 +177,6 @@ export default function Header({ lang, ASSETS_URL, apiData }) {
                         <span>{mobileSubMenuOpen === link.href ? '−' : '+'}</span>
                       </button>
 
-                      {/* Submenu list */}
                       {mobileSubMenuOpen === link.href && (
                         <ul>
                           {link.subMenu.map((subLink) => {
@@ -203,8 +201,81 @@ export default function Header({ lang, ASSETS_URL, apiData }) {
                 ))}
               </div>
             )}
-          </div>
+          </div> */}
+          <div className="mobileHeaderWrapper">
+            {menuOpen && (
+              <div className="md:hidden shadow-md px-4 py-4 space-y-2 h-lvh backdrop-blur-2xl">
+                {navLinks.map((link) => {
+                  // check if we are on service page
+                  const isServicePage = pathname.startsWith("/services");
 
+                  if (!link.subMenu) {
+                    return (
+                      <div key={link.href} className="relative nav_menu_wrapper mt-4">
+                        <Link
+                          href={link.href}
+                          className={`text-white relative ${pathname === link.href ? "nav-menu active" : "nav-menu"
+                            }`}
+                          onClick={() => setMenuOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
+                      </div>
+                    );
+                  }
+
+                  // show submenu only if it's the Service page
+                  return (
+                    <div key={link.href} className="relative nav_menu_wrapper">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileSubMenuOpen(
+                            mobileSubMenuOpen === link.href ? null : link.href
+                          )
+                        }
+                        className={`my-4 w-full text-left flex justify-between items-center text-white ${pathname === link.href ? "nav-menu active" : "nav-menu"
+                          }`}
+                      >
+                        <Link href={link.href} className="!text-start">
+                          {link.name}
+                        </Link>
+                        {isServicePage && (
+                          <span>{mobileSubMenuOpen === link.href ? "−" : "+"}</span>
+                        )}
+                      </button>
+
+                      {isServicePage && mobileSubMenuOpen === link.href && (
+                        <ul>
+                          {link.subMenu.map((subLink) => {
+                            const finalLink = `${link.href}/${subLink.href.replace(
+                              /^\//,
+                              ""
+                            )}`;
+                            return (
+                              <li key={link.href + subLink.href} className="py-2">
+                                <Link
+                                  href={finalLink}
+                                  className={`text-white sub-nav-menu ${pathname === finalLink ? "active" : ""
+                                    }`}
+                                  onClick={() => {
+                                    setMenuOpen(false); // close full menu when submenu clicked
+                                    setMobileSubMenuOpen(null); // close submenu
+                                  }}
+                                >
+                                  {subLink.name}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
         </div>
       </header>
     </>
