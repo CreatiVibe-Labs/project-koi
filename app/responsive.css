@@ -116,7 +116,7 @@
     }
 
     .IndustriesWeServe li {
-      height: 110px !important;
+      height: 80px !important;
     }
 
     .description,
@@ -728,7 +728,7 @@
   }
 
   .content-wrapper .IndustriesWeServe li {
-    height: 110px !important;
+    height: 90px !important;
   }
 
   .contactForm {
@@ -760,20 +760,22 @@
     margin-bottom: 1rem;
   }
 
+  .customAppDevelopment .service-card-wrap {
+    height: 260px !important;
+  }
 
-
-
-
-
-  .customAppDevelopment .service-card-wrap,
   .customWebsiteDevelopment .service-card-wrap {
-    height: 300px !important;
+    height: 260px !important;
     margin-bottom: 3rem !important;
   }
 
 
   .industriesServeMainWrapper2 .service-card-wrap {
-    height: 270px !important;
+    height: 220px !important;
+  }
+
+  .cloudMigration .service-card-wrap {
+    height: 240px !important;
   }
 
   .pieChart .service-card-wrap {
@@ -789,7 +791,7 @@
   }
 
   .cmsWork .techIcon .service-card-wrap {
-    height: 120px !important;
+    height: 100px !important;
   }
 
   .aiPoweredSolutions .industry-Specific .service-card-wrap {
@@ -801,7 +803,7 @@
   }
 
   .cloudStorageTab .service-card-wrap {
-    height: 300px !important;
+    height: 255px !important;
   }
 
   .cmsWork .techIcon {

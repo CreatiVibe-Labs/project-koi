@@ -237,7 +237,11 @@ export default function Header({ lang, ASSETS_URL, apiData }) {
                         className={`my-4 w-full text-left flex justify-between items-center text-white ${pathname === link.href ? "nav-menu active" : "nav-menu"
                           }`}
                       >
-                        <Link href={link.href} className="!text-start">
+                        <Link href={link.href} className="!text-start"
+                          onClick={() => {
+                            setMenuOpen(false);        // close full menu
+                            setMobileSubMenuOpen(null); // close submenu too
+                          }}>
                           {link.name}
                         </Link>
                         {isServicePage && (

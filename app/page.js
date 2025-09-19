@@ -114,7 +114,7 @@ export default async function Home() {
       <div className="StillThinkingMainWrapper">
         <div className="st-heading gradient-background"><h2>{apiData?.content?.still_thinking_heading?.[lang] || "Still Thinking?"}</h2></div>
         <div className="stContent">
-          <p className="heading-1 mb-4">{apiData?.content?.still_thinking_sub_heading?.[lang] || "No problem! Explore our"}<Link href="/demo" className="link-text"> {apiData?.content?.still_thinking_sub_heading_link?.[lang] || "Interactive Demo"}</Link></p>
+          <p className="heading-1 mb-4 lg:text-start text-center">{apiData?.content?.still_thinking_sub_heading?.[lang] || "No problem! Explore our"}<Link href="/demo" className="link-text"> {apiData?.content?.still_thinking_sub_heading_link?.[lang] || "Interactive Demo"}</Link></p>
           <p className="content !font-medium lg:text-start text-center">
             {apiData?.content?.still_thinking_description?.[lang] || "Dive into real scenarios and see firsthand how our IT solutions work for your business. Whether you're testing cloud integration, exploring security features, or just curious, it's an easy and fun way to get familiar with what we offer—no commitment, just exploration."}
           </p>
