@@ -17,7 +17,7 @@ export default async function JobApply({ params }) {
     const jobFormData = await getJobsFormData();
 
     const jobs = jobsData?.content?.jobs?.map((t) => {
-        const title = t.title?.[lang] || "";
+        const title = t.slug?.en || "";
         const slug = title
             .toLowerCase()
             .replace(/[^a-z0-9\s-]/gi, "") // special characters hatao
@@ -25,7 +25,7 @@ export default async function JobApply({ params }) {
             .replace(/\s+/g, "-"); // spaces ko - se replace karo
 
         return {
-            title,
+            title: t.title?.[lang] || "",
             exp: t.experience?.[lang] || "",
             description: t.description?.[lang] || "",
             link: slug,

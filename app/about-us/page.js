@@ -30,15 +30,15 @@ export default async function AboutUs() {
     })) || [];
 
     const jobs = jobsData?.content?.jobs?.map((t) => {
-        const title = t.title?.[lang] || "";
-        const slug = title
+        const jobSlug = t.slug?.en || "";
+        const slug = jobSlug
             .toLowerCase()
             .replace(/[^a-z0-9\s-]/gi, "") // special characters hatao
             .trim()
             .replace(/\s+/g, "-"); // spaces ko - se replace karo
 
         return {
-            title,
+            title: t.title?.[lang] || "",
             exp: t.experience?.[lang] || "",
             description: t.description?.[lang] || "",
             link: slug,

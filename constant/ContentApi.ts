@@ -360,11 +360,6 @@ export async function getJobsData() {
 
 export async function getJobsFormData() {
   try {
-
-    if (jobForm != '') {
-      return jobForm;
-    }
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=job-form`, {
       cache: "no-store", // ensures fresh data
     });
@@ -374,7 +369,6 @@ export async function getJobsFormData() {
 
     const data = await res.json();
 
-    jobForm = data;
     return data;
   } catch (error) {
     console.error("Error fetching API:", error);

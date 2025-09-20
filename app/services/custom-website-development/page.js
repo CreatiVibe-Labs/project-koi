@@ -23,7 +23,7 @@ export default async function CustomWebsiteDevelopment() {
 
     const serviceApiData = await getServicesPageData();
     const sideBarData = await getSideBarData();
-
+    console.log({apiData})
     return (
         <div>
             {/* <Breadcrumb /> */}
@@ -37,11 +37,11 @@ export default async function CustomWebsiteDevelopment() {
                         <div className="isContent">
                             <div className="itemsWrapper">
                                 <p className='!font-medium'>
-                                    {apiData?.content?.custom_websites_description1?.[lang] || "Your website is more than a digital brochure – it’s your band’s first impression, your 24/7 sales team, and a key driver of trust. We build responsive high-performance websites that are optimized for search engines and crafted to convert visitors into customers."}
+                                    {apiData?.content?.custom_websites_description_1?.[lang] || "Your website is more than a digital brochure – it’s your band’s first impression, your 24/7 sales team, and a key driver of trust. We build responsive high-performance websites that are optimized for search engines and crafted to convert visitors into customers."}
                                 </p>
                                 <br />
                                 <p className='!font-medium'>
-                                    {apiData?.content?.custom_websites_description2?.[lang] || "Whether you're launching a product, building a brand presence, or scaling your business online, we deliver web experiences that blend design excellence with technical precision."}
+                                    {apiData?.content?.custom_websites_description_2?.[lang] || "Whether you're launching a product, building a brand presence, or scaling your business online, we deliver web experiences that blend design excellence with technical precision."}
                                 </p>
                                 {/* <Image src="/images/web-dev-image1.png" width={6000} height={6000} alt="banner image" /> */}
                                 <video className='mt-4' width="100%" height="240" loop autoPlay muted preload="none">

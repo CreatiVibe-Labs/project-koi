@@ -11,11 +11,11 @@ import { useState } from 'react';
 
 export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2, sideBarData, serviceApiData}) {
 
-    const [activeTab, setActiveTab] = useState('Cloud Migration');
+    const [activeTab, setActiveTab] = useState('cloud-migration');
 
     const tabs = [
-        { name: apiData?.content?.cloud_migration_tab?.[lang] || 'Cloud Migration', content: <CloudMigration lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData} serviceApiData={serviceApiData}/>, icon: '/icons/migration.png' },
-        { name: apiData?.content?.cloud_storage_tab?.[lang] || 'Cloud Storage', content: <CloudStorage lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData2} serviceApiData={serviceApiData}/>, icon: '/icons/cloud.png' },
+        { id: 'cloud-migration', name: apiData?.content?.cloud_migration_tab?.[lang] || 'Cloud Migration', content: <CloudMigration lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData} serviceApiData={serviceApiData}/>, icon: '/icons/migration.png' },
+        { id: 'cloud-storage', name: apiData?.content?.cloud_storage_tab?.[lang] || 'Cloud Storage', content: <CloudStorage lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData2} serviceApiData={serviceApiData}/>, icon: '/icons/cloud.png' },
     ];
     return (
         <div className='pageWrapper'>
@@ -29,9 +29,9 @@ export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2, side
                     <div className="md:my-0 !mt-4  tab">
                         {tabs.map((tab) => (
                             <button
-                                key={tab.name}
-                                onClick={() => setActiveTab(tab.name)}
-                                className={`${activeTab === tab.name ? 'active' : ''
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
+                                className={`${activeTab === tab.id ? 'active' : ''
                                     }`}
                             >
                                 <Image src={tab.icon} width={70} height={70} alt='icon' />
@@ -42,8 +42,8 @@ export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2, side
 
                     {tabs.map(
                         (tab) =>
-                            activeTab === tab.name && (
-                                <div key={tab.name}>
+                            activeTab === tab.id && (
+                                <div key={tab.id}>
                                     {tab.content}
                                 </div>
                             )

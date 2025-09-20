@@ -13,8 +13,6 @@ export default function JobApplyForm({ params, lang, ASSETS_URL, apiData, jobs, 
 
     let jobData = jobs.find((job) => job.link === slug) || null;
 
-    console.log({jobFormData})
-
     const [fileName1, setFileName1] = useState(jobFormData?.content?.resume_label?.[lang] || "Resume / CV (PDF, DOCX – Required)");
     const fileInputRef1 = useRef(null);
 
