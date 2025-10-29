@@ -1,0 +1,17 @@
+import { FC } from "react";
+
+const Section4 = () => {
+  return (
+    <section
+      id="section-4"
+      className="bg-none rounded-2xl border border-[#E5E7EB] p-8 shadow-sm backdrop-blur-sm"
+    >
+      <h2 className="text-2xl font-semibold text-[#2E3A33] mb-4">Section 4</h2>
+      <p className="text-gray-600">
+        Your fourth section content goes here.
+      </p>
+    </section>
+  );
+};
+
+export default Section4;

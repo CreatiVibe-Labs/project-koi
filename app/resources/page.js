@@ -1,20 +1,33 @@
 import Link from 'next/link';
+import Section1 from '@/components/resources/Section1';
+import FAQsAndTutorials from "@/components/resources/FAQsAndTutorials";
+
+
+import Section3 from '@/components/resources/Section3';
+import Section4 from '@/components/resources/Section4';
+import Section5 from '@/components/resources/Section5';
 
 export const metadata = {
   title: "Resources - Aerialink Inc",
   description: "Resources - Aerialink Inc",
 };
 
-export default function Resources() {
+export default function ResourcesPage() {
     return (
         <>
-            <div className="w-full text-center min-h-[16.1vh] flex flex-col items-center">
-                <span className="font-bold text-4xl text-center w-full">This page is currently under construction.</span>
-                <div className='buttons-wrapper !justify-center'>
+             <main className="relative">
+      {/* Background blur overlay */}
+      <div className="absolute inset-0 backdrop-blur-[15px] -z-10" />
 
-                    <Link className='callUs' href="/">Go To Home Page</Link>
-                </div>
-            </div>
+      {/* Content area — width controlled by parent layout (1300px) */}
+      <div className="px-6 py- space-y-20">
+        <Section1 />
+        <FAQsAndTutorials />
+        <Section3 />
+        <Section4 />
+        <Section5 />
+      </div>
+    </main>
         </>
     );
 }
