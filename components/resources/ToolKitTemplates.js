@@ -162,7 +162,8 @@ export default function ToolkitsTemplates({resources, lang, toolkit}) {
       <div className="text-center mt-8">
         <button
           onClick={handleDownloadAll}
-          className="bg-none backdrop-blur-[15px] text-[#39ff14] py-[11px] px-10 xs:px-12 md:px-[120px] border border-[#39ff14] rounded-full font-bold text-[17px] xs:text-[18px] md:text-[19px] cursor-pointer shadow-[0_0_8px_0_rgba(0,255,180,0.4)] transition-all duration-300 hover:bg-white/40"
+          className="bg-none backdrop-blur-[15px] text-[#39ff14] py-[11px] px-10 xs:px-12 md:px-[120px] border border-[#39ff14] rounded-full font-bold text-[17px] xs:text-[18px] md:text-[19px] cursor-pointer shadow-[0_4px_15px_rgba(255,255,255,0.4)] transition-all duration-300 hover:bg-white/40
+ "
         >
           Download All
         </button>
