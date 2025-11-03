@@ -156,7 +156,7 @@ const FAQsAndTutorials = ({ faqsData, lang }) => {
                 />
               </div>
               <div className="flex items-center gap-1 mt-2 md:mt-0">
-                <button onClick={handleSearch} className="cursor-pointer">
+                <button onClick={handleSearch} className="cursor-pointer border border-white/40 px-4 py-3 rounded-lg text-white font-medium bg-none backdrop-blur-[15px] ">
                   Search
                 </button>
               </div>
