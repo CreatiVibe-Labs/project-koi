@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { getFAQsData } from "@/constant/ContentApi";
 
-const FAQsAndTutorials = ({ faqsData, lang }) => {
+const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
   const [faqFinalData, setFaqFinalData] = useState(
     faqsData && faqsData.length > 0 ? faqsData : []
   );
@@ -135,6 +135,22 @@ const FAQsAndTutorials = ({ faqsData, lang }) => {
     }));
   };
 
+  const hasTutorial1 =
+    Object.values(resources.content.tutorial_1_text || {}).some(Boolean) &&
+    Object.values(resources.content.video_tutorial_1_video || {}).some(Boolean);
+
+  const hasTutorial2 =
+    Object.values(resources.content.tutorial_2_text || {}).some(Boolean) &&
+    Object.values(resources.content.video_tutorial_2_video || {}).some(Boolean);
+
+  const hasTutorial3 =
+    Object.values(resources.content.tutorial_3_text || {}).some(Boolean) &&
+    Object.values(resources.content.video_tutorial_3_video || {}).some(Boolean);
+
+  const hasTutorial4 =
+    Object.values(resources.content.tutorial_4_text || {}).some(Boolean) &&
+    Object.values(resources.content.video_tutorial_4_video || {}).some(Boolean);
+
   return (
     <section className="relative rounded-[16px] bg-none backdrop-blur-[15px] p-3 xxs:p-3 md:p-4 border border-white/40">
       <div className="flex flex-col md:flex-row gap-4 md:gap-6 w-full">
@@ -143,7 +159,7 @@ const FAQsAndTutorials = ({ faqsData, lang }) => {
           {/* Header */}
           <div>
             <h1 className="text-2xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9] mb-3">
-              {faqData.header.title}
+              {resources.content.faqs_heading[lang] || "FAQs & Tutorials"}
             </h1>
 
             <div className="flex flex-col xs:flex-col xxs:flex-col md:flex-row gap-4">
@@ -151,13 +167,13 @@ const FAQsAndTutorials = ({ faqsData, lang }) => {
                 <input
                   onChange={(e) => setSearch(e.target.value)}
                   type="text"
-                  placeholder={faqData.header.searchPlaceholder}
+                  placeholder={resources.content.search[lang] || "Search"}
                   className="w-full px-4 py-3 border border-white/30 rounded-lg focus:outline-none bg-transparent text-white placeholder:text-white/60"
                 />
               </div>
               <div className="flex items-center gap-1 mt-2 md:mt-0">
                 <button onClick={handleSearch} className="cursor-pointer border border-white/40 px-4 py-3 rounded-lg text-white font-medium bg-none backdrop-blur-[15px] ">
-                  Search
+                  {resources.content.search[lang] || "Search"}
                 </button>
               </div>
             </div>
@@ -215,23 +231,87 @@ const FAQsAndTutorials = ({ faqsData, lang }) => {
         {/* RIGHT SECTION */}
         <div className="w-full md:w-[33%] pt-12 mt-4 md:mt-0">
           <div className="space-y-3 md:space-y-4">
-            {faqData.imageSection.images.map((image) => (
-              <div
-                key={image.id}
-                className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
-              >
-                <Image
-                  src={image.imageUrl}
-                  alt={image.title}
-                  width={image.width}
-                  height={image.height}
-                  className="rounded-lg mx-auto w-full h-auto"
-                />
-                <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
-                  {image.title}
-                </h3>
-              </div>
-            ))}
+
+            {hasTutorial1 && <div
+              className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
+            >
+              <video
+                src={ASSETS_URL + resources.content.video_tutorial_1_video['en']}        // replace image.imageUrl with your video URL
+                title={resources.content.tutorial_1_text[lang] || resources.content.tutorial_1_text['en']}
+                width={'200'}
+                height={'100'}
+                className="rounded-lg mx-auto w-full h-auto"
+                controls                    // show play/pause controls
+                autoPlay={false}            // optional, set true if you want autoplay
+                loop={false}                // optional, set true if you want looping
+                muted={false}               // optional, set true if autoplay & muted
+              />
+              <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
+                {/* {image.title} */}
+                {resources.content.tutorial_1_text[lang] || resources.content.tutorial_1_text['en']}
+              </h3>
+            </div>}
+
+            {hasTutorial2 && <div
+              className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
+            >
+              <video
+                src={ASSETS_URL + resources.content.video_tutorial_2_video['en']}        // replace image.imageUrl with your video URL
+                title={resources.content.tutorial_2_text[lang] || resources.content.tutorial_2_text['en']}
+                width={'200'}
+                height={'100'}
+                className="rounded-lg mx-auto w-full h-auto"
+                controls                    // show play/pause controls
+                autoPlay={false}            // optional, set true if you want autoplay
+                loop={false}                // optional, set true if you want looping
+                muted={false}               // optional, set true if autoplay & muted
+              />
+              <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
+                {/* {image.title} */}
+                {resources.content.tutorial_2_text[lang] || resources.content.tutorial_2_text['en']}
+              </h3>
+            </div>}
+
+            {hasTutorial3 && <div
+              className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
+            >
+              <video
+                src={ASSETS_URL + resources.content.video_tutorial_3_video['en']}        // replace image.imageUrl with your video URL
+                title={resources.content.tutorial_3_text[lang] || resources.content.tutorial_3_text['en']}
+                width={'200'}
+                height={'100'}
+                className="rounded-lg mx-auto w-full h-auto"
+                controls                    // show play/pause controls
+                autoPlay={false}            // optional, set true if you want autoplay
+                loop={false}                // optional, set true if you want looping
+                muted={false}               // optional, set true if autoplay & muted
+              />
+              <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
+                {/* {image.title} */}
+                {resources.content.tutorial_3_text[lang] || resources.content.tutorial_3_text['en']}
+              </h3>
+            </div>}
+
+            {hasTutorial4 && <div
+              className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
+            >
+              <video
+                src={ASSETS_URL + resources.content.video_tutorial_4_video['en']}        // replace image.imageUrl with your video URL
+                title={resources.content.tutorial_1_text[lang] || resources.content.tutorial_1_text['en']}
+                width={'200'}
+                height={'200'}
+                className="rounded-lg mx-auto w-full h-auto"
+                controls                    // show play/pause controls
+                autoPlay={false}            // optional, set true if you want autoplay
+                loop={false}                // optional, set true if you want looping
+                muted={false}               // optional, set true if autoplay & muted
+              />
+              <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
+                {/* {image.title} */}
+                {resources.content.tutorial_4_text[lang] || resources.content.tutorial_4_text['en']}
+              </h3>
+            </div>}
+
           </div>
         </div>
       </div>

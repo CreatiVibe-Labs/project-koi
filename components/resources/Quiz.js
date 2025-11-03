@@ -6,7 +6,7 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const Quiz = ({ quizData, lang }) => {
+const Quiz = ({ quizData, lang, resources }) => {
   const questions = quizData?.[0]?.questions || [];
 
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
@@ -43,7 +43,7 @@ const Quiz = ({ quizData, lang }) => {
   <div className="w-full relative rounded-2xl border border-white/40 p-5 xxs:p-5 xs:p-6 md:p-8 backdrop-blur-[15px] bg-none shadow-lg overflow-hidden">
 
         <h1 className="text-2xl xxs:text-3xl md:text-4xl font-bold text-white mb-7 xs:mb-8 md:mb-10 text-center">
-          <span className="text-[#46D3A7]">Test your IT skills</span> or take a fun tech challenge!
+          <span className="text-[#46D3A7]">{ resources.content.quiz_heading_1[lang] || 'Test your IT skills'}</span> { resources.content.quiz_heading_2[lang] || "or take a fun tech challenge!"}
         </h1>
 
         {showResult ? (
@@ -51,9 +51,9 @@ const Quiz = ({ quizData, lang }) => {
             <div className="absolute inset-0 bg-none blur-[15px] animate-pulse"></div>
 
             <div className="relative z-10 flex flex-col items-center text-center backdrop-blur-[15px] border border-white/40 rounded-2xl p-10 shadow-[0_0_40px_#46D3A7]/10 transition-all duration-500">
-              <h2 className="text-5xl font-bold text-[#46D3A7] mb-4">Great Job!</h2>
+              <h2 className="text-5xl font-bold text-[#46D3A7] mb-4">{ resources.content.great_job[lang] || "Great Job!"}</h2>
               <p className="text-[42px] text-white font-bold mb-6">
-                You scored <span className="text-[#46D3A7]">{correctAnswers}</span> out of{" "}
+                { resources.content.your_score[lang] || "You scored"} <span className="text-[#46D3A7]">{correctAnswers}</span> { resources.content.out_of[lang] || "out of"}{" "}
                 <span className="text-[#46D3A7]">{total}</span>!
               </p>
 
@@ -66,7 +66,7 @@ const Quiz = ({ quizData, lang }) => {
                 }}
                 className="px-8 py-3 mt-4 bg-[#46D3A7] text-white font-semibold rounded-full hover:bg-[#3cb28b] transition-all cursor-pointer"
               >
-                Restart Quiz
+                { resources.content.restart_quiz[lang] || "Restart Quiz"}
               </button>
             </div>
           </div>
@@ -92,7 +92,7 @@ const Quiz = ({ quizData, lang }) => {
                   <SwiperSlide key={i}>
                     <div className="w-full md:w-[1086px] h-[370px] xxs:h-[388px] xs:h-[403px] md:h-[403px] bg-none backdrop-blur-[15px] rounded-2xl border border-white/20 flex flex-col items-center justify-center mx-auto px-4 md:px-8">
                       <h2 className="text-[18px] xxs:text-[19px] xs:text-[20px] md:text-[27px] font-bold text-[#46D3A7] mb-6 xs:mb-7 md:mb-8 text-center">
-                        Q:{i + 1} <span className="text-white">{q[`question_${lang}`] || q.question_en}</span>
+                        { resources.content.question_prefix[lang] || "Q:"}{i + 1} <span className="text-white">{q[`question_${lang}`] || q.question_en}</span>
                       </h2>
 
                       <div className="flex flex-col gap-3 xs:gap-4 w-full max-w-2xl px-1 xxs:px-2">

@@ -34,13 +34,13 @@ export default async function ResourcesPage() {
         <div className="px-3 m-0 -mt-8 xs:-mt-10 md:-mt-14 xxl:-mt-16 xxs:px-3 xs:px-4 md:px-6 py-6 md:py-8 space-y-6 md:space-y-8">
           <Section1 />
           <div id="faqs" className="scroll-mt-24 md:scroll-mt-28 md:mb-20 ">
-            <FAQsAndTutorials faqsData={apiData} lang={lang} />
+            <FAQsAndTutorials faqsData={apiData} lang={lang} resources={resources} ASSETS_URL={ASSETS_URL} />
           </div>
           <div id="news" className="scroll-mt-24 md:scroll-mt-28 mt-">
-            <NewsArticles blogData={blogData} lang={lang} />
+            <NewsArticles blogData={blogData} lang={lang} resources={resources} />
           </div>
           <div id="quiz" className="scroll-mt-24 md:scroll-mt-28">
-            <Quiz quizData={quizData} lang={lang} />
+            <Quiz quizData={quizData} lang={lang} resources={resources} />
           </div>
           <div id="toolkits" className="scroll-mt-24 md:scroll-mt-28">
             <ToolkitsTemplates toolkit={toolkit} lang={lang} resources={resources} />

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const NewsArticles = ({ blogData, lang }) => {
+const NewsArticles = ({ blogData, lang, resources }) => {
   const [articlesData] = useState(blogData?.data || []);
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -83,7 +83,7 @@ const NewsArticles = ({ blogData, lang }) => {
       {/* Header */}
       <div className="flex items-center justify-start mb-5 xs:mb-6 md:mb-8">
         <h2 className="text-xl xxs:text-2xl xs:text-3xl md:text-3xl font-bold text-[#C3F8D9]">
-          News & Articles
+          { resources.content.news_heading[lang] || "News & Articles"}
         </h2>
       </div>
 

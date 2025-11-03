@@ -1,48 +1,9 @@
 "use client";
 import React, { useState } from "react";
 
-const toolkitsData = {
-  "Digital Asset evaluation Toolkit": {
-    subtitle: "Audit and assess the current website/app before redevelopment",
-    items: [
-      { name: "Stakeholder Requirements Document", desc: "Template to collect input from key departments" },
-      { name: "Function Requirements Specification", desc: "Define exact needs/features" },
-      { name: "Redesign Project Gantt Chart", desc: "Visualize the timeline and phases" },
-      { name: "Information Architecture Template", desc: "Sitemap builder" },
-    ],
-  },
-  "Website/App Redevelopment Planning Toolkit": {
-    subtitle: "Lay the foundation for a structured redesign project",
-    items: [
-      { name: "Stakeholder Requirements Document", desc: "Template to collect input from key departments" },
-      { name: "Function Requirements Specification", desc: "Define exact needs/features" },
-      { name: "Redesign Project Gantt Chart", desc: "Visualize the timeline and phases" },
-      { name: "Information Architecture Template", desc: "Sitemap builder" },
-    ],
-  },
-  "Technology Evaluation & Selection Toolkit": {
-    subtitle: "Choose the right CMS, frontend/backend stack, vendors",
-    items: [
-      { name: "CMS Comparison Matrix", desc: "Side-by-side enterprise feature comparison" },
-      { name: "Vendor RFP Template for Web/App Project", desc: "Solicit and evaluate proposals" },
-      { name: "Tech Stack Pros & Cons Matrix", desc: "Compare React vs Angular, WordPress vs Headless CMS" },
-      { name: "Integration Needs Checklist", desc: "Map API and third-party system needs" },
-    ],
-  },
-  "UX & UI Design Strategy Toolkit": {
-    subtitle: "Help to plan a new UX vision collaboratively",
-    items: [
-      { name: "Persona Development Template", desc: "Define core user segments" },
-      { name: "Customer Journey Mapping Board", desc: "Multi-touchpoint flow template" },
-      { name: "Design System Starter Kit", desc: "Typography, buttons, color palette components" },
-      { name: "UX Research Interview Guide", desc: "Template for stakeholder/user interviews" },
-    ],
-  },
-};
+export default function ToolkitsTemplates({ resources, lang, toolkit }) {
 
-export default function ToolkitsTemplates({resources, lang, toolkit}) {
-
-  console.log({resources, lang, toolkit})
+  console.log({ resources, lang, toolkit })
 
   const [checkedFiles, setCheckedFiles] = useState({});
 
@@ -53,28 +14,111 @@ export default function ToolkitsTemplates({resources, lang, toolkit}) {
     }));
   };
 
-  const handleDownload = (name, format) => {
-    const path = `/files/${name.toLowerCase().replace(/\s+/g, "_")}.${format}`;
+  const handleDownload = (file, format) => {
+    const path = file;
     const link = document.createElement("a");
     link.href = path;
-    link.download = `${name}.${format}`;
+    link.download = file;
     link.click();
   };
 
-  const handleDownloadAll = () => {
-    Object.entries(toolkitsData).forEach(([sectionTitle, section]) => {
-      section.items.forEach((item) => {
-        if (checkedFiles[`${sectionTitle}-${item.name}`]) {
-          ["docx", "pdf"].forEach((format) => {
-            const path = `/files/${item.name.toLowerCase().replace(/\s+/g, "_")}.${format}`;
-            const link = document.createElement("a");
-            link.href = path;
-            link.download = `${item.name}.${format}`;
-            link.click();
-          });
+  const handleDownloadAll = async () => {
+    const selectedFiles = [];
+    
+    // Collect all selected files
+    toolkit.data.forEach((section) => {
+      const sectionTitle = section.titles[lang] || section.titles['en'];
+      section.templates.forEach((item) => {
+        const itemTitle = item.titles[lang] || item.titles['en'];
+        if (checkedFiles[`${sectionTitle}-${itemTitle}`]) {
+          if (item.files.docx) {
+            selectedFiles.push({
+              url: item.files.docx,
+              name: `${itemTitle}.docx`
+            });
+          }
+          if (item.files.pdf) {
+            selectedFiles.push({
+              url: item.files.pdf,
+              name: `${itemTitle}.pdf`
+            });
+          }
         }
       });
     });
+
+    console.log('🔍 Selected files for ZIP:', selectedFiles);
+    console.log('📁 Total files selected:', selectedFiles.length);
+    
+    if (selectedFiles.length === 0) {
+      alert('Please select at least one file to download.');
+      return;
+    }
+
+    try {
+      // Show loading state
+      const button = document.querySelector('button[onclick*="handleDownloadAll"]') || 
+                    document.activeElement;
+      const originalText = button.textContent;
+      button.textContent = 'Creating ZIP...';
+      button.disabled = true;
+
+      // Create ZIP via backend API
+      const response = await fetch('/api/download-zip', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ files: selectedFiles })
+      });
+
+      if (response.ok) {
+        // Download the ZIP file
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'selected-templates.zip';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      } else {
+        throw new Error('Failed to create ZIP');
+      }
+
+      // Restore button state
+      button.textContent = originalText;
+      button.disabled = false;
+
+    } catch (error) {
+      console.error('ZIP download failed:', error);
+      alert('ZIP creation failed. Downloading files individually...');
+      
+      // Fallback to individual downloads
+      downloadIndividually(selectedFiles);
+      
+      // Restore button state
+      const button = document.querySelector('button[onclick*="handleDownloadAll"]') || 
+                    document.activeElement;
+      button.textContent = 'Download All';
+      button.disabled = false;
+    }
+  };
+
+  const downloadIndividually = async (files) => {
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const link = document.createElement("a");
+      link.href = file.url;
+      link.download = file.name;
+      link.click();
+      
+      // Add delay between downloads to avoid browser blocking
+      if (i < files.length - 1) {
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+    }
   };
 
   return (
@@ -83,72 +127,73 @@ export default function ToolkitsTemplates({resources, lang, toolkit}) {
         {resources.content.toolkits_text[lang] || 'Toolkits & Templates'}
       </h2>
 
+      <p className="text-[16px] xs:text-[18px] text-white"></p>
+
       {/* Two-column grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 border border-white/15">
-        {Object.entries(toolkitsData).map(([title, section], index) => (
+        {toolkit.data.length > 0 && toolkit.data.map((section, index) => (
           <div
-            key={title}
+            key={section.titles[lang]}
             className={`
               ${index > 0 ? "border-t border-white/15" : ""}
               ${index % 2 === 1 ? "md:border-l md:border-white/15" : ""}
               ${index < 2 ? "md:border-t-0" : "md:border-t md:border-white/15"}
             `}
           >
+            {console.log(section)}
             {/* Header */}
             <div className="p-3 xs:p-4 md:p-3 border-b border-white/15">
               <h3 className="text-[18px] xs:text-[20px] font-semibold text-[#C3F8D9] mb-1">
-                {title}
+                {section.titles[lang] || section.titles['en']}
               </h3>
-              <p className="text-[16px] xs:text-[18px] text-white">{section.subtitle}</p>
+              <p className="text-[16px] xs:text-[18px] text-white">{section.descriptions[lang] || section.descriptions['en']}</p>
             </div>
 
             {/* Rows (replacing table) */}
             <div>
-              {section.items.map((item, idx) => (
+              {section.templates.length > 0 && section.templates.map((item, idx) => (
                 <div
                   key={idx}
                   className={`flex flex-col md:flex-row border-b border-white/15 last:border-0`}
                 >
-                  {/* Checkbox + Name */}
                   <div className="md:w-[27%] w-full py-3 px-3 md:border-r border-white/15 text-[#C3F8D9] flex flex-col justify-start">
                     <div className="flex items-start gap-2">
                       <div
-                        onClick={() => handleCheckbox(title, item.name)}
-                        className={`h-8 w-8 border border-[#46D3A7] rounded-lg flex items-center justify-center font-bold cursor-pointer shrink-0 ${checkedFiles[`${title}-${item.name}`]
-                            ? "bg-[#0F4D3A] text-[#46D3A7]"
-                            : "bg-transparent text-[#46D3A7]"
+                        onClick={() => handleCheckbox(section.titles[lang] || section.titles['en'], item.titles[lang] || item.titles['en'])}
+                        className={`h-8 w-8 border border-[#46D3A7] rounded-lg flex items-center justify-center font-bold cursor-pointer shrink-0 ${checkedFiles[`${section.titles[lang] || section.titles['en']}-${item.titles[lang] || item.titles['en']}`]
+                          ? "bg-[#0F4D3A] text-[#46D3A7]"
+                          : "bg-transparent text-[#46D3A7]"
                           }`}
                       >
-                        {checkedFiles[`${title}-${item.name}`] ? "✓" : ""}
+                        {checkedFiles[`${section.titles[lang] || section.titles['en']}-${item.titles[lang] || item.titles['en']}`] ? "✓" : ""}
                       </div>
-                      <span>{item.name}</span>
+                      <span>{item.titles[lang] || item.titles['en']}</span>
                     </div>
                   </div>
-
-                  {/* Description */}
                   <div className="md:w-[35%] w-full py-3 px-3 md:border-r border-white/15 text-white font-medium flex items-start">
-                    {item.desc}
+                    {item.descriptions[lang] || item.descriptions['en']}
                   </div>
-
-                  {/* DOCX */}
 
                   <div className="md:w-[20%] w-full py-3 px-3 md:border-r border-white/15 flex items-start md:justify-center">
-                    <button
-                      onClick={() => handleDownload(item.name, "docx")}
-                      className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
-                    >
-                      .docx
-                    </button>
+                    {item.files.docx && (
+                      <button
+                        onClick={() => handleDownload(item.files.docx || item.titles['en'], "docx")}
+                        className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
+                      >
+                        .docx
+                      </button>
+                    )}
                   </div>
 
-                  {/* PDF */}
                   <div className="md:w-[18%] w-full py-3 px-3 flex items-start md:justify-center">
+                    {item.files.pdf && (
                     <button
-                      onClick={() => handleDownload(item.name, "pdf")}
+                      onClick={() => handleDownload(item.files.pdf || item.titles['en'], "pdf")}
                       className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-16 text-[16px] cursor-pointer hover:scale-105 transition-all"
                     >
                       .pdf
                     </button>
+                    )}
                   </div>
 
                 </div>
