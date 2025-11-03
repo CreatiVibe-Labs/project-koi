@@ -1,216 +1,241 @@
-'use client'
+"use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import { getFAQsData } from "@/constant/ContentApi";
 
-// JSON Data
-const faqData = {
-  header: {
-    title: "FAQs & Tutorials",
-    searchPlaceholder: "Search",
-    sortOptions: ["Latest", "Most Popular", "A-Z"]
-  },
-  sections: [
-    {
-      title: "General",
-      type: "faq",
-      items: [
-        {
-          question: "Q: What is this service about?",
-          answer: "This is a sample FAQ section designed to show how frequently asked questions might look on your website."
-        },
-        {
-          question: "Q: How can I sign up?",
-          answer: ""
-        },
-        {
-          question: "Q: Is this service free?",
-          answer: ""
-        },
-        {
-          question: "Q: How do I reset my password?",
-          answer: ""
-        }
-      ]
+const FAQsAndTutorials = ({ faqsData, lang }) => {
+  const [faqFinalData, setFaqFinalData] = useState(
+    faqsData && faqsData.length > 0 ? faqsData : []
+  );
+
+  const [search, setSearch] = useState("");
+
+  const handleSearch = async () => {
+    const apiData = await getFAQsData(search);
+    setFaqFinalData(apiData);
+  };
+
+  const faqData = {
+    header: {
+      title: "FAQs & Tutorials",
+      searchPlaceholder: "Search",
+      sortOptions: ["Sort by", "Most Popular", "A-Z"],
     },
-    {
-      title: "",
-      type: "billing",
-      items: [
-        {
-          title: "Billing",
-          description: ""
-        },
-        {
-          title: "Technical",
-          description: "817 Fill × 90"
-        },
-        {
-          title: "Support",
-          description: ""
-        }
-      ]
-    }
-  ],
-  imageSection: {
-    images: [
+    sections: [
       {
-        id: 1,
-        imageUrl: "/resources/fram-image.png",
-        title: "Written step-by-step guides",
-        width: 399,
-        height: 208
+        title: "General Questions",
+        items: [
+          {
+            question: "What is your return policy?",
+            answer:
+              "We offer a 30-day money-back guarantee on all purchases. Contact support to initiate a return.",
+          },
+          {
+            question: "What is your return policy?",
+            answer:
+              "We offer a 30-day money-back guarantee on all purchases. Contact support to initiate a return.",
+          },
+          {
+            question: "What is your return policy?",
+            answer:
+              "We offer a 30-day money-back guarantee on all purchases. Contact support to initiate a return.",
+          },
+          {
+            question: "Do you offer customer support?",
+            answer:
+              "Yes! Our support team is available 24/7 via email and live chat.",
+          },
+        ],
       },
       {
-        id: 2,
-        imageUrl: "/resources/fram-image.png",
-        title: "Video tutorials",
-        width: 399,
-        height: 208
+        title: "Billing & Payments",
+        items: [
+          {
+            question: "Which payment methods are accepted?",
+            answer: "We accept Visa, MasterCard, PayPal, and bank transfers.",
+          },
+          {
+            question: "Can I get an invoice for my purchase?",
+            answer:
+              "Absolutely. Invoices are automatically emailed after checkout.",
+          },
+        ],
       },
       {
-        id: 3,
-        imageUrl: "/resources/fram-image.png",
-        title: "Setup and troubleshooting walkthroughs",
-        width: 399,
-        height: 208
-      }
-    ]
-  }
-};
+        title: "Technical",
+        items: [
+          {
+            question: "Is my data secure?",
+            answer:
+              "Yes, all data is encrypted and stored securely according to GDPR standards.",
+          },
+          {
+            question: "Do you offer API integration?",
+            answer: "Yes, our API allows full integration with your systems.",
+          },
+        ],
+      },
+      {
+        title: "Account",
+        items: [
+          {
+            question: "How can I reset my password?",
+            answer:
+              "Click 'Forgot Password' on the login page and follow the instructions.",
+          },
+          {
+            question: "Can I delete my account?",
+            answer:
+              "Yes, contact our support team to permanently delete your account.",
+          },
+        ],
+      },
+    ],
+    imageSection: {
+      images: [
+        {
+          id: 1,
+          imageUrl: "/resources/fram-image.png",
+          title: "Written step-by-step guides",
+          width: 399,
+          height: 208,
+        },
+        {
+          id: 2,
+          imageUrl: "/resources/fram-image.png",
+          title: "Video tutorials",
+          width: 399,
+          height: 208,
+        },
+        {
+          id: 3,
+          imageUrl: "/resources/fram-image.png",
+          title: "Setup and troubleshooting walkthroughs",
+          width: 399,
+          height: 208,
+        },
+      ],
+    },
+  };
 
-const FAQsAndTutorials = () => {
+  const [openCategory, setOpenCategory] = useState(null);
+  const [openQuestion, setOpenQuestion] = useState({});
+
+  const toggleCategory = (index) => {
+    setOpenCategory(openCategory === index ? null : index);
+    setOpenQuestion({});
+  };
+
+  const toggleQuestion = (categoryIndex, questionIndex) => {
+    setOpenQuestion((prev) => ({
+      ...prev,
+      [`${categoryIndex}-${questionIndex}`]:
+        !prev[`${categoryIndex}-${questionIndex}`],
+    }));
+  };
+
   return (
-    <>
-      {/* Main Section with backdrop blur */}
-      <section className="relative rounded-[16px] bg-none backdrop-blur-[15px] p-5 border border-white/40">
-        
-        {/* Content Area */}
-        <div className="flex gap-6 w-full">
-          
-          {/* Left Section - FAQs (67% width) */}
-          <div className="w-[67%]">
-            
-            {/* Header */}
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-[#C3F8D9] mb-6">
-                {faqData.header.title}
-              </h1>
-              
-              {/* Search and Sort */}
-              <div className="flex gap-4 mb-6">
-                <div className="flex-1">
-                  <input 
-                    type="text" 
-                    placeholder={faqData.header.searchPlaceholder}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-none text-white"
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-white">Sort By</span>
-                  <select className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-none text-white">
-                    {faqData.header.sortOptions.map((option, index) => (
-                      <option key={index} className="text-gray-800">{option}</option>
-                    ))}
-                  </select>
-                </div>
+    <section className="relative rounded-[16px] bg-none backdrop-blur-[15px] p-3 xxs:p-3 md:p-4 border border-white/40">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6 w-full">
+        {/* LEFT SECTION */}
+        <div className="w-full md:w-[67%] space-y-5 md:space-y-6">
+          {/* Header */}
+          <div>
+            <h1 className="text-2xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9] mb-3">
+              {faqData.header.title}
+            </h1>
+
+            <div className="flex flex-col xs:flex-col xxs:flex-col md:flex-row gap-4">
+              <div className="flex-1">
+                <input
+                  onChange={(e) => setSearch(e.target.value)}
+                  type="text"
+                  placeholder={faqData.header.searchPlaceholder}
+                  className="w-full px-4 py-3 border border-white/30 rounded-lg focus:outline-none bg-transparent text-white placeholder:text-white/60"
+                />
               </div>
-
-              <div className="border-t border-gray-300"></div>
+              <div className="flex items-center gap-1 mt-2 md:mt-0">
+                <button onClick={handleSearch} className="cursor-pointer">
+                  Search
+                </button>
+              </div>
             </div>
+          </div>
 
-            {/* FAQ Sections */}
-            <div className="space-y-8">
-              {faqData.sections.map((section, sectionIndex) => (
-                <div key={sectionIndex}>
-                  {/* Section Title */}
-                  {section.title && (
-                    <h2 className="text-xl font-semibold text-[#C3F8D9] mb-6">
-                      {section.title}
+          {/* Accordion FAQ Section */}
+          <div className="border border-b-0 border-white/40">
+            {faqFinalData.length > 0 &&
+              faqFinalData.map((faqData, faqIndex) => (
+                <div key={faqIndex} className="border-b border-white/40">
+                  <button
+                    onClick={() => toggleCategory(faqIndex)}
+                    className="cursor-pointer w-full flex justify-between items-center py-4 xs:py-3 xxs:py-2.5 px-5 text-left transition"
+                  >
+                    <h2 className="text-[22px] xs:text-[20px] xxs:text-[18px] font-bold text-white">
+                      {faqData[`name_${lang}`]}
                     </h2>
-                  )}
+                  </button>
 
-                  {/* FAQ Items */}
-                  {section.type === "faq" && (
-                    <div className="space-y-4">
-                      {section.items.map((item, itemIndex) => (
-                        <div key={itemIndex}>
-                          <h3 className="text-lg font-semibold text-white mb-2">
-                            {item.question}
-                          </h3>
-                          {item.answer && (
-                            <p className="text-white ml-4 opacity-90">
-                              {item.answer}
-                            </p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  )}
+                  {/* Questions List */}
+                  {openCategory === faqIndex && (
+                    <div>
+                      {faqData.faqs.map((item, index) => {
+                        const isOpen = openQuestion[`${faqIndex}-${index}`];
+                        return (
+                          <div
+                            key={index}
+                            className="border-t border-white/40 transition-all"
+                          >
+                            <button
+                              onClick={() => toggleQuestion(faqIndex, index)}
+                              className="w-full flex justify-between items-center px-5 py-4 xs:py-3 xxs:py-2 text-left cursor-pointer transition"
+                            >
+                              <h3 className="text-[18px] xs:text-[16px] xxs:text-[14px] font-semibold text-white leading-[1.6]">
+                                {item[`question_${lang}`]}
+                              </h3>
+                            </button>
 
-                  {/* Billing, Technical, Support Items with individual borders */}
-                  {section.type === "billing" && (
-                    <div className="space-y-4">
-                      {section.items.map((item, itemIndex) => (
-                        <div 
-                          key={itemIndex}
-                          className="border border-white/40 rounded-[16px] p-4 backdrop-blur-[15px]"
-                        >
-                          <div className="flex justify-between items-center">
-                            <h3 className="text-lg font-semibold text-white">
-                              {item.title}
-                            </h3>
-                            {item.description && (
-                              <span className="text-white text-sm opacity-80">
-                                {item.description}
-                              </span>
+                            {/* Answer */}
+                            {isOpen && (
+                              <p className="text-white/80 text-[14px] xs:text-[13px] xxs:text-[12px] leading-[1.7] px-5 pb-4 mt-[-15px]">
+                                {item[`answer_${lang}`]}
+                              </p>
                             )}
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
-                  )}
-
-                  {/* Divider between sections except last one */}
-                  {sectionIndex < faqData.sections.length - 1 && (
-                    <div className="border-t border-gray-300 px-8 py- my-6"></div>
                   )}
                 </div>
               ))}
-            </div>
-          </div>
-
-          {/* Right Section - Images (33% width) */}
-          <div className="w-[33%] pt-15">
-            
-            {/* Image Boxes - Direct Content Display */}
-            <div className="space-y-3">
-              {faqData.imageSection.images.map((image) => (
-                <div key={image.id} className="space-y-3">
-                  {/* Image Box - Direct Display with bg-none and backdrop-blur */}
-                  <div className="bg-none backdrop-blur-[15px] rounded-[16px] w-full flex items-center justify-center relative p-4 border border-white/40">
-                    {/* Actual Image Display with specific dimensions */}
-                    <div className="text-center w-full">
-                      <Image 
-                        src={image.imageUrl} 
-                        alt={image.title}
-                        width={image.width}
-                        height={image.height}
-                        className="mx-auto object-cover rounded-lg"
-                      />
-                      {/* Title displayed below image instead of "Content Display" */}
-                      <h3 className="text-lg font-semibold text-white mt-3 text-left">
-                        {image.title}
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
-      </section>
-    </>
+
+        {/* RIGHT SECTION */}
+        <div className="w-full md:w-[33%] pt-12 mt-4 md:mt-0">
+          <div className="space-y-3 md:space-y-4">
+            {faqData.imageSection.images.map((image) => (
+              <div
+                key={image.id}
+                className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
+              >
+                <Image
+                  src={image.imageUrl}
+                  alt={image.title}
+                  width={image.width}
+                  height={image.height}
+                  className="rounded-lg mx-auto w-full h-auto"
+                />
+                <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
+                  {image.title}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

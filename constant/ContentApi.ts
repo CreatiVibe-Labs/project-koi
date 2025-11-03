@@ -17,6 +17,96 @@ export async function getHomePageData() {
   }
 }
 
+export async function getToolkit() {
+  try {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/toolkits-data`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getResourcesPage() {
+  try {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=resources`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getQuizData() {
+  try {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/quizzes`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getBlogsData() {
+  try {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
+export async function getFAQsData(search) {
+  try {
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/faqs?search=${search}`, {
+      cache: "no-store", // ensures fresh data
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch API data");
+    }
+
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching API:", error);
+    return [];
+  }
+}
+
 export async function getHeaderData() {
   try {
 

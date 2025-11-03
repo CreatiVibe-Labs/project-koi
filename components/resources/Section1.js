@@ -1,4 +1,6 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 
 // Import your JSON data (you can also fetch it or keep it in a separate file)
@@ -8,61 +10,119 @@ const cardsData = {
       id: 1,
       title: "Toolkits & Templates",
       icon: "/resources/toolbox-container.png",
-      textColor: "text-white"
+      textColor: "text-white",
     },
     {
       id: 2,
       title: "Industry news",
       icon: "/resources/news.png",
-      textColor: "text-white"
+      textColor: "text-white",
     },
     {
       id: 3,
       title: "Interactive Quiz",
       icon: "/resources/quiz.png",
-      textColor: "text-white"
+      textColor: "text-white",
     },
     {
       id: 4,
       title: "FAQs & Tutorials",
       icon: "/resources/questionAwnser1.png",
-      textColor: "text-[#39FF14]"
+      textColor: "text-white",
     },
-    {
-      id: 5,
-      title: "subpages for future use",
-      icon: "/resources/questionAwnser1.png",
-      textColor: "text-white"
-    },
-    {
-      id: 6,
-      title: "subpages for future use",
-      icon: "/resources/questionAwnser1.png",
-      textColor: "text-white"
-    }
-  ]
+    
+  ],
 };
 
 const Section1 = () => {
+  // Track which section is currently active (in view or via hash)
+  // Start with none active; turns green only when a section is active
+  const [activeId, setActiveId] = useState(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const sectionIds = ["toolkits", "news", "quiz", "faqs"];
+
+    // If URL has a hash on load, use it as initial active
+    const initHash = window.location.hash?.replace("#", "");
+    if (initHash && sectionIds.includes(initHash)) {
+      setActiveId(initHash);
+    }
+
+    // Observe sections to highlight the card whose section is in view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            if (id) setActiveId(id);
+          }
+        });
+      },
+      { root: null, rootMargin: "-25% 0px -55% 0px", threshold: 0.5 }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    // Update when hash changes (e.g., user clicks a card)
+    const onHashChange = () => {
+      const h = window.location.hash?.replace("#", "");
+      if (h && sectionIds.includes(h)) setActiveId(h);
+    };
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      observer.disconnect();
+    };
+  }, []);
+  const hrefMap = {
+    "Toolkits & Templates": "#toolkits",
+    "Industry news": "#news",
+    "Interactive Quiz": "#quiz",
+    "FAQs & Tutorials": "#faqs",
+  };
+
   return (
-    <section className="rounded-lg">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-        {cardsData.cards.map((card) => (
-          <div 
-            key={card.id}
-            className="flex items-center gap-3 px-4 py-10 backdrop-blur-[15px] rounded-[18px] border cursor-pointer w-full "
-          >
-            <Image 
-              src={card.icon} 
-              alt={card.title} 
-              width={54} 
-              height={54} 
-            />
-            <span className={`font-bold ${card.textColor} text-2xl`}>
-              {card.title}
-            </span>
-          </div>
-        ))}
+    <section className="rounded-lg mt-4 md:mt-6">
+      <div
+        className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4"
+      >
+        {cardsData.cards.map((card) => {
+          const href = hrefMap[card.title] || "#";
+          const isActive =
+            activeId && href.startsWith("#") && href === `#${activeId}`;
+
+          return (
+            <Link
+              key={card.id}
+              href={href}
+              onClick={() => {
+                if (href.startsWith("#")) setActiveId(href.replace("#", ""));
+              }}
+              className="flex items-center justify-start gap-2 xs:gap-3 md:gap-2 px-2 xs:px-3 sm:px-3 md:px-4 py-3 xs:py-4 sm:py-4 md:py-5 backdrop-blur-[15px] rounded-[18px] border border-white/40 cursor-pointer w-full"
+            >
+              <Image
+                className="shrink-0 w-9 h-9 xs:w-10 xs:h-10 md:w-12 md:h-12 lg:w-[54px] lg:h-[54px]"
+                src={card.icon}
+                alt={card.title}
+                width={54}
+                height={54}
+              />
+              <span
+                className={`font-bold text-left flex-1 min-w-0 whitespace-nowrap truncate tracking-tight leading-tight ${
+                  isActive ? "text-[#39FF14]" : "text-white"
+                } text-sm xs:text-base md:text-xl lg:text-2xl`}
+              >
+                {card.title}
+              </span>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

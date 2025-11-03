@@ -48,7 +48,7 @@ export default async function RootLayout({ children }) {
               overflowY: 'auto',
               position: 'static',
             }}>
-            <RipplesBackground />
+            {/* <RipplesBackground /> */}
             <Header lang={lang} ASSETS_URL={ASSETS_URL_LAYOUT} apiData={headerData} />
             <div className="content-wrapper">{children}</div>
             <Footer lang={lang} ASSETS_URL={ASSETS_URL_LAYOUT} apiData={footerData} />

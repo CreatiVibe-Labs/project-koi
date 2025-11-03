@@ -40,7 +40,10 @@ const toolkitsData = {
   },
 };
 
-export default function ToolkitsTemplates() {
+export default function ToolkitsTemplates({resources, lang, toolkit}) {
+
+  console.log({resources, lang, toolkit})
+
   const [checkedFiles, setCheckedFiles] = useState({});
 
   const handleCheckbox = (sectionTitle, itemName) => {
@@ -75,9 +78,9 @@ export default function ToolkitsTemplates() {
   };
 
   return (
-  <div className="bg-none backdrop-blur-[15px] p-4 xxs:p-5 xs:p-6 md:p-8 text-white font-inter border border-white/15 rounded-2xl overflow-hidden">
+    <div className="bg-none backdrop-blur-[15px] p-6 xxs:p-6 xs:p-7 md:p-8 text-white font-inter border border-white/15 rounded-2xl overflow-hidden">
       <h2 className="text-2xl xxs:text-[28px] md:text-[30px] font-bold mb-5 xs:mb-6 md:mb-7 text-[#C3F8D9]">
-        Toolkits & Templates
+        {resources.content.toolkits_text[lang] || 'Toolkits & Templates'}
       </h2>
 
       {/* Two-column grid */}

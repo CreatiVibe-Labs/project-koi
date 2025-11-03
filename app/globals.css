@@ -39,6 +39,10 @@ body {
   color: white;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* header {
   background-color: rgb(255 255 255 / 40%);
   border-radius: 10px;
@@ -3118,4 +3122,13 @@ select.input-field option {
 
 .reverse .bottombox4 span {
   animation-delay: 0s;
+}
+
+/* Utility: hide scrollbars (used for horizontal snap lists on mobile) */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }

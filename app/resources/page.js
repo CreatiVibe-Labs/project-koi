@@ -1,33 +1,52 @@
 import Link from 'next/link';
 import Section1 from '@/components/resources/Section1';
 import FAQsAndTutorials from "@/components/resources/FAQsAndTutorials";
+import NewsArticles from '@/components/resources/NewsArticles';
+import Quiz from '@/components/resources/Quiz';
+import ToolkitsTemplates from '@/components/resources/ToolKitTemplates';
+import { getFAQsData, getQuizData, getBlogsData, getToolkit, getResourcesPage } from "@/constant/ContentApi";
 
-
-import Section3 from '@/components/resources/Section3';
-import Section4 from '@/components/resources/Section4';
-import Section5 from '@/components/resources/Section5';
+import { cookies } from "next/headers";
 
 export const metadata = {
   title: "Resources - Aerialink Inc",
   description: "Resources - Aerialink Inc",
 };
 
-export default function ResourcesPage() {
-    return (
-        <>
-             <main className="relative">
-      {/* Background blur overlay */}
-      <div className="absolute inset-0 backdrop-blur-[15px] -z-10" />
+export default async function ResourcesPage() {
 
-      {/* Content area — width controlled by parent layout (1300px) */}
-      <div className="px-6 py- space-y-20">
-        <Section1 />
-        <FAQsAndTutorials />
-        <Section3 />
-        <Section4 />
-        <Section5 />
-      </div>
-    </main>
-        </>
-    );
+  const cookieStore = await cookies();
+  const lang = cookieStore.get("lang")?.value ?? 'en';
+  const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+  const apiData = await getFAQsData('');
+  const quizData = await getQuizData();
+  const blogData = await getBlogsData();
+  const toolkit = await getToolkit();
+  const resources = await getResourcesPage();
+
+  return (
+    <>
+      <main className="relative">
+        {/* Background blur overlay */}
+        <div className="absolute inset-0 backdrop-blur-[15px] -z-10" />
+
+        {/* Content area — width controlled by parent layout (1300px) */}
+        <div className="px-3 m-0 -mt-8 xs:-mt-10 md:-mt-14 xxl:-mt-16 xxs:px-3 xs:px-4 md:px-6 py-6 md:py-8 space-y-6 md:space-y-8">
+          <Section1 />
+          <div id="faqs" className="scroll-mt-24 md:scroll-mt-28 md:mb-20 ">
+            <FAQsAndTutorials faqsData={apiData} lang={lang} />
+          </div>
+          <div id="news" className="scroll-mt-24 md:scroll-mt-28 mt-">
+            <NewsArticles blogData={blogData} lang={lang} />
+          </div>
+          <div id="quiz" className="scroll-mt-24 md:scroll-mt-28">
+            <Quiz quizData={quizData} lang={lang} />
+          </div>
+          <div id="toolkits" className="scroll-mt-24 md:scroll-mt-28">
+            <ToolkitsTemplates toolkit={toolkit} lang={lang} resources={resources} />
+          </div>
+        </div>
+      </main>
+    </>
+  );
 }
