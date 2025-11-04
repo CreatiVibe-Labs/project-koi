@@ -22,6 +22,40 @@ const publicSans = Public_Sans({
 export const metadata = {
   title: "Default - Aerialink Inc",
   description: "Default - Aerialink Inc",
+  keywords: [
+    "Aerialink",
+    "Web Development",
+    "Custom Web Development",
+    "Digital Marketing",
+    "SEO",
+    "Website Design",
+    'Cloud Solutions',
+    'Services',
+  ],
+  openGraph: {
+    title: "Aerialink | Web Development & Digital Marketing Experts",
+    description:
+      "Aerialink provides expert web development, custom solutions, and digital marketing to boost your online presence.",
+    url: "https://www.aerialink.jp",
+    siteName: "Aerialink",
+    images: [
+      {
+        url: "https://www.aerialink.jp/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Aerialink | Web Development & Digital Marketing Experts",
+    description:
+      "Aerialink offers professional web development, custom solutions, and digital marketing services. Grow with Aerialink!",
+    images: ["https://www.aerialink.jp/og-image.jpg"],
+    site: "@aerialink",
+  },
 };
 
 export default async function RootLayout({ children }) {
@@ -48,7 +82,7 @@ export default async function RootLayout({ children }) {
               overflowY: 'auto',
               position: 'static',
             }}>
-            {/* <RipplesBackground /> */}
+            <RipplesBackground />
             <Header lang={lang} ASSETS_URL={ASSETS_URL_LAYOUT} apiData={headerData} />
             <div className="content-wrapper">{children}</div>
             <Footer lang={lang} ASSETS_URL={ASSETS_URL_LAYOUT} apiData={footerData} />
