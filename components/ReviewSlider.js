@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 
 
 
-export default function ReviewSlider({ reviews, color, size }) {
+export default function ReviewSlider({ reviews, color, size, containerClass }) {
   const [current, setCurrent] = useState(0);
 
   console.log(reviews.length)
@@ -26,7 +26,7 @@ export default function ReviewSlider({ reviews, color, size }) {
   }, [finalReviews.length]);
 
   return (
-    <div className="review-container">
+    <div className={`review-container ${containerClass}`}>
       <div key={current} className="review">
         <p className={`${size ? size : 'lg:text-4xl'}  text-left mb-2 pb-2`}>
           <span className={`italic digital7 ${color}`}>{finalReviews[current].review}</span>

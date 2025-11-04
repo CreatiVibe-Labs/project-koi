@@ -116,7 +116,7 @@ const Section1 = () => {
               <span
                 className={`font-bold text-left flex-1 min-w-0 whitespace-nowrap truncate tracking-tight leading-tight ${
                   isActive ? "text-[#39FF14]" : "text-white"
-                } text-sm xs:text-base md:text-xl lg:text-2xl`}
+                } text-sm xs:text-base md:text-xl lg:text-xl`}
               >
                 {card.title}
               </span>

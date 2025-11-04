@@ -8,24 +8,24 @@ export default function Circle({ apiData, lang }) {
         <>
             <div className='CircleWrapper relative justify-center items-center flex flex-col gap-2'>
                 <div className='circle-box1 w-full flex gap-2 justify-between'>
-                    <div className='circlebox border w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
+                    <div className='circlebox max-h-[242px] min-h-[242px] border w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
                         <span className='font-bold md:text-2xl text-[12px] block max-w-[170px]'>
                             {apiData?.content?.retention?.[lang] || "Landing pages Retargeting Funnels"}
                         </span>
                     </div>
-                    <div className='circlebox border text-right flex justify-end w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
+                    <div className='circlebox max-h-[242px] min-h-[242px] border text-right flex justify-end w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
                         <span className='font-bold md:text-2xl text-[12px] block max-w-[115px]'>
                             {apiData?.content?.awareness?.[lang] || "Paids Ads Social SEO"}
                         </span>
                     </div>
                 </div>
                 <div className='circle-box2 w-full flex gap-2 justify-between'>
-                    <div className='circlebox border w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
+                    <div className='circlebox max-h-[242px] min-h-[242px] border w-full backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
                         <span className='font-bold md:text-2xl text-[12px] block max-w-[170px]'>
                             {apiData?.content?.conversion?.[lang] || "Email CRM Sync Loyalty Programs"}
                         </span>
                     </div>
-                    <div className='circlebox border w-full text-right flex justify-end backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
+                    <div className='circlebox max-h-[242px] min-h-[242px] border w-full text-right flex justify-end backdrop-blur-[15px] rounded-lg md:p-5 md:py-18 p-2'>
                         <span className='font-bold md:text-2xl text-[12px]  w-full block max-w-[170px]'>
                             {apiData?.content?.engagement?.[lang] || "Content Video Interactive Posts"}
                         </span>

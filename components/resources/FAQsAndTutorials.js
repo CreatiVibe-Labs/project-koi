@@ -162,7 +162,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
               {resources.content.faqs_heading[lang] || "FAQs & Tutorials"}
             </h1>
 
-            <div className="flex flex-col xs:flex-col xxs:flex-col md:flex-row gap-4">
+            <div className="flex flex-row items-stretch gap-4">
               <div className="flex-1">
                 <input
                   onChange={(e) => setSearch(e.target.value)}
@@ -171,7 +171,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                   className="w-full px-4 py-3 border border-white/30 rounded-lg focus:outline-none bg-transparent text-white placeholder:text-white/60"
                 />
               </div>
-              <div className="flex items-center gap-1 mt-2 md:mt-0">
+              <div className="flex items-center gap-1 mt-0">
                 <button onClick={handleSearch} className="cursor-pointer border border-white/40 px-4 py-3 rounded-lg text-white font-medium bg-none backdrop-blur-[15px] ">
                   {resources.content.search[lang] || "Search"}
                 </button>
@@ -229,7 +229,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
         </div>
 
         {/* RIGHT SECTION */}
-        <div className="w-full md:w-[33%] pt-12 mt-4 md:mt-0">
+        <div className="w-full md:w-[33%] pt-2 mt-4 md:mt-0">
           <div className="space-y-3 md:space-y-4">
 
             {hasTutorial1 && <div

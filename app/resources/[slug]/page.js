@@ -87,7 +87,7 @@ export default async function ResourceArticlePage({ params, searchParams }) {
   const { slug } = params;
   const cookieStore = await cookies();
   const cookieLang = cookieStore.get("lang")?.value;
-  const lang = searchParams?.lang || cookieLang || "en";
+  const lang = cookieStore.get("lang")?.value ?? 'en';
 
   const res = await getBlogBySlug(slug);
   const post = res?.data ?? res;
@@ -107,7 +107,7 @@ export default async function ResourceArticlePage({ params, searchParams }) {
   const siteName = "Aerialink Inc";
 
   return (
-    <main className="relative w-full bg-transparent text-white">
+    <main className="relative w-full bg-transparent text-white xl:mb-[-50px] lg:mb-[-50px] md:mb-[-30px] sm:[-30px] xs:mb-[-20px] xl:mt-[-50px] lg:mt-[-50px] md:mt-[-30px] sm:mt-[-30px] xs:mt-[-20px]">
       <div className=" w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Container with transparent bg and 15px backdrop blur */}
         <div className="rounded-2xl border border-white/40 backdrop-blur-[15px] shadow-lg px-4 sm:px-6 md:px-10 py-6 md:py-10">

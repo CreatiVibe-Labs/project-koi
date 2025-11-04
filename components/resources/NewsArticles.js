@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -53,10 +53,26 @@ const NewsArticles = ({ blogData, lang, resources }) => {
     });
   };
 
+  // Compute arrow availability
+  const maxDesktopIndex = useMemo(
+    () => Math.max(0, (articlesData?.length || 0) - visibleSlides),
+    [articlesData.length]
+  );
+  const hasPrev = currentSlide > 0;
+  const hasNext = isMdUp
+    ? currentSlide < maxDesktopIndex
+    : currentSlide < Math.max(0, articlesData.length - 1);
+
+  // Clamp current slide when viewport or data length changes
+  useEffect(() => {
+    const maxIdx = isMdUp ? maxDesktopIndex : Math.max(0, articlesData.length - 1);
+    setCurrentSlide((prev) => Math.min(prev, maxIdx));
+  }, [isMdUp, maxDesktopIndex, articlesData.length]);
+
   const nextSlide = () => {
     if (!articlesData.length) return;
     if (isMdUp) {
-      setCurrentSlide((prev) => (prev + 1) % articlesData.length);
+      setCurrentSlide((prev) => Math.min(prev + 1, maxDesktopIndex));
     } else {
       const next = Math.min(
         currentSlide + 1,
@@ -69,9 +85,7 @@ const NewsArticles = ({ blogData, lang, resources }) => {
   const prevSlide = () => {
     if (!articlesData.length) return;
     if (isMdUp) {
-      setCurrentSlide(
-        (prev) => (prev - 1 + articlesData.length) % articlesData.length
-      );
+      setCurrentSlide((prev) => Math.max(prev - 1, 0));
     } else {
       const prev = Math.max(currentSlide - 1, 0);
       scrollToIndexMobile(prev);
@@ -92,29 +106,43 @@ const NewsArticles = ({ blogData, lang, resources }) => {
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className="flex absolute left-2 xs:left-3 md:-left-17 top-1/2 -translate-y-1/2 items-center justify-center z-10"
+          disabled={!hasPrev}
+          aria-disabled={!hasPrev}
+          className={`flex absolute left-2 xs:left-3 md:-left-17 top-1/2 -translate-y-[62%] md:-translate-y-1/2 items-center justify-center z-10 ${
+            hasPrev ? "text-[#46D3A7] cursor-pointer" : "text-[#929292] pointer-events-none cursor-not-allowed"
+          }`}
         >
-          <Image
-            src="/resources/Vector.png"
-            alt="Previous Slide"
-            width={46}
-            height={96}
-            className="opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer"
-          />
+          <svg
+            width="53"
+            height="101"
+            viewBox="0 0 53 101"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-7 h-14 xs:w-8 xs:h-16 md:w-[53px] md:h-[101px] opacity-90 transition-all duration-300"
+          >
+            <path d="M48.6505 3.57812L4.66188 47.5667C4.31976 47.8878 4.04709 48.2756 3.86069 48.7062C3.67429 49.1368 3.57812 49.601 3.57812 50.0702C3.57812 50.5393 3.67429 51.0036 3.86069 51.4341C4.04709 51.8647 4.31976 52.2525 4.66188 52.5736L48.6505 96.5622" stroke="currentColor" strokeWidth="7.15262" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
 
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="flex absolute right-2 xs:right-3 md:-right-17 top-1/2 -translate-y-1/2 items-center justify-center z-10"
+          disabled={!hasNext}
+          aria-disabled={!hasNext}
+          className={`flex absolute right-2 xs:right-3 md:-right-17 top-1/2 -translate-y-[62%] md:-translate-y-1/2 items-center justify-center z-10 ${
+            hasNext ? "text-[#46D3A7]" : "text-[#929292] pointer-events-none"
+          }`}
         >
-          <Image
-            src="/resources/Vector-2.png"
-            alt="Next Slide"
-            width={46}
-            height={96}
-            className="opacity-70 hover:opacity-100 transition-all duration-300 cursor-pointer"
-          />
+          <svg
+            width="53"
+            height="101"
+            viewBox="0 0 53 101"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-7 h-14 xs:w-8 xs:h-16 md:w-[53px] md:h-[101px] opacity-90 transition-all duration-300"
+          >
+            <path d="M3.57812 3.57812L47.5667 47.5667C47.9089 47.8878 48.1815 48.2756 48.3679 48.7062C48.5543 49.1368 48.6505 49.601 48.6505 50.0702C48.6505 50.5393 48.5543 51.0036 48.3679 51.4341C48.1815 51.8647 47.9089 52.2525 47.5667 52.5736L3.57812 96.5622" stroke="currentColor" strokeWidth="7.15262" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
 
         {/* Slider */}
@@ -157,16 +185,16 @@ const NewsArticles = ({ blogData, lang, resources }) => {
                     </p>
 
                     <Link
-                      href={`/resources/${article.slug || ""}?lang=${encodeURIComponent(lang || "en")}`}
-                      className="w-full mt-2 xs:mt-2.5 py-1.5 xs:py-2 text-[#98C1A9] text-[14px] xxs:text-[15px] xs:text-[16px] md:text-[18px] lg:text-[20px] flex items-start gap-2 group"
+                      href={`/resources/${article.slug || ""}`}
+                      className="w-full mt-1 xs:mt-2 md:mt-2.5 py-1.5 xs:py-2 text-[#98C1A9] text-[14px] xxs:text-[14px] xs:text-[16px] md:text-[18px] lg:text-[20px] flex items-center gap-1.5 xs:gap-2 group"
                     >
-                      <span>Learn More</span>
+                      <span className="leading-none">Learn More</span>
                       <Image
                         src="/resources/button-arrow.png"
                         alt="→"
-                        width={24}
-                        height={24}
-                        className="transition-transform duration-300 group-hover:translate-x-1"
+                        width={22}
+                        height={22}
+                        className="block shrink-0 w-[18px] h-[18px] xs:w-[20px] xs:h-[20px] md:w-[22px] md:h-[22px] transition-transform duration-300 group-hover:translate-x-1"
                       />
                     </Link>
                   </div>

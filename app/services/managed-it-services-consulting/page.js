@@ -135,6 +135,7 @@ export default async function managedItServices() {
                                     reviews={quotes}
                                     color={'text-[#FF5F1F]'}
                                     size={"text-3xl"}
+                                    containerClass={'min-h-[250px]'}
                                 />
                             </div>
                         </div>

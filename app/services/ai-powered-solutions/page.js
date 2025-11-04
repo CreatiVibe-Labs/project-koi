@@ -151,11 +151,11 @@ export default async function AiPoweredSolutions() {
                     <div className="industriesServeMainWrapper featuresHighlight featuresHighlight2">
                         <div className="is-heading gradient-background"><h3>{apiData?.content?.feature_highlights_heading?.[lang] || "Feature Hightlights"}</h3></div>
                         <div className="mt-5">
-                            <p className='subHeadings'>{apiData?.content?.what_we_deliver_heading?.[lang] || "What We Deliver"}</p>
+                            <p className='subHeadings ml-4'>{apiData?.content?.what_we_deliver_heading?.[lang] || "What We Deliver"}</p>
                             <SliderCards
                                 slides={keyFeatures1}
                             />
-                            <p className='subHeadings pt-5'>{apiData?.content?.industry_specific_use_cases_heading?.[lang] || "Industry-Specific Use Cases"}</p>
+                            <p className='subHeadings pt-5 ml-4'>{apiData?.content?.industry_specific_use_cases_heading?.[lang] || "Industry-Specific Use Cases"}</p>
                             <div className='industry-Specific'>
                                 <SliderCards
                                     slides={keyFeatures2}

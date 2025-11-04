@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 
 export default function ToolkitsTemplates({ resources, lang, toolkit }) {
 
   console.log({ resources, lang, toolkit })
 
   const [checkedFiles, setCheckedFiles] = useState({});
+  const [isZipping, setIsZipping] = useState(false);
 
   const handleCheckbox = (sectionTitle, itemName) => {
     setCheckedFiles((prev) => ({
@@ -56,12 +57,8 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
     }
 
     try {
-      // Show loading state
-      const button = document.querySelector('button[onclick*="handleDownloadAll"]') || 
-                    document.activeElement;
-      const originalText = button.textContent;
-      button.textContent = 'Creating ZIP...';
-      button.disabled = true;
+      // Show loading state via React state
+      setIsZipping(true);
 
       // Create ZIP via backend API
       const response = await fetch('/api/download-zip', {
@@ -88,8 +85,7 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
       }
 
       // Restore button state
-      button.textContent = originalText;
-      button.disabled = false;
+      setIsZipping(false);
 
     } catch (error) {
       console.error('ZIP download failed:', error);
@@ -99,10 +95,7 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
       downloadIndividually(selectedFiles);
       
       // Restore button state
-      const button = document.querySelector('button[onclick*="handleDownloadAll"]') || 
-                    document.activeElement;
-      button.textContent = 'Download All';
-      button.disabled = false;
+      setIsZipping(false);
     }
   };
 
@@ -120,6 +113,9 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
       }
     }
   };
+
+  // Determine if any checkbox is selected to toggle the Download All button
+  const hasAnySelection = useMemo(() => Object.values(checkedFiles).some(Boolean), [checkedFiles]);
 
   return (
     <div className="bg-none backdrop-blur-[15px] p-6 xxs:p-6 xs:p-7 md:p-8 text-white font-inter border border-white/15 rounded-2xl overflow-hidden">
@@ -203,16 +199,19 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
         ))}
       </div>
 
-      {/* Download All */}
-      <div className="text-center mt-8">
-        <button
-          onClick={handleDownloadAll}
-          className="bg-none backdrop-blur-[15px] text-[#39ff14] py-[11px] px-10 xs:px-12 md:px-[120px] border border-[#39ff14] rounded-full font-bold text-[17px] xs:text-[18px] md:text-[19px] cursor-pointer shadow-[0_4px_15px_rgba(255,255,255,0.4)] transition-all duration-300 hover:bg-white/40
- "
-        >
-          Download All
-        </button>
-      </div>
+      {/* Download All: only visible when at least one checkbox selected */}
+      {hasAnySelection && (
+        <div className="text-center mt-8">
+          <button
+            onClick={handleDownloadAll}
+            disabled={isZipping}
+            aria-disabled={isZipping}
+            className={`bg-none backdrop-blur-[15px] text-[#39ff14] py-[11px] px-10 xs:px-12 md:px-[120px] border border-[#39ff14] rounded-full font-bold text-[17px] xs:text-[18px] md:text-[19px] cursor-pointer shadow-[0_4px_15px_rgba(255,255,255,0.4)] transition-all duration-300 ${isZipping ? 'opacity-70 pointer-events-none' : 'hover:bg-white/40'}`}
+          >
+            {isZipping ? 'Creating ZIP…' : 'Download All'}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
