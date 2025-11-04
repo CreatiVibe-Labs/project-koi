@@ -9,8 +9,8 @@ import { getHomePageData, getIndustriesData } from "@/constant/ContentApi";
 import { cookies } from "next/headers";
 
 export const metadata = {
-  title: "Homepage - Aerialink Inc",
-  description: "Homepage - Aerialink Inc",
+  title: "Aerialink | Web Development & Digital Marketing Experts",
+  description: "Aerialink offers professional web development, custom solutions, and digital marketing services. Grow your business online with Aerialink today!",
 };
 
 export default async function Home() {
@@ -19,6 +19,35 @@ export default async function Home() {
   const ASSETS_URL = process.env.NEXT_PUBLIC_DASHBOARD_URL;
   const apiData = await getHomePageData();
   const industriesData = await getIndustriesData();
+
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Aerialink",
+    url: "https://www.aerialink.jp",
+    description:
+      "Aerialink offers professional web development, custom solutions, and digital marketing services to help businesses grow online.",
+    publisher: {
+      "@type": "Organization",
+      name: "Aerialink",
+      url: "https://www.aerialink.jp",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.aerialink.jp/images/logo.png",
+      },
+      sameAs: [
+        "https://www.facebook.com/aerialink",
+        "https://www.instagram.com/aerialink",
+        "https://www.linkedin.com/company/aerialink",
+        "https://twitter.com/aerialink",
+      ],
+    },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://www.aerialink.jp/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
 
   return (
     <>
@@ -123,6 +152,11 @@ export default async function Home() {
           </div>
         </div>
       </div>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
     </>
   );
 }

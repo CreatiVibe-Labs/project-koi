@@ -43,7 +43,7 @@ export default async function ContactPage({ imageUrl, title, text }) {
                             </li>
                             <li className="flex items-center gap-2.5 md:gap-5">
                                 <div className="bg-white rounded-full px-2.5 py-2"><Image alt="icon" src="/icons/address.png" width={25} height={25}></Image></div>
-                                <Link href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target="_blank" className="flex items-center  gap-5 custom-shaodw !w-[80%] md:w-[90%]">{apiData?.content?.address?.[lang] || "6E-02, 6-9 Koyochonaka, Higashinadaku, Kobe  Hyogo 658-0032 Japan"}</Link>
+                                <Link href="https://maps.app.goo.gl/x4bdhdoMwSufLe31A" target="_blank" rel="noopener" className="flex items-center  gap-5 custom-shaodw !w-[80%] md:w-[90%]">{apiData?.content?.address?.[lang] || "6E-02, 6-9 Koyochonaka, Higashinadaku, Kobe  Hyogo 658-0032 Japan"}</Link>
                             </li>
                         </ul>
 
