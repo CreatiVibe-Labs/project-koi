@@ -30,7 +30,7 @@ export const metadata = {
   description: "Leading IT solutions provider in Japan. Expert web development, custom software, cloud migration, AI solutions & digital marketing services. Transform your business with Aerialink.",
   keywords: [
     "Aerialink",
-    "Web Development Japan",
+    "Web Development",
     "Custom Web Development",
     "Digital Marketing Services",
     "SEO Services Japan",
