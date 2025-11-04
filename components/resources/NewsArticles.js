@@ -157,7 +157,7 @@ const NewsArticles = ({ blogData, lang, resources }) => {
                     </p>
 
                     <Link
-                      href={article.slug || "#"}
+                      href={`/resources/${article.slug || ""}?lang=${encodeURIComponent(lang || "en")}`}
                       className="w-full mt-2 xs:mt-2.5 py-1.5 xs:py-2 text-[#98C1A9] text-[14px] xxs:text-[15px] xs:text-[16px] md:text-[18px] lg:text-[20px] flex items-start gap-2 group"
                     >
                       <span>Learn More</span>

@@ -72,6 +72,7 @@ export async function getQuizData() {
 }
 
 export async function getBlogsData() {
+  
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
@@ -86,6 +87,22 @@ export async function getBlogsData() {
   } catch (error) {
     console.error("Error fetching API:", error);
     return [];
+  }
+}
+
+export async function getBlogBySlug(slug: string) {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${slug}`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch blog by slug");
+    }
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error("Error fetching blog by slug:", error);
+    return null;
   }
 }
 
