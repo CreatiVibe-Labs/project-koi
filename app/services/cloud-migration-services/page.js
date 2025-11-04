@@ -4,8 +4,18 @@ import { getCloudMigrationData, getCloudStorageData, getSideBarData, getServices
 import { cookies } from "next/headers";
 
 export const metadata = {
-    title: "Cloud Migration & Storage Services - Aerialink Inc",
-    description: "Cloud Migration & Storage Services - Aerialink Inc",
+    title: "Cloud Migration & Storage Services - AWS, Azure, Google Cloud",
+    description: "Expert cloud migration and storage services in Japan. Seamlessly migrate to AWS, Azure, or Google Cloud. Secure, scalable, and cost-effective cloud solutions for your business.",
+    keywords: "cloud migration, AWS migration, Azure migration, Google Cloud, cloud storage, cloud infrastructure, cloud consulting Japan",
+    openGraph: {
+        title: "Cloud Migration & Storage Services - AWS, Azure, Google Cloud | Aerialink",
+        description: "Expert cloud migration services. Seamlessly migrate to AWS, Azure, or Google Cloud with secure, scalable solutions.",
+        url: "https://www.aerialink.jp/services/cloud-migration-services",
+        images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    },
+    alternates: {
+        canonical: "https://www.aerialink.jp/services/cloud-migration-services",
+    },
 };
 
 export default async function CloudMigrationServices() {

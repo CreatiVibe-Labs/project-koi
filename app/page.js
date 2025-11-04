@@ -11,6 +11,17 @@ import { cookies } from "next/headers";
 export const metadata = {
   title: "Aerialink | Web Development & Digital Marketing Experts",
   description: "Aerialink offers professional web development, custom solutions, and digital marketing services. Grow your business online with Aerialink today!",
+  keywords: "web development Japan, custom software development, digital marketing, cloud migration, AI solutions, IT consulting Kobe",
+  openGraph: {
+    title: "Aerialink | Web Development & Digital Marketing Experts in Japan",
+    description: "Leading IT solutions provider in Japan. Expert web development, custom software, cloud migration & AI solutions.",
+    url: "https://www.aerialink.jp",
+    images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://www.aerialink.jp",
+  },
 };
 
 export default async function Home() {
@@ -62,9 +73,19 @@ export default async function Home() {
           </div>
         </div>
         <div className="image-section">
-          <Image src={(apiData?.content?.image_hero_section_image?.[lang])
-            ? (ASSETS_URL + apiData.content.image_hero_section_image?.[lang])
-            : '/images/hero-image.png'} width={516} height={444} alt="Hero Image" priority={true}></Image>
+          <Image
+            src={(apiData?.content?.image_hero_section_image?.[lang])
+              ? (ASSETS_URL + apiData.content.image_hero_section_image?.[lang])
+              : '/images/hero-image.png'}
+            width={516}
+            height={444}
+            alt="Hero Image"
+            priority={true}
+            quality={85}
+            loading="eager"
+            placeholder="blur"
+            blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='516' height='444'%3E%3Crect width='516' height='444' fill='%23f0f0f0'/%3E%3C/svg%3E"
+          />
         </div>
       </div>
       <div className="ServicesCardsWrapper homepageServices">

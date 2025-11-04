@@ -1,0 +1,20 @@
+# www.aerialink.jp
+
+## Primary Pages
+https://www.aerialink.jp/
+https://www.aerialink.jp/services
+https://www.aerialink.jp/about-us
+https://www.aerialink.jp/contact
+https://www.aerialink.jp/resources
+
+## Services
+https://www.aerialink.jp/services/custom-app-development
+https://www.aerialink.jp/services/custom-website-development
+https://www.aerialink.jp/services/cloud-migration-services
+https://www.aerialink.jp/services/ai-powered-solutions
+https://www.aerialink.jp/services/managed-it-services-consulting
+https://www.aerialink.jp/services/digital-marketing-services
+
+## Other
+https://www.aerialink.jp/demo
+https://www.aerialink.jp/thank-you

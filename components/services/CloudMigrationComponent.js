@@ -107,7 +107,15 @@ export default function CloudMigration({ lang, ASSETS_URL, apiData, serviceApiDa
                         <p className='!font-medium'>
                             {apiData?.content?.cloud_migration_description?.[lang] || "We help businesses move to the cloud with confidence – minimizing disruption while maximizing long-term value."}
                         </p>
-                        <Image src="/images/cloud-image1.png" width={6000} height={6000} alt="cloud image" />
+                        <Image 
+                            src="/images/cloud-image1.png" 
+                            width={800} 
+                            height={600} 
+                            alt="cloud image"
+                            quality={85}
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, 800px"
+                        />
                     </div>
                 </div>
             </div>

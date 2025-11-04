@@ -10,8 +10,18 @@ import { cookies } from "next/headers";
 import { CalendlyLink } from '@/constant/constants';
 
 export const metadata = {
-    title: "Custom Website Development - Aerialink Inc",
-    description: "Custom Website Development - Aerialink Inc",
+    title: "Custom Website Development - Responsive, SEO-Friendly Websites",
+    description: "Professional custom website development in Japan. Build responsive, SEO-optimized websites - from corporate portals to e-commerce stores. Transform your online presence with Aerialink.",
+    keywords: "custom website development, responsive web design, SEO website, e-commerce development, corporate website, CMS development, WordPress development",
+    openGraph: {
+        title: "Custom Website Development - Responsive, SEO-Friendly | Aerialink",
+        description: "Professional custom website development. Build responsive, SEO-optimized websites - from corporate portals to e-commerce stores.",
+        url: "https://www.aerialink.jp/services/custom-website-development",
+        images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    },
+    alternates: {
+        canonical: "https://www.aerialink.jp/services/custom-website-development",
+    },
 };
 
 export default async function CustomWebsiteDevelopment() {
