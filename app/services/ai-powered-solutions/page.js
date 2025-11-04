@@ -12,8 +12,18 @@ import { getAIPoweredData, getSideBarData, getServicesPageData } from "@/constan
 import { cookies } from "next/headers";
 
 export const metadata = {
-    title: "AI Powered Solutions & Machine Learning - Aerialink Inc",
-    description: "AI Powered Solutions & Machine Learning - Aerialink Inc",
+    title: "AI Powered Solutions & Machine Learning Services",
+    description: "Cutting-edge AI and machine learning solutions in Japan. Automate processes, gain insights, and transform your business with intelligent AI-powered applications and data analytics.",
+    keywords: "AI solutions, machine learning, artificial intelligence, AI development, ML services, data analytics, automation, predictive analytics",
+    openGraph: {
+        title: "AI Powered Solutions & Machine Learning Services | Aerialink",
+        description: "Cutting-edge AI and machine learning solutions. Automate processes, gain insights with intelligent AI-powered applications.",
+        url: "https://www.aerialink.jp/services/ai-powered-solutions",
+        images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    },
+    alternates: {
+        canonical: "https://www.aerialink.jp/services/ai-powered-solutions",
+    },
 };
 
 export default async function AiPoweredSolutions() {

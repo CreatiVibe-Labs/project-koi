@@ -1,9 +1,11 @@
 // app/constants/apiConstants.js
 export async function getHomePageData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=landing-page`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 3600, // Cache for 1 hour (3600 seconds)
+        tags: ['homepage'] // Add tag for on-demand revalidation
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -19,9 +21,11 @@ export async function getHomePageData() {
 
 export async function getToolkit() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/toolkits-data`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 7200, // Cache for 2 hours
+        tags: ['toolkit'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -37,9 +41,11 @@ export async function getToolkit() {
 
 export async function getResourcesPage() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=resources`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 3600, // Cache for 1 hour
+        tags: ['resources'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -55,9 +61,11 @@ export async function getResourcesPage() {
 
 export async function getQuizData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/quizzes`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 1800, // Cache for 30 minutes
+        tags: ['quizzes'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -74,9 +82,11 @@ export async function getQuizData() {
 export async function getBlogsData() {
   
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 1800, // Cache for 30 minutes
+        tags: ['blogs'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -108,9 +118,11 @@ export async function getBlogBySlug(slug: string) {
 
 export async function getFAQsData(search) {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/faqs?search=${search}`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 3600, // Cache for 1 hour
+        tags: ['faqs'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -126,9 +138,11 @@ export async function getFAQsData(search) {
 
 export async function getHeaderData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=header`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 86400, // Cache for 24 hours (header rarely changes)
+        tags: ['header'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -145,7 +159,10 @@ export async function getHeaderData() {
 export async function getFooterData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=footer`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 86400, // Cache for 24 hours (footer rarely changes)
+        tags: ['footer'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -161,9 +178,11 @@ export async function getFooterData() {
 
 export async function getIndustriesData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=industries-we-serves`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 7200, // Cache for 2 hours
+        tags: ['industries'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -180,9 +199,11 @@ export async function getIndustriesData() {
 
 export async function getAboutPageData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=about-us`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 7200, // Cache for 2 hours
+        tags: ['about'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -199,9 +220,11 @@ export async function getAboutPageData() {
 
 export async function getOrganizationData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=organization`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 7200, // Cache for 2 hours
+        tags: ['organization'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -218,9 +241,11 @@ export async function getOrganizationData() {
 
 export async function getServicesPageData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=services`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 3600, // Cache for 1 hour
+        tags: ['services'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -237,9 +262,11 @@ export async function getServicesPageData() {
 
 export async function getSidebarData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=sidebar`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 7200, // Cache for 2 hours
+        tags: ['sidebar'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -256,9 +283,11 @@ export async function getSidebarData() {
 
 export async function getAppDevData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=custom-app-development`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 3600, // Cache for 1 hour
+        tags: ['app-dev'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -275,9 +304,11 @@ export async function getAppDevData() {
 
 export async function getWebDevData() {
   try {
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=custom-website-development`, {
-      cache: "no-store", // ensures fresh data
+      next: { 
+        revalidate: 3600, // Cache for 1 hour
+        tags: ['web-dev'] 
+      }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -296,7 +327,7 @@ export async function getCloudMigrationData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=cloud-migration`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -316,7 +347,7 @@ export async function getCloudStorageData() {
 
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=cloud-storage`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -336,7 +367,7 @@ export async function getAIPoweredData() {
 
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=ai-powered-solutions`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -355,7 +386,7 @@ export async function getItServicesData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=managed-it-services`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -374,7 +405,7 @@ export async function getTestimonials() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=testimonials`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -393,7 +424,7 @@ export async function getDigitalMarketingData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=digital-marketing`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -412,7 +443,7 @@ export async function getSideBarData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=sidebar`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -431,7 +462,7 @@ export async function getQuotesData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=quotes-from-team`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -450,7 +481,7 @@ export async function getJobsData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=jobs`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -468,7 +499,7 @@ export async function getJobsData() {
 export async function getJobsFormData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=job-form`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -487,7 +518,7 @@ export async function getContactData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=contact-us`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -506,7 +537,7 @@ export async function getIP(ip) {
   try {
     
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-ip?ip=${ip}`, {
-      cache: "no-store", // ensures fresh data
+      next: { revalidate: 3600, tags: ["api"] }
     });
 
     if (!res.ok) {

@@ -1,0 +1,29 @@
+{
+  "name": "Aerialink - IT Solutions & Web Development",
+  "short_name": "Aerialink",
+  "description": "Leading IT solutions provider in Japan. Expert web development, custom software, cloud migration, AI solutions & digital marketing services.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#39ff14",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "technology", "development"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "jp.aerialink"
+}

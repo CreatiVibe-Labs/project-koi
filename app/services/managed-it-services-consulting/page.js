@@ -10,8 +10,18 @@ import { getItServicesData, getTestimonials, getSideBarData, getServicesPageData
 import { cookies } from "next/headers";
 
 export const metadata = {
-    title: "Managed IT Services & Consulting - Aerialink Inc",
-    description: "Managed IT Services & Consulting - Aerialink Inc",
+    title: "Managed IT Services & Consulting - 24/7 Support & Strategic IT",
+    description: "Comprehensive managed IT services and consulting in Japan. 24/7 technical support, infrastructure management, cybersecurity, and strategic IT planning for businesses of all sizes.",
+    keywords: "managed IT services, IT consulting, IT support, infrastructure management, cybersecurity, IT strategy, technical support Japan",
+    openGraph: {
+        title: "Managed IT Services & Consulting - 24/7 Support | Aerialink",
+        description: "Comprehensive managed IT services. 24/7 support, infrastructure management, cybersecurity, and strategic IT planning.",
+        url: "https://www.aerialink.jp/services/managed-it-services-consulting",
+        images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    },
+    alternates: {
+        canonical: "https://www.aerialink.jp/services/managed-it-services-consulting",
+    },
 };
 
 export default async function managedItServices() {

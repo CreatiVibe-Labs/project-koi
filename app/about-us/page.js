@@ -8,8 +8,18 @@ import { cookies } from "next/headers";
 import { getAboutPageData, getOrganizationData, getQuotesData, getJobsData, getServicesPageData } from "@/constant/ContentApi";
 
 export const metadata = {
-    title: "About us - Aerialink Inc",
-    description: "About us - Aerialink Inc",
+    title: "About Us - Leading IT Solutions Provider in Japan",
+    description: "Learn about Aerialink - Your trusted IT partner in Japan. Expert team delivering innovative web development, cloud solutions & digital transformation services since inception.",
+    keywords: "about aerialink, IT company Japan, web development company Kobe, tech company Japan, digital transformation",
+    openGraph: {
+        title: "About Us - Leading IT Solutions Provider in Japan | Aerialink",
+        description: "Learn about Aerialink - Your trusted IT partner delivering innovative web development & digital transformation services in Japan.",
+        url: "https://www.aerialink.jp/about-us",
+        images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    },
+    alternates: {
+        canonical: "https://www.aerialink.jp/about-us",
+    },
 };
 
 export default async function AboutUs() {

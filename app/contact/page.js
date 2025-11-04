@@ -9,8 +9,18 @@ import { getContactData } from "@/constant/ContentApi";
 import { cookies } from "next/headers";
 
 export const metadata = {
-    title: "Contact us - Aerialink Inc",
-    description: "Contact us - Aerialink Inc",
+    title: "Contact Us - Get in Touch for IT Solutions & Web Development",
+    description: "Contact Aerialink for expert IT solutions in Japan. Located in Kobe. Call +81 78 855 2760 or email inquiry@aerialink.jp. Let's discuss your project!",
+    keywords: "contact aerialink, IT services Kobe, web development inquiry, consultation Japan",
+    openGraph: {
+        title: "Contact Us - Get in Touch for IT Solutions | Aerialink",
+        description: "Contact Aerialink for expert IT solutions in Japan. Located in Kobe. Let's discuss your project!",
+        url: "https://www.aerialink.jp/contact",
+        images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    },
+    alternates: {
+        canonical: "https://www.aerialink.jp/contact",
+    },
 };
 
 export default async function ContactPage({ imageUrl, title, text }) {

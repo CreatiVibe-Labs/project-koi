@@ -4,7 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
+    "dev:fast": "NEXT_TELEMETRY_DISABLED=1 next dev --turbopack",
+    "clean": "rm -rf .next node_modules/.cache",
+    "clean:dev": "npm run clean && npm run dev:fast",
     "build": "next build",
+    "build:analyze": "ANALYZE=true next build",
     "start": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },
@@ -24,6 +28,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "critters": "^0.0.23",
     "tailwindcss": "^4"
   }
 }

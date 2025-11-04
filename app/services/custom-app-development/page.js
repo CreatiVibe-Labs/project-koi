@@ -6,8 +6,18 @@ import { getAppDevData, getSideBarData, getServicesPageData } from '@/constant/C
 import { cookies } from "next/headers";
 
 export const metadata = {
-    title: "Custom App Development - Aerialink Inc",
-    description: "Custom App Development - Aerialink Inc",
+    title: "Custom App Development - Mobile & Web Applications",
+    description: "Expert custom app development services in Japan. Build scalable mobile apps (iOS/Android) and web applications tailored to your business needs. Transform your ideas into reality.",
+    keywords: "custom app development, mobile app development Japan, iOS app development, Android app development, web applications, software development",
+    openGraph: {
+        title: "Custom App Development - Mobile & Web Applications | Aerialink",
+        description: "Expert custom app development services. Build scalable mobile apps (iOS/Android) and web applications tailored to your business.",
+        url: "https://www.aerialink.jp/services/custom-app-development",
+        images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    },
+    alternates: {
+        canonical: "https://www.aerialink.jp/services/custom-app-development",
+    },
 };
 
 export default async function CustomAppDevelopment() {

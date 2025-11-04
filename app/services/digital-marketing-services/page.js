@@ -16,8 +16,18 @@ import { getDigitalMarketingData, getSideBarData, getServicesPageData } from "@/
 import { cookies } from "next/headers";
 
 export const metadata = {
-    title: "Digital Marketing - Aerialink Inc",
-    description: "Digital Marketing - Aerialink Inc",
+    title: "Digital Marketing Services - SEO, Social Media & Content Marketing",
+    description: "Full-service digital marketing in Japan. Expert SEO, social media marketing, content strategy, PPC advertising, and email campaigns. Grow your online presence and boost conversions.",
+    keywords: "digital marketing Japan, SEO services, social media marketing, content marketing, PPC advertising, email marketing, online marketing",
+    openGraph: {
+        title: "Digital Marketing Services - SEO, Social Media & Content | Aerialink",
+        description: "Full-service digital marketing. Expert SEO, social media, content strategy, PPC & email campaigns. Grow your online presence.",
+        url: "https://www.aerialink.jp/services/digital-marketing-services",
+        images: [{ url: "/images/og-image.jpg", width: 1200, height: 630 }],
+    },
+    alternates: {
+        canonical: "https://www.aerialink.jp/services/digital-marketing-services",
+    },
 };
 
 export default async function DigitalMarketingServices() {
