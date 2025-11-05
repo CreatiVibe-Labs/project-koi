@@ -214,20 +214,6 @@ const NewsArticles = ({ blogData, lang, resources }) => {
                     <p className="text-[12px] xxs:text-[12.5px] xs:text-[13px]  md:text-[14px] lg:text-[15px] text-white font-medium leading-relaxed line-clamp-2">
                       {article[`content_${lang}`] || article.content_en}
                     </p>
-
-                    {/* <Link
-                      href={`/resources/${article.slug || ""}`}
-                      className="w-full mt-1 xs:mt-2 md:mt-2.5 py-1.5 xs:py-2 text-[#98C1A9] text-[14px] xxs:text-[14px] xs:text-[16px] md:text-[18px] lg:text-[20px] flex items-center gap-1.5 xs:gap-2 group"
-                    >
-                      <span className="leading-none">Learn More</span>
-                      <Image
-                        src="/resources/button-arrow.png"
-                        alt="→"
-                        width={22}
-                        height={22}
-                        className="block shrink-0 w-[18px] h-[18px] xs:w-[20px] xs:h-[20px] md:w-[22px] md:h-[22px] transition-transform duration-300 group-hover:translate-x-1"
-                      />
-                    </Link> */}
                   </div>
                 </div>
               </Link>
@@ -261,7 +247,7 @@ const NewsArticles = ({ blogData, lang, resources }) => {
         {/* Draggable Proportional Progress Bar */}
         <div
           ref={progressBarRef}
-          className="relative flex-1 max-w-xl h-8 bg-white/20 rounded-lg overflow-hidden cursor-pointer select-none"
+          className="relative flex-1 h-8 bg-white/20 rounded-lg overflow-hidden cursor-pointer select-none"
           onMouseDown={handleSliderMouseDown}
           onTouchStart={handleSliderMouseDown}
           role="slider"
