@@ -35,22 +35,20 @@ const cardsData = {
 };
 
 const Section1 = () => {
-  // Track which section is currently active (in view or via hash)
-  // Start with none active; turns green only when a section is active
-  const [activeId, setActiveId] = useState(null);
+  // Default to FAQs active
+  const [activeId, setActiveId] = useState("faqs");
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     const sectionIds = ["toolkits", "news", "quiz", "faqs"];
 
-    // If URL has a hash on load, use it as initial active
+    // If URL has a hash on load, override default
     const initHash = window.location.hash?.replace("#", "");
     if (initHash && sectionIds.includes(initHash)) {
       setActiveId(initHash);
     }
 
-    // Observe sections to highlight the card whose section is in view
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -68,7 +66,6 @@ const Section1 = () => {
       if (el) observer.observe(el);
     });
 
-    // Update when hash changes (e.g., user clicks a card)
     const onHashChange = () => {
       const h = window.location.hash?.replace("#", "");
       if (h && sectionIds.includes(h)) setActiveId(h);

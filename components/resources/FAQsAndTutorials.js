@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
+import React, { useState, useEffect, useRef } from "react";
 import { getFAQsData } from "@/constant/ContentApi";
 
 const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
@@ -12,8 +11,17 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
   const [search, setSearch] = useState("");
 
   const handleSearch = async () => {
-    const apiData = await getFAQsData(search);
-    setFaqFinalData(apiData);
+    const term = search.trim();
+    if (term === "") {
+      setFaqFinalData(faqsData || []);
+      setOpenCategory(null);
+      setOpenQuestion({});
+      return;
+    }
+    const apiData = await getFAQsData(term);
+    setFaqFinalData(apiData || []);
+    setOpenCategory(null);
+    setOpenQuestion({});
   };
 
   const faqData = {
@@ -151,6 +159,145 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
     Object.values(resources.content.tutorial_4_text || {}).some(Boolean) &&
     Object.values(resources.content.video_tutorial_4_video || {}).some(Boolean);
 
+  // Build slider items (only one displayed at a time)
+  const tutorials = [
+    hasTutorial1 && {
+      id: 1,
+      src:
+        ASSETS_URL +
+        (resources.content.video_tutorial_1_video[lang] ||
+          resources.content.video_tutorial_1_video["en"]),
+      title:
+        resources.content.tutorial_1_text[lang] ||
+        resources.content.tutorial_1_text["en"],
+    },
+    hasTutorial2 && {
+      id: 2,
+      src:
+        ASSETS_URL +
+        (resources.content.video_tutorial_2_video[lang] ||
+          resources.content.video_tutorial_2_video["en"]),
+      title:
+        resources.content.tutorial_2_text[lang] ||
+        resources.content.tutorial_2_text["en"],
+    },
+    hasTutorial3 && {
+      id: 3,
+      src:
+        ASSETS_URL +
+        (resources.content.video_tutorial_3_video[lang] ||
+          resources.content.video_tutorial_3_video["en"]),
+      title:
+        resources.content.tutorial_3_text[lang] ||
+        resources.content.tutorial_3_text["en"],
+    },
+    hasTutorial4 && {
+      id: 4,
+      src:
+        ASSETS_URL +
+        (resources.content.video_tutorial_4_video[lang] ||
+          resources.content.video_tutorial_4_video["en"]),
+      title:
+        resources.content.tutorial_4_text[lang] ||
+        resources.content.tutorial_4_text["en"],
+    },
+  ].filter(Boolean);
+
+  const [current, setCurrent] = useState(0);
+  const progressRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  // NEW: swipe state for the video container
+  const swipeRef = useRef({ active: false, startX: 0 });
+
+  // Ensure current stays in bounds if tutorials change
+  useEffect(() => {
+    setCurrent((c) => {
+      if (tutorials.length === 0) return 0;
+      return Math.min(Math.max(0, c), tutorials.length - 1);
+    });
+  }, [/* tutorials length change */ tutorials.length]);
+
+  // non-looping navigation (like News & Articles)
+  const canPrev = current > 0;
+  const canNext = current < tutorials.length - 1;
+
+  const goPrev = () => {
+    if (!canPrev) return;
+    setCurrent((p) => Math.max(0, p - 1));
+  };
+  const goNext = () => {
+    if (!canNext) return;
+    setCurrent((p) => Math.min(tutorials.length - 1, p + 1));
+  };
+
+  // Handle click/drag on progress bar
+  const setIndexFromClientX = (clientX) => {
+    if (!progressRef.current || tutorials.length === 0) return;
+    const rect = progressRef.current.getBoundingClientRect();
+    const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+    const ratio = rect.width ? x / rect.width : 0;
+    const newIndex = Math.min(
+      tutorials.length - 1,
+      Math.floor(ratio * tutorials.length)
+    );
+    setCurrent(newIndex);
+  };
+
+  const onProgressPointerDown = (e) => {
+    if (!progressRef.current) return;
+    setIsDragging(true);
+    progressRef.current.setPointerCapture?.(e.pointerId);
+    setIndexFromClientX(e.clientX);
+  };
+
+  const onProgressPointerMove = (e) => {
+    if (!isDragging) return;
+    setIndexFromClientX(e.clientX);
+  };
+
+  const onProgressPointerUp = (e) => {
+    setIsDragging(false);
+    progressRef.current?.releasePointerCapture?.(e.pointerId);
+  };
+
+  // NEW: swipe handlers (like Articles)
+  const onSwipeDown = (e) => {
+    swipeRef.current.active = true;
+    swipeRef.current.startX = e.clientX;
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+  };
+
+  const onSwipeMove = (e) => {
+    if (!swipeRef.current.active) return;
+    const dx = e.clientX - swipeRef.current.startX;
+    const threshold = 45; // pixels
+    if (dx <= -threshold) {
+      swipeRef.current.active = false;
+      goNext();
+      e.currentTarget.releasePointerCapture?.(e.pointerId);
+    } else if (dx >= threshold) {
+      swipeRef.current.active = false;
+      goPrev();
+      e.currentTarget.releasePointerCapture?.(e.pointerId);
+    }
+  };
+
+  const onSwipeUp = (e) => {
+    swipeRef.current.active = false;
+    e.currentTarget.releasePointerCapture?.(e.pointerId);
+  };
+
+  // Keyboard arrows support
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [canPrev, canNext]);
+
   return (
     <section className="relative rounded-[16px] bg-none backdrop-blur-[15px] p-3 xxs:p-3 md:p-4 border border-white/40">
       <div className="flex flex-col md:flex-row gap-4 md:gap-6 w-full">
@@ -162,18 +309,48 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
               {resources.content.faqs_heading[lang] || "FAQs & Tutorials"}
             </h1>
 
-            <div className="flex flex-row items-stretch gap-4">
-              <div className="flex-1">
+            {/* Search input with right icon; click icon to search; clear to reset */}
+            <div className="w-full">
+              <div className="relative w-full">
                 <input
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setSearch(val);
+                    if (val.trim() === "") {
+                      setFaqFinalData(faqsData || []);
+                      setOpenCategory(null);
+                      setOpenQuestion({});
+                    }
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") handleSearch();
+                  }}
+                  value={search}
                   type="text"
                   placeholder={resources.content.search[lang] || "Search"}
-                  className="w-full px-4 py-3 border border-white/30 rounded-lg focus:outline-none bg-transparent text-white placeholder:text-white/60"
+                  className="w-full pl-4 pr-12 py-3 border border-white/40 rounded-lg focus:outline-none bg-transparent text-white placeholder:text-white/40"
                 />
-              </div>
-              <div className="flex items-center gap-1 mt-0">
-                <button onClick={handleSearch} className="cursor-pointer border border-white/40 px-4 py-3 rounded-lg text-white font-medium bg-none backdrop-blur-[15px] ">
-                  {resources.content.search[lang] || "Search"}
+                <button
+                  type="button"
+                  onClick={handleSearch}
+                  aria-label="Search"
+                  className="absolute inset-y-0 right-5 flex items-center text-white/70 hover:text-[#39ff14] transition-colors"
+                >
+                  {/* Search Icon (SVG) on the right */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 cursor-pointer"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 21l-4.35-4.35m1.1-4.4a7.25 7.25 0 11-14.5 0 7.25 7.25 0 0114.5 0z"
+                    />
+                  </svg>
                 </button>
               </div>
             </div>
@@ -182,137 +359,157 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
           {/* Accordion FAQ Section */}
           <div className="border border-b-0 border-white/40">
             {faqFinalData.length > 0 &&
-              faqFinalData.map((faqData, faqIndex) => (
-                <div key={faqIndex} className="border-b border-white/40">
-                  <button
-                    onClick={() => toggleCategory(faqIndex)}
-                    className="cursor-pointer w-full flex justify-between items-center py-4 xs:py-3 xxs:py-2.5 px-5 text-left transition"
+              faqFinalData.map((faqData, faqIndex) => {
+                const isActiveCat = openCategory === faqIndex;
+                const panelId = `category-panel-${faqIndex}`;
+
+                return (
+                  <div
+                    key={faqIndex}
+                    className={`border-b border-white/40 transition-colors ${
+                      isActiveCat ? "bg-white/5" : ""
+                    }`}
                   >
-                    <h2 className="text-[22px] xs:text-[20px] xxs:text-[18px] font-bold text-white">
-                      {faqData[`name_${lang}`]}
-                    </h2>
-                  </button>
+                    <button
+                      onClick={() => toggleCategory(faqIndex)}
+                      aria-expanded={isActiveCat}
+                      aria-controls={panelId}
+                      className="cursor-pointer w-full flex justify-between items-center py-4 xs:py-3 xxs:py-2.5 px-5 text-left"
+                    >
+                      <h2
+                        className={`text-[22px] xs:text-[20px] xxs:text-[18px] font-bold leading-tight ${
+                          isActiveCat ? "text-[#39FF14]" : "text-white"
+                        }`}
+                      >
+                        {faqData[`name_${lang}`]}
+                      </h2>
+                    </button>
 
-                  {/* Questions List */}
-                  {openCategory === faqIndex && (
-                    <div>
-                      {faqData.faqs.map((item, index) => {
-                        const isOpen = openQuestion[`${faqIndex}-${index}`];
-                        return (
-                          <div
-                            key={index}
-                            className="border-t border-white/40 transition-all"
-                          >
-                            <button
-                              onClick={() => toggleQuestion(faqIndex, index)}
-                              className="w-full flex justify-between items-center px-5 py-4 xs:py-3 xxs:py-2 text-left cursor-pointer transition"
+                    {/* Questions List */}
+                    {isActiveCat && (
+                      <div id={panelId}>
+                        {faqData.faqs.map((item, index) => {
+                          const isOpen = openQuestion[`${faqIndex}-${index}`];
+                          return (
+                            <div
+                              key={index}
+                              className="border-t border-white/40 transition-all"
                             >
-                              <h3 className="text-[18px] xs:text-[16px] xxs:text-[14px] font-semibold text-white leading-[1.6]">
-                                {item[`question_${lang}`]}
-                              </h3>
-                            </button>
+                              <button
+                                onClick={() => toggleQuestion(faqIndex, index)}
+                                className="w-full flex justify-between items-center px-5 py-4 xs:py-3 xxs:py-2 text-left cursor-pointer transition"
+                              >
+                                <h3 className="text-[18px] xs:text-[16px] xxs:text-[14px] font-semibold text-white leading-[1.6]">
+                                  {item[`question_${lang}`]}
+                                </h3>
+                              </button>
 
-                            {/* Answer */}
-                            {isOpen && (
-                              <p className="text-white/80 text-[14px] xs:text-[13px] xxs:text-[12px] leading-[1.7] px-5 pb-4 mt-[-15px]">
-                                {item[`answer_${lang}`]}
-                              </p>
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              ))}
+                              {/* Answer */}
+                              {isOpen && (
+                                <p className="text-white/80 text-[14px] xs:text-[13px] xxs:text-[12px] leading-[1.7] px-5 pb-4 mt-[-15px]">
+                                  {item[`answer_${lang}`]}
+                                </p>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
           </div>
         </div>
 
-        {/* RIGHT SECTION */}
-        <div className="w-full md:w-[33%] pt-2 mt-4 md:mt-0">
-          <div className="space-y-3 md:space-y-4">
+        {/* RIGHT SECTION — single card with slider */}
+        <div className="w-full lg:mt-10 md:w-[33%] pt-2 mt-4 md:mt-10 xs:mt-10">
+          {tutorials.length > 0 && (
+            <div className="space-y-3 md:space-y-4">
+              {/* Video container with swipe */}
+              <div
+                className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl select-none touch-pan-y cursor-grab active:cursor-grabbing"
+                onPointerDown={onSwipeDown}
+                onPointerMove={onSwipeMove}
+                onPointerUp={onSwipeUp}
+              >
+                <video
+                  key={tutorials[current].id}
+                  src={tutorials[current].src}
+                  title={tutorials[current].title}
+                  className="rounded-lg mx-auto w-full h-auto"
+                  controls
+                  autoPlay={false}
+                  loop={false}
+                  muted={false}
+                />
+                <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
+                  {tutorials[current].title}
+                </h3>
+              </div>
 
-            {hasTutorial1 && <div
-              className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
-            >
-              <video
-                src={ASSETS_URL + resources.content.video_tutorial_1_video['en']}        // replace image.imageUrl with your video URL
-                title={resources.content.tutorial_1_text[lang] || resources.content.tutorial_1_text['en']}
-                width={'200'}
-                height={'100'}
-                className="rounded-lg mx-auto w-full h-auto"
-                controls                    // show play/pause controls
-                autoPlay={false}            // optional, set true if you want autoplay
-                loop={false}                // optional, set true if you want looping
-                muted={false}               // optional, set true if autoplay & muted
-              />
-              <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
-                {/* {image.title} */}
-                {resources.content.tutorial_1_text[lang] || resources.content.tutorial_1_text['en']}
-              </h3>
-            </div>}
+              {/* Slider below the container — green pill like Articles */}
+              <div className="mt-1 flex items-center gap-3 select-none">
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  aria-label="Previous video"
+                  aria-disabled={!canPrev}
+                  className={`p-1 rounded-md transition-colors ${
+                    canPrev ? "text-[#64F0C4]" : "text-white/30 cursor-default"
+                  }`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    className="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor"
+                    strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
 
-            {hasTutorial2 && <div
-              className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
-            >
-              <video
-                src={ASSETS_URL + resources.content.video_tutorial_2_video['en']}        // replace image.imageUrl with your video URL
-                title={resources.content.tutorial_2_text[lang] || resources.content.tutorial_2_text['en']}
-                width={'200'}
-                height={'100'}
-                className="rounded-lg mx-auto w-full h-auto"
-                controls                    // show play/pause controls
-                autoPlay={false}            // optional, set true if you want autoplay
-                loop={false}                // optional, set true if you want looping
-                muted={false}               // optional, set true if autoplay & muted
-              />
-              <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
-                {/* {image.title} */}
-                {resources.content.tutorial_2_text[lang] || resources.content.tutorial_2_text['en']}
-              </h3>
-            </div>}
+                {/* Track */}
+                <div
+                  ref={progressRef}
+                  role="slider"
+                  aria-label="Video slider"
+                  aria-valuemin={tutorials.length ? 1 : 0}
+                  aria-valuemax={tutorials.length}
+                  aria-valuenow={current + 1}
+                  tabIndex={0}
+                  onPointerDown={onProgressPointerDown}
+                  onPointerMove={onProgressPointerMove}
+                  onPointerUp={onProgressPointerUp}
+                  onClick={(e) => setIndexFromClientX(e.clientX)}
+                  className={`relative flex-1 h-[14px] rounded-full bg-white/15 backdrop-blur-sm overflow-hidden ${
+                    isDragging ? "cursor-grabbing" : "cursor-grab"
+                  }`}
+                >
+                  {/* Moving green pill (one segment wide) */}
+                  <div
+                    className="absolute top-0 bottom-0 rounded-full bg-[#64F0C4] shadow-[0_0_0_1px_rgba(0,0,0,.05)_inset] transition-[left] duration-200"
+                    style={{
+                      width: `${100 / tutorials.length}%`,
+                      left: `${(100 / tutorials.length) * current}%`,
+                    }}
+                  />
+                </div>
 
-            {hasTutorial3 && <div
-              className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
-            >
-              <video
-                src={ASSETS_URL + resources.content.video_tutorial_3_video['en']}        // replace image.imageUrl with your video URL
-                title={resources.content.tutorial_3_text[lang] || resources.content.tutorial_3_text['en']}
-                width={'200'}
-                height={'100'}
-                className="rounded-lg mx-auto w-full h-auto"
-                controls                    // show play/pause controls
-                autoPlay={false}            // optional, set true if you want autoplay
-                loop={false}                // optional, set true if you want looping
-                muted={false}               // optional, set true if autoplay & muted
-              />
-              <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
-                {/* {image.title} */}
-                {resources.content.tutorial_3_text[lang] || resources.content.tutorial_3_text['en']}
-              </h3>
-            </div>}
-
-            {hasTutorial4 && <div
-              className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl"
-            >
-              <video
-                src={ASSETS_URL + resources.content.video_tutorial_4_video['en']}        // replace image.imageUrl with your video URL
-                title={resources.content.tutorial_1_text[lang] || resources.content.tutorial_1_text['en']}
-                width={'200'}
-                height={'200'}
-                className="rounded-lg mx-auto w-full h-auto"
-                controls                    // show play/pause controls
-                autoPlay={false}            // optional, set true if you want autoplay
-                loop={false}                // optional, set true if you want looping
-                muted={false}               // optional, set true if autoplay & muted
-              />
-              <h3 className="text-lg xs:text-base xxs:text-sm font-semibold text-white mt-3 text-left leading-[1.4]">
-                {/* {image.title} */}
-                {resources.content.tutorial_4_text[lang] || resources.content.tutorial_4_text['en']}
-              </h3>
-            </div>}
-
-          </div>
+                <button
+                  type="button"
+                  onClick={goNext}
+                  aria-label="Next video"
+                  aria-disabled={!canNext}
+                  className={`p-1 rounded-md transition-colors ${
+                    canNext ? "text-[#64F0C4]" : "text-white/30 cursor-default"
+                  }`}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    className="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor"
+                    strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -36,10 +36,13 @@ const Quiz = ({ quizData, lang, resources }) => {
   };
 
   return (
+
+    <> 
+
     <section className="flex justify-center items-center py-4 xs:py-10 md:py-12">
       <div className="w-full relative rounded-2xl border border-white/40 p-5 xxs:p-5 xs:p-6 md:p-8 backdrop-blur-[15px] bg-none shadow-lg overflow-hidden">
 
-        <h1 className="text-2xl xxs:text-3xl md:text-4xl font-bold text-white mb-7 xs:mb-8 md:mb-10 text-center">
+    <h1 className="text-2xl xxs:text-3xl md:text-4xl font-bold text-white mb-7 xs:mb-8 md:mb-10 text-center">
           <span className="text-[#46D3A7]">{resources.content.quiz_heading_1[lang] || 'Test your IT skills'}</span> {resources.content.quiz_heading_2[lang] || "or take a fun tech challenge!"}
         </h1>
 
@@ -61,7 +64,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                   setCurrentQuestion(0);
                   swiperRef.current.slideTo(0);
                 }}
-                className="px-8 py-3 mt-4 bg-[#46D3A7] text-white font-semibold rounded-full hover:bg-[#3cb28b] transition-all cursor-pointer"
+                className="px-8 py-3 mt-4 bg-none border border-[#39ff14] backdrop-blur-[15px] shadow-[0_4px_15px_rgba(255,255,255,0.4)]  text-[#39ff14] font-semibold rounded-full hover:bg-white/40 transition-all cursor-pointer"
               >
                 {resources.content.restart_quiz[lang] || "Restart Quiz"}
               </button>
@@ -97,8 +100,8 @@ const Quiz = ({ quizData, lang, resources }) => {
                           <div
                             key={idx}
                             onClick={() => handleSelect(i, idx)}
-                            className={`rounded-full border px-5 xxs:px-6 py-2.5 xs:py-3 text-[15px] xxs:text-[16px] md:text-[17px] font-bold text-center text-white cursor-pointer transition-all duration-200
-                              ${answers[i] === idx ? "bg-[#306E53] border-[#46D3A7]" : "border-white/40"}`}
+                            className={`rounded-full border px-5 xxs:px-6 py-2.5 xs:py-3 text-[15px] xxs:text-[16px] md:text-[17px] font-bold text-center text-[#39ff14] cursor-pointer hover:bg-white/40 transition-all duration-200 shadow-[0_4px_15px_rgba(255,255,255,0.4)]
+                              ${answers[i] === idx ? "bg-white/40 border border-[#39ff14] " : " border border-[#39ff14] "}`}
                           >
                             {opt}
                           </div>
@@ -164,6 +167,7 @@ const Quiz = ({ quizData, lang, resources }) => {
         )}
       </div>
     </section>
+    </>
   );
 };
 

@@ -126,14 +126,12 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
       <p className="text-[16px] xs:text-[18px] text-white"></p>
 
       {/* Two-column grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 border border-white/15">
+      <div className="grid grid-cols-1 border border-white/15">
         {toolkit.data.length > 0 && toolkit.data.map((section, index) => (
           <div
             key={section.titles[lang]}
             className={`
               ${index > 0 ? "border-t border-white/15" : ""}
-              ${index % 2 === 1 ? "md:border-l md:border-white/15" : ""}
-              ${index < 2 ? "md:border-t-0" : "md:border-t md:border-white/15"}
             `}
           >
             {console.log(section)}
@@ -183,15 +181,14 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
 
                   <div className="md:w-[18%] w-full py-3 px-3 flex items-start md:justify-center">
                     {item.files.pdf && (
-                    <button
-                      onClick={() => handleDownload(item.files.pdf || item.titles['en'], "pdf")}
-                      className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-16 text-[16px] cursor-pointer hover:scale-105 transition-all"
-                    >
-                      .pdf
-                    </button>
+                      <button
+                        onClick={() => handleDownload(item.files.pdf || item.titles['en'], "pdf")}
+                        className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-16 text-[16px] cursor-pointer hover:scale-105 transition-all"
+                      >
+                        .pdf
+                      </button>
                     )}
                   </div>
-
                 </div>
               ))}
             </div>
