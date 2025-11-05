@@ -10,9 +10,9 @@ import { cookies } from "next/headers";
 import { getHeaderData, getFooterData } from '@/constant/ContentApi';
 
 // Load Swiper CSS only where needed, not globally
-// import "swiper/css";
-// import 'swiper/css/pagination';
-// import 'swiper/css/navigation';
+import "swiper/css";
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 const publicSans = Public_Sans({
   subsets: ['latin'],
