@@ -157,15 +157,21 @@ const NewsArticles = ({ blogData, lang, resources }) => {
   }, [isDragging, isMdUp, articlesData.length]);
 
   return (
+    <>
+
+<div className="relative w-full py-[15px] px-[18px] bg-none bg-cover bg-center flex items-center justify-start  mb-6 gradient-background rounded-xl ">
+<h1 className="text-3xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9]  ">
+              {resources.content.news_heading[lang] || "News & Articles"}
+            </h1>
+    </div>
+
     <section className="relative bg-none rounded-2xl border border-white/40 px-3 xxs:px-3 xs:px-4 md:px-22 py-6 xs:py-7 md:py-8 shadow-lg backdrop-blur-[15px]">
       {/* Header with Page Number */}
-      <div className="flex items-center justify-between mb-5 xs:mb-6 md:mb-8">
-        <h2 className="text-xl xxs:text-2xl xs:text-3xl md:text-3xl font-bold text-[#C3F8D9]">
-          {resources.content.news_heading[lang] || "News & Articles"}
-        </h2>
+      <div className="flex items-center justify-end mb-5 xs:mb-6 md:mb-8">
+        
         {/* Page Number (optional) */}
         {articlesData.length > visibleSlides && (
-          <div className="text-white/80 text-lg md:text-xl font-medium">
+          <div className="text-white/80  text-lg md:text-xl font-medium ">
             {currentSlide + 1} | {isMdUp ? Math.ceil(articlesData.length / visibleSlides) : articlesData.length}
           </div>
         )}
@@ -296,6 +302,7 @@ const NewsArticles = ({ blogData, lang, resources }) => {
         </button>
       </div>
     </section>
+    </>
   );
 };
 

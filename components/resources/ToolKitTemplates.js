@@ -117,12 +117,19 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
   // Determine if any checkbox is selected to toggle the Download All button
   const hasAnySelection = useMemo(() => Object.values(checkedFiles).some(Boolean), [checkedFiles]);
 
-  return (
-    <div className="bg-none backdrop-blur-[15px] p-6 xxs:p-6 xs:p-7 md:p-8 text-white font-inter border border-white/15 rounded-2xl overflow-hidden">
-      <h2 className="text-2xl xxs:text-[28px] md:text-[30px] font-bold mb-5 xs:mb-6 md:mb-7 text-[#C3F8D9]">
-        {resources.content.toolkits_text[lang] || 'Toolkits & Templates'}
-      </h2>
 
+
+  return (
+    <>
+  <div className="relative w-full py-[15px] px-[18px] bg-none bg-cover bg-center flex items-center justify-start  mb-6 gradient-background rounded-xl ">
+<h1 className="text-3xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9]  ">
+              {resources.content.toolkits_text[lang] || "Toolkits & Templates"}
+            </h1>
+    </div>
+
+
+    <div className="bg-none backdrop-blur-[15px] p-6 xxs:p-6 xs:p-7 md:p-8 text-white font-inter border border-white/15 rounded-2xl overflow-hidden">
+      
       <p className="text-[16px] xs:text-[18px] text-white"></p>
 
       {/* Two-column grid */}
@@ -210,5 +217,6 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
         </div>
       )}
     </div>
+    </>
   );
 }

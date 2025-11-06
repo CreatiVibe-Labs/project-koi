@@ -10,19 +10,26 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
 
   const [search, setSearch] = useState("");
 
-  const handleSearch = async () => {
+  // Auto-search as user types (debounced). Clearing input restores all.
+  useEffect(() => {
     const term = search.trim();
+    // If empty, reset immediately
     if (term === "") {
       setFaqFinalData(faqsData || []);
       setOpenCategory(null);
       setOpenQuestion({});
       return;
     }
-    const apiData = await getFAQsData(term);
-    setFaqFinalData(apiData || []);
-    setOpenCategory(null);
-    setOpenQuestion({});
-  };
+
+    const timer = setTimeout(async () => {
+      const apiData = await getFAQsData(term);
+      setFaqFinalData(apiData || []);
+      setOpenCategory(null);
+      setOpenQuestion({});
+    }, 350); // debounce
+
+    return () => clearTimeout(timer);
+  }, [search, faqsData]);
 
   const faqData = {
     header: {
@@ -294,52 +301,40 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
       if (e.key === "ArrowLeft") goPrev();
       if (e.key === "ArrowRight") goNext();
     };
-    window.addEventListener("keydown", onKey);
+    window.addEventListener("keydown", onKey);  
     return () => window.removeEventListener("keydown", onKey);
   }, [canPrev, canNext]);
 
   return (
+    <>
+    <div className="relative w-full py-[15px] px-[18px] bg-none bg-cover bg-center flex items-center justify-start  mb-6 gradient-background rounded-xl ">
+<h1 className="text-3xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9]  ">
+              {resources.content.faqs_heading[lang] || "FAQs & Tutorials"}
+            </h1>
+    </div>
     <section className="relative rounded-[16px] bg-none backdrop-blur-[15px] p-3 xxs:p-3 md:p-4 border border-white/40">
       <div className="flex flex-col md:flex-row gap-4 md:gap-6 w-full">
         {/* LEFT SECTION */}
         <div className="w-full md:w-[67%] space-y-5 md:space-y-6">
           {/* Header */}
           <div>
-            <h1 className="text-2xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9] mb-3">
-              {resources.content.faqs_heading[lang] || "FAQs & Tutorials"}
-            </h1>
+            
 
-            {/* Search input with right icon; click icon to search; clear to reset */}
+            {/* Search input: live filtering onChange; clear to reset */}
             <div className="w-full">
               <div className="relative w-full">
                 <input
-                  onChange={(e) => {
-                    const val = e.target.value;
-                    setSearch(val);
-                    if (val.trim() === "") {
-                      setFaqFinalData(faqsData || []);
-                      setOpenCategory(null);
-                      setOpenQuestion({});
-                    }
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") handleSearch();
-                  }}
+                  onChange={(e) => setSearch(e.target.value)}
                   value={search}
                   type="text"
                   placeholder={resources.content.search[lang] || "Search"}
-                  className="w-full pl-4 pr-12 py-3 border border-white/40 rounded-lg focus:outline-none bg-transparent text-white placeholder:text-white/40"
+                  className="w-full pl-10 pr-12 py-3 border border-white/40 rounded-lg focus:outline-none bg-transparent text-white placeholder:text-white/40"
                 />
-                <button
-                  type="button"
-                  onClick={handleSearch}
-                  aria-label="Search"
-                  className="absolute inset-y-0 right-5 flex items-center text-white/70 hover:text-[#39ff14] transition-colors"
-                >
-                  {/* Search Icon (SVG) on the right */}
+                {/* Decorative search icon (no click) */}
+                <span className="absolute inset-y-0 left-3 flex items-center text-white/70">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 cursor-pointer"
+                    className="h-5 w-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -351,7 +346,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                       d="M21 21l-4.35-4.35m1.1-4.4a7.25 7.25 0 11-14.5 0 7.25 7.25 0 0114.5 0z"
                     />
                   </svg>
-                </button>
+                </span>
               </div>
             </div>
           </div>
@@ -422,7 +417,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
         </div>
 
         {/* RIGHT SECTION — single card with slider */}
-        <div className="w-full lg:mt-10 md:w-[33%] pt-2 mt-4 md:mt-10 xs:mt-10">
+        <div className="w-full  md:w-[33%]   ">
           {tutorials.length > 0 && (
             <div className="space-y-3 md:space-y-4">
               {/* Video container with swipe */}
@@ -455,7 +450,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                   aria-label="Previous video"
                   aria-disabled={!canPrev}
                   className={`p-1 rounded-md transition-colors ${
-                    canPrev ? "text-[#64F0C4]" : "text-white/30 cursor-default"
+                    canPrev ? "text-[#64F0C4] cursor-pointer" : "text-white/30 cursor-default"
                   }`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -498,7 +493,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                   aria-label="Next video"
                   aria-disabled={!canNext}
                   className={`p-1 rounded-md transition-colors ${
-                    canNext ? "text-[#64F0C4]" : "text-white/30 cursor-default"
+                    canNext ? "text-[#64F0C4] cursor-pointer" : "text-white/30 cursor-default"
                   }`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
@@ -513,6 +508,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
