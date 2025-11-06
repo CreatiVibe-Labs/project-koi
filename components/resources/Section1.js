@@ -7,9 +7,9 @@ import Image from "next/image";
 const cardsData = {
   cards: [
     {
-      id: 1,
-      title: "Toolkits & Templates",
-      icon: "/resources/toolbox-container.png",
+      id: 4,
+      title: "FAQs & Tutorials",
+      icon: "/resources/questionAwnser1.png",
       textColor: "text-white",
     },
     {
@@ -25,9 +25,9 @@ const cardsData = {
       textColor: "text-white",
     },
     {
-      id: 4,
-      title: "FAQs & Tutorials",
-      icon: "/resources/questionAwnser1.png",
+      id: 1,
+      title: "Toolkits & Templates",
+      icon: "/resources/toolbox-container.png",
       textColor: "text-white",
     },
     
@@ -78,10 +78,11 @@ const Section1 = () => {
     };
   }, []);
   const hrefMap = {
+    "FAQs & Tutorials": "#faqs",
     "Toolkits & Templates": "#toolkits",
     "Industry news": "#news",
     "Interactive Quiz": "#quiz",
-    "FAQs & Tutorials": "#faqs",
+    
   };
 
   return (

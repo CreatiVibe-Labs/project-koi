@@ -39,12 +39,15 @@ const Quiz = ({ quizData, lang, resources }) => {
 
     <> 
 
-    <section className="flex justify-center items-center py-4 xs:py-10 md:py-12">
+<div className="relative w-full py-[15px] px-[18px] bg-none bg-cover bg-center flex items-center justify-start mb-2 gradient-background rounded-xl ">
+<h1 className="text-3xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9]  ">
+             <span className="text-[#46D3A7]">{resources.content.quiz_heading_1[lang] || 'Test your IT skills'}</span> {resources.content.quiz_heading_2[lang] || "or take a fun tech challenge!"}
+            </h1>
+    </div>
+
+    <section className="flex justify-center items-center py-4 xs:py-10 md:py-">
       <div className="w-full relative rounded-2xl border border-white/40 p-5 xxs:p-5 xs:p-6 md:p-8 backdrop-blur-[15px] bg-none shadow-lg overflow-hidden">
 
-    <h1 className="text-2xl xxs:text-3xl md:text-4xl font-bold text-white mb-7 xs:mb-8 md:mb-10 text-center">
-          <span className="text-[#46D3A7]">{resources.content.quiz_heading_1[lang] || 'Test your IT skills'}</span> {resources.content.quiz_heading_2[lang] || "or take a fun tech challenge!"}
-        </h1>
 
         {showResult ? (
           <div className="flex flex-col items-center justify-center min-h-[380px] xs:min-h-[403px] relative overflow-visible py-4 xs:py-5">
@@ -150,7 +153,7 @@ const Quiz = ({ quizData, lang, resources }) => {
             </button>
 
             {/* Progress Bar */}
-            <div className="relative mt-12 xs:mt-16 md:mt-20">
+            <div className="relative mt-12 xs:mt-16 md:mt-8">
               <div className="flex gap-1.5 xs:gap-2 w-full">
                 {Array.from({ length: total }).map((_, idx) => (
                   <div
