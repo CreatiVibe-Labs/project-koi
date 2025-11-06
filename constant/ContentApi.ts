@@ -3,7 +3,7 @@ export async function getHomePageData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=landing-page`, {
       next: { 
-        revalidate: 3600, // Cache for 1 hour (3600 seconds)
+        revalidate: 0, // Cache for 1 hour (3600 seconds)
         tags: ['homepage'] // Add tag for on-demand revalidation
       }
     });
@@ -23,7 +23,7 @@ export async function getToolkit() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/toolkits-data`, {
       next: { 
-        revalidate: 7200, // Cache for 2 hours
+        revalidate: 0, // Cache for 2 hours
         tags: ['toolkit'] 
       }
     });
@@ -43,7 +43,7 @@ export async function getResourcesPage() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=resources`, {
       next: { 
-        revalidate: 3600, // Cache for 1 hour
+        revalidate: 0, // Cache for 1 hour
         tags: ['resources'] 
       }
     });
@@ -63,7 +63,7 @@ export async function getQuizData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/quizzes`, {
       next: { 
-        revalidate: 1800, // Cache for 30 minutes
+        revalidate: 0, // Cache for 30 minutes
         tags: ['quizzes'] 
       }
     });
@@ -84,7 +84,7 @@ export async function getBlogsData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blogs`, {
       next: { 
-        revalidate: 1800, // Cache for 30 minutes
+        revalidate: 0, // Cache for 30 minutes
         tags: ['blogs'] 
       }
     });
@@ -120,7 +120,7 @@ export async function getFAQsData(search) {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/faqs?search=${search}`, {
       next: { 
-        revalidate: 3600, // Cache for 1 hour
+        revalidate: 0, // Cache for 1 hour
         tags: ['faqs'] 
       }
     });
@@ -140,7 +140,7 @@ export async function getHeaderData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=header`, {
       next: { 
-        revalidate: 86400, // Cache for 24 hours (header rarely changes)
+        revalidate: 0, // Cache for 24 hours (header rarely changes)
         tags: ['header'] 
       }
     });
@@ -160,7 +160,7 @@ export async function getFooterData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=footer`, {
       next: { 
-        revalidate: 86400, // Cache for 24 hours (footer rarely changes)
+        revalidate: 0, // Cache for 24 hours (footer rarely changes)
         tags: ['footer'] 
       }
     });
@@ -180,7 +180,7 @@ export async function getIndustriesData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=industries-we-serves`, {
       next: { 
-        revalidate: 7200, // Cache for 2 hours
+        revalidate: 0, // Cache for 2 hours
         tags: ['industries'] 
       }
     });
@@ -201,7 +201,7 @@ export async function getAboutPageData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=about-us`, {
       next: { 
-        revalidate: 7200, // Cache for 2 hours
+        revalidate: 0, // Cache for 2 hours
         tags: ['about'] 
       }
     });
@@ -222,7 +222,7 @@ export async function getOrganizationData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=organization`, {
       next: { 
-        revalidate: 7200, // Cache for 2 hours
+        revalidate: 0, // Cache for 2 hours
         tags: ['organization'] 
       }
     });
@@ -243,7 +243,7 @@ export async function getServicesPageData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=services`, {
       next: { 
-        revalidate: 3600, // Cache for 1 hour
+        revalidate: 0, // Cache for 1 hour
         tags: ['services'] 
       }
     });
@@ -264,7 +264,7 @@ export async function getSidebarData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=sidebar`, {
       next: { 
-        revalidate: 7200, // Cache for 2 hours
+        revalidate: 0, // Cache for 2 hours
         tags: ['sidebar'] 
       }
     });
@@ -285,7 +285,7 @@ export async function getAppDevData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=custom-app-development`, {
       next: { 
-        revalidate: 3600, // Cache for 1 hour
+        revalidate: 0, // Cache for 1 hour
         tags: ['app-dev'] 
       }
     });
@@ -306,7 +306,7 @@ export async function getWebDevData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=custom-website-development`, {
       next: { 
-        revalidate: 3600, // Cache for 1 hour
+        revalidate: 0, // Cache for 1 hour
         tags: ['web-dev'] 
       }
     });
@@ -327,7 +327,7 @@ export async function getCloudMigrationData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=cloud-migration`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -347,7 +347,7 @@ export async function getCloudStorageData() {
 
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=cloud-storage`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -367,7 +367,7 @@ export async function getAIPoweredData() {
 
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=ai-powered-solutions`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -386,7 +386,7 @@ export async function getItServicesData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=managed-it-services`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -405,7 +405,7 @@ export async function getTestimonials() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=testimonials`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -424,7 +424,7 @@ export async function getDigitalMarketingData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=digital-marketing`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -443,7 +443,7 @@ export async function getSideBarData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=sidebar`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -462,7 +462,7 @@ export async function getQuotesData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=quotes-from-team`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -481,7 +481,7 @@ export async function getJobsData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=jobs`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -499,7 +499,7 @@ export async function getJobsData() {
 export async function getJobsFormData() {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=job-form`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -518,7 +518,7 @@ export async function getContactData() {
   try {
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/website-section?section_name=contact-us`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
     if (!res.ok) {
       throw new Error("Failed to fetch API data");
@@ -537,7 +537,7 @@ export async function getIP(ip) {
   try {
     
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/get-ip?ip=${ip}`, {
-      next: { revalidate: 3600, tags: ["api"] }
+      next: { revalidate: 0, tags: ["api"] }
     });
 
     if (!res.ok) {

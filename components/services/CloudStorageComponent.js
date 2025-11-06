@@ -44,11 +44,26 @@ export default function CloudStorage() {
                             Storage Providers:
                         </p>
                         <ul className='justify-center'>
-                            <li className='!font-medium'>Amazon S3</li>
-                            <li className='!font-medium'>Azure Blob Storage</li>
-                            <li className='!font-medium'>Google Cloud Storage</li>
-                            <li className='!font-medium'>Backblaze B2</li>
-                            <li className='!font-medium'>Wasabi</li>
+                            <li className='!font-medium flex flex-col gap-4'>
+                                <Image src="/icons/azure.png" width={500} height={500} className='!mt-[3px] object-cover' alt="Amazon S3" />
+                                <span>Amazon S3</span>
+                            </li>
+                            <li className='!font-medium flex flex-col gap-4'>
+                                <Image src="/icons/azure.png" width={500} height={500} className='!mt-[3px] object-cover' alt="Amazon S3" />
+                                <span>Azure Blob Storage</span>
+                            </li>
+                            <li className='!font-medium flex flex-col gap-4'>
+                                <Image src="/icons/azure.png" width={500} height={500} className='!mt-[3px] object-cover' alt="Amazon S3" />
+                                <span>Google Cloud Storage</span>
+                            </li>
+                            <li className='!font-medium flex flex-col gap-4'>
+                                <Image src="/icons/azure.png" width={500} height={500} className='!mt-[3px] object-cover' alt="Amazon S3" />
+                                <span>Backblaze B2</span>
+                            </li>
+                            <li className='!font-medium flex flex-col gap-4'>
+                                <Image src="/icons/azure.png" width={500} height={500} className='!mt-[3px] object-cover' alt="Amazon S3" />
+                                <span>Wasabi</span>
+                            </li>
                         </ul>
                     </div>
                 </div>

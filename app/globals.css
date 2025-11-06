@@ -497,6 +497,10 @@ a {
   transition: all 0.3s ease-in-out;
 }
 
+.menuWrapper a {
+  border-radius: 10px;
+}
+
 .menuWrapper .active {
   color: #39ff14;
   border: 1px solid #39ff14;
@@ -1597,7 +1601,6 @@ h1.main-heading {
 
 .review-container {
   position: relative;
-  height: 200px;
   width: 100%;
   margin: auto;
   text-align: center;
