@@ -25,11 +25,11 @@ export default async function JobApply({ params }) {
             .replace(/\s+/g, "-"); // spaces ko - se replace karo
 
         return {
-            title: t.title?.[lang] || "",
-            exp: t.experience?.[lang] || "",
-            description: t.description?.[lang] || "",
+            title: t.title?.[lang] || t.title?.['en'],
+            exp: t.experience?.[lang] || t.experience?.['en'],
+            description: t.description?.[lang] || t.description?.['en'],
             link: slug,
-            button: t.button_text?.[lang] || "",
+            button: t.button_text?.[lang] || t.button_text?.['en'],
         };
     }) || [];
 

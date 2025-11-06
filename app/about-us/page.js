@@ -34,9 +34,9 @@ export default async function AboutUs() {
     const serviceApiData = await getServicesPageData();
 
     const quotes = quotesData?.content?.testimonials?.map((t) => ({
-        name: t.name?.[lang] || "",
-        review: t.review?.[lang] || "",
-        designation: t.designation?.[lang] || "",
+        name: t.name?.[lang] || t.name?.['en'],
+        review: t.review?.[lang] || t.review?.['en'],
+        designation: t.designation?.[lang] || t.designation?.['en'],
     })) || [];
 
     const jobs = jobsData?.content?.jobs?.map((t) => {
@@ -48,11 +48,11 @@ export default async function AboutUs() {
             .replace(/\s+/g, "-"); // spaces ko - se replace karo
 
         return {
-            title: t.title?.[lang] || "",
-            exp: t.experience?.[lang] || "",
-            description: t.description?.[lang] || "",
+            title: t.title?.[lang] || t.title?.['en'],
+            exp: t.experience?.[lang] || t.experience?.['en'],
+            description: t.description?.[lang] || t.description?.['en'],
             link: slug,
-            button: t.button_text?.[lang] || "",
+            button: t.button_text?.[lang] || t.button_text?.['en'],
         };
     }) || [];
 
