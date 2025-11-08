@@ -178,10 +178,10 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
                   <div className="md:w-[20%] w-full py-3 px-3 md:border-r border-white/15 flex items-start md:justify-center">
                     {item.files.docx && (
                       <button
-                        onClick={() => handleDownload(item.files.docx || item.titles['en'], "docx")}
+                        onClick={() => handleDownload(item.files.docx || item.titles['en'], item.files.docx.split('.').pop())}
                         className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
                       >
-                        .docx
+                        .{item.files.docx.split('.').pop()}
                       </button>
                     )}
                   </div>
@@ -189,10 +189,10 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
                   <div className="md:w-[18%] w-full py-3 px-3 flex items-start md:justify-center">
                     {item.files.pdf && (
                       <button
-                        onClick={() => handleDownload(item.files.pdf || item.titles['en'], "pdf")}
+                        onClick={() => handleDownload(item.files.pdf || item.titles['en'], item.files.pdf.split('.').pop())}
                         className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-16 text-[16px] cursor-pointer hover:scale-105 transition-all"
                       >
-                        .pdf
+                        .{item.files.pdf.split('.').pop()}
                       </button>
                     )}
                   </div>
