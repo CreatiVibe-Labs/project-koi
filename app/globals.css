@@ -145,6 +145,10 @@ html {
   border: 1px solid #39ff14;
 }
 
+.custom-shadow {
+  box-shadow: rgb(255 255 255 / 74%) 0px 10px 10px -10px;
+}
+
 .todayBtn {
   padding: 10px 20px !important;
   background-color: transparent !important;
