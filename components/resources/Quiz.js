@@ -50,9 +50,9 @@ const Quiz = ({ quizData, lang, resources }) => {
       </div>
 
       <section className="flex justify-center items-center py-4 xs:py-10 md:">
-        <div className="w-[75%] relative rounded-2xl xxs:p-5 xs:p-6  backdrop-blur-[15px] bg-none shadow-lg overflow-hidden">
+        <div className="w-full relative rounded-2xl xxs:p-5 xs:p-6  backdrop-blur-[15px] bg-none shadow-lg overflow-hidden border border-white/40 p-10 ">
           {showResult ? (
-            <div className="flex flex-col items-center justify-center min-h-[380px] xs:min-h-[403px] relative overflow-visible py-4 xs:py-5">
+            <div className="flex flex-col items-center justify-center w-[40%] m-auto min-h-[380px] xs:min-h-[403px] relative overflow-visible py-4 xs:py-5 border border-white/40 rounded-2xl">
               <div className="absolute inset-0 bg-none blur-[15px] animate-pulse"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center backdrop-blur-[15px] border border-white/40 rounded-2xl p-10 shadow-[0_0_40px_#46D3A7]/10 transition-all duration-500">
@@ -99,8 +99,8 @@ const Quiz = ({ quizData, lang, resources }) => {
 
                   return (
                     <SwiperSlide key={i}>
-                      <div className="w-full relative  xxs:h-[388px] xs:h-[403px] md:h-full bg-none backdrop-blur-[15px] rounded-2xl border border-white/40 flex flex-col items-center justify-center mx-auto px-4 md:px-8">
-                        <h2 className="text-[18px]  my-6 xxs:text-[19px] xs:text-[20px] md:text-[27px] font-bold text-[#46D3A7] mb-6 xs:mb-7 md:my-8 text-center">
+                      <div className="w-full lg:w-[60%] md:w-[60%] relative  py-6 xxs:h-[388px] xs:h-[403px] md:h-[400px] bg-none backdrop-blur-[15px] rounded-2xl border border-white/40 flex flex-col items-center justify-center mx-auto px-4 lg:px-8 ">
+                        <h2 className="text-[18px] mb-4 xxs:text-[19px] xs:text-[20px] md:text-[27px] font-bold text-[#46D3A7]  xs:mb-7 lg:mb-10  md:mb-10 text-center">
                           {resources.content.question_prefix[lang] || "Q:"}
                           {i + 1}{" "}
                           <span className="text-white">
@@ -125,20 +125,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                           ))}
                         </div>
 
-                        {/* Progress Bar moved inside question card */}
-                        <div className="w-full my-14 xs:mt-10 md:my-15 px-1 xxs:px-2 max-w-[74%]">
-                          <div className="flex flex-row gap-1.5 xs:gap-2 w-full">
-                            {Array.from({ length: total }).map((_, idx) => (
-                              <div
-                                key={idx}
-                                className={`h-6 xs:h-5 flex-1 rounded-[6px] border border-[#46D3A7]/40 transition-all duration-300 ${
-                                  idx <= currentQuestion
-                                    ? "bg-[#46D3A7]"
-                                    : "bg-transparent"
-                                }`}></div>
-                            ))}
-                          </div>
-                        </div>
+                       
                       </div>
                     </SwiperSlide>
                   );
@@ -150,7 +137,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                 onClick={handlePrev}
                 disabled={currentQuestion <= 0}
                 aria-disabled={currentQuestion <= 0}
-                className={`absolute left-4 xs:left-3 md:left-10 lg:left-20 top-[85%] -translate-y-1/2 md:top-auto md:bottom-8 md:translate-y-0 z-50 ${
+                className={`absolute left-2 xs:left-3 md:left-20 lg:left-27 top-[50%] -translate-y-1/2 md:top-[1%] md:bottom-8 md:translate-y-0 z-50 ${
                   currentQuestion > 0
                     ? "cursor-pointer text-[#46D3A7]"
                     : "text-[#929292] pointer-events-none"
@@ -162,7 +149,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                   viewBox="0 0 53 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-12 md:w-8 md:h-16 lg:w-10 lg:h-20 opacity-90 transition-all"
+                  className="w-6 h-12 md:w-8 md:h-16 lg:w-[53px] lg:h-[101px]  opacity-90 transition-all"
                 >
                   <path
                     d="M48.6505 3.57812L4.66188 47.5667C4.31976 47.8878 4.04709 48.2756 3.86069 48.7062C3.67429 49.1368 3.57812 49.601 3.57812 50.0702C3.57812 50.5393 3.67429 51.0036 3.86069 51.4341C4.04709 51.8647 4.31976 52.2525 4.66188 52.5736L48.6505 96.5622"
@@ -178,7 +165,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                 aria-label={
                   currentQuestion === total - 1 ? "Submit quiz" : "Next"
                 }
-                className="cursor-pointer absolute right-4 xs:right-3 md:right-10 lg:right-20 top-[85%] -translate-y-1/2 md:top-auto md:bottom-8 md:translate-y-0 z-50 text-[#46D3A7]"
+                className="cursor-pointer absolute right-2 xs:right-3 md:right-20 lg:right-27 top-[50%] -translate-y-1/2 md:top-[1%] md:bottom-8 md:translate-y-0 z-50 text-[#46D3A7]"
               >
                 <svg
                   width="53"
@@ -186,7 +173,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                   viewBox="0 0 53 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-6 h-12 md:w-8 md:h-16 lg:w-10 lg:h-20 opacity-90 transition-all"
+                  className="w-6 h-12 md:w-8 md:h-16 lg:w-[53px] lg:h-[101px] opacity-90 transition-all"
                 >
                   <path
                     d="M3.57812 3.57812L47.5667 47.5667C47.9089 47.8878 48.1815 48.2756 48.3679 48.7062C48.5543 49.1368 48.6505 49.601 48.6505 50.0702C48.6505 50.5393 48.5543 51.0036 48.3679 51.4341C48.1815 51.8647 47.9089 52.2525 47.5667 52.5736L3.57812 96.5622"
@@ -197,6 +184,22 @@ const Quiz = ({ quizData, lang, resources }) => {
                   />
                 </svg>
               </button>
+
+
+               {/* Progress Bar moved inside question card */}
+                        <div className="w-full mt-10 xs:mt-10 lg:mt-10 md:mt-10 xxs:px-0 xs:px-0">
+                          <div className="flex flex-row gap-1 items-center justify-center mx-auto w-[calc(100%-0px)] xs:w-[calc(100%-88px)] md:w-[80%] lg:w-[80%]">
+                            {Array.from({ length: total }).map((_, idx) => (
+                              <div
+                                key={idx}
+                                className={`h-6 xs:h-5 flex-1 rounded-[6px] border border-[#46D3A7]/40 transition-all duration-300 ${
+                                  idx <= currentQuestion
+                                    ? "bg-[#46D3A7]"
+                                    : "bg-transparent"
+                                }`}></div>
+                            ))}
+                          </div>
+                        </div>
 
               {/* No separate submit button; right arrow submits on last question. */}
             </>
