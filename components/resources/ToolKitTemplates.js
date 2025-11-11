@@ -25,7 +25,7 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
 
   const handleDownloadAll = async () => {
     const selectedFiles = [];
-    
+
     // Collect all selected files
     toolkit.data.forEach((section) => {
       const sectionTitle = section.titles[lang] || section.titles['en'];
@@ -50,7 +50,7 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
 
     console.log('🔍 Selected files for ZIP:', selectedFiles);
     console.log('📁 Total files selected:', selectedFiles.length);
-    
+
     if (selectedFiles.length === 0) {
       alert('Please select at least one file to download.');
       return;
@@ -90,10 +90,10 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
     } catch (error) {
       console.error('ZIP download failed:', error);
       alert('ZIP creation failed. Downloading files individually...');
-      
+
       // Fallback to individual downloads
       downloadIndividually(selectedFiles);
-      
+
       // Restore button state
       setIsZipping(false);
     }
@@ -106,7 +106,7 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
       link.href = file.url;
       link.download = file.name;
       link.click();
-      
+
       // Add delay between downloads to avoid browser blocking
       if (i < files.length - 1) {
         await new Promise(resolve => setTimeout(resolve, 500));
@@ -121,102 +121,98 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
 
   return (
     <>
-  <div className="relative w-full py-[15px] px-[18px] bg-none bg-cover bg-center flex items-center justify-start  mb-6 gradient-background rounded-xl ">
-<h1 className="text-3xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9]  ">
-              {resources.content.toolkits_text[lang] || "Toolkits & Templates"}
-            </h1>
-    </div>
-
-
-    <div className="bg-none backdrop-blur-[15px] p-6 xxs:p-6 xs:p-7 md:p-8 text-white font-inter border border-white/15 rounded-2xl overflow-hidden">
-      
-      <p className="text-[16px] xs:text-[18px] text-white"></p>
-
-      {/* Two-column grid */}
-      <div className="grid grid-cols-1 border border-white/15">
-        {toolkit.data.length > 0 && toolkit.data.map((section, index) => (
-          <div
-            key={section.titles[lang]}
-            className={`
+      <div className="relative w-full py-[15px] px-[18px] bg-none bg-cover bg-center flex items-center justify-start  mb-6 gradient-background rounded-xl ">
+        <h1 className="text-3xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9]  ">
+          {resources.content.toolkits_text[lang] || "Toolkits & Templates"}
+        </h1>
+      </div>
+      <div className="bg-none backdrop-blur-[15px] p-6 xxs:p-6 xs:p-7 md:p-8 text-white font-inter border border-white/15 rounded-2xl overflow-hidden">
+        <p className="text-[16px] xs:text-[18px] text-white"></p>
+        {/* Two-column grid */}
+        <div className="grid grid-cols-1 border border-white/15">
+          {toolkit.data.length > 0 && toolkit.data.map((section, index) => (
+            <div
+              key={section.titles[lang]}
+              className={`
               ${index > 0 ? "border-t border-white/15" : ""}
             `}
-          >
-            {console.log(section)}
-            {/* Header */}
-            <div className="p-3 xs:p-4 md:p-3 border-b border-white/15">
-              <h3 className="text-[18px] xs:text-[20px] font-semibold text-[#C3F8D9] mb-1">
-                {section.titles[lang] || section.titles['en']}
-              </h3>
-              <p className="text-[16px] xs:text-[18px] text-white">{section.descriptions[lang] || section.descriptions['en']}</p>
-            </div>
+            >
+              {console.log(section)}
+              {/* Header */}
+              <div className="p-3 xs:p-4 md:p-3 border-b border-white/15">
+                <h3 className="text-[18px] xs:text-[20px] font-semibold text-[#C3F8D9] mb-1">
+                  {section.titles[lang] || section.titles['en']}
+                </h3>
+                <p className="text-[16px] xs:text-[18px] text-white">{section.descriptions[lang] || section.descriptions['en']}</p>
+              </div>
 
-            {/* Rows (replacing table) */}
-            <div>
-              {section.templates.length > 0 && section.templates.map((item, idx) => (
-                <div
-                  key={idx}
-                  className={`flex flex-col md:flex-row border-b border-white/15 last:border-0`}
-                >
-                  <div className="md:w-[27%] w-full py-3 px-3 md:border-r border-white/15 text-[#C3F8D9] flex flex-col justify-start">
-                    <div className="flex items-start gap-2">
-                      <div
-                        onClick={() => handleCheckbox(section.titles[lang] || section.titles['en'], item.titles[lang] || item.titles['en'])}
-                        className={`h-8 w-8 border border-[#46D3A7] rounded-lg flex items-center justify-center font-bold cursor-pointer shrink-0 ${checkedFiles[`${section.titles[lang] || section.titles['en']}-${item.titles[lang] || item.titles['en']}`]
-                          ? "bg-[#0F4D3A] text-[#46D3A7]"
-                          : "bg-transparent text-[#46D3A7]"
-                          }`}
-                      >
-                        {checkedFiles[`${section.titles[lang] || section.titles['en']}-${item.titles[lang] || item.titles['en']}`] ? "✓" : ""}
+              {/* Rows (replacing table) */}
+              <div>
+                {section.templates.length > 0 && section.templates.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className={`flex flex-col md:flex-row border-b border-white/15 last:border-0`}
+                  >
+                    <div className="md:w-[35%] w-full py-3 px-3 md:border-r border-white/15 text-[#C3F8D9] flex flex-col justify-start">
+                      <div className="flex items-center gap-2">
+                        <div
+                          onClick={() => handleCheckbox(section.titles[lang] || section.titles['en'], item.titles[lang] || item.titles['en'])}
+                          className={`h-8 w-8 border border-[#46D3A7] rounded-lg flex items-center justify-center font-bold cursor-pointer shrink-0 ${checkedFiles[`${section.titles[lang] || section.titles['en']}-${item.titles[lang] || item.titles['en']}`]
+                            ? "bg-[#0F4D3A] text-[#46D3A7]"
+                            : "bg-transparent text-[#46D3A7]"
+                            }`}
+                        >
+                          {checkedFiles[`${section.titles[lang] || section.titles['en']}-${item.titles[lang] || item.titles['en']}`] ? "✓" : ""}
+                        </div>
+                        <span>{item.titles[lang] || item.titles['en']}</span>
                       </div>
-                      <span>{item.titles[lang] || item.titles['en']}</span>
+                    </div>
+                    <div className="md:w-[45%] w-full py-3 px-3 md:border-r border-white/15 text-white font-medium flex items-center">
+                      {item.descriptions[lang] || item.descriptions['en']}
+                    </div>
+
+                    <div className="md:w-[10%] w-full py-3 px-3 md:border-r border-white/15 flex items-center md:justify-center">
+                      {item.files.docx && (
+                        <button
+                          onClick={() => handleDownload(item.files.docx || item.titles['en'], item.files.docx.split('.').pop())}
+                          className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
+                        >
+                          .{item.files.docx.split('.').pop()}
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="md:w-[10%] w-full py-3 px-3 flex items-center md:justify-center">
+                      {item.files.pdf && (
+                        <button
+                          onClick={() => handleDownload(item.files.pdf || item.titles['en'], item.files.pdf.split('.').pop())}
+                          className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-16 text-[16px] cursor-pointer hover:scale-105 transition-all"
+                        >
+                          .{item.files.pdf.split('.').pop()}
+                        </button>
+                      )}
                     </div>
                   </div>
-                  <div className="md:w-[35%] w-full py-3 px-3 md:border-r border-white/15 text-white font-medium flex items-start">
-                    {item.descriptions[lang] || item.descriptions['en']}
-                  </div>
-
-                  <div className="md:w-[20%] w-full py-3 px-3 md:border-r border-white/15 flex items-start md:justify-center">
-                    {item.files.docx && (
-                      <button
-                        onClick={() => handleDownload(item.files.docx || item.titles['en'], item.files.docx.split('.').pop())}
-                        className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
-                      >
-                        .{item.files.docx.split('.').pop()}
-                      </button>
-                    )}
-                  </div>
-
-                  <div className="md:w-[18%] w-full py-3 px-3 flex items-start md:justify-center">
-                    {item.files.pdf && (
-                      <button
-                        onClick={() => handleDownload(item.files.pdf || item.titles['en'], item.files.pdf.split('.').pop())}
-                        className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-16 text-[16px] cursor-pointer hover:scale-105 transition-all"
-                      >
-                        .{item.files.pdf.split('.').pop()}
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Download All: only visible when at least one checkbox selected */}
-      {hasAnySelection && (
-        <div className="text-center mt-8">
-          <button
-            onClick={handleDownloadAll}
-            disabled={isZipping}
-            aria-disabled={isZipping}
-            className={`bg-none backdrop-blur-[15px] text-[#39ff14] py-[11px] px-10 xs:px-12 md:px-[120px] border border-[#39ff14] rounded-full font-bold text-[17px] xs:text-[18px] md:text-[19px] cursor-pointer shadow-[0_4px_15px_rgba(255,255,255,0.4)] transition-all duration-300 ${isZipping ? 'opacity-70 pointer-events-none' : 'hover:bg-white/40'}`}
-          >
-            {isZipping ? 'Creating ZIP…' : 'Download All'}
-          </button>
+          ))}
         </div>
-      )}
-    </div>
+
+        {/* Download All: only visible when at least one checkbox selected */}
+        {hasAnySelection && (
+          <div className="text-center mt-8">
+            <button
+              onClick={handleDownloadAll}
+              disabled={isZipping}
+              aria-disabled={isZipping}
+              className={`bg-none backdrop-blur-[15px] text-[#39ff14] py-[11px] px-10 xs:px-12 md:px-[120px] border border-[#39ff14] rounded-full font-bold text-[17px] xs:text-[18px] md:text-[19px] cursor-pointer custom-shadow transition-all duration-300 ${isZipping ? 'opacity-70 pointer-events-none' : 'hover:bg-white/40 hover:text-white'}`}
+            >
+              {isZipping ? 'Creating ZIP…' : 'Download All'}
+            </button>
+          </div>
+        )}
+      </div>
     </>
   );
 }
