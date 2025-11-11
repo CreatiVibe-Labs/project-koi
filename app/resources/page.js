@@ -27,12 +27,12 @@ export default async function ResourcesPage() {
   return (
     <>
       <main className="relative xl:mb-[-50px] lg:mb-[-50px] md:mb-[-30px] sm:mb-[-30px] xs:mb-[-20px]">
-        {/* Background blur overlay */} 
+        {/* Background blur overlay */}
         <div className="absolute inset-0 backdrop-blur-[15px] -z-10" />
 
         {/* Content area — width controlled by parent layout (1300px) */}
         <div className="m-0 mt-6 xs:-mt-10 md:-mt-14 xxl:-mt-16 xxs:px-2 xs:px-4 md: py-6 md:py-8 space-y-6 md:space-y-8">
-          <Section1 />
+          <Section1 lang={lang} resources={resources} ASSETS_URL={ASSETS_URL}/>
           <div id="faqs" className="scroll-mt-10 md:scroll-mt-28 md:mb-15 ">
             <FAQsAndTutorials faqsData={apiData} lang={lang} resources={resources} ASSETS_URL={ASSETS_URL} />
           </div>

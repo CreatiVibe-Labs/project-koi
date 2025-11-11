@@ -123,7 +123,7 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
     <>
       <div className="relative w-full py-[15px] px-[18px] bg-none bg-cover bg-center flex items-center justify-start  mb-6 gradient-background rounded-xl ">
         <h1 className="text-3xl xs:text-xl xxs:text-lg md:text-3xl font-bold text-[#C3F8D9]  ">
-          {resources.content.toolkits_text[lang] || "Toolkits & Templates"}
+          {resources.content.toolkit_heading[lang] || "Toolkits & Templates"}
         </h1>
       </div>
       <div className="bg-none backdrop-blur-[15px] p-6 xxs:p-6 xs:p-7 md:p-8 text-white font-inter border border-white/15 rounded-2xl overflow-hidden">

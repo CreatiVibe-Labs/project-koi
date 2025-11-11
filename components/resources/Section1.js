@@ -3,38 +3,39 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-// Import your JSON data (you can also fetch it or keep it in a separate file)
-const cardsData = {
-  cards: [
-    {
-      id: 4,
-      title: "FAQs & Tutorials",
-      icon: "/resources/questionAwnser1.png",
-      textColor: "text-white",
-    },
-    {
-      id: 2,
-      title: "Industry news",
-      icon: "/resources/news.png",
-      textColor: "text-white",
-    },
-    {
-      id: 3,
-      title: "Interactive Quiz",
-      icon: "/resources/quiz.png",
-      textColor: "text-white",
-    },
-    {
-      id: 1,
-      title: "Toolkits & Templates",
-      icon: "/resources/toolbox-container.png",
-      textColor: "text-white",
-    },
-    
-  ],
-};
+const Section1 = ({lang, resources, ASSETS_URL}) => {
 
-const Section1 = () => {
+  // Import your JSON data (you can also fetch it or keep it in a separate file)
+  const cardsData = {
+    cards: [
+      {
+        id: 4,
+        title: resources.content.faqs_text[lang] || "FAQs & Tutorials",
+        icon: ASSETS_URL + resources.content.image_faqs_image[lang] || "/resources/questionAwnser1.png",
+        textColor: "text-white",
+      },
+      {
+        id: 2,
+        title: resources.content.industry_text[lang] || "Industry news",
+        icon: ASSETS_URL + resources.content.image_industry_image[lang] || "/resources/news.png",
+        textColor: "text-white",
+      },
+      {
+        id: 3,
+        title: resources.content.quiz_text[lang] || "Interactive Quiz",
+        icon: ASSETS_URL + resources.content.image_quiz_image[lang] || "/resources/quiz.png",
+        textColor: "text-white",
+      },
+      {
+        id: 1,
+        title: resources.content.toolkits_text[lang] || "Toolkits & Templates",
+        icon: ASSETS_URL + resources.content.image_toolkits_image[lang] || "/resources/toolbox-container.png",
+        textColor: "text-white",
+      },
+
+    ],
+  };
+
   // Default to FAQs active
   const [activeId, setActiveId] = useState("faqs");
 
@@ -82,7 +83,7 @@ const Section1 = () => {
     "Toolkits & Templates": "#toolkits",
     "Industry news": "#news",
     "Interactive Quiz": "#quiz",
-    
+
   };
 
   return (
@@ -112,9 +113,8 @@ const Section1 = () => {
                 height={54}
               />
               <span
-                className={`font-bold text-left flex-1 min-w-0 whitespace-nowrap truncate tracking-tight leading-tight ${
-                  isActive ? "text-[#39FF14]" : "text-white"
-                } text-sm xs:text-base md:text-xl lg:text-xl`}
+                className={`font-bold text-left flex-1 min-w-0 whitespace-nowrap truncate tracking-tight leading-tight ${isActive ? "text-[#39FF14]" : "text-white"
+                  } text-sm xs:text-base md:text-xl lg:text-xl`}
               >
                 {card.title}
               </span>
