@@ -9,13 +9,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2, sideBarData, serviceApiData}) {
+export default function CloudMainPage({ lang, ASSETS_URL, apiData, apiData2, sideBarData, serviceApiData }) {
 
     const [activeTab, setActiveTab] = useState('cloud-migration');
 
     const tabs = [
-        { id: 'cloud-migration', name: apiData?.content?.cloud_migration_tab?.[lang] || 'Cloud Migration', content: <CloudMigration lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData} serviceApiData={serviceApiData}/>, icon: '/icons/migration.png' },
-        { id: 'cloud-storage', name: apiData?.content?.cloud_storage_tab?.[lang] || 'Cloud Storage', content: <CloudStorage lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData2} serviceApiData={serviceApiData}/>, icon: '/icons/cloud.png' },
+        { id: 'cloud-migration', name: apiData?.content?.cloud_migration_tab?.[lang] || 'Cloud Migration', content: <CloudMigration lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData} serviceApiData={serviceApiData} />, icon: ASSETS_URL + apiData?.content?.image_cloud_migration_tab_image['en'] || '/icons/migration.png' },
+        { id: 'cloud-storage', name: apiData?.content?.cloud_storage_tab?.[lang] || 'Cloud Storage', content: <CloudStorage lang={lang} ASSETS_URL={ASSETS_URL} apiData={apiData2} serviceApiData={serviceApiData} />, icon: ASSETS_URL + apiData?.content?.image_cloud_storage_tab_image['en'] || '/icons/cloud.png' },
     ];
     return (
         <div className='pageWrapper'>
@@ -31,7 +31,7 @@ export default function CloudMainPage({lang, ASSETS_URL, apiData, apiData2, side
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveTab(tab.id)}
-                                className={`${activeTab === tab.id ? 'active' : ''
+                                className={`${activeTab === tab.id ? 'active text-[#39FF14]' : ''
                                     }`}
                             >
                                 <Image src={tab.icon} width={70} height={70} alt='icon' />

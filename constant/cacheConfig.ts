@@ -1,10 +1,20 @@
 // Helper function to create optimized fetch config
-export const createCacheConfig = (revalidateSeconds = 3600, tag = 'default') => ({
-  next: { 
-    revalidate: revalidateSeconds,
-    tags: [tag] 
+export const createCacheConfig = (revalidateSeconds = 3600, tag = 'default') => {
+  // Check if cache is disabled via environment variable
+  const cacheDisabled = process.env.DISABLE_CACHE === 'true';
+  
+  // Log cache status in development
+  if (process.env.NODE_ENV === 'development') {
+    console.log(`[CACHE] ${tag}: ${cacheDisabled ? 'DISABLED' : `${revalidateSeconds}s`}`);
   }
-});
+  
+  return {
+    next: { 
+      revalidate: cacheDisabled ? 0 : revalidateSeconds,
+      tags: [tag] 
+    }
+  };
+};
 
 // Cache configurations for different content types
 export const CACHE_CONFIGS = {

@@ -55,7 +55,7 @@ const Quiz = ({ quizData, lang, resources }) => {
             <div className="flex flex-col items-center justify-center w-[40%] m-auto min-h-[380px] xs:min-h-[403px] relative overflow-visible py-4 xs:py-5 border border-white/40 rounded-2xl">
               <div className="absolute inset-0 bg-none blur-[15px] animate-pulse"></div>
 
-              <div className="relative z-10 flex flex-col items-center text-center backdrop-blur-[15px] border border-white/40 rounded-2xl p-10 shadow-[0_0_40px_#46D3A7]/10 transition-all duration-500">
+              <div className="relative z-10 flex flex-col items-center text-center rounded-2xl p-10 transition-all duration-500">
                 <h2 className="text-5xl font-bold text-[#46D3A7] mb-4">
                   {resources.content.great_job[lang] || "Great Job!"}
                 </h2>
@@ -116,7 +116,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                               className={`rounded-full border px-5 xxs:px-6 py-2.5 xs:py-3 text-[15px] xxs:text-[16px] md:text-[17px] font-bold text-center text-[#39ff14] cursor-pointer hover:bg-white/40 hover:text-white transition-all duration-200 custom-shadow
                               ${
                                 answers[i] === idx
-                                  ? "bg-white/40 border border-[#39ff14] "
+                                  ? "bg-white/40 border text-white border-[#39ff14] "
                                   : " border border-[#39ff14] "
                               }`}
                             >

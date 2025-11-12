@@ -107,15 +107,16 @@ export default function CloudMigration({ lang, ASSETS_URL, apiData, serviceApiDa
                         <p className='!font-medium'>
                             {apiData?.content?.cloud_migration_description?.[lang] || "We help businesses move to the cloud with confidence – minimizing disruption while maximizing long-term value."}
                         </p>
-                        <Image 
-                            src="/images/cloud-image1.png" 
-                            width={800} 
-                            height={600} 
-                            alt="cloud image"
-                            quality={85}
-                            loading="lazy"
-                            sizes="(max-width: 768px) 100vw, 800px"
-                        />
+                        <video className='mt-4' width="100%" height="100%" loop autoPlay muted preload="none">
+                            <source src={ASSETS_URL + (apiData?.content?.video_cloud_migration_video?.[lang] || "/videos/subpage_web_custom.mp4")} type="video/mp4" />
+                            <track
+                                kind="subtitles"
+                                srcLang="en"
+                                label="English"
+                            />
+                            Your browser does not support the video tag.
+                        </video>
+                        
                     </div>
                 </div>
             </div>
