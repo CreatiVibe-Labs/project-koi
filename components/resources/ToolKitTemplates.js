@@ -153,7 +153,7 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
                     key={idx}
                     className={`flex flex-col md:flex-row border-b border-white/15 last:border-0`}
                   >
-                    <div className="md:w-[35%] w-full py-3 px-3 md:border-r border-white/15 text-[#C3F8D9] flex flex-col justify-start">
+                    <div className="md:w-[37%] w-full py-3 px-3 md:border-r border-white/15 text-[#C3F8D9] flex flex-col justify-start">
                       <div className="flex items-center gap-2">
                         <div
                           onClick={() => handleCheckbox(section.titles[lang] || section.titles['en'], item.titles[lang] || item.titles['en'])}
@@ -167,11 +167,11 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
                         <span>{item.titles[lang] || item.titles['en']}</span>
                       </div>
                     </div>
-                    <div className="md:w-[45%] w-full py-3 px-3 md:border-r border-white/15 text-white font-medium flex items-center">
+                    <div className="md:w-[37%] w-full py-3 px-3 md:border-r border-white/15 text-white font-medium flex items-center">
                       {item.descriptions[lang] || item.descriptions['en']}
                     </div>
 
-                    <div className="md:w-[10%] w-full py-3 px-3 md:border-r border-white/15 flex items-center md:justify-center">
+                    <div className="md:w-[13%] w-full py-3 px-3 md:border-r border-white/15 flex items-center md:justify-center">
                       {item.files.docx && (
                         <button
                           onClick={() => handleDownload(item.files.docx || item.titles['en'], item.files.docx.split('.').pop())}
@@ -182,11 +182,11 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
                       )}
                     </div>
 
-                    <div className="md:w-[10%] w-full py-3 px-3 flex items-center md:justify-center">
+                    <div className="md:w-[13%] w-full py-3 px-3 flex items-center md:justify-center">
                       {item.files.pdf && (
                         <button
                           onClick={() => handleDownload(item.files.pdf || item.titles['en'], item.files.pdf.split('.').pop())}
-                          className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-16 text-[16px] cursor-pointer hover:scale-105 transition-all"
+                          className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
                         >
                           .{item.files.pdf.split('.').pop()}
                         </button>
