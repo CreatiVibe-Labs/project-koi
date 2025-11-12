@@ -176,7 +176,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
           resources.content.video_tutorial_1_video["en"]),
       title:
         resources.content.tutorial_1_text[lang] ||
-        resources.content.tutorial_1_text["en"],
+        resources.content.tutorial_1_text["en"] || 'abc',
     },
     hasTutorial2 && {
       id: 2,
@@ -186,7 +186,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
           resources.content.video_tutorial_2_video["en"]),
       title:
         resources.content.tutorial_2_text[lang] ||
-        resources.content.tutorial_2_text["en"],
+        resources.content.tutorial_2_text["en"] || 'abc',
     },
     hasTutorial3 && {
       id: 3,
@@ -196,7 +196,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
           resources.content.video_tutorial_3_video["en"]),
       title:
         resources.content.tutorial_3_text[lang] ||
-        resources.content.tutorial_3_text["en"],
+        resources.content.tutorial_3_text["en"] || 'abc',
     },
     hasTutorial4 && {
       id: 4,
@@ -206,12 +206,13 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
           resources.content.video_tutorial_4_video["en"]),
       title:
         resources.content.tutorial_4_text[lang] ||
-        resources.content.tutorial_4_text["en"],
+        resources.content.tutorial_4_text["en"] || 'abc',
     },
   ].filter(Boolean);
 
   const [current, setCurrent] = useState(0);
-  // Removed slider/progress bar refs & drag state; using numeric buttons instead
+  const progressRef = useRef(null);
+  const [isDragging, setIsDragging] = useState(false);
 
   // NEW: swipe state for the video container
   const swipeRef = useRef({ active: false, startX: 0 });
@@ -237,7 +238,35 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
     setCurrent((p) => Math.min(tutorials.length - 1, p + 1));
   };
 
-  // Removed slider drag handlers; numeric buttons handle selection.
+  // Handle click/drag on progress bar
+  const setIndexFromClientX = (clientX) => {
+    if (!progressRef.current || tutorials.length === 0) return;
+    const rect = progressRef.current.getBoundingClientRect();
+    const x = Math.min(Math.max(clientX - rect.left, 0), rect.width);
+    const ratio = rect.width ? x / rect.width : 0;
+    const newIndex = Math.min(
+      tutorials.length - 1,
+      Math.floor(ratio * tutorials.length)
+    );
+    setCurrent(newIndex);
+  };
+
+  const onProgressPointerDown = (e) => {
+    if (!progressRef.current) return;
+    setIsDragging(true);
+    progressRef.current.setPointerCapture?.(e.pointerId);
+    setIndexFromClientX(e.clientX);
+  };
+
+  const onProgressPointerMove = (e) => {
+    if (!isDragging) return;
+    setIndexFromClientX(e.clientX);
+  };
+
+  const onProgressPointerUp = (e) => {
+    setIsDragging(false);
+    progressRef.current?.releasePointerCapture?.(e.pointerId);
+  };
 
   // NEW: swipe handlers (like Articles)
   const onSwipeDown = (e) => {
@@ -264,63 +293,6 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
   const onSwipeUp = (e) => {
     swipeRef.current.active = false;
     e.currentTarget.releasePointerCapture?.(e.pointerId);
-  };
-
-  // Build professional-style pagination items with ellipses
-  // Windowed pagination with TWO neighbors and ellipses.
-  // Pattern examples (1-based for clarity):
-  // Current=6 of 15 -> 1 … 4 5 6 7 8 … 15
-  // Current=3 of 15 -> 1 2 3 4 5 6 … 15
-  // Current=14 of 15 -> 1 … 10 11 12 13 14 15
-  const getPaginationItems = () => {
-    const total = tutorials.length;
-    const curr = current; // zero-based index
-    const items = [];
-
-    if (total === 0) return items;
-
-    // Show all if small list
-    if (total <= 10) {
-      return Array.from({ length: total }, (_, i) => i);
-    }
-
-    const first = 0;
-    const last = total - 1;
-    items.push(first);
-
-    // Define window around current (2 neighbors each side)
-    let start = Math.max(curr - 2, 1);
-    let end = Math.min(curr + 2, last - 1);
-
-    // Expand window if near start (ensure 5 numbers after first)
-    if (curr <= 4) {
-      start = 1;
-      end = 6; // show 2..6
-    }
-    // Expand window if near end
-    if (curr >= last - 4) {
-      start = last - 6;
-      end = last - 1;
-    }
-
-    // Left ellipsis
-    if (start > 1) {
-      items.push("ellipsis-left");
-    }
-
-    // Window pages
-    for (let i = start; i <= end; i++) {
-      items.push(i);
-    }
-
-    // Right ellipsis
-    if (end < last - 1) {
-      items.push("ellipsis-right");
-    }
-
-    // Last page
-    items.push(last);
-    return items;
   };
 
   // Keyboard arrows support
@@ -356,7 +328,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                   value={search}
                   type="text"
                   placeholder={resources.content.search[lang] || "Search"}
-                  className="w-full pl-10 pr-12 py-3 border border-white/40 rounded-lg focus:outline-none bg-transparent text-white placeholder:text-white/40"
+                  className="w-full pl-10 pr-12 py-3 border border-white/40 rounded-full focus:outline-none bg-transparent text-white placeholder:text-white/40"
                 />
                 {/* Decorative search icon (no click) */}
                 <span className="absolute inset-y-0 left-3 flex items-center text-white/70">
@@ -448,6 +420,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
         <div className="w-full  md:w-[33%]   ">
           {tutorials.length > 0 && (
             <div className="space-y-3 md:space-y-4">
+              {console.log({tutorials})}
               {/* Video container with swipe */}
               <div
                 className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl select-none touch-pan-y cursor-grab active:cursor-grabbing"
@@ -470,69 +443,64 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                 </h3>
               </div>
 
-              {/* Numeric video counter navigation with arrows */}
-              <div className="mt-3 flex items-center justify-between md:pr-6 lg:gap-3 select-none ">
-                {/* Prev */}
+              {/* Slider below the container — green pill like Articles */}
+              <div className="mt-6 flex items-center gap-3 select-none ">
                 <button
                   type="button"
                   onClick={goPrev}
                   aria-label="Previous video"
                   aria-disabled={!canPrev}
-                  className={`p-1 rounded-md transition-colors ${
+                  className={`pl-6 rounded-md transition-colors  ${
                     canPrev ? "text-[#64F0C4] cursor-pointer" : "text-white/30 cursor-default"
                   }`}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                    className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" fill="none" stroke="currentColor"
-                    strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 19l-7-7 7-7" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 11"
+                    className="w-7 h-7 md:w-[5px] md:h-[11px]" fill="none" stroke="currentColor"
+                    strokeWidth="" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M4.5 10.5L0.5 5.5L4.5 0.5" />
                   </svg>
                 </button>
 
-                {/* Numbers with smart ellipses */}
-                <div className="flex flex-nowrap gap-1.5 md:gap-2 justify-center whitespace-nowrap">
-                  {getPaginationItems().map((item, idx) => {
-                    if (typeof item !== "number") {
-                      return (
-                        <span key={`ellipsis-${idx}`} className="px-1 text-white/50 select-none">
-                          …
-                        </span>
-                      );
-                    }
-                    const isActive = current === item;
-                    return (
-                      <button
-                        key={`page-${item}`}
-                        type="button"
-                        onClick={() => setCurrent(item)}
-                        aria-label={`Show video ${item + 1}`}
-                        aria-current={isActive}
-                        className={`w-8 h-8 md:w-9 md:h-9 lg:w-10 lg:h-10 flex items-center justify-center rounded-[6px] border text-xs md:text-sm font-medium transition-colors cursor-pointer ${
-                          isActive
-                            ? "bg-[#64F0C4] text-black border-[#64F0C4] shadow"
-                            : "bg-transparent text-white/60 border-white/40 hover:bg-white/10"
-                        }`}
-                      >
-                        {item + 1}
-                      </button>
-                    );
-                  })}
+                {/* Track */}
+                <div
+                  ref={progressRef}
+                  role="slider"
+                  aria-label="Video slider"
+                  aria-valuemin={tutorials.length ? 1 : 0}
+                  aria-valuemax={tutorials.length}
+                  aria-valuenow={current + 1}
+                  tabIndex={0}
+                  onPointerDown={onProgressPointerDown}
+                  onPointerMove={onProgressPointerMove}
+                  onPointerUp={onProgressPointerUp}
+                  onClick={(e) => setIndexFromClientX(e.clientX)}
+                  className={`relative flex-1 h-[10px] rounded-full bg-white/15 backdrop-blur-sm overflow-hidden  ${
+                    isDragging ? "cursor-grabbing" : "cursor-grab"
+                  }`}
+                >
+                  {/* Moving green pill (one segment wide) */}
+                  <div
+                    className="absolute top-0 bottom-0 rounded-full bg-[#64F0C4] shadow-[0_0_0_1px_rgba(0,0,0,.05)_inset] transition-[left] duration-200"
+                    style={{
+                      width: `${100 / tutorials.length}%`,
+                      left: `${(100 / tutorials.length) * current}%`,
+                    }}
+                  />
                 </div>
 
-                {/* Next */}
                 <button
                   type="button"
                   onClick={goNext}
                   aria-label="Next video"
                   aria-disabled={!canNext}
-                  className={`p-1 rounded-md transition-colors cursor-pointer ${
-                    canNext ? "text-[#64F0C4] cursor-pointer" : "text-white/30 cursor-pointer "
+                  className={`pr-6 rounded-md transition-colors  ${
+                    canNext ? "text-[#64F0C4] cursor-pointer" : "text-white/30 cursor-default"
                   }`}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                    className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" fill="none" stroke="currentColor"
-                    strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 5l7 7-7 7" />
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 11"
+                    className="w-7 h-7 md:w-[5px] md:h-[11px]" fill="none" stroke="currentColor"
+                    strokeWidth="" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M0.5 0.5L4.5 5.5L0.5 10.5" />
                   </svg>
                 </button>
               </div>
