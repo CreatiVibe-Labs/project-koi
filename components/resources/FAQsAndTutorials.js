@@ -420,7 +420,6 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
         <div className="w-full  md:w-[33%]   ">
           {tutorials.length > 0 && (
             <div className="space-y-3 md:space-y-4">
-              {console.log({tutorials})}
               {/* Video container with swipe */}
               <div
                 className="border border-white/30 backdrop-blur-[10px] p-3 md:p-4 rounded-2xl select-none touch-pan-y cursor-grab active:cursor-grabbing"

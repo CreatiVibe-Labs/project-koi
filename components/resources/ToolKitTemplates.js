@@ -3,7 +3,6 @@ import React, { useMemo, useState } from "react";
 
 export default function ToolkitsTemplates({ resources, lang, toolkit }) {
 
-  console.log({ resources, lang, toolkit })
 
   const [checkedFiles, setCheckedFiles] = useState({});
   const [isZipping, setIsZipping] = useState(false);
@@ -32,24 +31,27 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
       section.templates.forEach((item) => {
         const itemTitle = item.titles[lang] || item.titles['en'];
         if (checkedFiles[`${sectionTitle}-${itemTitle}`]) {
-          if (item.files.docx) {
+          // Check for docx file (language-specific or fallback to English)
+          const docxFile = item.files[`docx_${lang}`] || item.files.docx_en;
+          if (docxFile) {
+            const docxExtension = docxFile.split('.').pop();
             selectedFiles.push({
-              url: item.files.docx,
-              name: `${itemTitle}.docx`
+              url: docxFile,
+              name: `${itemTitle}.${docxExtension}`
             });
           }
-          if (item.files.pdf) {
+          // Check for pdf file (language-specific or fallback to English)
+          const pdfFile = item.files[`pdf_${lang}`] || item.files.pdf_en;
+          if (pdfFile) {
+            const pdfExtension = pdfFile.split('.').pop();
             selectedFiles.push({
-              url: item.files.pdf,
-              name: `${itemTitle}.pdf`
+              url: pdfFile,
+              name: `${itemTitle}.${pdfExtension}`
             });
           }
         }
       });
     });
-
-    console.log('🔍 Selected files for ZIP:', selectedFiles);
-    console.log('📁 Total files selected:', selectedFiles.length);
 
     if (selectedFiles.length === 0) {
       alert('Please select at least one file to download.');
@@ -137,7 +139,6 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
               ${index > 0 ? "border-t border-white/15" : ""}
             `}
             >
-              {console.log(section)}
               {/* Header */}
               <div className="p-3 xs:p-4 md:p-3 border-b border-white/15">
                 <h3 className="text-[18px] xs:text-[20px] font-semibold text-[#C3F8D9] mb-1">
@@ -172,45 +173,46 @@ export default function ToolkitsTemplates({ resources, lang, toolkit }) {
                     </div>
 
                     <div className="xl:hidden lg:hidden md:hidden flex items-center gap-3 px-3 py-3">
-                      {item.files.docx && (
+                      {(item.files[`docx_${lang}`] || item.files.docx_en) && (
                         <button
-                          onClick={() => handleDownload(item.files.docx || item.titles['en'], item.files.docx.split('.').pop())}
+                          onClick={() => handleDownload(item.files[`docx_${lang}`] || item.files.docx_en || item.titles['en'], (item.files[`docx_${lang}`] || item.files.docx_en).split('.').pop())}
                           className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
                         >
-                          .{item.files.docx.split('.').pop()}
+                          .{(item.files[`docx_${lang}`] || item.files.docx_en).split('.').pop()}
                         </button>
                       )}
-                      {item.files.pdf && (
+                      {(item.files[`pdf_${lang}`] || item.files.pdf_en) && (
                         <button
-                          onClick={() => handleDownload(item.files.pdf || item.titles['en'], item.files.pdf.split('.').pop())}
+                          onClick={() => handleDownload(item.files[`pdf_${lang}`] || item.files.pdf_en || item.titles['en'], (item.files[`pdf_${lang}`] || item.files.pdf_en).split('.').pop())}
                           className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
                         >
-                          .{item.files.pdf.split('.').pop()}
+                          .{(item.files[`pdf_${lang}`] || item.files.pdf_en).split('.').pop()}
                         </button>
                       )}
                     </div>
 
                     <div className="md:w-[13%] w-full py-3 px-3 md:border-r border-white/15 xl:flex lg:flex md:flex hidden items-center md:justify-center">
-                      {item.files.docx && (
+                      {(item.files[`docx_${lang}`] || item.files.docx_en) && (
                         <button
-                          onClick={() => handleDownload(item.files.docx || item.titles['en'], item.files.docx.split('.').pop())}
+                          onClick={() => handleDownload(item.files[`docx_${lang}`] || item.files.docx_en || item.titles['en'], (item.files[`docx_${lang}`] || item.files.docx_en).split('.').pop())}
                           className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
                         >
-                          .{item.files.docx.split('.').pop()}
+                          .{(item.files[`docx_${lang}`] || item.files.docx_en).split('.').pop()}
                         </button>
                       )}
                     </div>
 
                     <div className="md:w-[13%] w-full py-3 px-3 items-center xl:flex lg:flex md:flex hidden md:justify-center">
-                      {item.files.pdf && (
+                      {(item.files[`pdf_${lang}`] || item.files.pdf_en) && (
                         <button
-                          onClick={() => handleDownload(item.files.pdf || item.titles['en'], item.files.pdf.split('.').pop())}
+                          onClick={() => handleDownload(item.files[`pdf_${lang}`] || item.files.pdf_en || item.titles['en'], (item.files[`pdf_${lang}`] || item.files.pdf_en).split('.').pop())}
                           className="bg-[#162F20] border border-white rounded-lg text-white h-9 w-full md:h-8 md:w-24 text-[16px] cursor-pointer hover:scale-105 transition-all"
                         >
-                          .{item.files.pdf.split('.').pop()}
+                          .{(item.files[`pdf_${lang}`] || item.files.pdf_en).split('.').pop()}
                         </button>
                       )}
                     </div>
+
                   </div>
                 ))}
               </div>
