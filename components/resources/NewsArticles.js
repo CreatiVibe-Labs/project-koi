@@ -175,87 +175,122 @@ const NewsArticles = ({ blogData, lang, resources }) => {
           </div>
         </div>
 
-        {/* ✅ Pagination - only shown if needed */}
-{showPagination && (
-  <div className="flex items-center justify-center gap-3 mt-6 ">
-    {/* Left Arrow */}
-    <button
-      onClick={prevSlide}
-      disabled={!hasPrev}
-      aria-label="Previous"
-      className={`flex items-center justify-center w-7 h-7 rounded-md transition-all duration-300 cursor-pointer ${
-        hasPrev
-          ? "text-[#46D3A7] hover:text-[#5FE8C1]"
-          : "text-[#777] opacity-40 cursor-not-allowed"
-      }`}
-    >
-      <svg
-        width="10"
-        height="22"
-        viewBox="0 0 10 22"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8.75 0.75L0.942359 10.2115C0.881635 10.2806 0.833239 10.364 0.800154 10.4566C0.767069 10.5492 0.75 10.6491 0.75 10.75C0.75 10.8509 0.767069 10.9508 0.800154 11.0434C0.833239 11.136 0.881635 11.2194 0.942359 11.2885L8.75 20.75"
-          stroke={hasPrev ? "#46D3A7" : "#777"}
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </button>
+        {/* ✅ Responsive Ellipsis Pagination */}
+        {showPagination && (
+          <div className="flex items-center justify-center gap-3 mt-6">
+            {/* Left Arrow */}
+            <button
+              onClick={prevSlide}
+              disabled={!hasPrev}
+              aria-label="Previous"
+              className={`flex items-center justify-center w-7 h-7 rounded-md transition-all duration-300 cursor-pointer ${
+                hasPrev
+                  ? "text-[#46D3A7] hover:text-[#5FE8C1]"
+                  : "text-[#777] opacity-40 cursor-not-allowed"
+              }`}
+            >
+              <svg
+                width="10"
+                height="22"
+                viewBox="0 0 10 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.75 0.75L0.942359 10.2115C0.881635 10.2806 0.833239 10.364 0.800154 10.4566C0.767069 10.5492 0.75 10.6491 0.75 10.75C0.75 10.8509 0.767069 10.9508 0.800154 11.0434C0.833239 11.136 0.881635 11.2194 0.942359 11.2885L8.75 20.75"
+                  stroke={hasPrev ? "#46D3A7" : "#777"}
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
 
-    {/* Page Numbers */}
-    <div className="flex items-center gap-2">
-      {pages.map((pageIndex) => (
-        <button
-          key={pageIndex}
-          onClick={() =>
-            isMdUp ? setCurrentSlide(pageIndex) : scrollToIndexMobile(pageIndex)
-          }
-          aria-label={`Go to page ${pageIndex + 1}`}
-          className={`w-8 h-8 flex items-center justify-center text-sm transition-colors duration-200 cursor-pointer ${
-            currentSlide === pageIndex
-              ? "bg-gradient-to-t from-black/10 to-white/10 text-[#46D3A7] font-semibold rounded-md border-[0.5px] border-[#46D3A7] "
-              : " text-white/80"
-          }`}
-        >
-          {pageIndex + 1}
-        </button>
-      ))}
-    </div>
+            {/* Page Numbers with Ellipsis */}
+            <div className="flex items-center gap-2 text-sm">
+              {(() => {
+                const totalPages = pages.length;
+                const currentPage = currentSlide;
+                const visibleCount = isLgUp ? 5 : isMdUp ? 3 : 1;
 
-    {/* Right Arrow */}
-    <button
-      onClick={nextSlide}
-      disabled={!hasNext}
-      aria-label="Next"
-      className={`flex items-center justify-center w-7 h-7 rounded-md transition-all duration-300 cursor-pointer ${
-        hasNext
-          ? "text-[#46D3A7] hover:text-[#5FE8C1]"
-          : "text-[#777] opacity-40 cursor-not-allowed"
-      }`}
-    >
-      <svg
-        width="10"
-        height="22"
-        viewBox="0 0 10 22"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0.75 0.75L8.55763 10.2115C8.61837 10.2806 8.66676 10.364 8.69984 10.4566C8.73293 10.5492 8.75 10.6491 8.75 10.75C8.75 10.8509 8.73293 10.9508 8.69984 11.0434C8.66676 11.136 8.61837 11.2194 8.55763 11.2885L0.75 20.75"
-          stroke={hasNext ? "#46D3A7" : "#777"}
-          strokeWidth="1.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    </button>
-  </div>
-)}
+                const pagination = [];
+                const startPage = Math.max(
+                  0,
+                  Math.min(
+                    currentPage - Math.floor(visibleCount / 2),
+                    totalPages - visibleCount
+                  )
+                );
+                const endPage = Math.min(totalPages - 1, startPage + visibleCount - 1);
 
+                if (startPage > 0) {
+                  pagination.push(0);
+                  if (startPage > 1) pagination.push("...");
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                  pagination.push(i);
+                }
+
+                if (endPage < totalPages - 1) {
+                  if (endPage < totalPages - 2) pagination.push("...");
+                  pagination.push(totalPages - 1);
+                }
+
+                return pagination.map((p, i) =>
+                  p === "..." ? (
+                    <span key={`ellipsis-${i}`} className="text-white/70 px-2">
+                      ...
+                    </span>
+                  ) : (
+                    <button
+                      key={`page-${p}`}
+                      onClick={() =>
+                        isMdUp ? setCurrentSlide(p) : scrollToIndexMobile(p)
+                      }
+                      aria-label={`Go to page ${p + 1}`}
+                      className={`w-8 h-8 flex items-center justify-center text-sm transition-colors duration-200 cursor-pointer ${
+                        currentSlide === p
+                          ? "bg-gradient-to-t from-black/10 to-white/10 text-[#46D3A7] font-semibold rounded-md border-[0.5px] border-[#46D3A7]"
+                          : "text-white/80 hover:text-[#46D3A7]"
+                      }`}
+                    >
+                      {p + 1}
+                    </button>
+                  )
+                );
+              })()}
+            </div>
+
+            {/* Right Arrow */}
+            <button
+              onClick={nextSlide}
+              disabled={!hasNext}
+              aria-label="Next"
+              className={`flex items-center justify-center w-7 h-7 rounded-md transition-all duration-300 cursor-pointer ${
+                hasNext
+                  ? "text-[#46D3A7] hover:text-[#5FE8C1]"
+                  : "text-[#777] opacity-40 cursor-not-allowed"
+              }`}
+            >
+              <svg
+                width="10"
+                height="22"
+                viewBox="0 0 10 22"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0.75 0.75L8.55763 10.2115C8.61837 10.2806 8.66676 10.364 8.69984 10.4566C8.73293 10.5492 8.75 10.6491 8.75 10.75C8.75 10.8509 8.73293 10.9508 8.69984 11.0434C8.66676 11.136 8.61837 11.2194 8.55763 11.2885L0.75 20.75"
+                  stroke={hasNext ? "#46D3A7" : "#777"}
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
       </section>
     </>
   );

@@ -455,7 +455,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                   }`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 11"
-                    className="w-7 h-7 md:w-[5px] md:h-[11px]" fill="none" stroke="currentColor"
+                    className="w-[5px] h-[11px] md:w-[5px] md:h-[11px] lg:w-[5px] lg:h-[11px]" fill="none" stroke="currentColor"
                     strokeWidth="" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4.5 10.5L0.5 5.5L4.5 0.5" />
                   </svg>
@@ -498,7 +498,7 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                   }`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 11"
-                    className="w-7 h-7 md:w-[5px] md:h-[11px]" fill="none" stroke="currentColor"
+                    className="w-[5px] h-[11px] md:w-[5px] md:h-[11px]" fill="none" stroke="currentColor"
                     strokeWidth="" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M0.5 0.5L4.5 5.5L0.5 10.5" />
                   </svg>
