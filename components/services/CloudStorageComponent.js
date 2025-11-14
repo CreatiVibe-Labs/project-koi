@@ -32,6 +32,7 @@ export default function CloudStorage({ lang, ASSETS_URL, apiData, serviceApiData
 
     return (
         <div className='cloudStorageTab'>
+           
             <div className="industriesServeMainWrapper webDev singleSerivce">
                 <div className="is-heading gradient-background"><h3>{apiData?.content?.introduction_heading?.[lang] || "Introduction"}</h3></div>
                 <div className="isContent">
@@ -43,7 +44,7 @@ export default function CloudStorage({ lang, ASSETS_URL, apiData, serviceApiData
                             {apiData?.content?.introduction_description_2?.[lang] || apiData?.content?.introduction_description_2?.['en']}
                             <br />
                             <br />
-                            {apiData?.content?.storage_providers_heading?.[lang] || apiData?.content?.storage_providers_heading?.['en']}
+                        
                         </p>
                         <ul className='justify-center !text-sm '>
                             <li className='!font-medium flex flex-col gap-4 !min-w-[220px]'>
@@ -66,6 +67,17 @@ export default function CloudStorage({ lang, ASSETS_URL, apiData, serviceApiData
                                 <Image src={ASSETS_URL + (apiData?.content?.image_storage_providers_5_image?.[lang] || apiData?.content?.image_storage_providers_5_image?.['en'])} width={500} height={500} className='!mt-[3px] !w-18 !h-auto object-cover' alt="Amazon S3" />
                                 <span className='!text-sm'>{apiData?.content?.storage_providers_5_text?.[lang] || apiData?.content?.storage_providers_5_text?.['en']}</span>
                             </li>
+                            <li className='!font-medium flex flex-col gap-4 !min-w-[220px]'>
+                                <Image 
+                                    src={ASSETS_URL + (apiData?.content?.image_storage_providers_6_image?.[lang] || apiData?.content?.image_storage_providers_6_image?.['en'] || "/default-storage.png")} 
+                                    width={500} 
+                                    height={500} 
+                                    className='!mt-[3px] !w-18 !h-auto object-cover' 
+                                    alt={apiData?.content?.storage_providers_6_text?.[lang] || apiData?.content?.storage_providers_6_text?.['en'] || "Storage Provider 6"} 
+                                />
+                                <span className='!text-sm'>{apiData?.content?.storage_providers_6_text?.[lang] || apiData?.content?.storage_providers_6_text?.['en'] || "Storage Provider 6"}</span>
+                            </li>
+   
                         </ul>
                     </div>
                 </div>

@@ -47,14 +47,14 @@ const Quiz = ({ quizData, lang, resources }) => {
         <div className="w-full relative rounded-2xl xxs:p-5 xs:p-6 backdrop-blur-[15px] shadow-lg overflow-hidden border border-white/40 p-10">
           {showResult ? (
             // Result Section
-            <div className="flex flex-col items-center justify-center w-[40%] m-auto min-h-[380px] xs:min-h-[403px] relative py-4 border border-white/40 rounded-2xl">
+            <div className="flex flex-col items-center justify-center w-[100%] md:w-[40%] lg:w-[40%] m-auto min-h-[380px] xs:min-h-[403px] relative py-4 border border-white/40 rounded-2xl">
               <div className="absolute inset-0 bg-none blur-[15px] animate-pulse"></div>
 
               <div className="relative z-10 flex flex-col items-center text-center rounded-2xl p-10 transition-all duration-500">
-                <h2 className="text-5xl font-bold text-[#46D3A7] mb-4">
+                <h2 className="lg:text-5xl md:text-3xl text-3xl font-bold text-[#46D3A7] mb-4">
                   {resources.content.great_job[lang] || "Great Job!"}
                 </h2>
-                <p className="text-[42px] text-white font-bold mb-6">
+                <p className=" lg:text-[42px] md:text-[30px] text-3xl text-white font-bold mb-4">
                   {resources.content.your_score[lang] || "You scored"}{" "}
                   <span className="text-[#46D3A7]">{correctAnswers}</span>{" "}
                   {resources.content.out_of[lang] || "out of"}{" "}
@@ -96,14 +96,14 @@ const Quiz = ({ quizData, lang, resources }) => {
                   return (
                     <SwiperSlide key={i}>
                       <div className="w-full lg:w-[70%] md:w-[70%] relative py-6 xxs:h-[388px] xs:h-[403px] md:h-[400px] backdrop-blur-[15px] rounded-2xl border border-white/40 flex flex-col items-center justify-center mx-auto px-4 lg:px-8">
-                        <h2 className="text-[18px] mb-8 xxs:text-[19px] xs:text-[20px] md:text-[27px] font-bold text-[#46D3A7] text-center">
+                        <h2 className="text-[18px] mb-4  xxs:text-[19px] xs:text-[20px] md:text-[27px] font-bold text-[#46D3A7] text-center">
                           
                           <span className="text-white">
                             {q[`question_${lang}`] || q.question_en}
                           </span>
                         </h2>
 
-                        <div className="flex flex-col gap-6 xs:gap-4 w-full max-w-2xl px-1 xxs:px-2">
+                        <div className="flex flex-col gap-6 xs:gap-4 w-full max-w-2xl px-1 xxs:px-2 md:pb-1">
                           {options.map((opt, idx) => (
                             <div
                               key={idx}
@@ -128,7 +128,7 @@ const Quiz = ({ quizData, lang, resources }) => {
               <button
                 onClick={handlePrev}
                 disabled={currentQuestion <= 0}
-                className={`absolute left-30 top-1/2 -translate-y-1/2 z-50 ${
+                className={`absolute left-3 lg:left-30  md:left-10 top-1/2 -translate-y-1/2 z-50 ${
                   currentQuestion > 0
                     ? "cursor-pointer text-[#46D3A7]"
                     : "text-[#929292] cursor-pointer"
@@ -140,7 +140,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                   viewBox="0 0 53 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="opacity-90 w-[53px] h-[101px]"
+                  className="opacity-90 h-[35px] w-[20px] lg:w-[53px] lg:h-[101px] md:w-[53px] md:h-[101px]"
                 >
                   <path
                     d="M36.5 1.5L2.34157 45.4962C2.0759 45.8173 1.86416 46.2052 1.71942 46.6358C1.57468 47.0664 1.5 47.5307 1.5 48C1.5 48.4693 1.57468 48.9336 1.71942 49.3642C1.86416 49.7948 2.0759 50.1827 2.34157 50.5038L36.5 94.5"
@@ -158,7 +158,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                 aria-label={
                   currentQuestion === total - 1 ? "Submit quiz" : "Next"
                 }
-                className="absolute right-26 top-1/2 -translate-y-1/2 z-50 text-[#46D3A7] cursor-pointer"
+                className="absolute right-2 lg:right-26 md:right-7 top-1/2 -translate-y-1/2 z-50 text-[#46D3A7] cursor-pointer"
               >
                 <svg
                   width="53"
@@ -166,7 +166,7 @@ const Quiz = ({ quizData, lang, resources }) => {
                   viewBox="0 0 53 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="opacity-90 w-[53px] h-[101px]"
+                  className="opacity-90 h-[35px] w-[20px] lg:w-[53px] lg:h-[101px] md:w-[53px] md:h-[101px]"
                 >
                   <path
                     d="M1.5 1.5L35.6584 45.4962C35.9241 45.8173 36.1358 46.2052 36.2806 46.6358C36.4253 47.0664 36.5 47.5307 36.5 48C36.5 48.4693 36.4253 48.9336 36.2806 49.3642C36.1358 49.7948 35.9241 50.1827 35.6584 50.5038L1.5 94.5"
@@ -178,9 +178,9 @@ const Quiz = ({ quizData, lang, resources }) => {
                 </svg>
               </button>
 
-              {/* NEW Figma-style Progress Bar */}
-              <div className="w-full mt-12 flex justify-center">
-                <div className="relative w-[87%] h-[8px] xs:h-[10px] md:h-[12px] rounded-full bg-[white]/40 overflow-hidden">
+              {/*  Progress Bar */}
+              <div className="w-full mt-6 lg:mt-12 md:mt-12 flex justify-center">
+                <div className="relative w-[87%] h-[8px] xs:h-[10px] md:h-[12px] rounded-full bg-[white]/30 overflow-hidden">
                   <div
                     className="absolute left-0 top-0 h-full rounded-full bg-[#64F0C4] transition-all duration-700 ease-out"
                     style={{
