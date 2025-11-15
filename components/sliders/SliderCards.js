@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
-export default function SliderCards({ slides, options }) {
+export default function SliderCards({ slides, options, additionalClass = '' }) {
     return (
         <>
             {
@@ -19,6 +19,7 @@ export default function SliderCards({ slides, options }) {
                                 imageUrl={slide.imageUrl}
                                 title={slide.title}
                                 description={slide.description}
+                                additionalClass={additionalClass}
                             />
                         ))}
                     </div>

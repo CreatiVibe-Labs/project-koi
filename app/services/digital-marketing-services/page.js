@@ -140,6 +140,7 @@ export default async function DigitalMarketingServices() {
                             <SliderCards
                                 slides={keyFeatures}
                                 options="2"
+                                additionalClass="!mt-0"
                             />
                         </div>
                     </div>
