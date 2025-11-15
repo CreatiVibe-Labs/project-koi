@@ -443,18 +443,18 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
               </div>
 
               {/* Slider below the container — green pill like Articles */}
-              <div className="mt-6 flex items-center gap-3 select-none ">
+              <div className="mt-6 flex items-center gap-6 select-none ">
                 <button
                   type="button"
                   onClick={goPrev}
                   aria-label="Previous video"
                   aria-disabled={!canPrev}
-                  className={`pl-6 rounded-md transition-colors  ${
+                  className={`pl-3 rounded-md transition-colors  ${
                     canPrev ? "text-[#64F0C4] cursor-pointer" : "text-white/30 cursor-default"
                   }`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 11"
-                    className="w-[5px] h-[11px] md:w-[5px] md:h-[11px] lg:w-[5px] lg:h-[11px]" fill="none" stroke="currentColor"
+                    className="w-[8px] h-[14px] md:w-[8px] md:h-[14px] lg:w-[8px] lg:h-[14px]" fill="none" stroke="currentColor"
                     strokeWidth="" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4.5 10.5L0.5 5.5L4.5 0.5" />
                   </svg>
@@ -492,12 +492,12 @@ const FAQsAndTutorials = ({ faqsData, lang, resources, ASSETS_URL }) => {
                   onClick={goNext}
                   aria-label="Next video"
                   aria-disabled={!canNext}
-                  className={`pr-6 rounded-md transition-colors  ${
+                  className={`pr-3 rounded-md transition-colors  ${
                     canNext ? "text-[#64F0C4] cursor-pointer" : "text-white/30 cursor-default"
                   }`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 11"
-                    className="w-[5px] h-[11px] md:w-[5px] md:h-[11px]" fill="none" stroke="currentColor"
+                    className="w-[8px] h-[14px] md:w-[8px] md:h-[14px]" fill="none" stroke="currentColor"
                     strokeWidth="" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M0.5 0.5L4.5 5.5L0.5 10.5" />
                   </svg>
